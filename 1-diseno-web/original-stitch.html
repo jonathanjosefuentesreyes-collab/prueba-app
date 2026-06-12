@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Ley Chilena - Panel de Búsqueda Avanzada</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style data-purpose="typography-and-base">
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Hide scrollbar for clean mobile look */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .speech-bubble {
+      position: absolute;
+      bottom: 110%;
+      right: -10px;
+      background: #ffffff;
+      border: 1.5px solid #0039A6;
+      border-radius: 12px;
+      padding: 6px 10px;
+      width: 140px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      z-index: 50;
+    }
+    .speech-bubble:after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      right: 25px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #0039A6;
+    }
+    .speech-bubble:before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      right: 26px;
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 7px solid #ffffff;
+      z-index: 1;
+      margin-top: -1.5px;
+    }
+  </style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            chile: {
+              blue: '#0039A6',
+              red: '#CE1126',
+            }
+          },
+          borderRadius: {
+            'full': '9999px',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 text-slate-800 antialiased min-h-screen flex flex-col relative">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-40 bg-white border-b border-gray-300 px-3 py-2 flex items-center justify-between shadow-sm mx-auto max-w-[320px]" data-purpose="site-header">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center overflow-hidden">
+<img alt="Logo" class="w-full h-full object-contain scale-150" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_DRa9zsJstlp-5VS3H0h5oKfRkjKTABF7n4GGU_Y99b84Hop9_TuzHtitykMNWXY2sOtrFzcj9dh9s-Jg4M1_k9JiOQvOzhWcUT6MB9jxcxJezLAJA_vG_GsGUhGjplOSnH0ldzyr8E4Nyz9hF7fQ-amAxIG4y2hkAGtBf2NVuNzYIWRyWtG1J0SVJsPdTZuGpfxfGaDW27jF7g2wy3yb1vzBoI-252JrwHdAR4YQ1NLyHOCKZ3AkhyubD5A2JoHq-xUOmNtPoM3b" style="object-position: center 25%;">
+</div>
+<div class="flex flex-col"><h1 class="font-bold text-base leading-none tracking-tight"><span class="" style="color: rgb(0, 57, 166);">Ley</span> <span class="" style="color: rgb(206, 17, 38);">Chilena</span></h1></div>
+</div>
+<button aria-label="Menú" class="text-gray-600 p-1.5 hover:bg-gray-100 rounded focus:outline-none transition-colors">
+<span class="material-symbols-outlined text-xl">menu</span>
+</button>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 flex flex-col px-3 pt-4 pb-20 gap-5 mx-auto max-w-[320px]" data-purpose="main-layout">
+<!-- BEGIN: Hero Search Section -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+</div>
+<a class="relative w-full h-32 rounded-xl overflow-hidden shadow-lg group active:scale-95 transition-all block" href="#">
+<div class="absolute inset-0 w-full h-full" style="display:block;">
+<canvas height="128" id="shader-canvas-ANIMATION_22" style="display:block;width:100%;height:100%" width="1280"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_22');
+
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+float sdStar(vec2 p, float r, int n, float m) {
+    float an = 3.141593 / float(n);
+    float en = 3.141593 / m;
+    vec2  acs = vec2(cos(an), sin(an));
+    vec2  ecs = vec2(cos(en), sin(en));
+    float bn = mod(atan(p.x, p.y), 2.0 * an) - an;
+    p = length(p) * vec2(cos(bn), abs(sin(bn)));
+    p -= r * acs;
+    p += ecs * clamp(-dot(p, ecs), 0.0, r * acs.y / ecs.y);
+    return length(p) * sign(p.x);
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+
+    // Slow, more serious waving motion
+    float wave = sin(uv.x * 4.0 - u_time * 1.5) * 0.02;
+    wave += sin(uv.y * 3.0 - u_time * 0.8) * 0.015;
+
+    vec2 p = uv + wave;
+
+    // Deeper, more serious Chilean Flag Colors
+    vec3 chileBlue = vec3(0.0, 0.14, 0.41); // Deep Navy Blue
+    vec3 chileRed = vec3(0.75, 0.05, 0.1);  // Deep Red
+    vec3 white = vec3(0.98, 0.98, 1.0);     // Off-white
+
+    vec3 color = vec3(0.0);
+
+    // Flag proportions: Blue square top left, white stripe top right, red stripe bottom
+    if (p.y > 0.5) {
+        // Upper half
+        if (p.x < 0.4) { // Larger blue canton
+            color = chileBlue;
+
+            // Significantly larger Star
+            vec2 starPos = vec2(0.2, 0.75);
+            vec2 dist = (p - starPos) * vec2(u_resolution.x / u_resolution.y, 1.0);
+            float d = sdStar(dist, 0.12, 5, 2.5); // Larger radius
+            float star = smoothstep(0.01, -0.01, d);
+            color = mix(color, white, star);
+        } else {
+            color = white;
+        }
+    } else {
+        color = chileRed;
+    }
+
+    // Subtle lighting for a more premium, serious feel
+    float shade = 0.85 + 0.15 * sin(uv.x * 4.0 - u_time * 1.5);
+    color *= shade;
+
+    // Vignette for depth
+    float vignette = smoothstep(0.9, 0.3, length(uv - 0.5));
+    color = mix(color * 0.85, color, vignette);
+
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/40 to-transparent pointer-events-none group-hover:bg-black/10 transition-colors duration-500 z-10">
+<span class="text-white font-bold text-[22px] tracking-wider uppercase drop-shadow-md" style="font-family: Inter, sans-serif; border-radius: 1rem;">TODAS LAS LEYES</span>
+</div>
+</a>
+<div class="flex gap-2 w-full">
+</div>
+</section>
+<!-- END: Hero Search Section -->
+<!-- BEGIN: Quick Categories -->
+<section data-purpose="legal-categories">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Acceso Rápido por Materia</h2>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col items-center gap-1.5 hover:bg-gray-50 active:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined text-chile-blue text-[20px]">work</span>
+<span class="text-[10px] font-semibold text-gray-700 uppercase">Laboral</span>
+</button>
+<button class="bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col items-center gap-1.5 hover:bg-gray-50 active:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined text-chile-red text-[20px]">family_restroom</span>
+<span class="text-[10px] font-semibold text-gray-700 uppercase">Familia</span>
+</button>
+<button class="bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col items-center gap-1.5 hover:bg-gray-50 active:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined text-green-600 text-[20px]">account_balance</span>
+<span class="text-[10px] font-semibold text-gray-700 uppercase">Civil</span>
+</button>
+<button class="bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col items-center gap-1.5 hover:bg-gray-50 active:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined text-purple-600 text-[20px]">gavel</span>
+<span class="text-[10px] font-semibold text-gray-700 uppercase">Penal</span>
+</button>
+<button class="bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col items-center gap-1.5 hover:bg-gray-50 active:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined text-orange-600 text-[20px]">domain</span>
+<span class="text-[10px] font-semibold text-gray-700 uppercase">Comercial</span>
+</button>
+<button class="bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col items-center gap-1.5 hover:bg-gray-50 active:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined text-teal-600 text-[20px]">receipt_long</span>
+<span class="text-[10px] font-semibold text-gray-700 uppercase">Tributario</span>
+</button>
+</div>
+</section>
+<!-- END: Quick Categories -->
+<!-- BEGIN: Compact Recent Updates -->
+<section class="flex-1 flex flex-col" data-purpose="recent-laws">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Últimas Publicaciones (Diario Oficial)</h2>
+<a class="text-[10px] text-chile-blue font-medium hover:underline" href="#">Ver Diario Completo</a>
+</div>
+<div class="bg-white rounded border border-gray-300 shadow-sm overflow-hidden flex-1">
+<div class="divide-y divide-gray-200">
+<!-- Item 1 -->
+<div class="p-3 hover:bg-gray-50 transition-colors cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1">
+<div class="flex items-center gap-2">
+<span class="bg-red-50 text-chile-red border border-red-200 text-[9px] font-bold px-1.5 py-0.5 rounded uppercase">Ley 21.561</span>
+<span class="text-[10px] text-gray-500">26 Abr 2023</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[14px]">bookmark_add</span>
+</div>
+<h3 class="text-xs font-bold text-gray-900 leading-tight mb-1">Modifica el Código del Trabajo para la reducción de la jornada laboral (40 Horas)</h3>
+<p class="text-[11px] text-gray-600 line-clamp-2 leading-snug">La presente ley tiene por objeto reducir gradualmente la jornada ordinaria de trabajo, de 45 a 40 horas semanales.</p>
+</div>
+<!-- Item 2 -->
+<div class="p-3 hover:bg-gray-50 transition-colors cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1">
+<div class="flex items-center gap-2">
+<span class="bg-blue-50 text-chile-blue border border-blue-200 text-[9px] font-bold px-1.5 py-0.5 rounded uppercase">Ley 21.554</span>
+<span class="text-[10px] text-gray-500">18 Abr 2023</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[14px]">bookmark_add</span>
+</div>
+<h3 class="text-xs font-bold text-gray-900 leading-tight mb-1">Ley de Responsabilidad Parental y Pago Efectivo de Deudas de Pensiones de Alimentos</h3>
+<p class="text-[11px] text-gray-600 line-clamp-2 leading-snug">Establece un mecanismo de pago permanente de las deudas de pensiones de alimentos con fondos de cuentas bancarias u otros instrumentos financieros.</p>
+</div>
+<!-- Item 3 -->
+<div class="p-3 hover:bg-gray-50 transition-colors cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1">
+<div class="flex items-center gap-2">
+<span class="bg-purple-50 text-purple-700 border border-purple-200 text-[9px] font-bold px-1.5 py-0.5 rounded uppercase">Ley 21.527</span>
+<span class="text-[10px] text-gray-500">12 Ene 2023</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[14px]">bookmark_add</span>
+</div>
+<h3 class="text-xs font-bold text-gray-900 leading-tight mb-1">Crea el Servicio Nacional de Reinserción Social Juvenil</h3>
+<p class="text-[11px] text-gray-600 line-clamp-2 leading-snug">Modifica la ley N° 20.084, sobre responsabilidad penal adolescente, y otras normas que indica.</p>
+</div>
+</div>
+</div>
+</section><div class="w-full flex justify-center mb-4" data-purpose="ai-chat-widget-container"><div class="bg-white border border-gray-300 shadow-md rounded-full flex items-center gap-2 px-3 py-1.5 w-full max-w-[320px] relative"><input class="bg-transparent border-none focus:ring-0 text-[13px] flex-1 p-0 text-gray-700 placeholder-gray-400 min-w-0" placeholder="Escribe tu consulta..." type="text"><div class="flex items-center gap-1"><button class="text-gray-400 hover:text-chile-blue transition-colors flex items-center px-1"><span class="material-symbols-outlined text-[20px]">mic</span></button><button class="bg-chile-blue text-white w-8 h-8 rounded-full flex items-center justify-center shadow-sm active:scale-95 transition-transform flex-shrink-0"><span class="material-symbols-outlined text-[18px]">send</span></button></div><div class="relative flex-shrink-0 ml-1 group animate-float"><div class="speech-bubble"><p class="text-[9px] leading-tight font-medium text-chile-blue">Recomendaciones ingeniosas sobre la ley chilena</p></div><div class="w-12 h-12 flex items-center justify-center overflow-hidden rounded-full"><img alt="Huasito Abogado" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADnNUxqFcOGK6RNT53rxaCQz11EFBHUYKMbclNbXVPEIqBgxINWpkSfJoacC_cPcFCY0MHId_eqhAc_7xaZptDKRtdwKUq50sPz5EHjVDQDJKAQqp-LwBN7kp_SbvzT__yFV3-j06aOnbh7e6WqDhpOzblQeBO4i9HjcDKoRBVxBD1YMiB9-HBcYBzlbdZlllDtEpvKv9RpmqIMIoa3ciPHY1H7lIuHbcI3al-OglvBM1coj6Y5B1lSbv8Pb6ysQOMEdfVkVWBrewY"></div><span class="absolute right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full bottom-1"></span></div></div></div>
+<!-- END: Compact Recent Updates -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-300 px-2 py-1.5 z-50 flex items-center justify-between shadow-[0_-2px_10px_rgba(0,0,0,0.05)] pb-safe mx-auto max-w-[320px]" data-purpose="bottom-nav"><button class="flex flex-col items-center justify-center w-1/3 py-1 text-gray-500 hover:text-chile-blue transition-colors">
+<span class="material-symbols-outlined text-[22px] mb-0.5">gavel</span>
+<span class="text-[9px] font-semibold">Todas las Leyes</span>
+</button>
+<button class="flex flex-col items-center justify-center w-1/3 py-1 text-chile-blue">
+<span class="material-symbols-outlined text-[22px] mb-0.5">home</span>
+<span class="text-[9px] font-semibold">Inicio</span>
+</button>
+<button class="flex flex-col items-center justify-center w-1/3 py-1 text-gray-500 hover:text-chile-red transition-colors">
+<span class="material-symbols-outlined text-[22px] mb-0.5">bookmark</span>
+<span class="text-[9px] font-semibold">Guardadas</span>
+</button></nav>
+<!-- END: Bottom Navigation -->
+<!-- BEGIN: Floating AI Assistant -->
+<!-- Integrating the Huaso character as a friendly, accessible chat prompt, adjusted for bottom nav -->
+<!-- END: Floating AI Assistant -->
+
+
+
+
+</body></html>

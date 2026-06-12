@@ -1,0 +1,22 @@
+Design a responsive landing page (desktop + mobile) for "AbogaBot", a free web app where ordinary Chilean citizens get plain-language legal guidance from an AI chatbot that cites real Chilean law articles, plus a browsable library of laws.
+
+AUDIENCE & TONE: regular Chilean citizens (not lawyers) worried about everyday legal problems (getting fired, rent, debt, child support). The page must feel as trustworthy as a government site but warm and approachable — never intimidating. Clean, generous white space.
+
+BRAND SYSTEM:
+- Colors: deep institutional blue (#1C3F94) as primary, warm gold (#C9A227) as the ONLY accent (use sparingly: CTAs and highlights), off-white background (#F8F9FB), white cards, dark slate text.
+- Typography: confident rounded sans-serif for headings, highly readable sans for body (min 16px).
+- Style: rounded corners (12-16px), subtle shadows, flat friendly illustrations. Mascot: a small friendly cartoon lawyer (smiling, suit, subtle Chilean touch) used as a guide next to the chat, never dominating.
+
+PAGE STRUCTURE (top to bottom):
+1. Header: "AbogaBot" logo with a scale-of-justice icon; nav links "Biblioteca de Leyes", "Guías", "Cómo funciona"; gold button "Pregunta gratis".
+2. Hero — the page has ONE job: get the user to ask their question. Headline: "Tus dudas legales, respondidas claras y al tiro". Subheadline: "Orientación gratuita basada en la ley chilena, con los artículos citados." Centerpiece: a LARGE chat input with placeholder "Cuéntame tu problema legal… ej: me despidieron sin aviso" and a gold send button, with subtle animated typing dots inside. Below it, three small trust badges: "Fuente oficial: Biblioteca del Congreso Nacional" · "Cada respuesta cita la ley" · "100% gratis".
+3. Quick topics: 8 tappable cards with one icon each (2 rows of 4 on desktop, 2 columns on mobile): "Despido y finiquito", "Arriendo", "Deudas y DICOM", "Pensión de alimentos", "Derechos del consumidor", "Multas y tránsito", "Familia y divorcio", "Acoso laboral (Ley Karin)".
+4. "¿Sabías que…?" horizontal carousel, 3 visible cards with surprising legal facts.
+5. "Cómo funciona" in 3 steps: "1. Pregunta con tus palabras → 2. Recibe una respuesta clara con la ley citada → 3. Sabe qué hacer ahora, con plazos".
+6. Law library preview: search bar "Busca una ley o un tema…" + grid of law cards (Código del Trabajo, Código Civil, Ley del Consumidor, Pensión de Alimentos), each showing a small "Actualizada: 30 may 2026" tag.
+7. Guides strip: 3 article cards: "Cómo calcular tu finiquito", "Tus derechos como arrendatario", "Te llegó DICOM: ¿qué hago?".
+8. Calm disclaimer band: "AbogaBot entrega orientación general, no asesoría legal. Para tu caso concreto, consulta a un abogado."
+9. Footer: Privacidad, Quiénes somos, Contacto, and BCN source mention.
+Reserve one discreet horizontal banner slot labeled "Publicidad" between sections 5 and 6.
+
+DETAILS: mobile-first; touch targets ≥ 44px; WCAG AA contrast; ALL interface copy in Chilean Spanish exactly as written above.

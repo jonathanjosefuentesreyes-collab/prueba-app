@@ -1,0 +1,18 @@
+# Dependencias y builds
+3-aplicacion/node_modules/
+3-aplicacion/.next/
+3-aplicacion/next-env.d.ts
+*.tsbuildinfo
+
+# Secretos — la API key JAMÁS entra al repo
+3-aplicacion/.env
+3-aplicacion/.env.local
+3-aplicacion/.env.*.local
+
+# Base de datos (se regenera desde los JSONL con npm run import:leyes)
+3-aplicacion/data/*.db
+3-aplicacion/data/*.db-journal
+
+# Sistema
+Thumbs.db
+.DS_Store

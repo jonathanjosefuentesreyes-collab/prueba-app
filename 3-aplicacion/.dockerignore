@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+.env.local
+.env
+*.log
+npm-debug.log*
+scripts/probar-*.mjs
+scripts/bench-*.mjs

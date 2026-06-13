@@ -57,6 +57,41 @@ Web pública donde cualquier chileno consulta las leyes y chatea con AbogaBot
 (`netsh advfirewall firewall add rule name="Ley Chilena dev 3000" dir=in action=allow protocol=TCP localport=3000`);
 NordVPN puede bloquear el acceso desde el teléfono.
 
+## 🚀 BASE COMPLETA INTEGRADA (2026-06-13)
+
+- **Antigravity terminó**: importadas TODAS las leyes → **20.088 normas /
+  139.876 artículos** en `data/leyes.db`. Sitemap: 20.091 URLs. JSONL tier2 pesa
+  173 MB (gitignored, excede límite GitHub; regenerable). QA en
+  `2-archivo-maestro-leyes/QA-TIER2-FINAL.txt`.
+- **Nueva UI de Antigravity** (el usuario la aprobó desde /guardadas y pidió
+  mantenerse fiel): biblioteca estilo "compendio BCN" (cinta tricolor, grupos
+  desplegables con emoji), **barra de accesibilidad** (tamaño de letra 100/125/150%
+  + toggle "Lenguaje Simple") vía `SettingsContext`, **favoritos por artículo**
+  (corazón, localStorage `favoritos_articulos`), **guías** (`/guias` + `lib/guias.ts`),
+  TTS por artículo. Componentes: `ArticuloItem`, `BibliotecaHeader`,
+  `AccessibilityBar`. CSS nuevo (clases `*-compendio`, `barra-accesibilidad`,
+  `patriotic-ribbon`, `bloque-explicacion-simple`) ya en globals.css.
+- **`/api/simplificar`**: reescribe un artículo en lenguaje simple con Gemini
+  (cache en memoria) — alimenta el toggle "Lenguaje Simple".
+- **Rendimiento a escala** (lecciones): (1) `listarNormas` con `GROUP BY` único +
+  cache de conteos (era 20K subconsultas correlacionadas = 7,5 s → 0,18 s).
+  (2) Biblioteca renderiza 25 tarjetas/grupo, no 100 (los `<details>` colapsados
+  igual van al HTML → /leyes 7,5s→1s en prod). (3) **dev mode es ~2x más lento
+  que prod**: para usar/demostrar la app, correr `npm run build && npm start`.
+- **Relevancia del chat a 20K normas** (regla dura: el bot ES el producto):
+  con la DB 600× mayor, leyes oscuras le ganaban a las canónicas
+  ("pensión"→ley vieja; "licencia"→Código Aeronáutico). Arreglo estructural:
+  **boost a leyes núcleo** en `buscar()` (bm25 − 6 si la norma está en MATERIAS)
+  + sinónimos de tránsito. Re-validado OK: despido→CT 162, horas extra→CT 32,
+  arriendo→18.101, consumidor→19.496, tránsito→18.290, alimentos→VIF 20.066 art.14bis.
+- **Pendiente de datos**: hay normas refundidas DUPLICADAS (el Código del Trabajo
+  aparece también como "DFL 1"; el CC como "DFL 2"). No rompe (la canónica ahora
+  rankea primero), pero conviene deduplicar refundidos antes del lanzamiento público.
+- **Git**: commit 9094b10. **CORRIENDO EN PRODUCCIÓN puerto 3001**
+  (`npm start -- -H 0.0.0.0 -p 3001`; el 3000 lo ocupa la copia de Antigravity en
+  `Desktop\gemini\`). Teléfono: **http://192.168.1.4:3001** (QR nuevo entregado).
+  Firewall: si el teléfono no carga, permitir el puerto 3001 (regla admin).
+
 ## 🏁 MVP CERRADO (2026-06-12) — listo para la DB completa y el deploy
 
 - **Build de producción PASA** (`npm run build`: 15 rutas, typecheck OK; tsconfig

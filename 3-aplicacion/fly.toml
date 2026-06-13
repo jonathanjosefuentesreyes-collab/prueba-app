@@ -1,0 +1,19 @@
+# Configuración de despliegue en Fly.io para Leyes de Chile.
+# El nombre debe ser único en todo Fly; si "leyes-de-chile" está tomado,
+# cambiarlo aquí o pasar --name en el deploy.
+app = "leyes-de-chile"
+primary_region = "scl"  # Santiago, Chile — el más cercano a los usuarios
+
+[build]
+  dockerfile = "Dockerfile"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0  # se apaga sin tráfico (ahorra), arranca al primer visitante
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"  # holgura para Next + la base SQLite de 228 MB

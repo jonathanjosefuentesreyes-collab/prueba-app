@@ -12,6 +12,11 @@
 # Base de datos (se regenera desde los JSONL con npm run import:leyes)
 3-aplicacion/data/*.db
 3-aplicacion/data/*.db-journal
+3-aplicacion/data/*.db-shm
+3-aplicacion/data/*.db-wal
+
+# Artefactos de build / zips exportados — NUNCA al repo (pueden traer .env adentro)
+*.zip
 
 # Sistema
 Thumbs.db

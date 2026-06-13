@@ -57,6 +57,26 @@ Web pública donde cualquier chileno consulta las leyes y chatea con AbogaBot
 (`netsh advfirewall firewall add rule name="Ley Chilena dev 3000" dir=in action=allow protocol=TCP localport=3000`);
 NordVPN puede bloquear el acceso desde el teléfono.
 
+## 🏁 MVP CERRADO (2026-06-12) — listo para la DB completa y el deploy
+
+- **Build de producción PASA** (`npm run build`: 15 rutas, typecheck OK; tsconfig
+  excluye `scripts/`). `npm start` sirve la versión optimizada.
+- **PWA**: `src/app/manifest.ts` (instalable, theme #0039A6). **SEO**: `sitemap.ts`
+  dinámico desde la DB (237 URLs hoy, crece solo al importar tiers) + `robots.ts`.
+  En producción definir `NEXT_PUBLIC_SITE_URL` (hoy default localhost).
+- **Páginas legales AdSense**: /aviso-legal, /privacidad, /quienes-somos (footer en
+  portada). Contacto publicado: gmail del usuario — cambiar a correo del dominio
+  cuando exista.
+- **Biblioteca preparada para 23.000+ normas**: cada grupo desplegable muestra
+  máx. 40 + aviso "usa el buscador" (el HTML no explota con la DB completa).
+- **Git inicializado** (rama main, commit e57db98, 58 archivos): `.gitignore`
+  excluye node_modules, .next, **.env.local (key verificada FUERA del repo)** y
+  data/*.db (regenerable). Identidad git local: Jonathan Fuentes / gmail.
+- Verificado: 11/11 rutas MVP responden 200 vía 127.0.0.1.
+- **Lo único que falta para salir a producción**: dominio (decisión usuario),
+  deploy (Railway/Fly, ruta sin espacios, subir leyes.db o correr import allá),
+  Search Console + GA4, y las guías para postular AdSense.
+
 ## Sesión 2026-06-12: voz, consultas guardadas e índice de populares
 
 - **Marca portada**: "Leyes de Chile" (logo + texto linkean a /leyes, pedido del usuario).

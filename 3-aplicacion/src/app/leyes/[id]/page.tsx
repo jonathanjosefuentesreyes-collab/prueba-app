@@ -5,6 +5,8 @@ import {
   nombreDe, numeroReal, POR_PAGINA,
 } from "@/lib/db";
 import GuardarBtn from "@/components/GuardarBtn";
+import AccessibilityBar from "@/components/AccessibilityBar";
+import ArticuloItem from "@/components/ArticuloItem";
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
   const { id } = await props.params;
@@ -43,6 +45,8 @@ export default async function Norma(props: {
         <span style={{ fontWeight: 800, fontSize: 16, lineHeight: 1.2 }}>{nombreDe(norma)}</span>
       </header>
 
+      <AccessibilityBar />
+
       <div className="tarjeta" style={{ marginBottom: 14 }}>
         <p style={{ fontSize: 13.5 }}>{norma.titulo}</p>
         <p className="nota" style={{ margin: "8px 0 10px" }}>
@@ -62,23 +66,35 @@ export default async function Norma(props: {
         <div className="lista">
           {resultados.length === 0 && <p className="vacio">Sin resultados dentro de esta ley.</p>}
           {resultados.map((r) => (
-            <Link key={r.articulo_id} href={`/leyes/${norma.id}?art=${r.articulo_id}#a${r.articulo_id}`} className="tarjeta">
-              <h3 style={{ margin: 0, color: "var(--azul)", fontSize: 15 }}>Artículo {numeroReal(r.encabezado)}</h3>
-              <p dangerouslySetInnerHTML={{ __html: r.extracto }} />
-            </Link>
+            <ArticuloItem
+              key={r.articulo_id}
+              articulo={{
+                id: r.articulo_id,
+                norma_id: r.norma_id,
+                orden: 0,
+                encabezado: r.encabezado,
+                texto: r.texto || "",
+                transitorio: r.transitorio || 0
+              }}
+              destacado={r.articulo_id === artDestacado}
+              showParentLawInfo={false}
+              nombreLey={nombreDe(norma)}
+              tituloLey={norma.titulo}
+            />
           ))}
         </div>
       ) : (
         <>
           <div className="lista">
             {articulos.map((a) => (
-              <article key={a.id} id={`a${a.id}`} className={`articulo${a.id === artDestacado ? " destacado" : ""}`}>
-                <h3>
-                  Artículo {numeroReal(a.encabezado)}
-                  {a.transitorio ? <span className="badge" style={{ marginLeft: 8 }}>transitorio</span> : null}
-                </h3>
-                <p>{a.texto}</p>
-              </article>
+              <ArticuloItem
+                key={a.id}
+                articulo={a}
+                destacado={a.id === artDestacado}
+                showParentLawInfo={false}
+                nombreLey={nombreDe(norma)}
+                tituloLey={norma.titulo}
+              />
             ))}
           </div>
           {totalPaginas > 1 && (

@@ -31,6 +31,9 @@ export interface ResultadoBusqueda {
   encabezado: string;
   nombre: string;
   extracto: string;
+  texto?: string;
+  transitorio?: number;
+  titulo_ley?: string;
 }
 
 let db: Database.Database | null = null;
@@ -57,18 +60,36 @@ export function nombreDe(n: Pick<Norma, "nombre_corto" | "titulo">): string {
   return n.nombre_corto || n.titulo;
 }
 
+// Conteo de artículos por norma en UNA pasada (cacheado en proceso). Con 20.000+
+// normas, un COUNT correlacionado por fila tardaba ~7 s; este GROUP BY único baja
+// a milisegundos. La DB es de solo lectura en runtime, así que el caché no expira.
+let cacheConteos: Map<number, number> | null = null;
+function conteosArticulos(): Map<number, number> {
+  if (!cacheConteos) {
+    cacheConteos = new Map();
+    const filas = getDb()
+      .prepare(`SELECT norma_id, COUNT(*) AS n FROM articulos GROUP BY norma_id`)
+      .all() as { norma_id: number; n: number }[];
+    for (const f of filas) cacheConteos.set(f.norma_id, f.n);
+  }
+  return cacheConteos;
+}
+
 export function listarNormas(ids?: number[]): Norma[] {
   const d = getDb();
-  const base = `SELECT n.*, (SELECT COUNT(*) FROM articulos a WHERE a.norma_id = n.id) AS total_articulos FROM normas n`;
+  const conteos = conteosArticulos();
+  let rows: Norma[];
   if (ids && ids.length > 0) {
-    const rows = d
-      .prepare(`${base} WHERE n.id IN (SELECT value FROM json_each(?)) ORDER BY n.nombre_corto`)
+    rows = d
+      .prepare(`SELECT * FROM normas WHERE id IN (SELECT value FROM json_each(?)) ORDER BY nombre_corto`)
       .all(JSON.stringify(ids)) as Norma[];
-    return rows;
+  } else {
+    rows = d
+      .prepare(`SELECT * FROM normas ORDER BY CASE WHEN tier IS NULL THEN 99 ELSE tier END, nombre_corto, titulo`)
+      .all() as Norma[];
   }
-  return d
-    .prepare(`${base} ORDER BY CASE WHEN n.tier IS NULL THEN 99 ELSE n.tier END, n.nombre_corto, n.titulo`)
-    .all() as Norma[];
+  for (const r of rows) r.total_articulos = conteos.get(r.id) ?? 0;
+  return rows;
 }
 
 export function obtenerNorma(id: number): Norma | undefined {
@@ -124,22 +145,37 @@ function consultaFts(q: string): string | null {
     .join(" OR ");
 }
 
+// Leyes núcleo (las que la gente realmente consulta): se construye desde MATERIAS.
+// Con 20.000+ normas, una ley oscura puede ganarle por bm25 a la canónica
+// ("pensión de alimentos" devolvía una ley vieja en vez de la 14.908). Damos a
+// estas normas un bono de relevancia para que afloren cuando hay match.
+let cacheCore: number[] | null = null;
+function idsNucleo(): number[] {
+  if (!cacheCore) cacheCore = [...new Set(Object.values(MATERIAS).flatMap((m) => m.ids))];
+  return cacheCore;
+}
+
 export function buscar(q: string, limite = 20, normaId?: number): ResultadoBusqueda[] {
   const match = consultaFts(q);
   if (!match) return [];
   const filtro = normaId ? "AND a.norma_id = ?" : "";
-  const args: (string | number)[] = normaId ? [match, normaId, limite] : [match, limite];
+  const core = JSON.stringify(idsNucleo());
+  // bm25 es negativo (más negativo = más relevante); restar el bono empuja las
+  // leyes núcleo hacia arriba, sin anular un match muy fuerte de otra norma.
+  const args: (string | number)[] = normaId
+    ? [match, normaId, core, limite]
+    : [match, core, limite];
   try {
     return getDb()
       .prepare(
-        `SELECT a.id AS articulo_id, a.norma_id, a.encabezado,
-                COALESCE(n.nombre_corto, n.titulo) AS nombre,
+        `SELECT a.id AS articulo_id, a.norma_id, a.encabezado, a.texto, a.transitorio,
+                COALESCE(n.nombre_corto, n.titulo) AS nombre, n.titulo AS titulo_ley,
                 snippet(articulos_fts, 1, '<mark>', '</mark>', '…', 16) AS extracto
          FROM articulos_fts f
          JOIN articulos a ON a.id = f.rowid
          JOIN normas n ON n.id = a.norma_id
          WHERE articulos_fts MATCH ? ${filtro}
-         ORDER BY bm25(articulos_fts)
+         ORDER BY bm25(articulos_fts) - CASE WHEN a.norma_id IN (SELECT value FROM json_each(?)) THEN 6 ELSE 0 END
          LIMIT ?`
       )
       .all(...args) as ResultadoBusqueda[];

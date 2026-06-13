@@ -38,7 +38,11 @@ export default function BottomNav() {
   return (
     <nav className="nav-inferior" aria-label="Navegación principal">
       {items.map((i) => {
-        const activo = i.href === "/" ? ruta === "/" : ruta.startsWith(i.href);
+        const activo = i.href === "/"
+          ? ruta === "/"
+          : i.href === "/leyes"
+            ? (ruta.startsWith("/leyes") || ruta.startsWith("/guias"))
+            : ruta.startsWith(i.href);
         return (
           <Link key={i.href} href={i.href} className={activo ? "activo" : ""}>
             {i.icono}

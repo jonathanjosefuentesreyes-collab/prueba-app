@@ -16,3 +16,7 @@
 # Sistema
 Thumbs.db
 .DS_Store
+
+# JSONL del Tier 2: 173 MB, excede el limite de 100 MB de GitHub. Preservado en
+# disco y regenerable por Antigravity; la DB se reconstruye con import:leyes.
+2-archivo-maestro-leyes/leyes-tier2.jsonl

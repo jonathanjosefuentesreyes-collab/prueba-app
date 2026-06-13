@@ -26,11 +26,12 @@ const ic = {
   ),
 };
 
+// "Guardadas" se quitó del menú: ya vive como pestaña ❤️ dentro de la Biblioteca
+// (BibliotecaHeader) y el corazón está en cada artículo. Quedan 3 botones.
 const items = [
   { href: "/leyes", etiqueta: "Todas las Leyes", icono: ic.leyes },
   { href: "/", etiqueta: "Inicio", icono: ic.inicio },
   { href: "/calculadora", etiqueta: "Calculadora", icono: ic.calc },
-  { href: "/guardadas", etiqueta: "Guardadas", icono: ic.guardadas },
 ];
 
 export default function BottomNav() {
@@ -41,7 +42,7 @@ export default function BottomNav() {
         const activo = i.href === "/"
           ? ruta === "/"
           : i.href === "/leyes"
-            ? (ruta.startsWith("/leyes") || ruta.startsWith("/guias"))
+            ? (ruta.startsWith("/leyes") || ruta.startsWith("/guias") || ruta.startsWith("/guardadas"))
             : ruta.startsWith(i.href);
         return (
           <Link key={i.href} href={i.href} className={activo ? "activo" : ""}>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Roboto, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
+import Splash from "@/components/Splash";
 import { SettingsProvider } from "@/contexts/SettingsContext";
 
 // Tipografías del sistema de diseño oficial del Estado de Chile
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0039A6",
+  themeColor: "#0a4595",
 };
 
 export default function RootLayout({
@@ -40,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={roboto.variable}>
       <body>
+        <Splash />
         <SettingsProvider>
           <div className="shell">{children}</div>
           <BottomNav />

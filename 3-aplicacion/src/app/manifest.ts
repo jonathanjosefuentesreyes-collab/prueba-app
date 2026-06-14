@@ -8,12 +8,13 @@ export default function manifest(): MetadataRoute.Manifest {
       "Todas las leyes chilenas actualizadas desde la BCN, calculadora de finiquito y asistente legal con citas verificables.",
     start_url: "/",
     display: "standalone",
-    background_color: "#eef1f7",
-    theme_color: "#0039a6",
+    background_color: "#0a4595",
+    theme_color: "#0a4595",
     lang: "es-CL",
     icons: [
-      { src: "/logo.png", sizes: "192x192", type: "image/png" },
-      { src: "/logo.png", sizes: "512x512", type: "image/png" },
+      { src: "/logo.png", sizes: "192x192", type: "image/png", purpose: "any" },
+      { src: "/logo.png", sizes: "512x512", type: "image/png", purpose: "any" },
+      { src: "/logo.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
   };
 }

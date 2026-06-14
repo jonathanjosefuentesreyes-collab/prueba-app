@@ -57,6 +57,43 @@ Web pública donde cualquier chileno consulta las leyes y chatea con AbogaBot
 (`netsh advfirewall firewall add rule name="Ley Chilena dev 3000" dir=in action=allow protocol=TCP localport=3000`);
 NordVPN puede bloquear el acceso desde el teléfono.
 
+## 🎨 REDISEÑO estilo gobierno de Chile (2026-06-14) — commit 79688e9, SIN desplegar aún
+
+- **Investigación legítima** del sistema de diseño OFICIAL y PÚBLICO del Estado
+  (framework.digital.gob.cl, kitdigital.gob.cl). NO se descompilaron APKs
+  (ingeniería inversa = no apropiado). Hallazgos aplicados:
+  - **Roboto** (cuerpo) — el gobierno la eligió por ser la fuente default de Android.
+  - **Roboto Slab** (títulos) — firma visual del gobierno. Cargada en layout.tsx
+    (`--font-titulo`) y aplicada a .marca, títulos de sección, h3 de tarjetas/artículos,
+    cabecera biblioteca, hero.
+  - Paleta oficial de referencia: azul #006FB3, navy #0A132D, rojo #FE6565, grises.
+- **globals.css reescrito completo**: unifica los dos estilos que estaban mezclados
+  (original + Antigravity) en UN sistema cohesivo, compacto e institucional. Tokens
+  nuevos (--azul #0a4595, --azul-oscuro #07306e, --azul-claro, etc.), densidad alta
+  (base 14px, shell 460px, paddings/radios menores), reemplaza los acentos celestes
+  #38bdf8 'tech' por azul institucional. Bottom nav Material 3 (píldora en activo),
+  cabecera de biblioteca con degradado azul de gobierno. **Todos los nombres de
+  clase preservados** (no rompe componentes). Build OK.
+- **PENDIENTE**: desplegar a Fly (`flyctl deploy --remote-only --ha=false` desde
+  3-aplicacion/) para ver el rediseño en https://leyes-de-chile.fly.dev y en el
+  teléfono. Probar visualmente que se vea bien (no pude ver screenshot).
+
+## ⏳ PENDIENTE de esta sesión (pedido del usuario, NO hecho aún)
+
+1. **Parte 2 — "beneficios + comparar con internet"**: el usuario quiere que la app
+   busque local primero, compare con internet y agregue info de BENEFICIOS (no leyes:
+   bonos, subsidios, IFE, etc.). DECISIÓN PENDIENTE: no hacer scraping libre de
+   internet (riesgo de info no verificable en contenido YMYL). Plan seguro propuesto:
+   sección/feature "Beneficios" curada desde fuente oficial **ChileAtiende**
+   (chileatiende.gob.cl), con enlaces oficiales, separada del chat de leyes citadas.
+   Alternativa: Gemini con Google Search grounding restringido a dominios .gob.cl.
+   Falta decidir con el usuario e implementar.
+2. **Skills**: el usuario pidió usar skills necesarias y agregar populares de git
+   verificadas. La skill `anthropic-skills:desarrollo-web-ui-animada` NO cargó
+   ("Unknown skill" — la lista rota según servidores conectados). No se instalaron
+   skills externas (requieren auditar con `verificar-skills` antes; no instalar a
+   ciegas). Reintentar invocar la skill de UI cuando esté disponible.
+
 ## 🌎 EN VIVO EN INTERNET + chat mejorado (2026-06-14)
 
 - **DESPLEGADA EN FLY.IO**: **https://leyes-de-chile.fly.dev** (app `leyes-de-chile`,

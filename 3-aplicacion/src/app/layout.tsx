@@ -39,7 +39,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={roboto.variable}>
+    <html lang="es" className={`${roboto.variable} ${robotoSlab.variable}`}>
       <body>
         <Splash />
         <SettingsProvider>

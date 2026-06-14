@@ -30,7 +30,7 @@ export default function BibliotecaHeader({ activeTab, consulta = "" }: Bibliotec
         </svg>
         <div>
           <h1 className="titulo-bcn">Biblioteca de Leyes</h1>
-          <p className="subtitulo-bcn">República de Chile</p>
+          <p className="subtitulo-bcn">Legislación chilena · Fuente oficial BCN</p>
         </div>
       </div>
 

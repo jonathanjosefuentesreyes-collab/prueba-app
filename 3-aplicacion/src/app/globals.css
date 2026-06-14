@@ -30,10 +30,10 @@
 }
 
 * { box-sizing: border-box; }
-html, body { padding: 0; margin: 0; }
+html, body { padding: 0; margin: 0; max-width: 100%; overflow-x: hidden; }
 
 body {
-  background: #e2e8f1;
+  background: var(--fondo);
   color: var(--texto);
   font-family: var(--font-app), "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: calc(14px * var(--escala-letra, 1));
@@ -84,28 +84,33 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 }
 
 .shell {
-  max-width: 460px;
+  width: 100%;
+  max-width: 500px;
   margin: 0 auto;
   min-height: 100dvh;
   background: var(--fondo);
   padding: 0 14px 88px;
   position: relative;
-  box-shadow: 0 0 40px rgba(20, 40, 80, 0.06);
+  overflow-x: hidden;
+  box-shadow: 0 0 40px rgba(20, 40, 80, 0.05);
 }
 
-/* ---------- App bar (barra superior) ---------- */
+/* ---------- App bar institucional (sólida, estilo apps de gobierno) ---------- */
 .header {
   display: flex; align-items: center; justify-content: center; gap: 10px;
-  background: var(--superficie); margin: 0 -14px 14px; padding: 12px 16px;
-  box-shadow: var(--sombra); position: sticky; top: 0; z-index: 20;
-  border-bottom: 3px solid transparent;
-  border-image: linear-gradient(90deg, var(--azul) 0 33%, #ffffff 33% 66%, var(--rojo) 66% 100%) 1;
+  background: linear-gradient(180deg, #1366c8 0%, var(--azul) 100%);
+  color: #ffffff;
+  margin: 0 -14px 14px; padding: 12px 16px;
+  box-shadow: 0 2px 10px rgba(7, 48, 110, 0.28); position: sticky; top: 0; z-index: 20;
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(90deg, #ffffff 0 33%, #4ea1ff 33% 66%, var(--rojo) 66% 100%) 1;
   min-height: 56px;
 }
-.header img { width: 34px; height: 34px; border-radius: 8px; }
-.marca { font-size: calc(19px * var(--escala-letra, 1)); font-weight: 900; letter-spacing: -0.4px; }
-.marca .azul { color: var(--azul); }
-.marca .rojo { color: var(--rojo); }
+.header img { width: 36px; height: 36px; border-radius: 9px; background: #fff; padding: 3px; }
+.header svg { color: #fff; }
+.marca { font-size: calc(20px * var(--escala-letra, 1)); font-weight: 900; letter-spacing: -0.4px; color: #fff; }
+.header .marca .azul, .header .marca .rojo, .marca .azul, .marca .rojo { color: #fff; }
+.header .fecha { color: rgba(255, 255, 255, 0.85); }
 
 /* ---------- Hero ---------- */
 .hero {

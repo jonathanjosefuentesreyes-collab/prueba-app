@@ -43,6 +43,11 @@ const SINONIMOS: [RegExp, string][] = [
   [/licencia m[eé]dica/i, "incapacidad laboral licencia"],
   [/divorcio|separaci[oó]n/i, "divorcio matrimonio civil"],
   [/herencia|herederos/i, "sucesión herederos asignación"],
+  [/extranjer|migrante|inmigrante|migraci[oó]n|residencia|visa|permanencia/i, "extranjero migración residencia igualdad derechos permiso"],
+  [/beneficios?|ayudas?|subsidios?|derechos?/i, "derechos beneficios prestaciones acceso"],
+  [/salud|fonasa|isapre|atenci[oó]n m[eé]dica/i, "salud atención prestaciones acceso"],
+  [/educaci[oó]n|colegio|matr[ií]cula|universidad|gratuidad/i, "educación establecimiento matrícula acceso"],
+  [/vivienda|subsidio habitacional|minvu/i, "vivienda subsidio habitacional postulación"],
 ];
 
 interface Fuente { articulo_id: number; norma_id: number; ley: string; numero: string; }
@@ -67,7 +72,7 @@ export async function POST(req: Request) {
   for (const [patron, extra] of SINONIMOS) {
     if (patron.test(mensaje)) consulta += " " + extra;
   }
-  const candidatos = buscar(consulta, 6);
+  const candidatos = buscar(consulta, 10, undefined, true);
 
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
@@ -99,17 +104,22 @@ export async function POST(req: Request) {
 
   const prompt = `Eres AbogaBot, asistente legal chileno para ciudadanos comunes (no abogados).
 
-ARTÍCULOS DISPONIBLES (única fuente permitida):
+ARTÍCULOS DISPONIBLES (única fuente permitida para afirmar lo que dice la ley):
 ${contexto}
 
 PREGUNTA DEL CIUDADANO: "${mensaje}"
 
-REGLAS ESTRICTAS:
-1. Responde SOLO con base en los artículos de arriba. Si no responden la duda, dilo honestamente y sugiere consultar la Biblioteca o un abogado.
-2. Máximo 120 palabras, lenguaje simple y cercano (tutea), cero latín jurídico.
-3. Cita UNA norma principal mencionándola así: "según el artículo X del/de la [nombre]".
-4. Termina con una sección "Qué hacer ahora:" con 1-3 pasos concretos y sus plazos si aplican.
-5. En la última línea escribe exactamente: FUENTES: seguido de los ids (entre corchetes arriba) de los artículos que usaste, separados por coma. Si no usaste ninguno: FUENTES:`;
+CÓMO RESPONDER:
+1. Usa SOLO los artículos de arriba para afirmar qué dice la ley. NUNCA inventes ni cites de memoria artículos o números que no estén arriba. Si falta cubrir parte de la pregunta, dilo con honestidad y deriva al organismo correcto (ej.: Servicio Nacional de Migraciones, FONASA, MINEDUC, Dirección del Trabajo) o a un abogado.
+2. FILTRA por relevancia: de los artículos que te di, usa solo los que de verdad responden la pregunta del ciudadano. IGNORA los tangenciales (no los cites solo por incluirlos). Prioriza lo más importante y cotidiano para una persona común.
+3. Cubre los temas relevantes pero sé conciso: máximo 4-5 viñetas, las más útiles. No hagas una lista exhaustiva de todo lo que aparezca.
+4. Estructura clara para el ciudadano:
+   - Una frase de resumen directa que responda al tiro.
+   - Viñetas cortas por tema: "• **Tema**: qué dice la ley en simple (según el art. X de [ley])."
+   - Cierra con "Qué hacer ahora:" (1-3 pasos concretos con plazos si aplican).
+5. Lenguaje simple y cercano (tutea), cero latín jurídico. Extensión: preguntas puntuales ~100 palabras; preguntas amplias máximo ~200 palabras. Mejor claro y enfocado que largo.
+6. Cita cada afirmación con su artículo así: "según el artículo X de [nombre de la ley]".
+7. En la última línea escribe exactamente: FUENTES: seguido de los ids (entre corchetes arriba) de los artículos que realmente usaste, separados por coma. Si no usaste ninguno: FUENTES:`;
 
   const modelo = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
 

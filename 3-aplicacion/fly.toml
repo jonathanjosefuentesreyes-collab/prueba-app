@@ -2,7 +2,7 @@
 # El nombre debe ser único en todo Fly; si "leyes-de-chile" está tomado,
 # cambiarlo aquí o pasar --name en el deploy.
 app = "leyes-de-chile"
-primary_region = "scl"  # Santiago, Chile — el más cercano a los usuarios
+primary_region = "gru"  # São Paulo — región activa más cercana a Chile (scl fue descontinuada)
 
 [build]
   dockerfile = "Dockerfile"

@@ -155,18 +155,29 @@ function idsNucleo(): number[] {
   return cacheCore;
 }
 
-export function buscar(q: string, limite = 20, normaId?: number): ResultadoBusqueda[] {
+// `diversificar`: limita a 2 artículos por norma y trae un pool mayor, para que
+// en preguntas amplias ("beneficios para extranjeros") el modelo vea VARIAS leyes
+// (Migración, Salud, Vivienda…) y no 6 artículos del mismo Código. Sin esto, el
+// boost de leyes núcleo hacía que el Código Civil copara todos los resultados.
+export function buscar(
+  q: string,
+  limite = 20,
+  normaId?: number,
+  diversificar = false
+): ResultadoBusqueda[] {
   const match = consultaFts(q);
   if (!match) return [];
   const filtro = normaId ? "AND a.norma_id = ?" : "";
   const core = JSON.stringify(idsNucleo());
+  // Trae un pool más grande cuando diversificamos, para poder filtrar por norma.
+  const pool = diversificar ? Math.max(limite * 6, 48) : limite;
   // bm25 es negativo (más negativo = más relevante); restar el bono empuja las
   // leyes núcleo hacia arriba, sin anular un match muy fuerte de otra norma.
   const args: (string | number)[] = normaId
-    ? [match, normaId, core, limite]
-    : [match, core, limite];
+    ? [match, normaId, core, pool]
+    : [match, core, pool];
   try {
-    return getDb()
+    const filas = getDb()
       .prepare(
         `SELECT a.id AS articulo_id, a.norma_id, a.encabezado, a.texto, a.transitorio,
                 COALESCE(n.nombre_corto, n.titulo) AS nombre, n.titulo AS titulo_ley,
@@ -179,6 +190,17 @@ export function buscar(q: string, limite = 20, normaId?: number): ResultadoBusqu
          LIMIT ?`
       )
       .all(...args) as ResultadoBusqueda[];
+    if (!diversificar) return filas;
+    const porNorma = new Map<number, number>();
+    const diversa: ResultadoBusqueda[] = [];
+    for (const f of filas) {
+      const usados = porNorma.get(f.norma_id) ?? 0;
+      if (usados >= 2) continue;
+      porNorma.set(f.norma_id, usados + 1);
+      diversa.push(f);
+      if (diversa.length >= limite) break;
+    }
+    return diversa;
   } catch {
     return [];
   }

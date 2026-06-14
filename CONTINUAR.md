@@ -57,6 +57,33 @@ Web pública donde cualquier chileno consulta las leyes y chatea con AbogaBot
 (`netsh advfirewall firewall add rule name="Ley Chilena dev 3000" dir=in action=allow protocol=TCP localport=3000`);
 NordVPN puede bloquear el acceso desde el teléfono.
 
+## 🌎 EN VIVO EN INTERNET + chat mejorado (2026-06-14)
+
+- **DESPLEGADA EN FLY.IO**: **https://leyes-de-chile.fly.dev** (app `leyes-de-chile`,
+  región `gru` São Paulo — OJO: `scl` Santiago fue descontinuada por Fly).
+  Stack de deploy: `Dockerfile` multi-stage + `output:"standalone"` + DB horneada
+  en la imagen (230 MB). `GEMINI_API_KEY` como secreto de Fly (no en la imagen).
+  `flyctl` instalado en `~/.fly/bin`; sesión del usuario activa. `auto_stop` ON →
+  primer acceso del día tarda ~10-15 s (máquina despierta sola). Para instalar en
+  el teléfono: abrir la URL → "Agregar a pantalla de inicio" (PWA).
+  Redeploy: `flyctl deploy --remote-only --ha=false` desde `3-aplicacion/`.
+- **Chat RAG mucho mejor** (commit 0e4b02b). Lección clave de calidad: para
+  preguntas AMPLIAS ("beneficios para extranjeros") el chat respondía pobre porque
+  el boost de leyes núcleo hacía que el Código Civil copara los 6 resultados y
+  enterrara la Ley 21.325 de Migración (que SÍ está, 192 arts). **No era falta de
+  datos sino de recuperación.** Arreglo: `buscar(q, n, undefined, true)` modo
+  diversificar (pool grande + máx 2 artículos por norma) → el modelo ve varias
+  leyes; +sinónimos migración/salud/educación/vivienda; prompt reescrito a
+  respuesta ESTRUCTURADA por temas, filtra tangenciales, varias citas, ~200
+  palabras, mantiene anti-invención y deriva honesto a organismos cuando la ley no
+  da el detalle. Decisión de producto: NO convertir AbogaBot en "Gemini suelto"
+  (perdería las citas verificables, su moat y la seguridad en contenido YMYL);
+  sí acercarse a esa riqueza con RAG mejor. Ver [[abogabot-cerebro]].
+- Pendiente afinado: el modo diversificar puede diluir preguntas MUY puntuales
+  (ej. "monto exacto multa licencia vencida" → responde honesto "no tengo la cifra,
+  consulta el Juzgado"). Aceptable y seguro; evaluar retrieval adaptativo
+  (diversificar solo si la pregunta es amplia) más adelante.
+
 ## 🚀 BASE COMPLETA INTEGRADA (2026-06-13)
 
 - **Antigravity terminó**: importadas TODAS las leyes → **20.088 normas /

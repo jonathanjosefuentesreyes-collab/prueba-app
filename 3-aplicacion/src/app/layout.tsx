@@ -1,12 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Roboto, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import { SettingsProvider } from "@/contexts/SettingsContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Tipografías del sistema de diseño oficial del Estado de Chile
+// (framework.digital.gob.cl): Roboto para el cuerpo (la fuente por defecto de
+// Android) y Roboto Slab para los títulos — la firma visual del gobierno.
+const roboto = Roboto({
+  variable: "--font-app",
   subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+});
+const robotoSlab = Roboto_Slab({
+  variable: "--font-titulo",
+  subsets: ["latin"],
+  weight: ["500", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +38,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={geistSans.variable}>
+    <html lang="es" className={roboto.variable}>
       <body>
         <SettingsProvider>
           <div className="shell">{children}</div>

@@ -52,6 +52,31 @@ const SINONIMOS: [RegExp, string][] = [
 
 interface Fuente { articulo_id: number; norma_id: number; ley: string; numero: string; }
 
+// Límite diario de consultas por visitante (protege la cuota de Gemini ahora que
+// la app es pública). En memoria: se reinicia si la máquina se reinicia — es una
+// barrera básica anti-abuso, no un control estricto. Configurable por env.
+const TOPE_DIARIO = Number(process.env.LIMITE_CHAT_DIARIO || 40);
+const contador = new Map<string, { dia: string; n: number }>();
+function ipDe(req: Request): string {
+  return (
+    req.headers.get("fly-client-ip") ||
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    "anon"
+  );
+}
+function superaTope(req: Request): boolean {
+  const hoy = new Date().toISOString().slice(0, 10);
+  const ip = ipDe(req);
+  const prev = contador.get(ip);
+  if (!prev || prev.dia !== hoy) {
+    contador.set(ip, { dia: hoy, n: 1 });
+    if (contador.size > 5000) contador.clear(); // evita crecer sin fin
+    return false;
+  }
+  prev.n += 1;
+  return prev.n > TOPE_DIARIO;
+}
+
 export async function POST(req: Request) {
   let mensaje = "";
   try {
@@ -91,6 +116,17 @@ export async function POST(req: Request) {
       respuesta:
         "No encontré artículos cargados que respondan directamente tu consulta, y prefiero decírtelo antes que inventar. Prueba reformulando con otras palabras, revisa la Biblioteca de Leyes, o consulta gratis en la Corporación de Asistencia Judicial.",
       fuentes: [],
+      disclaimer: DISCLAIMER,
+    });
+  }
+
+  // Tope diario por visitante: si se supera, igual le servimos artículos reales de
+  // la Biblioteca (sin gastar Gemini), no lo dejamos con las manos vacías.
+  if (superaTope(req)) {
+    return NextResponse.json({
+      respuesta:
+        "Llegaste al máximo de consultas con el asistente por hoy 🙂. Pero igual te dejo artículos de la Biblioteca que pueden responder tu duda — tócalos para leerlos completos. Mañana puedes volver a preguntarle a AbogaBot.",
+      fuentes: candidatos.slice(0, 4).map((c) => ({ articulo_id: c.articulo_id, norma_id: c.norma_id, ley: c.nombre, numero: numeroReal(c.encabezado) })),
       disclaimer: DISCLAIMER,
     });
   }

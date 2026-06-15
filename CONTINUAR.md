@@ -57,7 +57,29 @@ Web pública donde cualquier chileno consulta las leyes y chatea con AbogaBot
 (`netsh advfirewall firewall add rule name="Ley Chilena dev 3000" dir=in action=allow protocol=TCP localport=3000`);
 NordVPN puede bloquear el acceso desde el teléfono.
 
-## 🎨 REDISEÑO estilo gobierno de Chile (2026-06-14) — commit 79688e9, SIN desplegar aún
+## 👁️ AHORA PUEDO VER LA APP + rediseño desplegado (2026-06-15)
+
+- **Capacidad de "ver" la app**: instalé **Playwright** en `herramientas-captura/`
+  (gitignored node_modules). `node capturar.mjs [url]` toma capturas a tamaño
+  teléfono (Pixel 7) de inicio/biblioteca/calculadora/chat/guías/splash → las leo
+  con Read. YA NO diseño a ciegas. Por defecto captura https://leyes-de-chile.fly.dev;
+  pasar `http://127.0.0.1:3002` para local. Flujo: build → npm start local → capturar
+  → revisar → corregir → desplegar.
+- **Rediseño estilo gobierno DESPLEGADO y verificado visualmente**: barras superiores
+  azul institucional sólido + texto blanco (gob.cl/ClaveÚnica), Roboto + Roboto Slab,
+  splash de bienvenida, biblioteca con cabecera azul y acordeones, todo compacto.
+- **Bugs encontrados AL VERLO y corregidos**: (1) chat mostraba markdown en crudo
+  (`**`, `*`) → `formatearRespuesta()` en ChatClient (negritas + viñetas, escapa
+  HTML); (2) inicio: chat inferior tapaba contenido → paddingBottom; (3) hero se
+  veía grisáceo → bandera limpia (blanco/rojo, cantón azul+estrella, título en
+  franja roja).
+- **Protección de cuota Gemini** (commit f40b63e): `/api/chat` con tope diario por
+  IP (`LIMITE_CHAT_DIARIO`, default 40); al superar, responde amable + ofrece
+  artículos de Biblioteca sin gastar Gemini. Casos sensibles NUNCA se limitan.
+- Integridad: cabecera biblioteca "República de Chile" → "Legislación chilena ·
+  Fuente oficial BCN" (no implicar ser servicio oficial del Estado).
+
+## 🎨 REDISEÑO estilo gobierno de Chile (2026-06-14) — commit 79688e9 (ya desplegado)
 
 - **Investigación legítima** del sistema de diseño OFICIAL y PÚBLICO del Estado
   (framework.digital.gob.cl, kitdigital.gob.cl). NO se descompilaron APKs

@@ -240,7 +240,12 @@ label.etiqueta { display: block; font-size: calc(12px * var(--escala-letra, 1));
 /* ---------- Burbujas de chat ---------- */
 .burbuja { max-width: 88%; border-radius: 16px; padding: 10px 13px; font-size: calc(14px * var(--escala-letra, 1)); line-height: 1.55; box-shadow: var(--sombra); }
 .burbuja.usuario { margin-left: auto; background: var(--azul); color: #fff; border-bottom-right-radius: 4px; }
-.burbuja.bot { background: var(--superficie); border: 1px solid var(--borde); border-bottom-left-radius: 4px; white-space: pre-line; }
+.burbuja.bot { background: var(--superficie); border: 1px solid var(--borde); border-bottom-left-radius: 4px; }
+.bot-texto .cf-linea { margin: 3px 0; }
+.bot-texto .cf-linea:first-child { margin-top: 0; }
+.bot-texto .cf-vinieta { display: flex; gap: 7px; margin: 5px 0; align-items: flex-start; }
+.bot-texto .cf-punto { color: var(--azul); font-weight: 800; flex: none; }
+.bot-texto strong { font-weight: 700; color: var(--texto); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .chip {
   font-size: calc(11.5px * var(--escala-letra, 1)); font-weight: 700; color: var(--azul); background: var(--azul-claro);

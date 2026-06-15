@@ -6,6 +6,25 @@ import { useEffect, useRef, useState } from "react";
 
 interface Fuente { articulo_id: number; norma_id: number; ley: string; numero: string; }
 interface Mensaje { rol: "usuario" | "bot"; texto: string; fuentes?: Fuente[]; disclaimer?: string; }
+
+// Formatea la respuesta del bot: escapa HTML (seguro), aplica **negritas** y
+// convierte líneas con *, - o • en viñetas. Evita mostrar markdown en crudo.
+function negrita(s: string): string {
+  return s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+function formatearRespuesta(texto: string): string {
+  const esc = texto.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return esc
+    .split("\n")
+    .map((linea) => {
+      const t = linea.trim();
+      if (!t) return "";
+      const v = t.match(/^[*\-•]\s+(.*)$/);
+      if (v) return `<div class="cf-vinieta"><span class="cf-punto">•</span><span>${negrita(v[1])}</span></div>`;
+      return `<div class="cf-linea">${negrita(t)}</div>`;
+    })
+    .join("");
+}
 export interface ConsultaGuardada {
   id: number;
   pregunta: string;
@@ -153,7 +172,9 @@ export default function ChatClient() {
         )}
         {mensajes.map((m, i) => (
           <div key={i} className={`burbuja ${m.rol}`}>
-            {m.texto}
+            {m.rol === "bot"
+              ? <div className="bot-texto" dangerouslySetInnerHTML={{ __html: formatearRespuesta(m.texto) }} />
+              : m.texto}
             {m.rol === "bot" && m.fuentes && m.fuentes.length > 0 && (
               <span className="chips">
                 {m.fuentes.map((f) => (

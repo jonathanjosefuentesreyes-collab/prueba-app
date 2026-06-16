@@ -236,6 +236,69 @@ Sí. Algunos cargos de **exclusiva confianza** o sin fiscalización superior inm
     ],
   },
   {
+    slug: "honorarios-pero-trabajo-como-dependiente",
+    titulo: "Me tienen a honorarios pero trabajo como dependiente: ¿qué hago?",
+    categoria: "laboral",
+    metaTitle: "Honorarios o contrato de trabajo en Chile | Ley Chilena",
+    descripcion:
+      "Si trabajas a honorarios pero con horario, jefatura y obligación de asistir, la ley puede reconocer un contrato de trabajo. Conoce la primacía de la realidad.",
+    fecha: "2026-06-16",
+    respuestaCorta:
+      "Si te pagan **a honorarios** pero en la práctica trabajas con **horario, supervisión y obligación de asistir**, la ley puede reconocer que en realidad existe un **contrato de trabajo**. Es el principio de **primacía de la realidad**: importa cómo trabajas, no la etiqueta del papel. Si se declara, tienes derecho a todo lo de un trabajador dependiente: vacaciones, finiquito y cotizaciones de AFP y salud.",
+    contenido: `
+## ¿Qué diferencia hay entre honorarios y contrato de trabajo?
+A **honorarios** prestas un servicio de forma **independiente**: organizas tú tu trabajo, sin horario impuesto ni jefatura, y emites boleta de honorarios. Hay **contrato de trabajo**, en cambio, cuando trabajas bajo **subordinación y dependencia**: cumples un horario, recibes órdenes, debes asistir y estás integrado a la empresa ([artículo 7 del Código del Trabajo](/leyes/207436?art=3017)).
+
+## ¿Qué es la "primacía de la realidad"?
+La ley mira **cómo trabajas de verdad**, no el nombre del contrato. Si prestas servicios con las características de un trabajador dependiente, **se presume que existe un contrato de trabajo**, aunque te paguen a honorarios ([artículo 8](/leyes/207436?art=3018)). A esto se le llama *primacía de la realidad*.
+
+## ¿Cómo sé si en realidad soy dependiente?
+Son señales de subordinación y dependencia:
+
+- Cumples un **horario** fijado por la empresa.
+- Recibes **instrucciones y supervisión** de una jefatura.
+- Tienes **obligación de asistir** y de justificar inasistencias.
+- Trabajas con las **herramientas y en el lugar** que te da la empresa.
+- Lo haces de forma **continua** para esa empresa.
+
+Mientras más de estas señales se cumplan, más fuerte es que exista una relación laboral encubierta.
+
+## ¿Qué gano si se reconoce como contrato de trabajo?
+Si la Inspección o un tribunal declaran que la relación era laboral, tienes derecho —incluso de forma retroactiva— a lo que corresponde a un trabajador dependiente: **vacaciones, gratificación, indemnizaciones** al término, y que se paguen tus **cotizaciones** de AFP, salud y seguro de cesantía.
+
+## ¿Y si firmé un contrato a honorarios?
+Da lo mismo lo que diga el papel: el contrato de trabajo es **consensual** y existe por los hechos, aunque no esté escrito o esté rotulado como "honorarios" ([artículo 9](/leyes/207436?art=3019)). La etiqueta no borra tus derechos.
+
+## ¿Qué hacer ahora?
+1. **Reúne pruebas** de cómo trabajas: horarios, correos con instrucciones, registros de asistencia, mensajes de tu jefatura.
+2. Acude a la **Dirección del Trabajo** y pide una fiscalización para que revisen si hay una relación laboral encubierta.
+3. Si corresponde, puedes **demandar el reconocimiento** de la relación laboral y el pago de lo adeudado (hay plazos: actúa pronto).
+4. ¿Tu caso es distinto? Cuéntaselo a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Si estoy a honorarios tengo derecho a vacaciones y finiquito?",
+        respuesta:
+          "Solo si se reconoce que en realidad había una relación laboral (subordinación y dependencia). En ese caso te corresponden vacaciones, finiquito y cotizaciones. Un honorario verdaderamente independiente no genera esos derechos.",
+      },
+      {
+        pregunta: "¿Pueden tenerme años a honorarios haciendo pega de empleado?",
+        respuesta:
+          "No debería. Si hay subordinación y dependencia, la ley presume un contrato de trabajo (artículo 8). Puedes pedir el reconocimiento de la relación laboral y el pago retroactivo de lo adeudado.",
+      },
+      {
+        pregunta: "¿Quién decide si soy dependiente o independiente?",
+        respuesta:
+          "La Dirección del Trabajo mediante una fiscalización, o los tribunales laborales si demandas. Ambos miran la realidad de los hechos, no el rótulo del contrato.",
+      },
+      {
+        pregunta: "¿En el sector público también aplica?",
+        respuesta:
+          "El honorario en el Estado tiene reglas propias y es más complejo, pero la jurisprudencia ha reconocido relación laboral cuando hay subordinación continua en el tiempo. Conviene asesorarte para tu caso específico.",
+      },
+    ],
+  },
+  {
     slug: "finiquito-cuanto-me-corresponde",
     titulo: "¿Cuánto me corresponde de finiquito si me despiden en Chile?",
     categoria: "laboral",

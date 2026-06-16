@@ -434,12 +434,20 @@ export function articuloPorNumero(
   return undefined;
 }
 
-export interface Grupo { clave: string; etiqueta: string; descripcion: string; normas: Norma[]; }
+export interface Grupo { clave: string; etiqueta: string; descripcion: string; normas: Norma[]; total: number; }
 
 // Macro-grupos de la Biblioteca: cada norma cae en UN solo grupo, por prioridad
 // (fundamentales → materia curada → DL/DFL → otras). Escala solo cuando lleguen
 // los tiers 2-3: lo no clasificado cae a "Otras leyes" y sigue siendo buscable.
+//
+// CACHEADO + ALIGERADO: cargar y particionar las 20.000+ normas tardaba ~6 s en CADA
+// request (la Biblioteca se sentía trabada). Ahora se calcula UNA vez y se guardan solo
+// las primeras 25 por grupo (lo único que renderiza la página) + el total real. Resultado
+// instantáneo y caché chico. La DB es de solo lectura, así que el caché no expira.
+const TOPE_GRUPO = 12;
+let cacheGruposBib: Grupo[] | null = null;
 export function gruposBiblioteca(): Grupo[] {
+  if (cacheGruposBib) return cacheGruposBib;
   const todas = listarNormas();
   const usadas = new Set<number>();
   const tomar = (pred: (n: Norma) => boolean) =>
@@ -449,7 +457,7 @@ export function gruposBiblioteca(): Grupo[] {
       return true;
     });
 
-  const grupos: Grupo[] = [
+  const grupos: Omit<Grupo, "total">[] = [
     {
       clave: "fundamentales",
       etiqueta: "Constitución y Códigos",
@@ -493,7 +501,10 @@ export function gruposBiblioteca(): Grupo[] {
     descripcion: "El resto del archivo, siempre buscable",
     normas: tomar(() => true),
   });
-  return grupos.filter((g) => g.normas.length > 0);
+  cacheGruposBib = grupos
+    .filter((g) => g.normas.length > 0)
+    .map((g) => ({ ...g, total: g.normas.length, normas: g.normas.slice(0, TOPE_GRUPO) }));
+  return cacheGruposBib;
 }
 
 // Índice "más consultadas" de la portada: se buscan por nombre en la DB (nunca

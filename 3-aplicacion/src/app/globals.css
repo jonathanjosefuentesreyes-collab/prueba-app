@@ -432,7 +432,26 @@ input:checked + .slider:before { transform: translateX(20px); }
 .flecha-compendio { color: var(--azul); transition: transform 0.2s ease; flex: none; }
 .grupo-compendio[open] .flecha-compendio { transform: rotate(180deg); }
 .contenido-compendio { border-top: 1px solid var(--borde); padding: 11px; display: flex; flex-direction: column; gap: 8px; background: #f6f8fc; }
-.item-ley-compendio { background: #ffffff; border: 1px solid var(--borde); border-radius: var(--radio-sm); padding: 11px 13px; display: block; transition: all 0.15s ease; }
+/* Tarjeta de ley (componente ItemLeyCompendio): estilos en CSS, no inline, para que
+   el HTML de la Biblioteca sea liviano y fluido en el celular. */
+.item-ley-compendio {
+  display: flex; align-items: center; gap: 12px; padding: 12px;
+  background: #fff; border: 1px solid var(--borde); border-radius: 12px;
+  box-shadow: var(--sombra); transition: border-color 0.15s ease, transform 0.1s ease;
+}
 .item-ley-compendio:hover { border-color: var(--azul-medio); }
-.item-ley-compendio h4 { margin: 0 0 3px; font-size: calc(13.5px * var(--escala-letra, 1)); color: #1e293b; font-weight: 700; line-height: 1.4; }
-.item-ley-compendio p { margin: 0; font-size: calc(11.5px * var(--escala-letra, 1)); color: var(--texto-suave); }
+.item-ley-compendio:active { transform: scale(0.99); }
+.ilc-insignia {
+  flex: none; min-width: 72px; text-align: center; background: var(--azul); color: #fff;
+  border-radius: 8px; padding: 6px 8px; font-weight: 800;
+  font-size: calc(10.5px * var(--escala-letra, 1));
+}
+.ilc-cuerpo { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.ilc-nombre {
+  font-size: calc(13.5px * var(--escala-letra, 1)); color: #1e293b; font-weight: 700;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.ilc-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: calc(11px * var(--escala-letra, 1)); }
+.ilc-num { color: var(--rojo); font-weight: 700; }
+.ilc-dato { color: #64748b; }
+.ilc-flecha { flex: none; color: #94a3b8; }

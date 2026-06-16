@@ -32,7 +32,7 @@ export default function Inicio() {
   const colores = ["badge", "badge azul", "badge"];
 
   return (
-    <main style={{ paddingBottom: 64 }}>
+    <main style={{ paddingBottom: 132 }}>
       <header className="header">
         <Link href="/leyes" aria-label="Ver todas las leyes de Chile" style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}

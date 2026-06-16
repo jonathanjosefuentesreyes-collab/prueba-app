@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-interface Fuente { articulo_id: number; norma_id: number; ley: string; numero: string; }
-interface Mensaje { rol: "usuario" | "bot"; texto: string; fuentes?: Fuente[]; disclaimer?: string; }
+interface Fuente { articulo_id: number | null; norma_id: number; ley: string; numero: string; }
+interface Mensaje { rol: "usuario" | "bot"; texto: string; fuentes?: Fuente[]; disclaimer?: string; premium?: boolean; }
 
 // Formatea la respuesta del bot: escapa HTML (seguro), aplica **negritas** y
 // convierte líneas con *, - o • en viñetas. Evita mostrar markdown en crudo.
@@ -58,6 +58,8 @@ export default function ChatClient() {
   const [escuchando, setEscuchando] = useState(false);
   const [hayVoz, setHayVoz] = useState(false);
   const [guardadas, setGuardadas] = useState<Set<number>>(new Set());
+  const [restantes, setRestantes] = useState<number | null>(null);
+  const [notaPremium, setNotaPremium] = useState(false);
   const enviadoInicial = useRef(false);
   const reconocedor = useRef<ReconocimientoVoz | null>(null);
   const fondo = useRef<HTMLDivElement>(null);
@@ -80,7 +82,8 @@ export default function ChatClient() {
         body: JSON.stringify({ mensaje: limpio }),
       });
       const j = await r.json();
-      setMensajes((m) => [...m, { rol: "bot", texto: j.respuesta, fuentes: j.fuentes, disclaimer: j.disclaimer }]);
+      if (typeof j.restantes === "number") setRestantes(j.restantes);
+      setMensajes((m) => [...m, { rol: "bot", texto: j.respuesta, fuentes: j.fuentes, disclaimer: j.disclaimer, premium: j.premium }]);
     } catch {
       setMensajes((m) => [...m, { rol: "bot", texto: "No pude conectarme. Revisa tu conexión e intenta de nuevo." }]);
     } finally {
@@ -178,8 +181,12 @@ export default function ChatClient() {
             {m.rol === "bot" && m.fuentes && m.fuentes.length > 0 && (
               <span className="chips">
                 {m.fuentes.map((f) => (
-                  <Link key={f.articulo_id} href={`/leyes/${f.norma_id}?art=${f.articulo_id}`} className="chip">
-                    {f.ley} · art. {f.numero}
+                  <Link
+                    key={`${f.norma_id}-${f.articulo_id ?? "ley"}`}
+                    href={f.articulo_id ? `/leyes/${f.norma_id}?art=${f.articulo_id}` : `/leyes/${f.norma_id}`}
+                    className="chip"
+                  >
+                    {f.articulo_id ? `${f.ley} · art. ${f.numero}` : f.ley}
                   </Link>
                 ))}
               </span>
@@ -196,6 +203,16 @@ export default function ChatClient() {
                 </button>
               </span>
             )}
+            {m.rol === "bot" && m.premium && (
+              <span style={{ display: "block", marginTop: 10 }}>
+                <button className="boton-premium" onClick={() => setNotaPremium(true)}>✨ Actualizar a Premium</button>
+                {notaPremium && (
+                  <span style={{ display: "block", marginTop: 8, fontSize: 12.5, color: "var(--texto-suave)" }}>
+                    🚧 Los planes Premium están en preparación. ¡Gracias por tu interés y por apoyar el proyecto!
+                  </span>
+                )}
+              </span>
+            )}
             {m.rol === "bot" && m.disclaimer && (
               <span style={{ display: "block", marginTop: 8, fontSize: 11.5, color: "var(--texto-suave)" }}>{m.disclaimer}</span>
             )}
@@ -205,6 +222,19 @@ export default function ChatClient() {
         <div ref={fondo} />
       </div>
 
+      {restantes !== null && (
+        <p
+          style={{
+            position: "sticky", bottom: 120, margin: 0, textAlign: "center",
+            fontSize: 11.5, fontWeight: 600,
+            color: restantes > 0 ? "var(--texto-suave)" : "var(--rojo)",
+          }}
+        >
+          {restantes > 0
+            ? `Te ${restantes === 1 ? "queda" : "quedan"} ${restantes} ${restantes === 1 ? "consulta gratis" : "consultas gratis"}`
+            : "Sin consultas gratis · ✨ Actualiza a Premium para más"}
+        </p>
+      )}
       <form
         onSubmit={(e) => { e.preventDefault(); enviar(texto); }}
         style={{ position: "sticky", bottom: 76, display: "flex", gap: 8, background: "var(--fondo)", paddingTop: 6 }}

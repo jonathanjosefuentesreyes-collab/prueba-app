@@ -1,12 +1,128 @@
 # Ley Chilena (AbogaBot v2) — CONTINUAR.md
 
-Última actualización: **2026-06-11 (noche)** — sesión maratónica: la app quedó
-CONSTRUIDA Y FUNCIONANDO. Este archivo fue consolidado para retomar en ventana
-nueva con poco contexto.
+Última actualización: **2026-06-15 (noche, 2)** — pulido de interfaz móvil + pestaña Guías
++ pasada de mejora a las skills. **2 bloqueantes de infra: Gemini free agotado y trial Fly
+terminado** (ver abajo). Historial completo más abajo.
+
+## 🎨 Pulido de interfaz + pestaña Guías + skills (2026-06-15, sesión noche 2)
+
+Revisión visual con Playwright (capturas en `herramientas-captura/`) y pulido guiado por la
+**nueva skill `abogabot-diseno`** (sistema de diseño móvil + loop visual). Cambios verificados
+en capturas locales (la app no se pudo capturar en prod, ver bloqueante Fly):
+
+- **Pestaña "Guías" en el menú inferior** (`BottomNav.tsx`): ahora 4 tabs —
+  **Inicio · Guías · Leyes · Calculadora**. "Guías" → `/guias` (carrusel de destacadas +
+  "qué hacer" + ChatBar para más dudas; ese contenido lo armó el chat paralelo f27cd7e6).
+- **Quitada la burbuja `.globo`** del ChatBar (se encimaba al contenido en home y guías) +
+  `paddingBottom` subido a 132 en home y `/guias` para que nada quede tapado por la barra flotante.
+- **Chips de fuente con afordancia de enlace verificable** (`.chip`): icono de documento +
+  chevron + borde → se ven clicables. Es el foso (cita verificable) luciéndose ([[abogabot-competencia]]).
+- Nav inferior ajustado para 4 ítems (nowrap, píldoras un poco más angostas).
+
+### Skills (mejora continua — con permiso del usuario para editar/eliminar)
+El usuario dio permiso permanente para editar/eliminar skills a mi criterio (respaldo: copia
+en `~/.claude/skills-backup-2026-06-15` + git init dentro de `~/.claude/skills`). Cambios:
+**creé `abogabot-diseno`**, **podé `abogabot-master`** (saqué la tabla de ruteo que se
+desincronizaba; quedó como mapa de las 2 cadenas + orden de flujo, ahora con diseno), y
+verifiqué/anoté el comando de `abogabot-finiquito` (corre en Node 24). Todo en `MEJORAS-SKILLS.md`.
+
+### 🚨 DOS BLOQUEANTES DE INFRAESTRUCTURA (decisión del usuario, cuestan plata)
+1. **Gemini free tier agotado**: tope DIARIO de requests de `flash-lite` muy bajo; el chat
+   muestra "problema técnico" hasta el reset diario. Para público real → **plan pagado de Gemini**.
+2. **Trial de Fly.io TERMINÓ**: los logs dicen "Trial machine stopping… add a credit card" y
+   "trial has ended". La máquina **se apaga a los 5 min** y ya no arranca on-demand → la app
+   está caída. El deploy SÍ subió la imagen nueva (lista para correr). Para que esté arriba 24/7
+   → **agregar tarjeta en fly.io/trial** (o migrar a otro host). **Decisión pendiente del usuario.**
 
 > **Cómo retomar**: leer `CLAUDE.md` (arquitectura y reglas duras — NO repetirlas
 > aquí) y este archivo. La app vive en `3-aplicacion/`. Encenderla:
 > `npm run dev -- -H 0.0.0.0 -p 3000` (acceso teléfono: http://192.168.1.4:3000).
+
+## 🤖 CHAT re-afinado + cuota Premium (2026-06-15, sesión noche)
+
+El usuario propuso "poner Gemini más como asesor que cite la ley y la app enlace".
+**Probé esa vía (Gemini cita de memoria → la app verifica que el artículo exista) y la
+DESCARTÉ con evidencia**: citaba artículos REALES pero fuera de tema (Código de Justicia
+Militar para un robo, Ley de Arrendamiento para impuestos, se saltaba RPA para un menor).
+La verificación confirma *existencia*, no *pertinencia*. Volví a la **garantía arquitectural
+de [[abogabot-cerebro]]**: el modelo solo cita ids del CONTEXTO recuperado (nunca de
+memoria); la "completitud" que pedía el usuario se logró con **prosa de asesor + mejor
+retrieval**, no con citas libres.
+
+- **Prompt** (`api/chat/route.ts`): tono de asesor cercano y completo, pero cita SOLO los
+  `[id]` del contexto; si algo no está cubierto, lo dice honesto y deriva. Limpia `[id]` que
+  el modelo filtre a la prosa. ~150-220 palabras, viñetas + "Qué hacer ahora".
+- **Retrieval mejorado** (sinónimos nuevos + núcleo): consumidor/garantía, accidente laboral,
+  **RPA menor** (20.084), **IVA** (DL 825), **renta/tributa** (DL 824), robo/hurto, formar
+  sociedad, expulsión migratoria, **recurso de protección/derechos fundamentales**
+  (Constitución), **DICOM/datos** (19.628), pensión/**alimentante** (14.908). Se añadieron
+  **Constitución (242302)** y **Migración (1158549)** al bono de núcleo (`NUCLEO_EXTRA` en
+  `db.ts`). Batería QA Nivel 4: **5/5** con la ley esperada presente.
+- **Refundidos duplicados excluidos del buscador** (`idsDuplicadosNucleo` en `db.ts`):
+  detecta copias con nombre crudo ("DFL 1"=Cód. Trabajo, "DFL 2"=Cód. Civil, "DFL 3"=
+  Consumidor) y las saca → ya no cita "DFL 1 art.32" sino "Código del Trabajo art.32".
+- **`numeroReal`** limpia metadata del importador en DL/DFL: "27 (DEL ART 1)" → "27".
+- **`etiquetaLey`**: "LEY 21325" → "Ley 21.325"; nombres crudos inútiles → título en oración.
+- **Cuota nueva**: **3 consultas / 12 h por visitante** (antes 40/día). Muestra "te quedan N
+  consultas"; al agotarse → mensaje + botón **✨ Actualizar a Premium** (placeholder, sin
+  pago aún). Env `LIMITE_CHAT_CONSULTAS`/`LIMITE_CHAT_HORAS` (default 3/12).
+- **Fix importante**: la cuota se descuenta **solo si la respuesta sale bien** (antes un
+  error técnico de Gemini igual le cobraba una consulta al usuario).
+- Desplegado en Fly (`leyes-de-chile`, gru). QA: key solo server-side (no en bundle),
+  citas siempre del contexto (anti-invención), disclaimer por código.
+
+### 🚨 HALLAZGO CRÍTICO — cuota de Gemini free tier (bloqueante para escalar)
+La API key está en **free tier** y `gemini-2.5-flash-lite` tiene un **tope DIARIO muy bajo**
+de requests (HTTP 429 `RESOURCE_EXHAUSTED`, quota `...RequestsPerDayPerProject...FreeTier`).
+Lo agoté con las pruebas de QA de hoy → el chat en producción muestra "problema técnico"
+hasta el reset diario (medianoche Pacífico). El cap de 3/12h por visitante protege la cuota
+*por usuario*, pero el **tope global diario** es el techo real. **Para una app pública de
+verdad hay que pasar a un plan PAGADO de Gemini** (pay-as-you-go) o el sitio se cae con
+pocos usuarios. Decisión pendiente del usuario.
+
+## 📚 SISTEMA DE GUÍAS renovado + 1er lote de contenido (2026-06-15, sesión tarde)
+
+Trabajo con Jonathan en paralelo, "paso a paso". Foco: **guías ciudadanas para AdSense**.
+
+- **Template de guías reescrito** (`src/app/guias/[slug]/page.tsx`): ahora con **H1 real**
+  (antes el título era `<h2>` — error SEO), renderer de markdown propio (encabezados,
+  **negritas, enlaces `[texto](url)`, listas** con/sin orden; escapa HTML), **respuesta
+  corta** destacada (apunta al featured snippet), bloque **FAQ** visible, caja de
+  **herramienta** (CTA a calculadora) y **JSON-LD** Article + FAQPage + BreadcrumbList.
+  Metadata: `<title>` propio ≤60 + `canonical` + OpenGraph.
+- **Modelo `Guia` extendido** (`src/lib/guias.ts`): campos `categoria` (laboral/vivienda/
+  familia/consumidor), `destacada`, `metaTitle`, `respuestaCorta`, `herramienta`, `faq`.
+  Helpers `guiasDestacadas()` y `categoriasConGuias()` (solo muestran pestañas con guías).
+- **Índice /guias rediseñado**: nuevo `GuiasExplorer.tsx` (client) con **carrusel de
+  destacadas** (scroll-snap horizontal) + **pestañas por macro-grupo**. OJO SEO: TODAS las
+  tarjetas van al DOM (links crawlables); solo se alterna `display`. Abajo, **chat rápido**
+  `<ChatBar />` (consulta → /chat?q=) — pedido del usuario "chatbot al entrar a guías".
+- **6 guías** (todas con citas verificadas contra la DB, ids reales enlazados a la
+  Biblioteca `/leyes/{norma}?art={id}`): Laboral (5) = finiquito⭐, gratificación⭐,
+  vacaciones/feriado, despido sin aviso, horas extras; Arriendo y vivienda (1) = desalojo⭐.
+- **Sitemap arreglado**: antes NO incluía `/guias` ni las guías → ahora sí (`sitemap.ts`).
+- Build OK (6 guías SSG). Verificado visualmente con Playwright (`herramientas-captura/
+  capturar-guia.mjs [base] [ruta]` — captura una guía a página completa; útil para QA visual).
+
+### ⚠️ HALLAZGO de QA de datos (importante, NO publicar guías afectadas aún)
+Al verificar citas para las guías de pensión y consumidor, la DB tiene **versiones
+desactualizadas** de esas leyes:
+- **Ley 14.908 (Pensión de alimentos)**: `fecha_version` **1962** — texto original. Habla
+  de "Jueces de Letras de Menores" (reemplazados por Tribunales de Familia en 2005) y **NO**
+  trae los mínimos 40%/30% del ingreso mínimo ni el Registro Nacional de Deudores (reformas
+  2021-22). → guía de pensión **DIFERIDA** hasta actualizar la norma vía BCN.
+- **Ley 19.496 (Consumidor)**: `fecha_version` **1997**; art. 21 dice garantía de "**tres
+  meses**" (la reforma Pro Consumidor 2021 la subió a **6 meses**). → guía de garantía/
+  consumidor **DIFERIDA**.
+- Código del Trabajo (2003) y Ley 18.101 Arriendo (arts. 3/4): contenido citado **vigente**.
+- **Acción**: el actualizador BCN (pendiente de construir) debe priorizar refrescar 14.908
+  y 19.496. Antes de escribir esas guías, re-bajar esas normas y re-validar.
+
+### Roadmap de guías (llenar ~10 por macro-grupo, sin relleno: calidad o nada)
+- Laboral: faltan fuero maternal, acoso laboral (Ley Karin), licencia médica, jornada/
+  40 horas, contrato a honorarios vs. dependiente.
+- Vivienda: gastos comunes, garantía/mes de arriendo, ruidos molestos.
+- Familia/Consumidor: **bloqueadas** hasta refrescar 14.908 y 19.496.
 
 ## Qué es (1 frase) y metas del kickoff
 

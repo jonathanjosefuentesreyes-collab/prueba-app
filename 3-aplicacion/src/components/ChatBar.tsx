@@ -15,7 +15,6 @@ export default function ChatBar() {
 
   return (
     <div className="barra-chat">
-      <div className="globo">Recomendaciones ingeniosas sobre la ley chilena</div>
       <form onSubmit={enviar}>
         <input
           value={texto}

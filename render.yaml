@@ -1,0 +1,33 @@
+# Blueprint de Render.com para Ley Chilena / AbogaBot.
+# Render lo lee automáticamente al crear un "Blueprint" desde el repo de GitHub.
+#
+# La app Next.js vive en el subdirectorio 3-aplicacion (rootDir). La base de 20.000 leyes
+# va COMPRIMIDA en el repo (3-aplicacion/data/leyes.db.gz, ~79MB para no pasar el límite de
+# 100MB por archivo de GitHub) y el Dockerfile la descomprime durante el build.
+#
+# Falta UNA cosa manual tras conectar el repo: poner GEMINI_API_KEY en el dashboard
+# (marcada como sync:false para que Render la pida y quede como secreto, no en el repo).
+services:
+  - type: web
+    name: leyes-de-chile
+    runtime: docker
+    repo: https://github.com/jonathanjosefuentesreyes-collab/prueba-app
+    branch: main
+    rootDir: 3-aplicacion
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: oregon
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash-lite
+      - key: LIMITE_CHAT_CONSULTAS
+        value: "3"
+      - key: LIMITE_CHAT_HORAS
+        value: "12"
+      - key: NODE_ENV
+        value: production

@@ -51,6 +51,9 @@ export function numeroReal(encabezado: string): string {
   const limpio = encabezado
     .replace(/^art[ií]culo\s*/i, "")
     .replace(/^art\.?\s*/i, "")
+    // Metadata del importador en los DL/DFL refundidos: "27 (DEL ART 1)",
+    // "20 (DEL ART. PRIMERO)" → el número real es lo de antes del paréntesis.
+    .replace(/\s*\((?:DEL\s+)?ART[^)]*\)\s*$/i, "")
     .replace(/[\s.:]+$/g, "")
     .trim();
   return limpio || encabezado;
@@ -90,6 +93,13 @@ export function listarNormas(ids?: number[]): Norma[] {
   }
   for (const r of rows) r.total_articulos = conteos.get(r.id) ?? 0;
   return rows;
+}
+
+// ¿Es una de las leyes núcleo (curadas, las que la gente realmente consulta)?
+// Se usa como guardia: una cita del modelo a una ley fuera de contexto solo se
+// enlaza si es núcleo (evita enlazar leyes obscuras inventadas de memoria).
+export function esLeyNucleo(id: number): boolean {
+  return idsNucleo().includes(id);
 }
 
 export function obtenerNorma(id: number): Norma | undefined {
@@ -149,10 +159,62 @@ function consultaFts(q: string): string | null {
 // Con 20.000+ normas, una ley oscura puede ganarle por bm25 a la canónica
 // ("pensión de alimentos" devolvía una ley vieja en vez de la 14.908). Damos a
 // estas normas un bono de relevancia para que afloren cuando hay match.
+// Leyes muy consultadas que no viven en una materia del grid pero merecen el bono
+// de relevancia del núcleo: la Constitución y la Ley de Migración y Extranjería.
+const NUCLEO_EXTRA = [242302, 1158549];
 let cacheCore: number[] | null = null;
 function idsNucleo(): number[] {
-  if (!cacheCore) cacheCore = [...new Set(Object.values(MATERIAS).flatMap((m) => m.ids))];
+  if (!cacheCore)
+    cacheCore = [...new Set([...Object.values(MATERIAS).flatMap((m) => m.ids), ...NUCLEO_EXTRA])];
   return cacheCore;
+}
+
+// Refundidos DUPLICADOS de leyes núcleo: el archivo BCN trae copias del mismo código
+// con nombre crudo ("DFL 1" = Código del Trabajo, "DFL 2" = Código Civil). Si afloran
+// en la búsqueda, el chatbot las cita con ese nombre feo y duplica la fuente. Se
+// detectan por título idéntico a un núcleo + refundidos de Códigos del núcleo, y se
+// excluyen de la búsqueda (la versión canónica curada queda). Cacheado.
+let cacheDuplicados: Set<number> | null = null;
+function idsDuplicadosNucleo(): Set<number> {
+  if (cacheDuplicados) return cacheDuplicados;
+  const d = getDb();
+  const dup = new Set<number>();
+  const enMayus = (s: string) => s.toUpperCase().normalize("NFD").replace(SIN_TILDES, "");
+  const nucleos = d
+    .prepare(`SELECT id, titulo, nombre_corto, numero_norma FROM normas WHERE id IN (SELECT value FROM json_each(?))`)
+    .all(JSON.stringify(idsNucleo())) as { id: number; titulo: string; nombre_corto: string | null; numero_norma: string | null }[];
+
+  // Identificadores de núcleo que aparecen en el título de un refundido: el nombre
+  // del Código ("CODIGO CIVIL") o el número de ley con puntos ("19.496").
+  const idents: string[] = [];
+  for (const n of nucleos) {
+    if (n.nombre_corto && /^Código/i.test(n.nombre_corto)) idents.push(enMayus(n.nombre_corto));
+    const dig = (n.numero_norma || "").replace(/\D/g, "");
+    if (dig.length >= 4) idents.push(dig.replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+  }
+
+  // 1) Copias con título IDÉNTICO a un núcleo.
+  const mismoTitulo = d.prepare(`SELECT id FROM normas WHERE titulo = ? AND id != ?`);
+  for (const n of nucleos) for (const r of mismoTitulo.all(n.titulo, n.id) as { id: number }[]) dup.add(r.id);
+
+  // 2) Refundidos con nombre CRUDO (DFL/DL/DECRETO N) cuyo título referencia un núcleo.
+  //    Conservador: exige la palabra REFUNDIDO + un identificador de núcleo. Así no
+  //    arrastra leyes que solo "modifican" un código.
+  const crudos = d
+    .prepare(
+      `SELECT id, titulo FROM normas
+       WHERE titulo LIKE '%REFUNDIDO%'
+         AND (nombre_corto GLOB 'DFL [0-9]*' OR nombre_corto GLOB 'DL [0-9]*'
+              OR nombre_corto GLOB 'DECRETO [0-9]*' OR nombre_corto GLOB 'D.L. [0-9]*')`
+    )
+    .all() as { id: number; titulo: string }[];
+  for (const c of crudos) {
+    const t = enMayus(c.titulo);
+    if (idents.some((frag) => t.includes(frag))) dup.add(c.id);
+  }
+
+  cacheDuplicados = dup;
+  return dup;
 }
 
 // `diversificar`: limita a 2 artículos por norma y trae un pool mayor, para que
@@ -169,13 +231,15 @@ export function buscar(
   if (!match) return [];
   const filtro = normaId ? "AND a.norma_id = ?" : "";
   const core = JSON.stringify(idsNucleo());
+  const dups = JSON.stringify([...idsDuplicadosNucleo()]);
   // Trae un pool más grande cuando diversificamos, para poder filtrar por norma.
   const pool = diversificar ? Math.max(limite * 6, 48) : limite;
   // bm25 es negativo (más negativo = más relevante); restar el bono empuja las
   // leyes núcleo hacia arriba, sin anular un match muy fuerte de otra norma.
+  // Se excluyen los refundidos duplicados para no citar copias ("DFL 1"/"DFL 2").
   const args: (string | number)[] = normaId
-    ? [match, normaId, core, pool]
-    : [match, core, pool];
+    ? [match, normaId, dups, core, pool]
+    : [match, dups, core, pool];
   try {
     const filas = getDb()
       .prepare(
@@ -186,6 +250,7 @@ export function buscar(
          JOIN articulos a ON a.id = f.rowid
          JOIN normas n ON n.id = a.norma_id
          WHERE articulos_fts MATCH ? ${filtro}
+           AND a.norma_id NOT IN (SELECT value FROM json_each(?))
          ORDER BY bm25(articulos_fts) - CASE WHEN a.norma_id IN (SELECT value FROM json_each(?)) THEN 6 ELSE 0 END
          LIMIT ?`
       )
@@ -220,6 +285,153 @@ export function articuloPorId(id: number): (Articulo & { nombre: string }) | und
       `SELECT a.*, COALESCE(n.nombre_corto, n.titulo) AS nombre FROM articulos a JOIN normas n ON n.id = a.norma_id WHERE a.id = ?`
     )
     .get(id) as (Articulo & { nombre: string }) | undefined;
+}
+
+// ─── Resolución de citas del modelo ──────────────────────────────────────────
+// AbogaBot responde como asesor y cita leyes por nombre/número; aquí verificamos
+// cada cita contra la base OFICIAL y solo enlazamos lo que existe de verdad. Lo
+// que no se puede verificar no se enlaza (el texto lo menciona, pero sin chip
+// falso). Es el candado que pide el usuario: "que cite la ley y verifique fuentes".
+const soloDigitos = (s: string) => (s || "").replace(/\D/g, "");
+
+const SIN_TILDES = new RegExp("[\\u0300-\\u036f]", "g");
+function normalizarNombre(s: string): string {
+  return (s || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(SIN_TILDES, "") // quita tildes
+    .replace(/n[°º]\s*/g, "")
+    .replace(/["“”']/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normNum(s: string): string {
+  return (s || "")
+    .toLowerCase()
+    .replace(/^art[ií]culo\s*/i, "")
+    .replace(/^art\.?\s*/i, "")
+    .replace(/[\s.]+/g, "");
+}
+
+// Conjunto de normas enlazables por nombre: el núcleo curado + todos los Códigos +
+// la Constitución. Cacheado: la DB es de solo lectura. Cada norma guarda claves
+// normalizadas (nombre completo y versión corta antes de "(" o " - ") para casar
+// citas como "Ley Karin" contra "Ley Karin - Acoso Laboral (21.643)".
+let cacheEnlazables: { id: number; claves: string[]; nucleo: boolean }[] | null = null;
+function enlazables() {
+  if (!cacheEnlazables) {
+    const nuc = new Set(idsNucleo());
+    const filas = getDb()
+      .prepare(
+        `SELECT id, nombre_corto FROM normas
+         WHERE nombre_corto IS NOT NULL
+           AND (nombre_corto LIKE 'Código%' OR nombre_corto LIKE '%onstituci%'
+                OR id IN (SELECT value FROM json_each(?)))`
+      )
+      .all(JSON.stringify(idsNucleo())) as { id: number; nombre_corto: string }[];
+    cacheEnlazables = filas.map((f) => {
+      const base = normalizarNombre(f.nombre_corto);
+      const corta = base.split(/\s+\(|\s+-\s+/)[0].trim();
+      const claves = [...new Set([base, corta].filter((x) => x.length >= 4))];
+      return { id: f.id, claves, nucleo: nuc.has(f.id) };
+    });
+  }
+  return cacheEnlazables;
+}
+
+// Resuelve una referencia textual del modelo ("Código del Trabajo", "Ley 21.325",
+// "Ley N° 20.066") a una norma real. Devuelve undefined si no existe en la base.
+export function normaPorReferencia(ref: string): Norma | undefined {
+  const d = getDb();
+  const r = normalizarNombre(ref);
+  if (!r) return undefined;
+
+  // 1) Por número de ley o decreto ley (DFL se omite: "DFL 1" es ambiguo).
+  const mNum = ref.match(/\b(ley|decreto\s+ley|d\.?\s?l\.?)\b[^\d]*?(\d[\d.]*)/i);
+  if (mNum) {
+    const dig = soloDigitos(mNum[2]);
+    if (dig.length >= 3) {
+      const cand = d.prepare(`SELECT * FROM normas WHERE numero_norma LIKE ?`).all(`%${dig}%`) as Norma[];
+      const exactas = cand.filter((n) => soloDigitos(n.numero_norma || "") === dig);
+      if (exactas.length) {
+        const nuc = new Set(idsNucleo());
+        exactas.sort(
+          (a, b) =>
+            Number(nuc.has(b.id)) - Number(nuc.has(a.id)) ||
+            (a.tier ?? 99) - (b.tier ?? 99) ||
+            a.id - b.id
+        );
+        const elegida = exactas[0];
+        elegida.total_articulos = conteosArticulos().get(elegida.id) ?? 0;
+        return elegida;
+      }
+    }
+  }
+
+  // 2) Por nombre (núcleo + Códigos + Constitución), contención en ambos sentidos.
+  let mejor: { id: number; score: number; nucleo: boolean } | null = null;
+  for (const e of enlazables()) {
+    for (const clave of e.claves) {
+      if (r.includes(clave) || clave.includes(r)) {
+        const score = Math.min(clave.length, r.length);
+        if (!mejor || score > mejor.score || (score === mejor.score && e.nucleo && !mejor.nucleo)) {
+          mejor = { id: e.id, score, nucleo: e.nucleo };
+        }
+      }
+    }
+  }
+  if (mejor) {
+    const n = d.prepare(`SELECT * FROM normas WHERE id = ?`).get(mejor.id) as Norma;
+    n.total_articulos = conteosArticulos().get(n.id) ?? 0;
+    return n;
+  }
+
+  // 3) Fallback: LIKE amplio (prefiere coincidencia en nombre_corto, núcleo, corto).
+  // Excluye nombres CRUDOS sin curar ("DFL 1", "LEY 21325", "DL 476", "DECRETO 100"):
+  // son fragmentos refundidos que, si Gemini cita "DFL N°1", resolverían a la copia
+  // equivocada del Código (las leyes reales ya se resuelven por número arriba).
+  const like = `%${ref.trim().replace(/%/g, "")}%`;
+  const n = d
+    .prepare(
+      `SELECT * FROM normas
+       WHERE (nombre_corto LIKE ? OR titulo LIKE ?)
+         AND nombre_corto NOT GLOB 'DFL [0-9]*' AND nombre_corto NOT GLOB 'DL [0-9]*'
+         AND nombre_corto NOT GLOB 'LEY [0-9]*' AND nombre_corto NOT GLOB 'DECRETO*[0-9]*'
+       ORDER BY CASE WHEN nombre_corto LIKE ? THEN 0 ELSE 1 END,
+                (CASE WHEN tier IS NULL THEN 99 ELSE tier END),
+                LENGTH(COALESCE(nombre_corto, titulo)) LIMIT 1`
+    )
+    .get(like, like, like) as Norma | undefined;
+  if (n) n.total_articulos = conteosArticulos().get(n.id) ?? 0;
+  return n;
+}
+
+// Resuelve el número visible de un artículo ("159", "9 bis", "19") a su fila real
+// dentro de una norma. Acota por LIKE y confirma con numeroReal exacto en JS.
+export function articuloPorNumero(
+  normaId: number,
+  numero: string
+): { id: number; encabezado: string } | undefined {
+  const objetivo = normNum(numero);
+  const dig = soloDigitos(numero);
+  if (!objetivo || !dig) return undefined;
+  const d = getDb();
+  const intentos: [string, string][] = [
+    [`Artículo ${dig}`, `Artículo ${dig} %`],
+    [`Art. ${dig}`, `Art. ${dig} %`],
+    [`%${dig}%`, `%${dig}%`],
+  ];
+  for (const [p1, p2] of intentos) {
+    const filas = d
+      .prepare(
+        `SELECT id, encabezado FROM articulos WHERE norma_id = ? AND (encabezado LIKE ? OR encabezado LIKE ?)
+         ORDER BY LENGTH(encabezado) LIMIT 80`
+      )
+      .all(normaId, p1, p2) as { id: number; encabezado: string }[];
+    for (const f of filas) if (normNum(numeroReal(f.encabezado)) === objetivo) return f;
+  }
+  return undefined;
 }
 
 export interface Grupo { clave: string; etiqueta: string; descripcion: string; normas: Norma[]; }

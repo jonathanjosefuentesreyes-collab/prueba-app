@@ -19,18 +19,20 @@ const ic = {
       <rect x="4" y="2" width="16" height="20" rx="2" /><path d="M8 6h8" /><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01" />
     </svg>
   ),
-  guardadas: (
+  guias: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M19 21 12 16 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+      <path d="M2 5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v15a1.5 1.5 0 0 0-1.5-1.5H4A2 2 0 0 1 2 17z" /><path d="M22 5a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v15a1.5 1.5 0 0 1 1.5-1.5H20a2 2 0 0 0 2-2z" />
     </svg>
   ),
 };
 
-// "Guardadas" se quitó del menú: ya vive como pestaña ❤️ dentro de la Biblioteca
-// (BibliotecaHeader) y el corazón está en cada artículo. Quedan 3 botones.
+// 4 pestañas: Inicio · Guías · Leyes · Calculadora. "Guías" lleva al carrusel de las
+// consultas más frecuentes (qué hacer + enlace al chat). "Guardadas" vive como pestaña
+// ❤️ dentro de la Biblioteca (BibliotecaHeader) y el corazón está en cada artículo.
 const items = [
-  { href: "/leyes", etiqueta: "Todas las Leyes", icono: ic.leyes },
   { href: "/", etiqueta: "Inicio", icono: ic.inicio },
+  { href: "/guias", etiqueta: "Guías", icono: ic.guias },
+  { href: "/leyes", etiqueta: "Leyes", icono: ic.leyes },
   { href: "/calculadora", etiqueta: "Calculadora", icono: ic.calc },
 ];
 
@@ -41,9 +43,11 @@ export default function BottomNav() {
       {items.map((i) => {
         const activo = i.href === "/"
           ? ruta === "/"
-          : i.href === "/leyes"
-            ? (ruta.startsWith("/leyes") || ruta.startsWith("/guias") || ruta.startsWith("/guardadas"))
-            : ruta.startsWith(i.href);
+          : i.href === "/guias"
+            ? ruta.startsWith("/guias")
+            : i.href === "/leyes"
+              ? (ruta.startsWith("/leyes") || ruta.startsWith("/guardadas"))
+              : ruta.startsWith(i.href);
         return (
           <Link key={i.href} href={i.href} className={activo ? "activo" : ""}>
             {i.icono}

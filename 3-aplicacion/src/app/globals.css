@@ -179,8 +179,9 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 .nav-inferior a {
   flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
   font-size: calc(10.5px * var(--escala-letra, 1)); color: var(--texto-suave); padding: 3px 0; font-weight: 600;
+  white-space: nowrap; min-width: 0;
 }
-.nav-inferior a svg { transition: background 0.18s ease, color 0.18s ease; padding: 3px 16px; border-radius: var(--radio-pill); }
+.nav-inferior a svg { transition: background 0.18s ease, color 0.18s ease; padding: 3px 14px; border-radius: var(--radio-pill); }
 .nav-inferior a.activo { color: var(--azul); font-weight: 700; }
 .nav-inferior a.activo svg { background: var(--azul-claro); color: var(--azul); }
 
@@ -204,12 +205,6 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 .huasito { position: relative; width: 44px; height: 44px; flex: none; }
 .huasito img { width: 44px; height: 44px; object-fit: contain; }
 .huasito .punto { position: absolute; right: 1px; bottom: 3px; width: 10px; height: 10px; border-radius: 50%; background: #21b35a; border: 2px solid #fff; }
-.globo {
-  position: absolute; right: 8px; bottom: 62px; max-width: 220px;
-  background: var(--superficie); border: 1px solid var(--azul); color: var(--azul);
-  font-size: calc(12px * var(--escala-letra, 1)); font-weight: 600; padding: 8px 12px; border-radius: 14px 14px 2px 14px;
-  box-shadow: var(--sombra-flotante);
-}
 
 /* ---------- Formularios y botones (Material) ---------- */
 .campo {
@@ -249,15 +244,33 @@ label.etiqueta { display: block; font-size: calc(12px * var(--escala-letra, 1));
 .bot-texto strong { font-weight: 700; color: var(--texto); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .chip {
-  font-size: calc(11.5px * var(--escala-letra, 1)); font-weight: 700; color: var(--azul); background: var(--azul-claro);
-  border-radius: var(--radio-pill); padding: 4px 10px;
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: calc(12px * var(--escala-letra, 1)); font-weight: 700; color: var(--azul);
+  background: var(--azul-claro); border: 1px solid #cfe0f5;
+  border-radius: var(--radio-pill); padding: 6px 11px;
 }
+.chip::before {
+  content: ""; width: 13px; height: 13px; flex: none;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.chip::after { content: "›"; font-weight: 800; opacity: 0.65; margin-left: 1px; }
+.chip:active { transform: scale(0.97); }
 .accion-msg {
   display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
   font-size: calc(12px * var(--escala-letra, 1)); font-weight: 700; color: var(--azul);
   background: var(--azul-claro); border: 0; border-radius: var(--radio-pill); padding: 5px 11px;
 }
 .accion-msg:disabled { opacity: 0.6; cursor: default; }
+.boton-premium {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  font-size: calc(13.5px * var(--escala-letra, 1)); font-weight: 800; color: #5a3d00;
+  background: linear-gradient(135deg, #ffd76a 0%, #f4b942 100%);
+  border: 0; border-radius: var(--radio-pill); padding: 9px 16px;
+  box-shadow: 0 2px 8px rgba(212, 160, 23, 0.35);
+}
+.boton-premium:active { transform: scale(0.96); }
 
 /* ---------- Grupo simple (acordeón legado) ---------- */
 .grupo {

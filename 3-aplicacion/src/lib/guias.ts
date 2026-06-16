@@ -117,6 +117,125 @@ Si tu trabajo es perjudicial para tu salud o la del embarazo (por ejemplo, esfue
     ],
   },
   {
+    slug: "acoso-laboral-ley-karin",
+    titulo: "Sufro acoso laboral: ¿qué puedo hacer? (Ley Karin)",
+    categoria: "laboral",
+    destacada: true,
+    metaTitle: "Acoso laboral en Chile: la Ley Karin | Ley Chilena",
+    descripcion:
+      "Qué es el acoso laboral y sexual, cómo denunciarlo y qué te protege con la Ley Karin y el Código del Trabajo. Pasos, plazos y a quién acudir.",
+    fecha: "2026-06-16",
+    respuestaCorta:
+      "El **acoso laboral** es toda agresión u hostigamiento que afecta tu dignidad o tu ambiente de trabajo. Con la **Ley Karin**, tu empleador está obligado a **prevenirlo** y a **investigar** toda denuncia. Puedes denunciar **por escrito o verbalmente** en tu empresa o directamente en la **Inspección del Trabajo**, que debe tomar medidas de resguardo y resolver. No tienes que aguantarlo: la ley te protege.",
+    contenido: `
+## ¿Qué se considera acoso laboral o sexual?
+El Código del Trabajo exige un trato **libre de violencia y compatible con tu dignidad**, con perspectiva de género ([artículo 2 del Código del Trabajo](/leyes/207436?art=3012)). Son conductas contrarias a eso:
+
+- **Acoso sexual**: requerimientos de carácter sexual no consentidos que amenazan o perjudican tu situación o tus oportunidades en el trabajo.
+- **Acoso laboral**: toda agresión u hostigamiento (de una o varias personas) que te humilla, menoscaba o maltrata, afectando tu dignidad o tu ambiente laboral.
+- **Violencia en el trabajo**: ejercida por terceros ajenos a la empresa (clientes, usuarios) contra el trabajador.
+
+La **Ley Karin** (vigente desde agosto de 2024) actualizó estas reglas: ahora basta **un solo hecho** de hostigamiento para que sea acoso laboral —antes se exigía que fuera reiterado—.
+
+## ¿Qué obligaciones tiene mi empleador?
+Tu empleador debe **proteger tu vida y salud** en el trabajo ([artículo 184](/leyes/207436?art=3353)) y, con la Ley Karin, **prevenir** el acoso: tener un **protocolo de prevención**, informar los canales de denuncia y capacitar al personal ([artículo 211-A](/leyes/207436?art=3387)). No es opcional.
+
+## ¿Cómo denuncio?
+Puedes hacer la denuncia **por escrito o de manera verbal**, y presentarla en **tu empresa** o directamente en la **Inspección del Trabajo** ([artículo 211-B bis](/leyes/207436?art=3389)). Si la haces verbal, deben levantar un acta. Guarda copia de todo (correos, mensajes, testigos).
+
+## ¿Qué pasa después de denunciar?
+La empresa debe **adoptar medidas de resguardo inmediatas** (por ejemplo, separar a las personas involucradas) y luego **investigar**: puede hacer una investigación interna o, en un plazo de **3 días**, remitir los antecedentes a la **Inspección del Trabajo** ([artículo 211-C](/leyes/207436?art=3390)). La investigación es reservada y debe respetar tu derecho a no ser víctima de represalias.
+
+## ¿Qué medidas o sanciones pueden aplicarse?
+Según el resultado del informe, el empleador debe aplicar las **medidas y sanciones que correspondan** dentro de los plazos legales —desde amonestaciones hasta el **despido del acosador** por la causal del artículo 160— y medidas de resguardo para la persona afectada ([artículo 211-E](/leyes/207436?art=3392)).
+
+## ¿Qué hacer ahora?
+1. **Reúne pruebas**: correos, mensajes, fechas, nombres de testigos.
+2. **Denuncia** por escrito o verbalmente en tu empresa o en la **Inspección del Trabajo** (no necesitas abogado para denunciar).
+3. Pide que apliquen **medidas de resguardo** mientras se investiga.
+4. Si hay riesgo para tu salud, acude a tu **mutualidad** (la Ley Karin reconoce el daño psicológico como riesgo laboral).
+5. ¿Tu caso es distinto? Cuéntaselo a **AbogaBot** y te explica qué dice la ley para tu situación.
+`,
+    faq: [
+      {
+        pregunta: "¿El acoso laboral tiene que ser reiterado?",
+        respuesta:
+          "No. Desde la Ley Karin (2024), basta un solo hecho de hostigamiento o agresión que afecte tu dignidad o ambiente laboral para que sea acoso laboral (artículo 2 del Código del Trabajo).",
+      },
+      {
+        pregunta: "¿Puedo denunciar directamente en la Inspección del Trabajo?",
+        respuesta:
+          "Sí. Puedes denunciar en tu empresa o directamente en la Inspección del Trabajo, por escrito o de manera verbal (artículo 211-B bis).",
+      },
+      {
+        pregunta: "¿Me pueden despedir por denunciar acoso?",
+        respuesta:
+          "No. Las represalias por denunciar están prohibidas. El empleador debe adoptar medidas de resguardo para la persona afectada durante y después de la investigación (artículos 211-C y 211-E).",
+      },
+      {
+        pregunta: "¿En cuánto tiempo deben investigar?",
+        respuesta:
+          "La empresa investiga internamente o, en un plazo de 3 días, remite los antecedentes a la Inspección del Trabajo (artículo 211-C). La investigación es acotada y reservada.",
+      },
+    ],
+  },
+  {
+    slug: "cuantas-horas-se-trabaja-a-la-semana",
+    titulo: "¿Cuántas horas se trabaja a la semana en Chile? (Ley de 40 horas)",
+    categoria: "laboral",
+    destacada: true,
+    metaTitle: "¿Cuántas horas se trabaja a la semana? 40 horas | Ley Chilena",
+    descripcion:
+      "La jornada laboral en Chile se está reduciendo a 40 horas de forma gradual. Cuántas horas corresponden hoy, cómo se distribuyen y qué dice el Código del Trabajo.",
+    fecha: "2026-06-16",
+    respuestaCorta:
+      "La jornada ordinaria máxima en Chile se está reduciendo de **45 a 40 horas semanales** de forma **gradual**: bajó a **44 horas** en abril de 2024, a **42 horas** en abril de 2026, y llegará a **40 horas** en abril de 2028. Esa jornada se distribuye en **5 o 6 días** a la semana, y lo que trabajes por sobre ella son **horas extraordinarias** con recargo.",
+    contenido: `
+## ¿Cuántas horas son la jornada normal hoy?
+La ley fijó la jornada ordinaria máxima en **40 horas semanales**, pero la rebaja es **gradual** ([artículo 22 del Código del Trabajo](/leyes/207436?art=3039)):
+
+- **44 horas** desde abril de 2024
+- **42 horas** desde abril de 2026
+- **40 horas** desde abril de 2028
+
+Es decir, en 2026 el máximo legal es de **42 horas** semanales, en camino a las 40. Tu contrato puede pactar **menos** horas, pero nunca más que el máximo legal.
+
+## ¿En cuántos días se reparte?
+La jornada semanal no puede distribuirse en **más de 6 ni en menos de 5 días** ([artículo 28](/leyes/207436?art=3050)). Tampoco puede haber jornadas ordinarias de más de **10 horas** diarias.
+
+## ¿Puedo trabajar 4 días y descansar 3?
+La ley de 40 horas permite **pactar promedios**: distribuir la jornada en ciclos de hasta 4 semanas, lo que abre la puerta a semanas de 4 días por acuerdo con el empleador ([artículo 22](/leyes/207436?art=3039)). Debe quedar por escrito y respetar los límites diarios.
+
+## ¿Y si trabajo más de mi jornada?
+Todo lo que trabajes por sobre tu jornada pactada son **horas extraordinarias**, y se pagan con un **recargo mínimo del 50%**. Revisa nuestra guía de horas extras para calcularlas.
+
+## ¿Hay quienes quedan fuera del límite?
+Sí. Algunos cargos de **exclusiva confianza** o sin fiscalización superior inmediata (gerentes, trabajadores que prestan servicios fuera de la empresa) pueden quedar excluidos del límite de jornada, según su situación ([artículo 22](/leyes/207436?art=3039)).
+
+## ¿Qué hacer ahora?
+1. Revisa tu **contrato**: la jornada pactada no puede superar el máximo legal vigente.
+2. Cuenta tus horas: si trabajas más, son **horas extra** con recargo.
+3. Si te exigen más horas sin pago de recargo, puedes reclamar en la **Dirección del Trabajo**.
+`,
+    faq: [
+      {
+        pregunta: "¿Cuántas horas semanales son legales en 2026?",
+        respuesta:
+          "En 2026 el máximo legal es de 42 horas semanales. La jornada baja de forma gradual: 44 horas (2024), 42 horas (2026) y 40 horas (2028), según el artículo 22 del Código del Trabajo.",
+      },
+      {
+        pregunta: "¿La ley de 40 horas permite la semana de 4 días?",
+        respuesta:
+          "Lo habilita: permite distribuir la jornada en promedios de hasta 4 semanas, lo que hace posible la semana de 4 días por acuerdo escrito con el empleador, respetando los límites diarios (artículo 22).",
+      },
+      {
+        pregunta: "¿Cuántos días a la semana puedo trabajar como máximo?",
+        respuesta:
+          "La jornada ordinaria semanal se distribuye en no más de 6 ni menos de 5 días, y no puede superar las 10 horas diarias (artículo 28).",
+      },
+    ],
+  },
+  {
     slug: "finiquito-cuanto-me-corresponde",
     titulo: "¿Cuánto me corresponde de finiquito si me despiden en Chile?",
     categoria: "laboral",
@@ -408,26 +527,58 @@ Si te despidieron por **faltas graves** (artículo 160, como abandono de deberes
   },
   {
     slug: "calcular-horas-extras",
-    titulo: "Guía rápida: Cómo calcular tus horas extras",
+    titulo: "¿Cómo se calculan las horas extras y cuánto deben pagarme?",
     categoria: "laboral",
-    descripcion: "Aprende la fórmula legal exacta para saber cuánto deben pagarte por cada hora extra trabajada en Chile.",
-    fecha: "2026-06-10",
+    metaTitle: "Horas extras en Chile: cómo se calculan | Ley Chilena",
+    descripcion:
+      "Qué son las horas extraordinarias, cuánto deben pagártelas (recargo del 50%) y cómo estimar el valor de tu hora extra según el Código del Trabajo.",
+    fecha: "2026-06-16",
+    respuestaCorta:
+      "Las **horas extraordinarias** son las que trabajas **por sobre tu jornada pactada**. Se pagan con un **recargo mínimo del 50%**: cada hora extra vale **1,5 veces** tu hora normal. Deben pactarse **por escrito**, solo para necesidades temporales de la empresa, y con un **máximo de 2 por día**. El pago va en la liquidación del mes en que las trabajaste.",
     contenido: `
-Las horas extraordinarias son aquellas que exceden la jornada ordinaria de trabajo (actualmente con tope legal de 45 o 40 horas, dependiendo de la implementación de la nueva ley).
+## ¿Qué se considera hora extra?
+Es toda hora que trabajas **por sobre el máximo legal o por sobre la jornada pactada** en tu contrato, si esta es menor ([artículo 30 del Código del Trabajo](/leyes/207436?art=3052)). Como la jornada legal se está reduciendo de forma gradual (44 horas en 2024, **42 en 2026** y 40 en 2028), las horas extra se cuentan sobre la jornada que te corresponde hoy.
 
-### El Recargo Legal
-Según el Código del Trabajo (Artículo 32), las horas extras **se pagan con un recargo del 50%** sobre el sueldo convenido para la jornada ordinaria. Es decir, valen un 1.5 veces más que tu hora normal.
+## ¿Cuánto deben pagarme por cada hora extra?
+El recargo mínimo es del **50%** sobre el sueldo convenido para tu jornada ordinaria ([artículo 32](/leyes/207436?art=3054)). Es decir, **cada hora extra vale 1,5 veces tu hora normal**. Tu contrato puede pactar un recargo mayor, pero nunca menor.
 
-### La Fórmula
-Para calcular cuánto vale tu hora extra si tienes un sueldo mensual:
-1. Divide tu sueldo base mensual por 30 para obtener tu sueldo diario.
-2. Multiplica el sueldo diario por 28 (los días de la jornada legal mensual).
-3. Divide el resultado por 180 (el total de horas ordinarias del mes).
-4. El resultado es el valor de tu hora normal.
-5. Multiplica ese valor por 1.5 y obtendrás el valor exacto de tu hora extra.
+## ¿Cómo estimo el valor de mi hora extra?
+1. Calcula el valor de tu **hora ordinaria**: divide tu sueldo mensual por el total de horas que trabajas al mes (con jornada de 42 horas, son unas **168 horas** al mes).
+2. Multiplica ese valor por **1,5** para obtener el valor de tu hora extra.
 
-Recuerda que las horas extras deben pactarse por escrito y solo para atender necesidades temporales de la empresa.
-    `
+Ejemplo con sueldo de $500.000 y jornada de 42 horas: tu hora ordinaria es aprox. $500.000 ÷ 168 ≈ **$2.976**, y cada hora extra vale ≈ **$4.464**. Para el valor exacto, la **Dirección del Trabajo** tiene una calculadora oficial.
+
+## ¿Hay un máximo de horas extra?
+Sí. Pueden pactarse hasta **2 horas extraordinarias por día**, y solo en faenas que no perjudiquen tu salud ([artículo 31](/leyes/207436?art=3053)). Además, los pactos deben constar **por escrito** y responder a necesidades temporales de la empresa ([artículo 32](/leyes/207436?art=3054)).
+
+## ¿Qué hacer ahora?
+1. Revisa tu **liquidación de sueldo**: las horas extra deben aparecer detalladas y con el recargo.
+2. Lleva tu propio **registro de horas** trabajadas (la empresa también está obligada a registrarlas).
+3. Si te hacen trabajar más sin pagar el recargo, puedes reclamar en la **Dirección del Trabajo**.
+4. ¿Tienes dudas con tu caso? Pregúntale a **AbogaBot**.
+`,
+    faq: [
+      {
+        pregunta: "¿Cuánto se paga la hora extra en Chile?",
+        respuesta:
+          "Con un recargo mínimo del 50% sobre el valor de tu hora ordinaria, es decir, 1,5 veces tu hora normal (artículo 32 del Código del Trabajo). El contrato puede pactar un recargo mayor, nunca menor.",
+      },
+      {
+        pregunta: "¿Cuántas horas extra puedo hacer al día?",
+        respuesta:
+          "Un máximo de 2 horas extraordinarias por día, en faenas que no perjudiquen la salud del trabajador (artículo 31). Deben pactarse por escrito y para necesidades temporales (artículo 32).",
+      },
+      {
+        pregunta: "¿Las horas extra se pueden pagar con tiempo libre?",
+        respuesta:
+          "No. Las horas extraordinarias deben pagarse en dinero con el recargo del 50%, junto con las remuneraciones del período. No pueden compensarse con días libres.",
+      },
+      {
+        pregunta: "¿Qué pasa si trabajo más horas pero no las pactamos por escrito?",
+        respuesta:
+          "Igual deben pagártelas con recargo: se consideran extraordinarias las trabajadas con conocimiento del empleador, aunque no haya pacto escrito (artículos 30 y 32).",
+      },
+    ],
   }
 ];
 

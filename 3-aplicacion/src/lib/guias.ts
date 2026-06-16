@@ -45,6 +45,78 @@ export const CATEGORIAS: Record<CategoriaGuia, { etiqueta: string; emoji: string
 
 export const guias: Guia[] = [
   {
+    slug: "me-pueden-despedir-embarazada",
+    titulo: "¿Me pueden despedir si estoy embarazada en Chile?",
+    categoria: "laboral",
+    destacada: true,
+    metaTitle: "Despido en el embarazo: el fuero maternal | Ley Chilena",
+    descripcion:
+      "¿Pueden despedirte estando embarazada? El fuero maternal te protege desde el embarazo hasta un año después del postnatal. Conoce tus derechos y qué hacer.",
+    fecha: "2026-06-16",
+    respuestaCorta:
+      "**No, salvo excepciones.** Desde que quedas embarazada y hasta **un año después** de terminado tu postnatal, tienes **fuero maternal**: el empleador **no puede despedirte** sin pedir antes autorización a un juez (desafuero). Si te despiden igual, el despido **no vale** y puedes exigir que te reincorporen y te paguen los sueldos del tiempo que estuviste fuera. El fuero te protege **incluso si el empleador no sabía** de tu embarazo.",
+    contenido: `
+## ¿Me pueden despedir estando embarazada?
+No de forma libre. La ley te da **fuero maternal**, una protección especial que impide que tu empleador te despida por su sola voluntad ([artículo 201 del Código del Trabajo](/leyes/207436?art=3373)). Para terminar tu contrato necesita **autorización previa de un juez**; sin esa autorización, el despido **no produce efecto** ([artículo 174](/leyes/207436?art=3310)).
+
+## ¿Desde cuándo y hasta cuándo me protege el fuero?
+El fuero corre **desde el inicio del embarazo** y dura hasta **un año después** de terminado el descanso de maternidad (el postnatal), sin contar el permiso postnatal parental ([artículo 201](/leyes/207436?art=3373)). En total suele superar los dos años de protección.
+
+Importante: te protege **aunque todavía no hayas avisado** que estás embarazada. El fuero opera por el hecho del embarazo, no por el aviso.
+
+## ¿Qué pasa si me despiden igual?
+Si te despiden sin la autorización del juez, el despido es **nulo**: puedes pedir que te **reincorporen** y que te **paguen las remuneraciones** de todo el tiempo que estuviste indebidamente fuera.
+
+¿Y si te despidieron sin que el empleador supiera de tu embarazo? También quedas protegida: basta con presentar el **certificado médico** y solicitar tu reincorporación ([artículo 201](/leyes/207436?art=3373)).
+
+## ¿Entonces nunca pueden despedirme?
+Sí pueden, pero solo con **autorización judicial previa** (un trámite llamado *desafuero*) y por causas justificadas, como el **vencimiento del plazo** del contrato, la **conclusión de la obra** o una **causal grave** del artículo 160 ([artículo 174](/leyes/207436?art=3310)). El juez revisa si la causal es real antes de permitir el despido.
+
+## ¿Qué descansos me corresponden?
+- **Descanso de maternidad**: 6 semanas antes del parto y 12 semanas después ([artículo 195](/leyes/207436?art=3365)).
+- **Permiso postnatal parental**: 12 semanas adicionales después del postnatal ([artículo 197 bis](/leyes/207436?art=3368)).
+
+Durante esos períodos recibes un subsidio que reemplaza tu remuneración.
+
+## ¿Pueden cambiarme de funciones por el embarazo?
+Si tu trabajo es perjudicial para tu salud o la del embarazo (por ejemplo, esfuerzo físico o turnos de noche), tienen que **trasladarte a otras funciones sin rebajarte el sueldo** ([artículo 202](/leyes/207436?art=3374)).
+
+## ¿Qué hacer ahora?
+1. **Avisa con un certificado médico** apenas confirmes el embarazo (aunque el fuero te protege aun sin avisar, deja todo por escrito).
+2. Si **te despidieron**, presenta el certificado y **pide por escrito tu reincorporación** lo antes posible.
+3. Recuerda: sin **autorización del juez**, tu despido **no vale**.
+4. Reclama gratis en la **Dirección del Trabajo** o pide orientación en la **Corporación de Asistencia Judicial**; si debes demandar, hazlo pronto.
+5. ¿Tu caso es distinto? Cuéntaselo a **AbogaBot** y te explica qué dice la ley para tu situación.
+`,
+    faq: [
+      {
+        pregunta: "¿El fuero maternal aplica si mi contrato es a plazo fijo o por obra?",
+        respuesta:
+          "Sí. Aunque tu contrato sea a plazo fijo o por obra, el empleador necesita autorización judicial previa para terminarlo durante el fuero (artículos 174 y 201 del Código del Trabajo). No basta con que 'se cumpla el plazo'.",
+      },
+      {
+        pregunta: "¿Me protege el fuero si el empleador no sabía que estaba embarazada?",
+        respuesta:
+          "Sí. El fuero opera por el hecho del embarazo, no por el aviso. Si te despidieron sin saberlo, presenta el certificado médico y debes ser reincorporada (artículo 201).",
+      },
+      {
+        pregunta: "¿Cuánto dura el fuero maternal?",
+        respuesta:
+          "Desde el inicio del embarazo hasta un año después de terminado el descanso de maternidad (postnatal), sin contar el permiso postnatal parental (artículo 201).",
+      },
+      {
+        pregunta: "¿Qué es el desafuero?",
+        respuesta:
+          "Es el juicio en que el empleador pide a un juez autorización para despedir a una trabajadora con fuero. Sin esa autorización previa, el despido es nulo (artículo 174).",
+      },
+      {
+        pregunta: "¿El padre también tiene protección?",
+        respuesta:
+          "El padre tiene derecho a un permiso pagado de 5 días por el nacimiento y, si la madre le traspasa parte del postnatal parental, queda con fuero por ese período (artículos 195 y 197 bis).",
+      },
+    ],
+  },
+  {
     slug: "finiquito-cuanto-me-corresponde",
     titulo: "¿Cuánto me corresponde de finiquito si me despiden en Chile?",
     categoria: "laboral",

@@ -1,7 +1,13 @@
 # Ley Chilena (AbogaBot v2) — CONTINUAR.md
 
-Última actualización: **2026-06-16** — MVP freemium cerrado y auditado: calculadora 1/día,
-chat 3/día, PWA instalable, Render listo. Espera OK del usuario para commit final y deploy.
+Última actualización: **2026-06-16** — 🚀 **MVP LIVE EN RENDER**:
+**https://leyes-de-chile.onrender.com** (plan Free). Chat (3/día), calculadora (1/día),
+biblioteca DB, guías y PWA — todo verificado funcionando en producción.
+
+> **Hosting = Render** (service `srv-d8oeegbeo5us73e5i9eg`, repo público `prueba-app`, root
+> `3-aplicacion`, Docker, auto-deploy ON). Fly abandonado (trial terminado). La DB va comprimida
+> en git (`data/leyes.db.gz`, 79MB) y el Dockerfile la descomprime. Render free duerme tras
+> 15 min (cold start ~30-60s). Gemini sigue free (tope diario global) → pagar para público real.
 
 ## ✅ MVP freemium + auditoría (2026-06-16)
 

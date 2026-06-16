@@ -82,7 +82,7 @@ function etiquetaLey(nombre: string, titulo?: string): string {
 // gancho a Premium). En memoria: barrera básica, no control estricto (se reinicia
 // si la máquina se reinicia). Configurable por env.
 const MAX_CONSULTAS = Number(process.env.LIMITE_CHAT_CONSULTAS || 3);
-const VENTANA_MS = Number(process.env.LIMITE_CHAT_HORAS || 12) * 60 * 60 * 1000;
+const VENTANA_MS = Number(process.env.LIMITE_CHAT_HORAS || 24) * 60 * 60 * 1000;
 const contador = new Map<string, { inicio: number; n: number }>();
 function ipDe(req: Request): string {
   return (

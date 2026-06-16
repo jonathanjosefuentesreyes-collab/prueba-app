@@ -231,8 +231,8 @@ export default function ChatClient() {
           }}
         >
           {restantes > 0
-            ? `Te ${restantes === 1 ? "queda" : "quedan"} ${restantes} ${restantes === 1 ? "consulta gratis" : "consultas gratis"}`
-            : "Sin consultas gratis · ✨ Actualiza a Premium para más"}
+            ? `Te ${restantes === 1 ? "queda" : "quedan"} ${restantes} ${restantes === 1 ? "consulta gratis hoy" : "consultas gratis hoy"}`
+            : "Sin consultas gratis hoy · ✨ Actualiza a Premium para más"}
         </p>
       )}
       <form

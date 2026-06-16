@@ -1,8 +1,38 @@
 # Ley Chilena (AbogaBot v2) — CONTINUAR.md
 
-Última actualización: **2026-06-15 (noche, 2)** — pulido de interfaz móvil + pestaña Guías
-+ pasada de mejora a las skills. **2 bloqueantes de infra: Gemini free agotado y trial Fly
-terminado** (ver abajo). Historial completo más abajo.
+Última actualización: **2026-06-16** — MVP freemium cerrado y auditado: calculadora 1/día,
+chat 3/día, PWA instalable, Render listo. Espera OK del usuario para commit final y deploy.
+
+## ✅ MVP freemium + auditoría (2026-06-16)
+
+Modelo definido con el usuario y aplicado:
+- **Biblioteca de leyes** = la base de datos (SQLite/FTS5): **sin Gemini, ilimitada y gratis**.
+- **Calculadora de finiquito**: **1 cálculo gratis/día por persona** (localStorage, gancho
+  Premium). Indicador "Tienes 1 cálculo gratis hoy"; al 2º intento → caja Premium (placeholder).
+  Motor determinista intacto (`probar-finiquito.ts` pasa).
+- **Chatbot**: **3 consultas gratis/día** (ventana 24h; antes 12h). Cita solo del contexto;
+  al agotarse → gancho Premium. Descuenta solo si la respuesta sale bien.
+- **PWA instalable**: agregado `public/sw.js` (service worker network-first, no toca /api) +
+  `RegistrarSW` en el layout. Manifest ya estaba (standalone, theme, maskable).
+
+**Auditoría (abogabot-qa)**: build limpio; **14/14 rutas 200, cero 404**; key solo
+server-side (no en bundle); citas del chat ancladas al contexto (anti-invención). Verificado
+visualmente con Playwright (home, guías, calculadora, chat, biblioteca, splash).
+**Veredicto: APTO CON PENDIENTES** (los pendientes no son bugs; son datos + infra + contenido).
+
+### Falencias / pendientes propuestos (NO bloquean que el MVP funcione)
+1. **Datos viejos en 2 leyes** (ya conocido): Ley 14.908 (1962, sin mínimos 40/30% ni Registro
+   de Deudores) y Ley 19.496 (art. 21 dice 3 meses; la reforma 2021 son 6). El chat puede citar
+   texto desactualizado → re-bajar de BCN antes de promocionar guías de pensión/consumidor.
+2. **Infra (decisión del usuario, cuesta plata)**: Gemini free topa cuota diaria global → el
+   chat cae a "problema técnico"; Render free duerme (cold start ~30-60s). Para público real:
+   Gemini pagado; hosting con tarjeta o aceptar el sleep de Render.
+3. **Premium es placeholder** (sin pasarela). Cuando haya tráfico: Webpay/Flow/Mercado Pago o
+   membresía. La calculadora 1/día es barrera suave (localStorage, bypasseable en incógnito).
+4. **AdSense aún no**: faltan dominio propio + 12-15 guías + analítica (GA4/Search Console).
+   El ingreso inicial real es tráfico SEO (más guías), no anuncios todavía.
+5. **Menor**: `logo.png` es JPEG etiquetado .png (funciona, Chrome lo sniffa); ideal un PNG
+   real con zona segura para el ícono maskable.
 
 ## 🎨 Pulido de interfaz + pestaña Guías + skills (2026-06-15, sesión noche 2)
 

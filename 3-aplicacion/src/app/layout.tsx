@@ -3,6 +3,7 @@ import { Roboto, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import Splash from "@/components/Splash";
+import RegistrarSW from "@/components/RegistrarSW";
 import { SettingsProvider } from "@/contexts/SettingsContext";
 
 // Tipografías del sistema de diseño oficial del Estado de Chile
@@ -42,6 +43,7 @@ export default function RootLayout({
     <html lang="es" className={`${roboto.variable} ${robotoSlab.variable}`}>
       <body>
         <Splash />
+        <RegistrarSW />
         <SettingsProvider>
           <div className="shell">{children}</div>
           <BottomNav />

@@ -28,6 +28,6 @@ services:
       - key: LIMITE_CHAT_CONSULTAS
         value: "3"
       - key: LIMITE_CHAT_HORAS
-        value: "12"
+        value: "24"
       - key: NODE_ENV
         value: production

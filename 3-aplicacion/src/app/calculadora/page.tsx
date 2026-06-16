@@ -1,8 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { calcularFiniquito, type Causal, type ResultadoFiniquito } from "@/lib/finiquito";
+
+// Límite freemium: 1 cálculo gratis por día por persona (localStorage). El motor es
+// determinista y corre en el navegador, así que el límite es una barrera suave que
+// engancha a Premium —no un control estricto—, en la misma línea que la cuota del chat.
+const MAX_CALC_DIA = 1;
+const CLAVE_USOS = "calc_finiquito_usos";
+function leerUsosHoy(): number {
+  try {
+    const raw = JSON.parse(localStorage.getItem(CLAVE_USOS) || "{}");
+    return raw.dia === new Date().toISOString().slice(0, 10) ? raw.n || 0 : 0;
+  } catch {
+    return 0;
+  }
+}
+function registrarUso(): number {
+  const dia = new Date().toISOString().slice(0, 10);
+  const n = leerUsosHoy() + 1;
+  try {
+    localStorage.setItem(CLAVE_USOS, JSON.stringify({ dia, n }));
+  } catch {}
+  return n;
+}
 
 const CAUSALES: { valor: Causal; etiqueta: string }[] = [
   { valor: "necesidades_empresa", etiqueta: "Necesidades de la empresa (art. 161)" },
@@ -27,6 +49,12 @@ export default function Calculadora() {
   const [resultado, setResultado] = useState<ResultadoFiniquito | null>(null);
   const [error, setError] = useState("");
   const [buscandoUf, setBuscandoUf] = useState(false);
+  const [usados, setUsados] = useState(0);
+  const [premium, setPremium] = useState(false);
+  const [notaPremium, setNotaPremium] = useState(false);
+
+  useEffect(() => { setUsados(leerUsosHoy()); }, []);
+  const sinCalculosHoy = usados >= MAX_CALC_DIA;
 
   async function ufDeHoy() {
     setBuscandoUf(true);
@@ -45,19 +73,24 @@ export default function Calculadora() {
   function calcular(e: React.FormEvent) {
     e.preventDefault();
     setError("");
+    // Ya usó su cálculo gratis de hoy → gancho Premium (no recalcula; deja ver el anterior).
+    if (sinCalculosHoy) {
+      setPremium(true);
+      return;
+    }
     try {
-      setResultado(
-        calcularFiniquito({
-          causal,
-          fechaInicio: inicio,
-          fechaTermino: termino,
-          remuneracionMensual: sueldo,
-          valorUF: uf,
-          avisoPrevio30Dias: aviso,
-          diasFeriadoAcumuladosHabiles: vacaciones,
-          diasTrabajadosImpagos: impagos,
-        })
-      );
+      const r = calcularFiniquito({
+        causal,
+        fechaInicio: inicio,
+        fechaTermino: termino,
+        remuneracionMensual: sueldo,
+        valorUF: uf,
+        avisoPrevio30Dias: aviso,
+        diasFeriadoAcumuladosHabiles: vacaciones,
+        diasTrabajadosImpagos: impagos,
+      });
+      setResultado(r);
+      setUsados(registrarUso());
     } catch (err) {
       setResultado(null);
       setError(err instanceof Error ? err.message : "Revisa los datos ingresados.");
@@ -69,7 +102,7 @@ export default function Calculadora() {
     : "";
 
   return (
-    <main>
+    <main style={{ paddingBottom: 80 }}>
       <header className="header">
         <span className="marca"><span className="azul">Calculadora</span> <span className="rojo">de Finiquito</span></span>
       </header>
@@ -118,7 +151,25 @@ export default function Calculadora() {
           </button>
         </div>
         {error && <p className="aviso">{error}</p>}
+        <p style={{ margin: "2px 0 0", textAlign: "center", fontSize: 12, fontWeight: 600, color: sinCalculosHoy ? "var(--rojo)" : "var(--texto-suave)" }}>
+          {sinCalculosHoy ? "Usaste tu cálculo gratis de hoy · ✨ Premium para más" : "Tienes 1 cálculo de finiquito gratis hoy"}
+        </p>
       </form>
+
+      {premium && (
+        <div className="tarjeta" style={{ marginTop: 14, textAlign: "center" }}>
+          <p style={{ margin: "0 0 4px", fontWeight: 700 }}>Llegaste a tu cálculo gratis de hoy 🙂</p>
+          <p className="nota" style={{ margin: "0 0 12px" }}>
+            Con <strong>Premium</strong> calculas finiquitos sin límite. Tu cálculo gratis se renueva mañana.
+          </p>
+          <button className="boton-premium" onClick={() => setNotaPremium(true)}>✨ Actualizar a Premium</button>
+          {notaPremium && (
+            <p className="nota" style={{ marginTop: 10 }}>
+              🚧 Los planes Premium están en preparación. ¡Gracias por tu interés!
+            </p>
+          )}
+        </div>
+      )}
 
       {resultado && (
         <div style={{ marginTop: 14 }}>

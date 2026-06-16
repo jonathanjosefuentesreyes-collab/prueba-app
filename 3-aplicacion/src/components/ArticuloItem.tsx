@@ -35,6 +35,23 @@ export default function ArticuloItem({
   const [reproduciendo, setReproduciendo] = useState(false);
   const [esFavorito, setEsFavorito] = useState(false);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const articuloRef = useRef<HTMLElement>(null);
+
+  // Si este es el artículo destacado (se llegó con ?art=ID desde un chip del chat o
+  // una guía), hacer scroll hasta él al cargar para que se vea de inmediato. Se repite
+  // el scroll porque el layout se mueve mientras carga (fuentes/hidratación) y el
+  // primer salto quedaría corrido; las repeticiones lo recentran ya estabilizado.
+  useEffect(() => {
+    if (!destacado) return;
+    const ir = (suave: boolean) =>
+      articuloRef.current?.scrollIntoView({ behavior: suave ? "smooth" : "auto", block: "start" });
+    const ts = [
+      setTimeout(() => ir(true), 350),
+      setTimeout(() => ir(false), 1000),
+      setTimeout(() => ir(false), 1700),
+    ];
+    return () => ts.forEach(clearTimeout);
+  }, [destacado]);
 
   // Cargar estado de favorito desde localStorage
   useEffect(() => {
@@ -175,7 +192,9 @@ export default function ArticuloItem({
   } : {};
 
   return (
-    <article 
+    <article
+      ref={articuloRef}
+      id={destacado ? `art-${articulo.id}` : undefined}
       className={`articulo ${destacado ? "destacado" : ""}`}
       style={{
         display: "flex",
@@ -185,7 +204,9 @@ export default function ArticuloItem({
         borderRadius: "16px",
         padding: "16px",
         backgroundColor: "#ffffff",
-        boxShadow: "var(--sombra)",
+        border: destacado ? "2px solid var(--azul)" : undefined,
+        boxShadow: destacado ? "0 0 0 4px rgba(10, 69, 149, 0.18)" : "var(--sombra)",
+        scrollMarginTop: destacado ? 14 : undefined,
         transition: "all 0.2s ease",
         ...playingStyle
       }}

@@ -107,6 +107,14 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
   min-height: 56px;
 }
 .header img { width: 36px; height: 36px; border-radius: 9px; background: #fff; padding: 3px; }
+/* Logo del inicio (el copihue + balanza) como medallón: grande, círculo claro para
+   que se vea completo (rojo Y azul), y contorno dorado. */
+.header .logo-inicio {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: #fff; padding: 3px; object-fit: contain;
+  border: 2px solid #e3b341;
+  box-shadow: 0 0 7px rgba(227, 179, 65, 0.45);
+}
 .header svg { color: #fff; }
 .marca { font-size: calc(20px * var(--escala-letra, 1)); font-weight: 900; letter-spacing: -0.4px; color: #fff; }
 .header .marca .azul, .header .marca .rojo, .marca .azul, .marca .rojo { color: #fff; }
@@ -152,6 +160,40 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 }
 .materia svg { display: block; margin: 0 auto 7px; }
 .materia:active { transform: scale(0.96); }
+
+/* ---------- Carrusel de leyes recién aprobadas (estilo gob.cl) ---------- */
+.carrusel-leyes {
+  display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 2px 2px 10px; margin: 0 -2px;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.carrusel-leyes::-webkit-scrollbar { display: none; }
+.carrusel-card {
+  position: relative; flex: 0 0 auto; width: 168px; scroll-snap-align: start;
+  background: var(--superficie); border: 1px solid var(--borde); border-radius: 12px;
+  padding: 14px 13px 12px; display: flex; flex-direction: column; gap: 7px;
+  box-shadow: var(--sombra); overflow: hidden;
+}
+.carrusel-card:active { transform: scale(0.98); }
+/* Tonos de la bandera: las tarjetas van blanco → azul → rojo (izq a der). */
+.carrusel-card.azul { background: var(--azul); border-color: var(--azul-oscuro); }
+.carrusel-card.rojo { background: var(--rojo); border-color: #b3241a; }
+.carrusel-card.azul .carrusel-nombre, .carrusel-card.rojo .carrusel-nombre { color: #fff; }
+.carrusel-card.azul .carrusel-fecha, .carrusel-card.rojo .carrusel-fecha { color: rgba(255, 255, 255, 0.88); }
+.carrusel-card.azul .carrusel-badge, .carrusel-card.rojo .carrusel-badge { background: rgba(255, 255, 255, 0.22); color: #fff; }
+.carrusel-badge {
+  align-self: flex-start; background: var(--azul-claro); color: var(--azul);
+  font-size: calc(10px * var(--escala-letra, 1)); font-weight: 800; letter-spacing: 0.2px;
+  padding: 3px 9px; border-radius: var(--radio-pill); margin-top: 4px;
+}
+.carrusel-nombre {
+  font-size: calc(13px * var(--escala-letra, 1)); font-weight: 700; color: #1e293b; line-height: 1.35;
+  display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.carrusel-fecha {
+  margin-top: auto; display: inline-flex; align-items: center; gap: 5px;
+  font-size: calc(10.8px * var(--escala-letra, 1)); color: var(--texto-suave); font-weight: 600;
+}
 
 /* ---------- Tarjetas / listas ---------- */
 .tarjeta {
@@ -271,6 +313,43 @@ label.etiqueta { display: block; font-size: calc(12px * var(--escala-letra, 1));
   box-shadow: 0 2px 8px rgba(212, 160, 23, 0.35);
 }
 .boton-premium:active { transform: scale(0.96); }
+
+/* ---------- Indicador de espera: AbogaBot con un maletín dando vueltas ---------- */
+.cargando-bot {
+  display: inline-flex; align-items: center; gap: 12px; align-self: flex-start;
+  background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio-pill);
+  padding: 7px 16px 7px 8px; box-shadow: var(--sombra);
+  font-size: calc(13px * var(--escala-letra, 1)); color: var(--texto-suave); font-weight: 600;
+}
+.bot-loader { position: relative; width: 38px; height: 38px; flex: none; }
+.bot-corriendo {
+  width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: #fff;
+  border: 1px solid var(--borde); animation: botbob 0.5s ease-in-out infinite alternate;
+}
+.maletin-orbita { position: absolute; inset: 0; animation: orbita 1.15s linear infinite; }
+.maletin {
+  position: absolute; top: -7px; left: 50%; margin-left: -8px; color: var(--azul);
+  display: inline-flex; animation: orbita 1.15s linear infinite reverse;
+}
+@keyframes orbita { to { transform: rotate(360deg); } }
+@keyframes botbob { from { transform: translateY(0); } to { transform: translateY(-3px); } }
+
+/* ---------- Página Premium ---------- */
+.premium-hero { text-align: center; padding: 18px 16px 4px; }
+.premium-bot { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; background: #fff; border: 4px solid #e3b341; box-shadow: 0 6px 20px rgba(10, 40, 90, 0.2); animation: botbob 1.5s ease-in-out infinite alternate; }
+.premium-titulo { font-family: var(--font-titulo), Georgia, serif; font-size: calc(22px * var(--escala-letra, 1)); color: var(--azul-oscuro); margin: 12px 0 4px; line-height: 1.2; }
+.premium-sub { color: var(--texto-suave); font-size: calc(13.5px * var(--escala-letra, 1)); margin: 0 auto; max-width: 320px; line-height: 1.5; }
+.premium-plan { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); box-shadow: var(--sombra); padding: 18px 16px; margin: 16px 0; }
+.premium-precio { text-align: center; font-size: calc(34px * var(--escala-letra, 1)); font-weight: 900; color: var(--azul); margin-bottom: 14px; }
+.premium-precio span { font-size: calc(15px * var(--escala-letra, 1)); font-weight: 600; color: var(--texto-suave); }
+.premium-beneficios { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 11px; }
+.premium-beneficios li { display: flex; gap: 10px; align-items: flex-start; font-size: calc(14px * var(--escala-letra, 1)); line-height: 1.4; }
+.premium-beneficios li svg { flex: none; margin-top: 2px; }
+.premium-bdesc { color: var(--texto-suave); font-size: calc(12.5px * var(--escala-letra, 1)); }
+.premium-pagos { margin-top: 14px; text-align: center; }
+.premium-pagos-label { font-size: calc(11px * var(--escala-letra, 1)); color: var(--texto-tenue); font-weight: 600; }
+.premium-pagos-badges { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 8px; }
+.pago-badge { background: #f1f5f9; border: 1px solid var(--borde); color: #475569; font-size: calc(11px * var(--escala-letra, 1)); font-weight: 700; padding: 5px 10px; border-radius: 7px; }
 
 /* ---------- Grupo simple (acordeón legado) ---------- */
 .grupo {

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import AccessibilityBar from "@/components/AccessibilityBar";
+import GuardarGuiaBtn from "@/components/GuardarGuiaBtn";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -129,7 +130,10 @@ export default async function GuiaDetailPage({ params }: { params: Promise<{ slu
         <article className="tarjeta" style={{ marginBottom: 14 }}>
           <h1 style={{ fontSize: "calc(20px * var(--escala-letra, 1))", margin: "0 0 8px", color: "var(--azul)", lineHeight: 1.3, fontFamily: "var(--font-titulo), serif" }}>{guia.titulo}</h1>
           <p style={{ fontSize: "calc(13.5px * var(--escala-letra, 1))", margin: 0, color: "var(--texto-suave)" }}>{guia.descripcion}</p>
-          <p className="nota" style={{ marginTop: 8 }}>Última actualización: {guia.fecha}</p>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, marginTop: 10, flexWrap: "wrap" }}>
+            <span className="nota">Última actualización: {guia.fecha}</span>
+            <GuardarGuiaBtn slug={guia.slug} titulo={guia.titulo} />
+          </div>
         </article>
 
         {guia.respuestaCorta && (

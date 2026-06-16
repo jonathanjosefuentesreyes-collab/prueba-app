@@ -272,9 +272,14 @@ export function buscar(
 }
 
 export function ultimasPublicaciones(n = 3): Norma[] {
+  // Filtra fechas corruptas (algunas normas traen años futuros como 2222/2946 o
+  // anteriores a 1900) para que "más recientes" muestre leyes con fecha real.
   return getDb()
     .prepare(
-      `SELECT * FROM normas WHERE fecha_version IS NOT NULL ORDER BY fecha_version DESC, id DESC LIMIT ?`
+      `SELECT * FROM normas
+       WHERE fecha_version IS NOT NULL
+         AND fecha_version <= date('now') AND fecha_version >= '1900-01-01'
+       ORDER BY fecha_version DESC, id DESC LIMIT ?`
     )
     .all(n) as Norma[];
 }

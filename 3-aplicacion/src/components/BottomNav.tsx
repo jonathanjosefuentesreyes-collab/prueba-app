@@ -24,16 +24,21 @@ const ic = {
       <path d="M2 5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v15a1.5 1.5 0 0 0-1.5-1.5H4A2 2 0 0 1 2 17z" /><path d="M22 5a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v15a1.5 1.5 0 0 1 1.5-1.5H20a2 2 0 0 0 2-2z" />
     </svg>
   ),
+  premium: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M5 16 3 7l5.5 4.5L12 5l3.5 6.5L21 7l-2 9z" /><path d="M5 19.5h14" />
+    </svg>
+  ),
 };
 
-// 4 pestañas: Inicio · Guías · Leyes · Calculadora. "Guías" lleva al carrusel de las
-// consultas más frecuentes (qué hacer + enlace al chat). "Guardadas" vive como pestaña
-// ❤️ dentro de la Biblioteca (BibliotecaHeader) y el corazón está en cada artículo.
+// 4 pestañas: Inicio · Guías · Leyes · Premium. La Calculadora de finiquito pasó a ser
+// una función Premium (vive dentro de /premium). "Guardadas" vive como pestaña ❤️ dentro
+// de la Biblioteca (BibliotecaHeader) y el corazón está en cada artículo.
 const items = [
   { href: "/", etiqueta: "Inicio", icono: ic.inicio },
   { href: "/guias", etiqueta: "Guías", icono: ic.guias },
   { href: "/leyes", etiqueta: "Leyes", icono: ic.leyes },
-  { href: "/calculadora", etiqueta: "Calculadora", icono: ic.calc },
+  { href: "/premium", etiqueta: "Premium", icono: ic.premium },
 ];
 
 export default function BottomNav() {

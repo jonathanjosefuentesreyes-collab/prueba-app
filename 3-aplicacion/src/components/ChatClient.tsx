@@ -49,6 +49,25 @@ function leerConsultas(): ConsultaGuardada[] {
   try { return JSON.parse(localStorage.getItem("consultas_guardadas") || "[]"); } catch { return []; }
 }
 
+// Persistencia del hilo de chat: queda guardado en el dispositivo por 24 h, así no se
+// pierde al cambiar de pestaña, recargar o cerrar la app. Pasadas las 24 h se descarta.
+const CLAVE_HISTORIAL = "chat_historial";
+const VENTANA_HISTORIAL_MS = 24 * 60 * 60 * 1000;
+const MAX_MENSAJES = 40;
+function leerHistorial(): { mensajes: Mensaje[]; restantes: number | null } | null {
+  try {
+    const raw = JSON.parse(localStorage.getItem(CLAVE_HISTORIAL) || "null");
+    if (!raw || !Array.isArray(raw.mensajes) || raw.mensajes.length === 0) return null;
+    if (Date.now() - (raw.ts || 0) >= VENTANA_HISTORIAL_MS) {
+      localStorage.removeItem(CLAVE_HISTORIAL);
+      return null;
+    }
+    return { mensajes: raw.mensajes, restantes: typeof raw.restantes === "number" ? raw.restantes : null };
+  } catch {
+    return null;
+  }
+}
+
 export default function ChatClient() {
   const params = useSearchParams();
   const inicial = params.get("q") || "";
@@ -63,11 +82,41 @@ export default function ChatClient() {
   const enviadoInicial = useRef(false);
   const reconocedor = useRef<ReconocimientoVoz | null>(null);
   const fondo = useRef<HTMLDivElement>(null);
+  const cargado = useRef(false);
 
   useEffect(() => {
     const w = window as unknown as { SpeechRecognition?: new () => ReconocimientoVoz; webkitSpeechRecognition?: new () => ReconocimientoVoz };
     setHayVoz(Boolean(w.SpeechRecognition || w.webkitSpeechRecognition));
   }, []);
+
+  // Cargar el hilo guardado (si hay y es de las últimas 24 h) al abrir el chat.
+  useEffect(() => {
+    const h = leerHistorial();
+    if (h) {
+      setMensajes(h.mensajes);
+      if (h.restantes !== null) setRestantes(h.restantes);
+    }
+    cargado.current = true;
+  }, []);
+
+  // Guardar el hilo en el dispositivo cada vez que cambia (solo tras la carga inicial,
+  // y nunca cuando está vacío, para no pisar lo guardado antes de cargarlo).
+  useEffect(() => {
+    if (!cargado.current || mensajes.length === 0) return;
+    try {
+      localStorage.setItem(
+        CLAVE_HISTORIAL,
+        JSON.stringify({ mensajes: mensajes.slice(-MAX_MENSAJES), restantes, ts: Date.now() })
+      );
+    } catch { /* almacenamiento lleno o no disponible */ }
+  }, [mensajes, restantes]);
+
+  function nuevaConversacion() {
+    setMensajes([]);
+    setGuardadas(new Set());
+    setNotaPremium(false);
+    try { localStorage.removeItem(CLAVE_HISTORIAL); } catch {}
+  }
 
   async function enviar(contenido: string) {
     const limpio = contenido.trim();
@@ -146,6 +195,8 @@ export default function ChatClient() {
     if (inicial && !enviadoInicial.current) {
       enviadoInicial.current = true;
       enviar(inicial);
+      // Quita el ?q de la URL para no reenviar la misma pregunta si se recarga.
+      window.history.replaceState(null, "", "/chat");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inicial]);
@@ -163,6 +214,17 @@ export default function ChatClient() {
           <span className="azul">Aboga</span><span className="rojo">Bot</span>
         </span>
         <span className="fecha" style={{ color: "#21b35a", fontWeight: 700 }}>● en línea</span>
+        {mensajes.length > 0 && (
+          <button
+            type="button"
+            onClick={nuevaConversacion}
+            aria-label="Nueva conversación"
+            style={{ marginLeft: "auto", background: "rgba(255,255,255,0.18)", color: "#fff", border: 0, borderRadius: 999, padding: "6px 12px", fontSize: 12.5, fontWeight: 700, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 5 }}
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
+            Nueva
+          </button>
+        )}
       </header>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 10, paddingBottom: 12 }}>

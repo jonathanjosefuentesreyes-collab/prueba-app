@@ -183,19 +183,20 @@ export async function POST(req: Request) {
     ? `ARTÍCULOS DE REFERENCIA (extractos reales de la base oficial; úsalos para precisar, sin limitarte a ellos):\n${contexto}`
     : `(No se recuperaron extractos para esta consulta; responde con tu conocimiento de la ley chilena vigente.)`;
 
-  const prompt = `Eres AbogaBot, un asesor legal chileno experto y cercano que ayuda a ciudadanos comunes (no abogados) a entender sus derechos y qué hacer.
+  const prompt = `Eres un abogado chileno experto. La persona te preguntará sobre leyes. Responde buscando en tu conocimiento de fuentes verificadas y VIGENTES del derecho chileno, con la respuesta lo más COMPLETA posible, sin dejar pasar ningún derecho ni beneficio que le corresponda según las leyes de Chile.
 
 ${bloqueRef}
 
-PREGUNTA DEL CIUDADANO: "${mensaje}"
-
 CÓMO RESPONDER:
-1. Da una respuesta COMPLETA, clara y útil, como un buen abogado explicándole a un amigo: cubre todo lo importante para su problema. Apóyate en tu conocimiento de la legislación chilena VIGENTE; los artículos de referencia te ayudan a precisar, pero no te limites a ellos.
-2. Lenguaje simple y cercano (tutea, cero latín jurídico). Estructura: una frase directa al inicio, viñetas cortas por tema, y cierra con "Qué hacer ahora:" (pasos concretos, con plazos si los hay).
-3. Menciona dentro del texto las leyes en que te basas, por su nombre (ej.: "según el Código del Trabajo", "la Ley 21.325 de Migración"). Solo derecho chileno VIGENTE; nunca inventes datos, cifras ni plazos.
+1. Lenguaje SIMPLE y cercano (como explicándole a un amigo), lo más BREVE posible pero sin dejar fuera nada importante. Solo derecho chileno vigente; nunca inventes datos, cifras ni plazos.
+2. Estructura tu respuesta en PÁRRAFOS NUMERADOS (1., 2., 3.…), una idea o tema por párrafo.
+3. Incluye los PASOS A SEGUIR para que sea una asesoría legal completa (qué hacer, dónde acudir, plazos si los hay).
 4. Si el tema no es legal o escapa a la ley chilena, dilo con honestidad y deriva al organismo o profesional adecuado.
-5. Extensión: completa pero enfocada, ~200-280 palabras.
-6. En la ÚLTIMA línea escribe EXACTAMENTE: LEYES: seguido de los nombres de las leyes/códigos que aplican a tu respuesta, separados por coma (ej.: "LEYES: Código del Trabajo, Ley 21.325, Constitución Política"). Máximo 5. Usa nombres reconocibles (nombre del código o "Ley NN.NNN"); la app los enlazará a sus artículos. Si ninguna aplica: LEYES:`;
+5. AL FINAL escribe una sección que empiece EXACTAMENTE con "Leyes relacionadas:". Por cada norma escribe su NOMBRE OFICIAL seguido de "artículos" y los números, así: "Código del Trabajo artículos 162, 168, 489". Separa una norma de otra con punto y coma ";". Ejemplo completo:
+   Leyes relacionadas: Código del Trabajo artículos 162, 163, 168; Ley 21.325 artículo 5
+   Reglas: usa el nombre EXACTO del código ("Código del Trabajo", "Código Civil", "Código Penal", "Constitución Política") o el número de la ley ("Ley 21.325"); NUNCA nombres vagos como "ley laboral" o "normativa vigente". Cita SOLO artículos que de verdad regulen el tema (no rellenes). Si ninguna norma aplica, escribe "Leyes relacionadas: —".
+
+La pregunta es: "${mensaje}"`;
 
   const modelo = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
 
@@ -229,24 +230,45 @@ CÓMO RESPONDER:
       bruto = await generar();
     }
 
-    // Separa la PROSA del bloque LEYES (nombres de leyes que Gemini dice que aplican).
-    // La prosa es de Gemini; los ENLACES los arma la app: resuelve cada ley en la base
-    // oficial y, con su buscador FTS, trae el artículo real y pertinente DENTRO de esa ley.
+    // La respuesta de Gemini queda VISIBLE completa (párrafos numerados, pasos y la
+    // sección final "Leyes relacionadas:" que el usuario validó). De esa última sección
+    // la app EXTRAE los nombres de leyes para armar los ENLACES reales: resuelve cada
+    // ley en la base oficial y, con su buscador FTS, trae el artículo pertinente. La
+    // prosa es de Gemini; los enlaces los verifica la app contra la base. Nunca se
+    // enlaza algo que no exista.
     const lineas = bruto.trim().split("\n");
-    const esLeyes = (l: string) => l.replace(/^[\s*#>_-]+/, "").toUpperCase().startsWith("LEYES");
+    const esLeyes = (l: string) => /leyes\s*relacionadas/i.test(l.replace(/^[\s*#>_-]+/, ""));
     const idxLeyes = lineas.findIndex(esLeyes);
-    let respuesta = bruto.trim();
-    let nombresLeyes: string[] = [];
+    // Gemini suele escribir "Código del Trabajo artículos 159, 160, 162…": UN código con
+    // VARIOS artículos. Se atribuye cada número al código que lo precede para enlazar el
+    // artículo EXACTO citado. Una "Ley 21.325" sin artículos se enlaza por su nombre.
+    type RefLey = { nombre: string; articulos: string[] };
+    const refs: RefLey[] = [];
     if (idxLeyes >= 0) {
-      respuesta = lineas.slice(0, idxLeyes).join("\n").trim();
-      const resto = [lineas[idxLeyes].split(/leyes:?/i)[1] || "", ...lineas.slice(idxLeyes + 1)].join(", ");
-      nombresLeyes = resto
-        .split(/[,;\n]+/)
-        .map((s) => s.replace(/^[\s*•\-]+/, "").trim())
-        .filter((s) => s.length > 3)
-        .slice(0, 6);
+      const resto = [lineas[idxLeyes].split(/relacionadas:?/i)[1] || "", ...lineas.slice(idxLeyes + 1)].join(", ");
+      const tokens = resto.split(/[,;\n]+/).map((t) => t.replace(/^[\s*•\-]+/, "").trim()).filter(Boolean);
+      const reNombre = /c[óo]digo|ley\s*n?[°º.]?\s*\d|constituci[óo]n|decreto|\bdfl\b|\bd\.?l\.?\b|reglamento|estatuto/i;
+      const reArt = /art[íi]?culos?\.?\s*(?:n[°º]?\s*)?(\d+\s*(?:bis|ter|qu[áa]ter)?)/gi;
+      const reNum = /^(\d+\s*(?:bis|ter|qu[áa]ter)?)\.?$/i;
+      let actual: RefLey | null = null;
+      for (const tok of tokens) {
+        if (tok === "—" || tok === "-") continue;
+        if (reNombre.test(tok)) {
+          actual = { nombre: tok, articulos: [] };
+          for (const m of tok.matchAll(reArt)) actual.articulos.push(m[1].replace(/\s+/g, " ").trim());
+          refs.push(actual);
+        } else {
+          const mNum = tok.match(reNum);
+          const mArt = tok.match(/^art[íi]?culos?\.?\s*(?:n[°º]?\s*)?(\d+\s*(?:bis|ter|qu[áa]ter)?)/i);
+          if (mNum && actual) actual.articulos.push(mNum[1].replace(/\s+/g, " ").trim());
+          else if (mArt && actual) actual.articulos.push(mArt[1].replace(/\s+/g, " ").trim());
+          else if (tok.length > 3) { actual = { nombre: tok, articulos: [] }; refs.push(actual); }
+        }
+      }
     }
-    respuesta = respuesta.replace(/\s*\[\d+\]/g, "").trim();
+    // Mantiene la respuesta tal cual (incluida la sección de leyes); solo limpia las
+    // marcas internas tipo "[1]" que el modelo a veces deja de los artículos de contexto.
+    const respuesta = bruto.trim().replace(/\s*\[\d+\]/g, "").trim();
 
     // Recién ahora (respuesta OK) descontamos la consulta de su cuota.
     const restantes = registrarConsulta(req);
@@ -259,23 +281,26 @@ CÓMO RESPONDER:
       vistos.add(clave);
       fuentes.push({ articulo_id, norma_id, ley, numero });
     };
-    // 1) Por cada ley que nombró Gemini: resolverla en la base y traer sus artículos
-    //    más pertinentes a la consulta (FTS dentro de esa norma). Si no hay match
-    //    interno, se enlaza la ley a nivel norma. Nunca se enlaza algo que no exista.
-    for (const nombre of nombresLeyes) {
-      const norma = normaPorReferencia(nombre);
+    // 1) Por cada ley citada: resolverla en la base. Si trae artículos, enlazar CADA
+    //    artículo exacto (el que no exista se omite, nunca se inventa). Si no cita
+    //    artículos resolubles, se traen sus artículos más pertinentes por FTS dentro de
+    //    esa norma, o la norma a secas. Todo verificado contra la base.
+    for (const ref of refs) {
+      if (fuentes.length >= 6) break;
+      const norma = normaPorReferencia(ref.nombre);
       if (!norma) continue;
-      const mNum = nombre.match(/art[íi]?culo?\s*([\dA-Za-z]+)/i);
-      const art = mNum ? articuloPorNumero(norma.id, mNum[1]) : undefined;
-      if (art) {
-        agregar(art.id, norma.id, etiquetaLey(nombreDe(norma), norma.titulo), numeroReal(art.encabezado));
-        continue;
+      const etq = etiquetaLey(nombreDe(norma), norma.titulo);
+      let enlazoArticulo = false;
+      for (const numStr of ref.articulos) {
+        const art = articuloPorNumero(norma.id, numStr);
+        if (art) { agregar(art.id, norma.id, etq, numeroReal(art.encabezado)); enlazoArticulo = true; }
       }
+      if (enlazoArticulo) continue;
       const dentro = buscar(consulta, 2, norma.id);
       if (dentro.length) {
         for (const d of dentro) agregar(d.articulo_id, d.norma_id, etiquetaLey(d.nombre, d.titulo_ley), numeroReal(d.encabezado));
       } else {
-        agregar(null, norma.id, etiquetaLey(nombreDe(norma), norma.titulo), "");
+        agregar(null, norma.id, etq, "");
       }
     }
     // 2) Respaldo SOLO si Gemini no nombró ninguna ley resoluble (fuentes vacío):

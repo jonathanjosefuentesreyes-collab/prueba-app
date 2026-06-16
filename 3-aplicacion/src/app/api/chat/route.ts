@@ -1,14 +1,21 @@
-// Chat AbogaBot — reglas de abogabot-cerebro:
+// Chat AbogaBot — reglas de abogabot-cerebro (síntesis 2026-06-16):
 // 1) casos sensibles se derivan por CÓDIGO antes de llamar al modelo;
-// 2) GARANTÍA ANTI-INVENCIÓN ARQUITECTURAL: el modelo responde con TONO de asesor
-//    (completo y cercano), pero solo puede CITAR artículos presentes en el contexto
-//    (RAG sobre FTS5), devolviendo sus ids. Nunca cita de memoria —la memoria de
-//    Gemini sobre leyes chilenas está desactualizada o inventada por definición—;
-//    si el contexto no cubre algo, lo dice honesto y deriva;
+// 2) GEMINI da la PROSA completa (asesor), pero los ENLACES NO salen de su memoria:
+//    el modelo solo NOMBRA las leyes que aplican; la app las resuelve contra la base
+//    oficial y, con su propio buscador FTS, encuentra el artículo real y pertinente
+//    DENTRO de esa ley. Así la respuesta es completa y los enlaces son verificados
+//    (la "garantía anti-invención" se mantiene para lo que se enlaza, no para la prosa);
 // 3) el disclaimer lo agrega el código, jamás el prompt;
 // 4) la API key vive solo en el servidor.
+import {
+  buscar,
+  articuloPorId,
+  numeroReal,
+  nombreDe,
+  normaPorReferencia,
+  articuloPorNumero,
+} from "@/lib/db";
 import { NextResponse } from "next/server";
-import { buscar, articuloPorId, numeroReal } from "@/lib/db";
 
 const DISCLAIMER =
   "Esto es orientación general, no asesoría legal. Para tu caso concreto consulta a un abogado (la Corporación de Asistencia Judicial atiende gratis).";
@@ -150,17 +157,6 @@ export async function POST(req: Request) {
     });
   }
 
-  // Fuera de alcance (abogabot-cerebro): sin artículos que respalden la consulta,
-  // lo decimos honesto en vez de dejar que el modelo invente de memoria.
-  if (candidatos.length === 0) {
-    return NextResponse.json({
-      respuesta:
-        "No encontré artículos cargados que respondan directamente tu consulta, y prefiero decírtelo antes que arriesgar una respuesta equivocada. Prueba reformulando con otras palabras, revisa la Biblioteca de Leyes, o consulta gratis en la Corporación de Asistencia Judicial.",
-      fuentes: [],
-      disclaimer: DISCLAIMER,
-    });
-  }
-
   // Cuota por visitante: si se agotó, mostramos el gancho a Premium y, de yapa,
   // artículos reales de la Biblioteca (sin gastar Gemini) para no dejarlo vacío.
   // Solo PEEK aquí; se descuenta recién cuando la respuesta sale bien (más abajo).
@@ -179,28 +175,27 @@ export async function POST(req: Request) {
   const contexto = candidatos
     .map((c) => {
       const a = articuloPorId(c.articulo_id);
-      return `[${c.articulo_id}] ${c.nombre} — Artículo ${numeroReal(c.encabezado)}:\n${(a?.texto || "").slice(0, 900)}`;
+      return `${c.nombre} — Artículo ${numeroReal(c.encabezado)}:\n${(a?.texto || "").slice(0, 800)}`;
     })
     .join("\n\n");
 
-  const prompt = `Eres AbogaBot, un asesor legal chileno cercano que ayuda a ciudadanos comunes (no abogados) a entender sus derechos y qué hacer.
+  const bloqueRef = contexto
+    ? `ARTÍCULOS DE REFERENCIA (extractos reales de la base oficial; úsalos para precisar, sin limitarte a ellos):\n${contexto}`
+    : `(No se recuperaron extractos para esta consulta; responde con tu conocimiento de la ley chilena vigente.)`;
 
-ARTÍCULOS DISPONIBLES (ÚNICA fuente para afirmar lo que dice la ley; cada uno trae su [id]):
-${contexto}
+  const prompt = `Eres AbogaBot, un asesor legal chileno experto y cercano que ayuda a ciudadanos comunes (no abogados) a entender sus derechos y qué hacer.
+
+${bloqueRef}
 
 PREGUNTA DEL CIUDADANO: "${mensaje}"
 
 CÓMO RESPONDER:
-1. Responde como un buen asesor: explica de forma COMPLETA y útil lo que la persona necesita saber para su problema, en lenguaje simple y cercano (tutea, cero latín jurídico).
-2. Para afirmar lo que dice la ley usa ÚNICAMENTE los artículos de arriba. NUNCA cites de memoria ni inventes leyes, artículos o números que no estén en la lista. Si algo importante no está cubierto por estos artículos, dilo con honestidad y deriva al organismo correcto (Servicio Nacional de Migraciones, Dirección del Trabajo, FONASA, Registro Civil, SERNAC, etc.) o a un abogado / Corporación de Asistencia Judicial (gratis).
-3. FILTRA por relevancia: usa solo los artículos que de verdad responden la pregunta del ciudadano; IGNORA los que aparezcan pero no apliquen (no cites algo solo por incluirlo). Prioriza lo más importante y cotidiano.
-4. Estructura clara y cercana:
-   - Una frase directa que responda al tiro.
-   - Viñetas cortas: "• **Tema**: qué dice la ley en simple (según el artículo X del Código/Ley correspondiente)."
-   - Cierra con "Qué hacer ahora:" (1-3 pasos concretos, con plazos si los hay).
-   - NO escribas los números entre corchetes [ ] dentro del texto; van solo en la línea FUENTES.
-5. Sé conciso: ~150 palabras para dudas puntuales, máximo ~220 para amplias. Mejor claro y enfocado que largo.
-6. En la ÚLTIMA línea escribe exactamente: FUENTES: seguido de los números entre corchetes [ ] de arriba de los artículos que de verdad usaste, separados por coma, máximo 5. Si no usaste ninguno: FUENTES:`;
+1. Da una respuesta COMPLETA, clara y útil, como un buen abogado explicándole a un amigo: cubre todo lo importante para su problema. Apóyate en tu conocimiento de la legislación chilena VIGENTE; los artículos de referencia te ayudan a precisar, pero no te limites a ellos.
+2. Lenguaje simple y cercano (tutea, cero latín jurídico). Estructura: una frase directa al inicio, viñetas cortas por tema, y cierra con "Qué hacer ahora:" (pasos concretos, con plazos si los hay).
+3. Menciona dentro del texto las leyes en que te basas, por su nombre (ej.: "según el Código del Trabajo", "la Ley 21.325 de Migración"). Solo derecho chileno VIGENTE; nunca inventes datos, cifras ni plazos.
+4. Si el tema no es legal o escapa a la ley chilena, dilo con honestidad y deriva al organismo o profesional adecuado.
+5. Extensión: completa pero enfocada, ~200-280 palabras.
+6. En la ÚLTIMA línea escribe EXACTAMENTE: LEYES: seguido de los nombres de las leyes/códigos que aplican a tu respuesta, separados por coma (ej.: "LEYES: Código del Trabajo, Ley 21.325, Constitución Política"). Máximo 5. Usa nombres reconocibles (nombre del código o "Ley NN.NNN"); la app los enlazará a sus artículos. Si ninguna aplica: LEYES:`;
 
   const modelo = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
 
@@ -213,7 +208,7 @@ CÓMO RESPONDER:
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.3, maxOutputTokens: 1000 },
+          generationConfig: { temperature: 0.35, maxOutputTokens: 1500 },
         }),
       }
     );
@@ -234,33 +229,63 @@ CÓMO RESPONDER:
       bruto = await generar();
     }
 
-    // Separa la respuesta del bloque FUENTES (ids de artículos del contexto).
-    // SOLO se enlazan ids que estaban en el contexto: garantía anti-invención.
+    // Separa la PROSA del bloque LEYES (nombres de leyes que Gemini dice que aplican).
+    // La prosa es de Gemini; los ENLACES los arma la app: resuelve cada ley en la base
+    // oficial y, con su buscador FTS, trae el artículo real y pertinente DENTRO de esa ley.
     const lineas = bruto.trim().split("\n");
-    const encabezadoFuentes = (l: string) =>
-      l.replace(/^[\s*#>_-]+/, "").toUpperCase().startsWith("FUENTES");
-    const idxFuentes = lineas.findIndex(encabezadoFuentes);
+    const esLeyes = (l: string) => l.replace(/^[\s*#>_-]+/, "").toUpperCase().startsWith("LEYES");
+    const idxLeyes = lineas.findIndex(esLeyes);
     let respuesta = bruto.trim();
-    let idsUsados: number[] = [];
-    if (idxFuentes >= 0) {
-      respuesta = lineas.slice(0, idxFuentes).join("\n").trim();
-      const resto = [lineas[idxFuentes].split(/fuentes:?/i)[1] || "", ...lineas.slice(idxFuentes + 1)].join(" ");
-      idsUsados = resto.split(/[^\d]+/).map((x) => Number(x)).filter(Boolean);
+    let nombresLeyes: string[] = [];
+    if (idxLeyes >= 0) {
+      respuesta = lineas.slice(0, idxLeyes).join("\n").trim();
+      const resto = [lineas[idxLeyes].split(/leyes:?/i)[1] || "", ...lineas.slice(idxLeyes + 1)].join(", ");
+      nombresLeyes = resto
+        .split(/[,;\n]+/)
+        .map((s) => s.replace(/^[\s*•\-]+/, "").trim())
+        .filter((s) => s.length > 3)
+        .slice(0, 6);
     }
-    // El modelo a veces copia el [id] del contexto dentro de la prosa: lo quitamos.
     respuesta = respuesta.replace(/\s*\[\d+\]/g, "").trim();
 
     // Recién ahora (respuesta OK) descontamos la consulta de su cuota.
     const restantes = registrarConsulta(req);
-    const porId = new Map(candidatos.map((c) => [c.articulo_id, c]));
+
     const fuentes: Fuente[] = [];
-    const vistos = new Set<number>();
-    for (const id of idsUsados) {
-      if (fuentes.length >= 5) break;
-      const c = porId.get(id);
-      if (!c || vistos.has(id)) continue;
-      vistos.add(id);
-      fuentes.push({ articulo_id: id, norma_id: c.norma_id, ley: etiquetaLey(c.nombre, c.titulo_ley), numero: numeroReal(c.encabezado) });
+    const vistos = new Set<string>();
+    const agregar = (articulo_id: number | null, norma_id: number, ley: string, numero: string) => {
+      const clave = `${norma_id}:${articulo_id ?? 0}`;
+      if (vistos.has(clave) || fuentes.length >= 6) return;
+      vistos.add(clave);
+      fuentes.push({ articulo_id, norma_id, ley, numero });
+    };
+    // 1) Por cada ley que nombró Gemini: resolverla en la base y traer sus artículos
+    //    más pertinentes a la consulta (FTS dentro de esa norma). Si no hay match
+    //    interno, se enlaza la ley a nivel norma. Nunca se enlaza algo que no exista.
+    for (const nombre of nombresLeyes) {
+      const norma = normaPorReferencia(nombre);
+      if (!norma) continue;
+      const mNum = nombre.match(/art[íi]?culo?\s*([\dA-Za-z]+)/i);
+      const art = mNum ? articuloPorNumero(norma.id, mNum[1]) : undefined;
+      if (art) {
+        agregar(art.id, norma.id, etiquetaLey(nombreDe(norma), norma.titulo), numeroReal(art.encabezado));
+        continue;
+      }
+      const dentro = buscar(consulta, 2, norma.id);
+      if (dentro.length) {
+        for (const d of dentro) agregar(d.articulo_id, d.norma_id, etiquetaLey(d.nombre, d.titulo_ley), numeroReal(d.encabezado));
+      } else {
+        agregar(null, norma.id, etiquetaLey(nombreDe(norma), norma.titulo), "");
+      }
+    }
+    // 2) Respaldo SOLO si Gemini no nombró ninguna ley resoluble (fuentes vacío):
+    //    ahí sí completamos con los candidatos globales más relevantes. Si Gemini
+    //    nombró bien sus leyes, confiamos en esos enlaces y no metemos ruido global.
+    if (fuentes.length === 0) {
+      for (const c of candidatos) {
+        if (fuentes.length >= 3) break;
+        agregar(c.articulo_id, c.norma_id, etiquetaLey(c.nombre, c.titulo_ley), numeroReal(c.encabezado));
+      }
     }
 
     return NextResponse.json({ respuesta, fuentes, disclaimer: DISCLAIMER, restantes });

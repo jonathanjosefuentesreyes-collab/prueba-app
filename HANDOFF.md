@@ -43,7 +43,8 @@
 ### Estado actual
 - Nav 5 pestañas: Leyes 📚 · Guías 💡 · Inicio 🏠 · Guardados ❤️ · Premium 👑 (`components/BottomNav.tsx`).
 - ChatBar (mascota fija + input→/chat) en TODAS las pestañas. Chat persistente PERMANENTE.
-- Guías en `src/lib/guias.ts` (13). Por macro grupo: **Laboral 10 · Vivienda 1 · Familia 1 · Consumidor 1**.
+- Guías en `src/lib/guias.ts` (15). Por macro grupo: **Laboral 10 · Vivienda 1 · Familia 1 · Consumidor 0 · 👑 Deudas 3** (dorada).
+  (Consumidor quedó en 0 al mover DICOM a Deudas; reponer en TAREA 4.)
 - Explorador `components/GuiasExplorer.tsx`: carrusel destacadas + chips de categorías + listado.
 - Categorías en guias.ts (`CATEGORIAS`): laboral, vivienda, familia, consumidor. Cada guía: slug, titulo(H1 pregunta),
   descripcion(meta≤155), categoria, destacada, metaTitle, respuestaCorta(snippet), contenido(markdown con enlaces), faq, fecha.
@@ -59,14 +60,14 @@ Pedido textual: *"agrega esta imagen... el icono de la balanza cambialo por este
 - En `components/BibliotecaHeader.tsx`: reemplazar el `<svg className="icono-balanza-header">` por `<img src="/escudo-leyes.png" ...>` más grande que el texto del título.
 - **Verif:** captura `/leyes` y `/guias` — el ícono resalta junto a "Biblioteca de Leyes".
 
-### ☐ TAREA 2 — Categoría dorada "Deudas" (Premium) al centro del carrusel
+### ✅ TAREA 2 — Categoría dorada "Deudas" (Premium) al centro del carrusel  [HECHA]
 Pedido: *"agrega una dorada en explorar tema donde recaudarás las guías más polémicas y mejor SEO de deudas; ese botón será premium; déjalo en MEDIO del carrusel de los temas de guía."*
 - En `guias.ts`: agregar categoría `deudas` a `CategoriaGuia` y a `CATEGORIAS` (emoji 💰 o 👑, etiqueta "Deudas"). Reasignar la guía `como-salir-de-dicom` a `categoria: "deudas"`.
 - En `GuiasExplorer.tsx`: ordenar los chips para que **Deudas quede al CENTRO** del carrusel y con **estilo dorado** (fondo/borde oro, ej. `linear-gradient(135deg,#E6C15A,#C9A227)`), badge "Premium".
 - Las guías quedan PÚBLICAS (SEO + AdSense); el oro es solo branding Premium.
 - **Verif:** `/guias` muestra el chip dorado "Deudas" centrado; al tocarlo lista las guías de deudas.
 
-### ☐ TAREA 3 — Destacadas = lo más buscado en Google
+### ✅ TAREA 3 — Destacadas = lo más buscado en Google  [HECHA: 8 destacadas curadas]
 Pedido: *"las guías destacadas serán las más consultadas en Google."*
 - En `guias.ts`, poner `destacada: true` solo en las de mayor volumen de búsqueda (ej.: finiquito, despido por necesidades, pensión de alimentos, salir de DICOM, vacaciones, sueldo/horas extra). Quitar `destacada` a las de cola larga.
 - (Opcional) usar la skill `abogabot-seo` para validar el ranking de búsquedas.

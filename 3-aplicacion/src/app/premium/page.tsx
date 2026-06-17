@@ -68,6 +68,14 @@ export default function Premium() {
         </span>
         <span style={{ color: "var(--azul)", fontWeight: 800, fontSize: 18 }}>→</span>
       </Link>
+      <Link href="/facturacion" className="tarjeta" style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 10 }}>
+        <span style={{ fontSize: 26 }}>🧾</span>
+        <span style={{ flex: 1 }}>
+          <strong style={{ fontSize: 15 }}>Calculadora de facturación</strong><br />
+          <span className="nota">Boleta de honorarios (retención) e IVA 19%, al instante.</span>
+        </span>
+        <span style={{ color: "var(--azul)", fontWeight: 800, fontSize: 18 }}>→</span>
+      </Link>
 
       <p className="nota" style={{ margin: "18px 2px 0", textAlign: "center" }}>
         ¿Dudas? Escríbenos desde <Link href="/quienes-somos" style={{ color: "var(--azul)" }}>Quiénes somos</Link>.

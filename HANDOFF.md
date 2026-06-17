@@ -80,12 +80,22 @@ Pedido: *"haz 10 guías por cada macro grupo."* Faltan: **Vivienda +9, Familia +
 - Candidatos: **Vivienda**: garantía de arriendo, no pago de renta, término de contrato, reparaciones, subarriendo, gastos comunes, ruidos molestos, contrato de arriendo, desalojo. **Familia**: divorcio, VIF, cuidado personal, relación directa y regular, compensación económica, declarar paternidad, acuerdo de unión civil. **Consumidor**: garantía SERNAC, derecho a retracto, cobros indebidos, publicidad engañosa, garantía de autos, retención de productos. **Deudas**: prescripción de deudas (Cód. Civil 2515/2514), embargo de sueldo (inembargabilidad CdT 57), cobranza extrajudicial (Ley 19.496 art 37), repactación, Ley 20.720 (insolvencia/quiebra persona deudora), tarjetas/CAE.
 - **Verif:** chips muestran cada grupo con (10). `npx tsc` ok. Probar 2-3 slugs nuevos (HTTP 200) y que los enlaces de artículos abran.
 
-### ☐ TAREA 5 — Calculadora de finiquito "la mejor para Chile"
+### ✅ TAREA 5 — Calculadora de finiquito "la mejor para Chile"  [HECHA]
+El motor `lib/finiquito.ts` ya era completo (topes 90 UF/11 años, feriado, recargos art 168, Ley Bustos);
+se agregó que cada fundamento legal sea CLICABLE a la Biblioteca. Si quieres más: descontar festivos del feriado.
+
+<!-- referencia original -->
+### (ref) TAREA 5 original
 Pedido: *"la mejor calculadora de finiquito para los chilenos."* Ya existe `/calculadora` (revisar `app/calculadora/page.tsx` y skill `abogabot-finiquito`).
 - Asegurar: indemnización por años de servicio (1 mes/año + fracción >6m; **tope 11 años**; **tope 90 UF** en la base de cálculo); indemnización sustitutiva del aviso (art 162); feriado proporcional; recargos art 168 (30% necesidades, 50% sin causal, 80/100% art 160); causales 159/160/161; mostrar la fórmula y el fundamento legal con enlaces a artículos (CdT 161→3295, 162→3297, 163→3298, 168→3304).
 - **Verif:** casos de prueba (2 años, sueldo X) dan montos correctos; UI muestra desglose y fundamento.
 
-### ☐ TAREA 6 — Herramienta de facturación "la mejor para Chile" + en Premium
+### ✅ TAREA 6 — Herramienta de facturación + en Premium  [HECHA]
+`/facturacion` (lib/facturacion.ts): boleta de honorarios bruto↔líquido (retención editable por año,
+2026=15,25%) + IVA 19% neto↔total. Card agregada en /premium. Verificar la tasa de retención del año en sii.cl.
+
+<!-- referencia original -->
+### (ref) TAREA 6 original
 Pedido: *"agrega la herramienta de facturación también en la pestaña Premium"* + *"haz la mejor herramienta de facturación para Chile."*
 - Crear `app/facturacion/page.tsx`: calculadora de **boleta de honorarios** (bruto↔líquido con la **retención vigente del año**; verificar % actual antes de hardcodear) y de **factura/IVA 19%** (neto↔bruto). Mostrar fórmulas y notas SII.
 - Enlazarla en `/premium` dentro de "Herramientas Premium" (junto a la calculadora de finiquito).

@@ -3,20 +3,21 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// Íconos line-art (mismo estilo trazo que el resto de la app)
 const ic = {
   leyes: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="m14 13-8.5 8.5a2.12 2.12 0 1 1-3-3L11 10" /><path d="m16 16 6 6" /><path d="m8 8 6-6 6 6-6 6z" />
+      <path d="m16 6 4 14" /><path d="M12 6v14" /><path d="M8 8v12" /><path d="M4 4v16" />
+    </svg>
+  ),
+  guardados: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
     </svg>
   ),
   inicio: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d="m3 10 9-7 9 7" /><path d="M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9" /><path d="M9 21v-6h6v6" />
-    </svg>
-  ),
-  calc: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <rect x="4" y="2" width="16" height="20" rx="2" /><path d="M8 6h8" /><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01" />
     </svg>
   ),
   guias: (
@@ -31,35 +32,27 @@ const ic = {
   ),
 };
 
-// 4 pestañas: Inicio · Guías · Leyes · Premium. La Calculadora de finiquito pasó a ser
-// una función Premium (vive dentro de /premium). "Guardadas" vive como pestaña ❤️ dentro
-// de la Biblioteca (BibliotecaHeader) y el corazón está en cada artículo.
+// 5 pestañas independientes, de izq. a der.: Leyes · Guías · Inicio · Guardados · Premium
+// (Inicio al centro). Las 3 antes agrupadas en la Biblioteca (Biblioteca/Guardados/Guía)
+// ahora son destinos propios. La Calculadora de finiquito vive dentro de /premium.
 const items = [
-  { href: "/", etiqueta: "Inicio", icono: ic.inicio },
-  { href: "/guias", etiqueta: "Guías", icono: ic.guias },
-  { href: "/leyes", etiqueta: "Leyes", icono: ic.leyes },
-  { href: "/premium", etiqueta: "Premium", icono: ic.premium },
+  { href: "/leyes", etiqueta: "Leyes", icono: ic.leyes, activo: (r: string) => r.startsWith("/leyes") },
+  { href: "/guias", etiqueta: "Guías", icono: ic.guias, activo: (r: string) => r.startsWith("/guias") },
+  { href: "/", etiqueta: "Inicio", icono: ic.inicio, activo: (r: string) => r === "/" },
+  { href: "/guardadas", etiqueta: "Guardados", icono: ic.guardados, activo: (r: string) => r.startsWith("/guardadas") },
+  { href: "/premium", etiqueta: "Premium", icono: ic.premium, activo: (r: string) => r.startsWith("/premium") },
 ];
 
 export default function BottomNav() {
   const ruta = usePathname();
   return (
     <nav className="nav-inferior" aria-label="Navegación principal">
-      {items.map((i) => {
-        const activo = i.href === "/"
-          ? ruta === "/"
-          : i.href === "/guias"
-            ? ruta.startsWith("/guias")
-            : i.href === "/leyes"
-              ? (ruta.startsWith("/leyes") || ruta.startsWith("/guardadas"))
-              : ruta.startsWith(i.href);
-        return (
-          <Link key={i.href} href={i.href} className={activo ? "activo" : ""}>
-            {i.icono}
-            {i.etiqueta}
-          </Link>
-        );
-      })}
+      {items.map((i) => (
+        <Link key={i.href} href={i.href} className={i.activo(ruta) ? "activo" : ""}>
+          {i.icono}
+          {i.etiqueta}
+        </Link>
+      ))}
     </nav>
   );
 }

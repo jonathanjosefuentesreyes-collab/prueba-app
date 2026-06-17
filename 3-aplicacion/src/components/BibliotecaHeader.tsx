@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import AccessibilityBar from "./AccessibilityBar";
 
 interface BibliotecaHeaderProps {
@@ -8,7 +7,16 @@ interface BibliotecaHeaderProps {
   consulta?: string;
 }
 
+// Cada pestaña es ahora una página independiente (se navega desde la barra inferior),
+// así que la cabecera muestra su propio título según la sección.
+const TITULOS = {
+  biblioteca: { h1: "Biblioteca de Leyes", sub: "Legislación chilena · Fuente oficial BCN" },
+  guardadas: { h1: "Mis Guardados", sub: "Tus leyes y consultas favoritas" },
+  guias: { h1: "Guías Ciudadanas", sub: "Tus derechos, explicados fácil" },
+} as const;
+
 export default function BibliotecaHeader({ activeTab, consulta = "" }: BibliotecaHeaderProps) {
+  const titulo = TITULOS[activeTab];
   return (
     <div className="cabecera-seccion-bcn">
       {/* Patriotic Ribbon at the top matching mockup Row */}
@@ -29,8 +37,8 @@ export default function BibliotecaHeader({ activeTab, consulta = "" }: Bibliotec
           <path d="M17 13a2 2 0 0 0 4 0H17" />
         </svg>
         <div>
-          <h1 className="titulo-bcn">Biblioteca de Leyes</h1>
-          <p className="subtitulo-bcn">Legislación chilena · Fuente oficial BCN</p>
+          <h1 className="titulo-bcn">{titulo.h1}</h1>
+          <p className="subtitulo-bcn">{titulo.sub}</p>
         </div>
       </div>
 
@@ -54,19 +62,6 @@ export default function BibliotecaHeader({ activeTab, consulta = "" }: Bibliotec
         />
         <button style={{ display: "none" }} type="submit">Buscar</button>
       </form>
-
-      {/* Pestañas de Navegación de Biblioteca */}
-      <div className="tabs-biblioteca">
-        <Link href="/leyes" className={`tab-item ${activeTab === "biblioteca" ? "activo" : ""}`}>
-          <span>📚 Biblioteca</span>
-        </Link>
-        <Link href="/guardadas" className={`tab-item ${activeTab === "guardadas" ? "activo" : ""}`}>
-          <span>❤️ Guardados</span>
-        </Link>
-        <Link href="/guias" className={`tab-item ${activeTab === "guias" ? "activo" : ""}`}>
-          <span>💡 Guía Fácil</span>
-        </Link>
-      </div>
     </div>
   );
 }

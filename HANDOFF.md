@@ -1,121 +1,100 @@
-# HANDOFF — Ley Chilena / AbogaBot v2  (2026-06-17)
+# HANDOFF / RUNBOOK — Ley Chilena · AbogaBot v2  (2026-06-17)
 
-> Para retomar en una ventana nueva: di **"lee Leyes chilenas/HANDOFF.md y sigamos"**.
-> Este archivo tiene TODO lo necesario para continuar sin re-explorar y gastar tokens.
+## ▶ CÓMO USAR ESTE ARCHIVO (ventana nueva)
+1. Pega esto como primer mensaje:
+   **"Lee `Leyes chilenas/HANDOFF.md` completo y empieza por la TAREA 1. Antes de cada cambio haz backup en `_backups/`. No cites artículos que no existan en la base."**
+2. Sigue las TAREAS en orden (§B). Cada una es autocontenida: objetivo → archivos → datos ya verificados → pasos → verificación.
+3. Al terminar cada tarea: `npx tsc --noEmit` → captura si es UI → `git add -A && commit && push` (Render auto-despliega).
+4. Marca la tarea como hecha en §B y sigue con la próxima.
 
 ---
 
-## 1. Qué es y dónde está
-- **Proyecto:** web de leyes chilenas (SQLite + FTS5) + chatbot legal **AbogaBot** (Gemini),
-  monetizado con AdSense + suscripción Premium.
-- **Código de la app:** `Leyes chilenas/3-aplicacion/` (Next.js 16, App Router, output standalone).
-- **Repo (público):** https://github.com/jonathanjosefuentesreyes-collab/prueba-app
-  (raíz del repo = `Leyes chilenas/`, la app vive en `3-aplicacion/`).
-- **Producción (Render, free tier, duerme a los 15 min):** https://leyes-de-chile.onrender.com
-  - Servicio `srv-d8oeegbeo5us73e5i9eg`. **Auto-deploy** al hacer push a `main`.
-  - API key de Render que dio el usuario: `rnd_w9mXRFIvqAcRZqF7Cyc5W063sq3B` → **pedirle que la REVOQUE** cuando ya no se use.
-- **Lecturas base del proyecto:** `Leyes chilenas/CLAUDE.md` (arquitectura, reglas, lecciones v1)
-  y `Leyes chilenas/CONTINUAR.md`.
+## A. CONTEXTO MÍNIMO (no re-explorar)
+- **App:** `Leyes chilenas/3-aplicacion/` — Next.js 16 (App Router, standalone). Web de leyes chilenas
+  (SQLite+FTS5) + chatbot **AbogaBot** (Gemini). Monetiza con AdSense + Premium.
+- **Repo:** https://github.com/jonathanjosefuentesreyes-collab/prueba-app  (raíz repo = `Leyes chilenas/`, app en `3-aplicacion/`).
+- **Producción:** https://leyes-de-chile.onrender.com  · Render `srv-d8oeegbeo5us73e5i9eg` · **auto-deploy al push a `main`**.
+  - Render API key del usuario: `rnd_w9mXRFIvqAcRZqF7Cyc5W063sq3B` (pedirle que la REVOQUE al terminar).
+- **Dev:** `http://localhost:3000` (suele estar corriendo, hot-reload). Si no: `cd 3-aplicacion && next dev`
+  (usar `dev`, no `start`). Si node colgado: `powershell Get-Process node | Stop-Process -Force`.
+- **Capturas:** `herramientas-captura/` (Playwright Pixel 7 → screenshot → leer PNG).
 
-## 2. Cómo trabajar (flujo validado)
-- **Dev server:** ya suele estar corriendo en `http://localhost:3000` (hot-reload). Si no:
-  `cd "Leyes chilenas/3-aplicacion" && next dev` (usar `dev`, NO `next start`: sirve builds viejos).
-  Si hay lock de node colgado: `powershell Get-Process node | Stop-Process -Force`.
-- **Typecheck antes de subir:** `cd 3-aplicacion && npx tsc --noEmit`.
-- **Captura visual (Playwright):** `herramientas-captura/` — patrón Pixel 7, screenshot, y leer el PNG.
-- **Deploy:** `git add -A && git commit && git push origin main` → Render auto-despliega (~1-3 min).
-  Verificar deploy: `curl -H "Authorization: Bearer <RENDER_KEY>" https://api.render.com/v1/services/srv-d8oeegbeo5us73e5i9eg/deploys?limit=1`.
-- **REGLA DEL USUARIO (obligatoria):** antes de CADA cambio, respaldar los archivos a tocar en
-  `Desktop/vs and claude/_backups/<timestamp>--desc/` (externo al repo). Aplica a todos los proyectos.
+### Reglas duras (NO romper)
+- **Nunca inventar/citar artículos inexistentes.** Enlaces siempre `/leyes/{norma_id}?art={articulo_id}` verificados contra la base.
+- **GEMINI_API_KEY solo server-side.** Casos sensibles (suicidio→*4141, VIF→1455/133/149) los maneja el CÓDIGO y no se rate-limitean. El disclaimer lo pone el código.
+- **Backup obligatorio** antes de cada cambio: copiar archivos a `Desktop/vs and claude/_backups/<timestamp>--desc/`.
 
-## 3. Reglas duras (NO romper)
-- **Nunca inventar/citar artículos que no existan.** Los enlaces se resuelven contra la base
-  (`/leyes/{norma_id}?art={articulo_id}`). El modelo nunca cita de memoria sin verificación.
-- **GEMINI_API_KEY solo server-side** (nunca en bundle/repo/imagen Docker). `.env.local` gitignored.
-- **Casos sensibles** (suicidio→*4141, VIF→1455/133/149) los maneja el CÓDIGO y NUNCA se rate-limitean.
-- **Disclaimer** lo agrega el código, no el prompt.
+### Datos verificados (úsalos directo)
+- **norma_id:** Código del Trabajo **207436** · Código Civil **172986** · Ley 14.908 Pensiones **27977**
+  (⚠️ refundido ANTIGUO: NO citar sus artículos; anclar alimentos en Código Civil) · Ley 19.628 DICOM **141599**.
+- **IDs de artículo ya resueltos:**
+  - Cód. Trabajo: 159→3293, 160→3294, 161→3295, 162→3297, 163→3298, 168→3304, 169→3305.
+  - Cód. Civil (alimentos): 321→498, 323→500, 329→506, 332→509.
+  - Ley 19.628 (DICOM): 12→10592, 18→10598, 19→10599.
+- **Resolver IDs nuevos:**
+  ```bash
+  cd "Leyes chilenas/3-aplicacion" && node -e "const db=require('better-sqlite3')('data/leyes.db',{readonly:true});const a=(n,x)=>db.prepare(\"SELECT id,encabezado FROM articulos WHERE norma_id=? AND encabezado LIKE ? ORDER BY LENGTH(encabezado) LIMIT 4\").all(n,'Artículo '+x+'%');console.log(a(207436,162));"
+  ```
+- **Buscar norma_id por nombre:** mismo patrón sobre tabla `normas` (cols: id, nombre_corto, titulo). Duplicados refundidos excluidos en db.ts: 3471, 3551, 176925, 1160403.
+- **Assets mascota (`3-aplicacion/public/`):** `abogabot.png` (fondo blanco, círculo en pestañas) ·
+  `abogabot-personaje.png` (transparente, /chat) · `abogabot-premium.png` (dorado, solo /premium hero).
+  ffmpeg disponible. Muestrear color: `ffmpeg -i x.png -vf "crop=1:1:X:Y" -f rawvideo -pix_fmt rgba - | od -An -tu1`.
 
-## 4. Datos técnicos clave (para no re-descubrir)
-### norma_id de la base (núcleo, ya verificados)
-- **Código del Trabajo = 207436** (vigente). Arts: 159→3293, 160→3294, 161→3295, 162→3297,
-  163→3298, 168→3304, 169→3305.
-- **Código Civil = 172986** (vigente). Alimentos: 321→498, 323→500, 329→506, 332→509.
-- **Ley 14.908 Pensiones = 27977** → ⚠️ **TEXTO REFUNDIDO ANTIGUO** en la base (su art 3 habla de
-  "juez competente", no del monto mínimo moderno). NO citar sus artículos; anclar guías de alimentos
-  en el Código Civil y mencionar la 14.908 solo por nombre.
-- **Ley 19.628 Protección Datos (DICOM) = 141599** (vigente). 12→10592, 18→10598 (caducidad 5 años),
-  19→10599 (acreedor avisa pago en 7 días hábiles).
-- **Ley 19.496 Consumidor:** el refundido DFL 3 = 1160403 está EXCLUIDO como duplicado en db.ts
-  (`idsDuplicadosNucleo`). Para guías de consumidor, buscar la norma núcleo real antes de enlazar.
-- **Duplicados refundidos excluidos** (idsDuplicadosNucleo): 3471, 3551, 176925, 1160403.
+### Estado actual
+- Nav 5 pestañas: Leyes 📚 · Guías 💡 · Inicio 🏠 · Guardados ❤️ · Premium 👑 (`components/BottomNav.tsx`).
+- ChatBar (mascota fija + input→/chat) en TODAS las pestañas. Chat persistente PERMANENTE.
+- Guías en `src/lib/guias.ts` (13). Por macro grupo: **Laboral 10 · Vivienda 1 · Familia 1 · Consumidor 1**.
+- Explorador `components/GuiasExplorer.tsx`: carrusel destacadas + chips de categorías + listado.
+- Categorías en guias.ts (`CATEGORIAS`): laboral, vivienda, familia, consumidor. Cada guía: slug, titulo(H1 pregunta),
+  descripcion(meta≤155), categoria, destacada, metaTitle, respuestaCorta(snippet), contenido(markdown con enlaces), faq, fecha.
 
-### Cómo resolver IDs de artículos (script que funciona)
-```bash
-cd "Leyes chilenas/3-aplicacion" && node -e "
-const db=require('better-sqlite3')('data/leyes.db',{readonly:true});
-const art=(n,num)=>db.prepare(\"SELECT id,encabezado FROM articulos WHERE norma_id=? AND encabezado LIKE ? ORDER BY LENGTH(encabezado) LIMIT 5\").all(n,'Artículo '+num+'%');
-console.log(art(207436,161));"
-```
-(La DB `data/leyes.db` es de solo lectura, 228MB, gitignored; se sube como `leyes.db.gz` + Dockerfile la descomprime.)
+---
 
-### Chat (route.ts)  `3-aplicacion/src/app/api/chat/route.ts`
-- Prompt VALIDADO por el usuario: abogado chileno experto, respuesta completa sin omitir beneficios,
-  lenguaje simple, **párrafos numerados**, **pasos a seguir**, y sección final
-  **"Leyes relacionadas:"** (queda VISIBLE). Formato citas: `Código del Trabajo artículos 162, 168; Ley 21.325 artículo 5`.
-- El parser toma esa sección, atribuye cada nº de artículo a su código y enlaza el **artículo exacto**
-  verificado contra la base (los que no existen se omiten). Cuota: 3 consultas/24h, se descuenta solo si la respuesta sale OK.
+## B. TAREAS — SEGUIR EN ORDEN
 
-### Assets de la mascota (en `3-aplicacion/public/`)
-- `abogabot.png` — robot original, **fondo blanco** (RGB sin alfa). Usado en el círculo de las pestañas.
-- `abogabot-personaje.png` — **transparente** (colorkey del blanco, `0xFFFFFF:0.025:0.05`). Usado en /chat (estilo personaje).
-- `abogabot-premium.png` — **dorado** (selectivecolor sobre el personaje: piel gris→oro, traje azul/corbata roja conservados). Solo en /premium hero.
-- ffmpeg está disponible. Para muestrear color: `ffmpeg -i x.png -vf "crop=1:1:X:Y" -f rawvideo -pix_fmt rgba - | od -An -tu1`.
+### ☐ TAREA 1 — Ícono de cabecera (Leyes y Guías)  *(rápida; necesita imagen del usuario)*
+Pedido textual: *"agrega esta imagen... el icono de la balanza cambialo por este, haz el icono más grande para que resalte respecto al texto de junto."*
+- **PRIMERO pregunta al usuario dónde dejó la imagen** (suele ir al Escritorio o `Desktop/diseño leyes de chile/`). Si no la da, salta a TAREA 2.
+- Copiar la imagen a `3-aplicacion/public/` (ej. `escudo-leyes.png`).
+- En `components/BibliotecaHeader.tsx`: reemplazar el `<svg className="icono-balanza-header">` por `<img src="/escudo-leyes.png" ...>` más grande que el texto del título.
+- **Verif:** captura `/leyes` y `/guias` — el ícono resalta junto a "Biblioteca de Leyes".
 
-## 5. Estado actual de la navegación y guías
-- **Bottom nav (5 pestañas, izq→der):** Leyes 📚 · Guías 💡 · Inicio 🏠 (centro) · Guardados ❤️ · Premium 👑
-  (`components/BottomNav.tsx`, íconos line-art). Se eliminó el switcher interno de 3 pestañas.
-- **ChatBar** (mascota fija + input que abre /chat) está en TODAS las pestañas: Inicio, Leyes, Guías, Guardados, Premium.
-- **Guías** (`src/lib/guias.ts`), 13 publicadas. Conteo por macro grupo (CATEGORIAS):
-  - **Laboral 💼: 10** | **Arriendo/vivienda 🏠: 1** | **Familia 👨‍👩‍👧: 1** | **Consumidor 🛒: 1**
-  - Estructura de cada guía: slug, titulo(pregunta H1), descripcion(meta), categoria, destacada,
-    metaTitle, respuestaCorta(snippet), contenido(markdown con enlaces a artículos), faq(schema), fecha.
-  - Explorador: `components/GuiasExplorer.tsx` (carrusel de destacadas + chips de categorías + listado).
+### ☐ TAREA 2 — Categoría dorada "Deudas" (Premium) al centro del carrusel
+Pedido: *"agrega una dorada en explorar tema donde recaudarás las guías más polémicas y mejor SEO de deudas; ese botón será premium; déjalo en MEDIO del carrusel de los temas de guía."*
+- En `guias.ts`: agregar categoría `deudas` a `CategoriaGuia` y a `CATEGORIAS` (emoji 💰 o 👑, etiqueta "Deudas"). Reasignar la guía `como-salir-de-dicom` a `categoria: "deudas"`.
+- En `GuiasExplorer.tsx`: ordenar los chips para que **Deudas quede al CENTRO** del carrusel y con **estilo dorado** (fondo/borde oro, ej. `linear-gradient(135deg,#E6C15A,#C9A227)`), badge "Premium".
+- Las guías quedan PÚBLICAS (SEO + AdSense); el oro es solo branding Premium.
+- **Verif:** `/guias` muestra el chip dorado "Deudas" centrado; al tocarlo lista las guías de deudas.
 
-## 6. PENDIENTES (cola del usuario, con sus palabras)
-> El usuario está en modo lluvia de ideas; pidió varias features seguidas. Orden sugerido abajo.
+### ☐ TAREA 3 — Destacadas = lo más buscado en Google
+Pedido: *"las guías destacadas serán las más consultadas en Google."*
+- En `guias.ts`, poner `destacada: true` solo en las de mayor volumen de búsqueda (ej.: finiquito, despido por necesidades, pensión de alimentos, salir de DICOM, vacaciones, sueldo/horas extra). Quitar `destacada` a las de cola larga.
+- (Opcional) usar la skill `abogabot-seo` para validar el ranking de búsquedas.
+- **Verif:** carrusel "Guías destacadas" en `/guias` muestra esas.
 
-1. **Categoría dorada Premium "Deudas"** en *Explora por tema*:
-   *"agrega una dorada en explorar tema donde recaudaras las guias mas polemicas y mejor ceo de deudas,
-   ese boton sera premium, dejalo en MEDIO del carrusel de los temas de guia"*.
-   → Crear categoría/chip dorado (estilo oro) al CENTRO del carrusel de `GuiasExplorer`, que agrupe las
-   guías de deudas/polémicas. (DICOM ya existe; mover a esta categoría.) Mantener guías PÚBLICAS (SEO+ads); el oro es branding Premium.
-2. **Destacadas = lo más buscado en Google:** *"las guias destacadas seran las mas consultadas en google,
-   arma asi la estrategia"*. → Curar `destacada:true` a los temas de mayor volumen.
-3. **10 guías por cada macro grupo:** *"haz 10 guias por cada macro grupo"*. Faltan: vivienda +9, familia +9,
-   consumidor +9, y armar el set de "Deudas". Cada una con enlaces verificados (usar el script de §4).
-   Candidatos altos en SEO: despido (varios), licencia médica, contrato a plazo, sueldo mínimo;
-   arriendo (garantía, no pago, término); alimentos/divorcio/VIF (familia); garantía SERNAC, retracto,
-   cobranzas (consumidor); DICOM, prescripción de deudas, embargo de sueldo, repactación, Ley 20.720 (deudas).
-4. **Herramienta de facturación** *"agrega la herramienta de facturacion tambien en la pestaña premium"* +
-   *"haz la mejor herramienta de facturacion para chile"*. → Construir `/facturacion` (boleta de honorarios:
-   bruto↔líquido con retención 2026, IVA 19% para facturas, etc.) y enlazarla en la sección "Herramientas Premium".
-5. **Mejor calculadora de finiquito** *"la mejor calculadora de finiquito para los chilenos"*. Ya existe
-   `/calculadora` (Código del Trabajo). → Mejorarla: indemnización años (tope 11 años / 90 UF), mes de aviso,
-   feriado proporcional, recargos art 168, vacaciones, etc.
-6. **Icono de la cabecera (Leyes y Guías):** *"agrega esta imagen... el icono de la balanza cambialo por este,
-   haz el icono mas grande para que resalte"*. → En `components/BibliotecaHeader.tsx` reemplazar el SVG de la
-   balanza por la imagen del usuario, más grande. ⚠️ **FALTA EL ARCHIVO**: pedirle dónde guardó la imagen
-   (suele dejarla en el Escritorio o en `Desktop/diseño leyes de chile/`).
+### ☐ TAREA 4 — Llegar a 10 guías por macro grupo
+Pedido: *"haz 10 guías por cada macro grupo."* Faltan: **Vivienda +9, Familia +9, Consumidor +9, y armar el set Deudas.**
+- Producir en TANDAS por grupo. Para CADA guía: 1) elegir tema de alto SEO, 2) resolver IDs de artículos con el script (§A), 3) escribir contenido + respuestaCorta + 4-5 FAQ, 4) enlaces verificados.
+- ⚠️ Si la norma en la base es un refundido viejo (caso Ley 14.908), anclar en el código vigente y mencionar la ley por nombre sin enlazar artículos imprecisos.
+- Candidatos: **Vivienda**: garantía de arriendo, no pago de renta, término de contrato, reparaciones, subarriendo, gastos comunes, ruidos molestos, contrato de arriendo, desalojo. **Familia**: divorcio, VIF, cuidado personal, relación directa y regular, compensación económica, declarar paternidad, acuerdo de unión civil. **Consumidor**: garantía SERNAC, derecho a retracto, cobros indebidos, publicidad engañosa, garantía de autos, retención de productos. **Deudas**: prescripción de deudas (Cód. Civil 2515/2514), embargo de sueldo (inembargabilidad CdT 57), cobranza extrajudicial (Ley 19.496 art 37), repactación, Ley 20.720 (insolvencia/quiebra persona deudora), tarjetas/CAE.
+- **Verif:** chips muestran cada grupo con (10). `npx tsc` ok. Probar 2-3 slugs nuevos (HTTP 200) y que los enlaces de artículos abran.
 
-## 7. Hecho en esta sesión (últimos commits en main)
-- Prompt del chat validado + citas visibles + enlace de artículos exactos.
-- 3 guías SEO (despido por necesidades, pensión de alimentos [abre Familia], salir de DICOM [abre Consumidor]).
-- Nav de 5 pestañas con íconos line-art; se quitó el switcher interno.
-- Mascota AbogaBot: círculo fijo en pestañas; **personaje sin fondo** flotando en /chat; loader = personaje corriendo.
-- **Chat permanente** (sin expiración 24h). ChatBar en todas las pestañas. Avatar **dorado** en Premium.
-- Service worker cache v2 (para que el celular se actualice; los íconos del inicio SÍ existen, era caché).
+### ☐ TAREA 5 — Calculadora de finiquito "la mejor para Chile"
+Pedido: *"la mejor calculadora de finiquito para los chilenos."* Ya existe `/calculadora` (revisar `app/calculadora/page.tsx` y skill `abogabot-finiquito`).
+- Asegurar: indemnización por años de servicio (1 mes/año + fracción >6m; **tope 11 años**; **tope 90 UF** en la base de cálculo); indemnización sustitutiva del aviso (art 162); feriado proporcional; recargos art 168 (30% necesidades, 50% sin causal, 80/100% art 160); causales 159/160/161; mostrar la fórmula y el fundamento legal con enlaces a artículos (CdT 161→3295, 162→3297, 163→3298, 168→3304).
+- **Verif:** casos de prueba (2 años, sueldo X) dan montos correctos; UI muestra desglose y fundamento.
 
-## 8. Notas de UX abiertas
-- En /premium la ChatBar fija puede solaparse con el botón "Suscribirme" al hacer scroll arriba; el
-  `paddingBottom:196` deja espacio al final. Revisar si molesta.
-- En /chat se ven 2 personajes cuando está vacío (saludo grande + flotante sobre input). Si se quiere, dejar solo uno.
+### ☐ TAREA 6 — Herramienta de facturación "la mejor para Chile" + en Premium
+Pedido: *"agrega la herramienta de facturación también en la pestaña Premium"* + *"haz la mejor herramienta de facturación para Chile."*
+- Crear `app/facturacion/page.tsx`: calculadora de **boleta de honorarios** (bruto↔líquido con la **retención vigente del año**; verificar % actual antes de hardcodear) y de **factura/IVA 19%** (neto↔bruto). Mostrar fórmulas y notas SII.
+- Enlazarla en `/premium` dentro de "Herramientas Premium" (junto a la calculadora de finiquito).
+- **Verif:** `/facturacion` calcula correcto; card visible en `/premium`.
+
+---
+
+## C. HECHO EN LA SESIÓN ANTERIOR (no repetir)
+Prompt del chat validado + citas visibles + enlace de artículos exactos · 3 guías SEO (despido necesidades, pensión alimentos [abrió Familia], salir de DICOM [abrió Consumidor]) · nav de 5 pestañas con íconos line-art · mascota AbogaBot (círculo fijo en pestañas; **personaje sin fondo** flotando en /chat; loader = personaje corriendo) · **chat permanente** · ChatBar en todas las pestañas · avatar **dorado** en Premium · service worker cache v2.
+
+## D. UX ABIERTO (revisar si molesta)
+- /premium: ChatBar fija puede solaparse con "Suscribirme" al hacer scroll arriba (paddingBottom:196 deja espacio al final).
+- /chat vacío: se ven 2 personajes (saludo grande + flotante sobre input). Si se quiere, dejar solo uno.

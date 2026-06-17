@@ -16,6 +16,7 @@ import {
   articuloPorNumero,
 } from "@/lib/db";
 import { NextResponse } from "next/server";
+import { ipDe, mismoOrigen } from "@/lib/seguridad";
 
 const DISCLAIMER =
   "Esto es orientación general, no asesoría legal. Para tu caso concreto consulta a un abogado (la Corporación de Asistencia Judicial atiende gratis).";
@@ -91,13 +92,6 @@ function etiquetaLey(nombre: string, titulo?: string): string {
 const MAX_CONSULTAS = Number(process.env.LIMITE_CHAT_CONSULTAS || 3);
 const VENTANA_MS = Number(process.env.LIMITE_CHAT_HORAS || 24) * 60 * 60 * 1000;
 const contador = new Map<string, { inicio: number; n: number }>();
-function ipDe(req: Request): string {
-  return (
-    req.headers.get("fly-client-ip") ||
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    "anon"
-  );
-}
 // Estado de cuota SIN consumir (peek): se mira antes de llamar a Gemini para decidir
 // si bloquear. `bloqueado` = ya no le quedan. `reinicioHoras` = horas para renovar.
 function estadoCuota(req: Request): { restantes: number; bloqueado: boolean; reinicioHoras: number } {
@@ -124,6 +118,15 @@ function registrarConsulta(req: Request): number {
 }
 
 export async function POST(req: Request) {
+  // Anti-abuso de entrada: solo desde nuestro propio sitio y con cuerpo acotado (evita
+  // que otras webs usen nuestro Gemini y corta payloads enormes antes de parsearlos).
+  if (!mismoOrigen(req)) {
+    return NextResponse.json({ respuesta: "Solicitud no permitida.", fuentes: [], disclaimer: DISCLAIMER }, { status: 403 });
+  }
+  if (Number(req.headers.get("content-length") || 0) > 10_000) {
+    return NextResponse.json({ respuesta: "Tu mensaje es demasiado largo. Resúmelo, por favor.", fuentes: [], disclaimer: DISCLAIMER }, { status: 413 });
+  }
+
   let mensaje = "";
   try {
     const body = await req.json();

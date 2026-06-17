@@ -4,12 +4,23 @@
 // artículo; la key vive solo en el servidor.
 import { NextResponse } from "next/server";
 import { articuloPorId, numeroReal } from "@/lib/db";
+import { limitar, mismoOrigen } from "@/lib/seguridad";
 
 const cache = new Map<number, string>();
 
 export async function GET(req: Request) {
+  // Anti-abuso: esta ruta llama a Gemini. Sin límite, alguien podría iterar miles de IDs
+  // y quemar la cuota/costo. El caché evita repagar el mismo artículo; el rate-limit acota
+  // la enumeración por IP, y el chequeo de origen evita que otros sitios la usen.
+  if (!mismoOrigen(req)) return NextResponse.json({ resumen: null, error: "origen" }, { status: 403 });
+  if (!limitar(req, "simpl", 40, 10 * 60 * 1000).ok) {
+    return NextResponse.json({ resumen: null, error: "límite alcanzado" }, { status: 429 });
+  }
+
   const id = Number(new URL(req.url).searchParams.get("id"));
-  if (!id) return NextResponse.json({ resumen: null, error: "falta id" }, { status: 400 });
+  if (!id || !Number.isInteger(id) || id < 1) {
+    return NextResponse.json({ resumen: null, error: "falta id" }, { status: 400 });
+  }
 
   const enCache = cache.get(id);
   if (enCache) return NextResponse.json({ resumen: enCache });

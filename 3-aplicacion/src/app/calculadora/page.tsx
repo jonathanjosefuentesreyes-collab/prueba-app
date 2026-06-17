@@ -4,6 +4,20 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { calcularFiniquito, type Causal, type ResultadoFiniquito } from "@/lib/finiquito";
 
+// Cada fundamento legal se enlaza al artículo real en la Biblioteca (Código del Trabajo,
+// norma 207436). IDs verificados contra la base. Así el número que calcula la app queda
+// respaldado por su fuente oficial, clicable.
+const ART_FINIQUITO: Record<number, number> = {
+  32: 3054, 54: 3087, 55: 3089, 67: 3108, 69: 3110, 73: 3114,
+  159: 3293, 160: 3294, 161: 3295, 162: 3297, 163: 3298, 168: 3304, 172: 3308,
+};
+function hrefFundamento(fundamento: string): string | null {
+  const m = fundamento.match(/arts?\.\s*(\d+)/i);
+  if (!m) return null;
+  const id = ART_FINIQUITO[Number(m[1])];
+  return id ? `/leyes/207436?art=${id}` : null;
+}
+
 // Límite freemium: 1 cálculo gratis por día por persona (localStorage). El motor es
 // determinista y corre en el navegador, así que el límite es una barrera suave que
 // engancha a Premium —no un control estricto—, en la misma línea que la cuota del chat.
@@ -180,7 +194,12 @@ export default function Calculadora() {
                   <span>{l.concepto}</span>
                   <strong style={{ whiteSpace: "nowrap" }}>{clp(l.monto)}</strong>
                 </div>
-                <div className="nota" style={{ marginTop: 3 }}>{l.formula} · <span className="chip" style={{ padding: "1px 8px" }}>{l.fundamento}</span></div>
+                <div className="nota" style={{ marginTop: 3 }}>
+                  {l.formula} ·{" "}
+                  {hrefFundamento(l.fundamento)
+                    ? <Link href={hrefFundamento(l.fundamento)!} className="chip" style={{ padding: "1px 8px" }}>{l.fundamento} ↗</Link>
+                    : <span className="chip" style={{ padding: "1px 8px" }}>{l.fundamento}</span>}
+                </div>
               </div>
             ))}
             {resultado.lineas.length === 0 && <p className="nota">Con esta causal y datos no se generan haberes.</p>}

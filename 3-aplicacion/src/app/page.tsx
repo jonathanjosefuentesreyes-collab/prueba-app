@@ -50,7 +50,7 @@ export default function Inicio() {
   const populares = normasPopulares();
 
   return (
-    <main style={{ paddingBottom: 132 }}>
+    <main style={{ paddingBottom: 196 }}>
       <header className="header">
         <Link href="/leyes" aria-label="Ver todas las leyes de Chile" style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}

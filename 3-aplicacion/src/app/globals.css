@@ -237,6 +237,36 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
   border: 1px solid var(--borde-fuerte); border-radius: var(--radio-pill); padding: 7px 7px 7px 18px;
   box-shadow: var(--sombra-flotante);
 }
+/* AbogaBot invitando a consultar, justo encima del botón Enviar */
+.abogabot-invita {
+  display: flex; align-items: flex-end; gap: 9px; width: 100%;
+  background: none; border: 0; padding: 0 4px 8px; margin: 0; cursor: pointer; text-align: left;
+}
+.abogabot-invita-cara {
+  width: 46px; height: 46px; border-radius: 50%; object-fit: cover; flex: none;
+  border: 2.5px solid var(--azul); background: #fff;
+  box-shadow: var(--sombra-flotante);
+  animation: botSaluda 3.2s ease-in-out infinite;
+}
+.abogabot-invita-burbuja {
+  position: relative; background: var(--superficie); color: var(--texto);
+  border: 1px solid var(--borde-fuerte); border-radius: 16px; border-bottom-left-radius: 4px;
+  padding: 8px 12px; font-size: calc(12.5px * var(--escala-letra, 1)); line-height: 1.35; font-weight: 500;
+  box-shadow: var(--sombra-flotante); max-width: 300px;
+}
+.abogabot-invita-burbuja strong { color: var(--azul); font-weight: 800; }
+.abogabot-invita-burbuja::before {
+  content: ""; position: absolute; left: -7px; bottom: 9px;
+  width: 12px; height: 12px; background: var(--superficie);
+  border-left: 1px solid var(--borde-fuerte); border-bottom: 1px solid var(--borde-fuerte);
+  transform: rotate(45deg);
+}
+@keyframes botSaluda {
+  0%, 92%, 100% { transform: translateY(0) rotate(0); }
+  94% { transform: translateY(-3px) rotate(-6deg); }
+  97% { transform: translateY(-3px) rotate(6deg); }
+}
+@media (prefers-reduced-motion: reduce) { .abogabot-invita-cara { animation: none; } }
 .barra-chat input { flex: 1; border: 0; outline: 0; font-size: calc(14.5px * var(--escala-letra, 1)); background: transparent; color: var(--texto); }
 .boton-enviar {
   width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--azul);

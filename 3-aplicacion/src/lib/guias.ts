@@ -10,7 +10,7 @@ export interface Herramienta {
   boton: string;
 }
 
-export type CategoriaGuia = "laboral" | "familia" | "vivienda" | "consumidor";
+export type CategoriaGuia = "laboral" | "familia" | "vivienda" | "consumidor" | "deudas";
 
 export interface Guia {
   slug: string;
@@ -41,6 +41,9 @@ export const CATEGORIAS: Record<CategoriaGuia, { etiqueta: string; emoji: string
   vivienda: { etiqueta: "Arriendo y vivienda", emoji: "🏠" },
   familia: { etiqueta: "Familia", emoji: "👨‍👩‍👧" },
   consumidor: { etiqueta: "Consumidor", emoji: "🛒" },
+  // Categoría DORADA (destacada Premium en el explorador): temas de deudas, los de mayor
+  // volumen de búsqueda y mejor monetización. Las guías siguen siendo públicas (SEO + ads).
+  deudas: { etiqueta: "Deudas", emoji: "💰" },
 };
 
 export const guias: Guia[] = [
@@ -120,7 +123,6 @@ Si tu trabajo es perjudicial para tu salud o la del embarazo (por ejemplo, esfue
     slug: "acoso-laboral-ley-karin",
     titulo: "Sufro acoso laboral: ¿qué puedo hacer? (Ley Karin)",
     categoria: "laboral",
-    destacada: true,
     metaTitle: "Acoso laboral en Chile: la Ley Karin | Ley Chilena",
     descripcion:
       "Qué es el acoso laboral y sexual, cómo denunciarlo y qué te protege con la Ley Karin y el Código del Trabajo. Pasos, plazos y a quién acudir.",
@@ -183,7 +185,6 @@ Según el resultado del informe, el empleador debe aplicar las **medidas y sanci
     slug: "cuantas-horas-se-trabaja-a-la-semana",
     titulo: "¿Cuántas horas se trabaja a la semana en Chile? (Ley de 40 horas)",
     categoria: "laboral",
-    destacada: true,
     metaTitle: "¿Cuántas horas se trabaja a la semana? 40 horas | Ley Chilena",
     descripcion:
       "La jornada laboral en Chile se está reduciendo a 40 horas de forma gradual. Cuántas horas corresponden hoy, cómo se distribuyen y qué dice el Código del Trabajo.",
@@ -394,7 +395,6 @@ La base de cálculo es tu **última remuneración mensual**, pero con reglas pre
     slug: "gratificacion-legal-como-se-paga",
     titulo: "¿Cómo se paga la gratificación y cuánto me corresponde en Chile?",
     categoria: "laboral",
-    destacada: true,
     metaTitle: "Gratificación en Chile: cómo se paga | Ley Chilena",
     descripcion:
       "¿Tu empresa debe pagarte gratificación? Conoce las dos formas legales de pago (30% de las utilidades o 25% con tope) según el Código del Trabajo.",
@@ -790,7 +790,7 @@ La ley entrega herramientas potentes de cobro:
   {
     slug: "como-salir-de-dicom",
     titulo: "¿Cómo salir de DICOM en Chile? Cuándo te borran y qué hacer",
-    categoria: "consumidor",
+    categoria: "deudas",
     destacada: true,
     metaTitle: "Cómo salir de DICOM: cuándo te borran y qué hacer | Ley Chilena",
     descripcion:
@@ -848,6 +848,126 @@ Salir de DICOM **es gratis** y es **obligación del acreedor** una vez pagada la
         pregunta: "¿Pueden publicar en DICOM deudas de luz, agua o educación?",
         respuesta:
           "No. La ley prohíbe informar en estos registros las deudas contraídas para financiar servicios básicos (agua, luz, gas), educación y salud. Si apareces por ese tipo de deuda, podrían estar infringiendo la ley.",
+      },
+    ],
+  },
+  {
+    slug: "cuando-prescribe-una-deuda",
+    titulo: "¿Cuándo prescribe una deuda en Chile? Plazos y qué hacer",
+    categoria: "deudas",
+    destacada: true,
+    metaTitle: "¿Cuándo prescribe una deuda en Chile? Plazos | Ley Chilena",
+    descripcion:
+      "Cuándo prescribe una deuda en Chile: 3 años para el cobro ejecutivo y 5 para el ordinario. Cómo se cuenta el plazo, qué lo interrumpe y por qué debes alegarla.",
+    fecha: "2026-06-17",
+    respuestaCorta:
+      "En general, la deuda deja de poder cobrarse por la **vía ejecutiva a los 3 años** y por la **vía ordinaria a los 5 años**, contados desde que la obligación se hizo exigible ([artículo 2515 del Código Civil](/leyes/172986?art=2728)). Pero la prescripción **no opera sola**: hay que **alegarla ante el tribunal**; si no la alegas y te demandan, igual te pueden condenar a pagar. Además, el plazo se **interrumpe** si reconoces la deuda (un abono, una repactación) o si el acreedor te demanda.",
+    contenido: `
+## ¿Qué significa que una deuda "prescriba"?
+La prescripción extintiva hace que, pasado cierto tiempo sin cobro, el acreedor **pierda la acción** para exigirte el pago por los tribunales ([artículo 2514 del Código Civil](/leyes/172986?art=2727)). La deuda no "desaparece" mágicamente, pero ya **no te pueden obligar a pagarla** si alegas la prescripción.
+
+## ¿Cuáles son los plazos?
+- **Acción ejecutiva: 3 años.** Es la del cobro rápido (con un título como un pagaré o cheque).
+- **Acción ordinaria: 5 años.** Pasados los 3 años, la ejecutiva "se convierte" en ordinaria y dura 2 años más ([artículo 2515](/leyes/172986?art=2728)).
+
+El plazo se cuenta **desde que la obligación se hizo exigible** (normalmente, desde que dejaste de pagar).
+
+## Casos especiales
+- **Impuestos** (Fisco y municipalidades): **3 años** ([artículo 2521](/leyes/172986?art=2734)).
+- **Honorarios** de profesionales (abogados, médicos, etc.): **2 años** ([artículo 2521](/leyes/172986?art=2734)).
+- Cuentas de servicios y comercio suelen tener plazos cortos; revisa el caso concreto.
+
+## ⚠️ Lo más importante: la prescripción HAY QUE ALEGARLA
+El tribunal **no la aplica solo**. Si te demandan por una deuda antigua, debes **presentarte y alegar la prescripción** dentro del juicio. Si no contestas, te pueden condenar a pagar **aunque la deuda ya estuviera prescrita**. Nunca ignores una demanda.
+
+## ¿Qué INTERRUMPE el plazo (y lo reinicia)?
+- **Reconocer la deuda**: hacer un abono, firmar una repactación o un convenio de pago. Cuidado: repactar **reinicia el conteo**.
+- **Que el acreedor te demande** y te notifiquen.
+
+## ¿Qué hacer ahora?
+1. **Junta tus papeles** y ubica la fecha del último pago o del incumplimiento.
+2. **No reconozcas la deuda** a la ligera (un abono "de buena fe" puede reiniciar el plazo).
+3. Si te llega una **demanda**, NO la ignores: responde a tiempo y **alega la prescripción** si corresponde (idealmente con apoyo de un abogado; la Corporación de Asistencia Judicial es gratis).
+4. Recuerda que la deuda prescrita **no puede seguir en DICOM** pasados los plazos de publicación.
+5. ¿Dudas con tu caso? Pregúntale a **AbogaBot** y te orienta con la ley en la mano.
+`,
+    faq: [
+      {
+        pregunta: "¿A los cuántos años prescribe una deuda en Chile?",
+        respuesta:
+          "Por regla general, la acción ejecutiva prescribe en 3 años y la ordinaria en 5, contados desde que la deuda se hizo exigible (artículo 2515 del Código Civil). Algunos casos tienen plazos especiales (impuestos 3 años, honorarios 2 años).",
+      },
+      {
+        pregunta: "¿La deuda se borra sola cuando prescribe?",
+        respuesta:
+          "No. La prescripción debe alegarse ante el tribunal. Si te demandan por una deuda prescrita y no te presentas a alegarla, igual pueden condenarte a pagar. Por eso nunca debes ignorar una demanda.",
+      },
+      {
+        pregunta: "¿Repactar una deuda reinicia el plazo de prescripción?",
+        respuesta:
+          "Sí. Reconocer la deuda —con un abono, una repactación o un convenio— interrumpe la prescripción y el plazo vuelve a contarse desde cero. Conviene evaluarlo antes de firmar.",
+      },
+      {
+        pregunta: "¿Una deuda prescrita puede seguir apareciendo en DICOM?",
+        respuesta:
+          "No de forma indefinida: la publicación en los registros comerciales caduca a los 5 años desde que la deuda se hizo exigible (Ley 19.628). Una vez prescrita y caducada, no puede seguir comunicándose.",
+      },
+    ],
+  },
+  {
+    slug: "me-pueden-embargar-el-sueldo",
+    titulo: "¿Me pueden embargar el sueldo por una deuda en Chile?",
+    categoria: "deudas",
+    destacada: true,
+    metaTitle: "¿Pueden embargar tu sueldo por deudas? | Ley Chilena",
+    descripcion:
+      "El sueldo en Chile es inembargable salvo la parte que supere 56 UF. Conoce las excepciones (pensión de alimentos), qué bienes no pueden embargarte y qué hacer.",
+    fecha: "2026-06-17",
+    respuestaCorta:
+      "Por regla general **tu sueldo es inembargable**: solo se puede embargar la parte que **exceda de 56 UF** mensuales ([artículo 57 del Código Trabajo](/leyes/207436?art=3091)). Las **cotizaciones previsionales** tampoco se embargan. La gran excepción es la **pensión de alimentos**: por ella sí pueden retener parte de tu sueldo (hasta el 50%). Un acreedor común (banco, casa comercial) **no puede quedarse con tu sueldo** salvo el tramo sobre 56 UF.",
+    contenido: `
+## ¿Pueden embargarme el sueldo?
+La regla general es que **NO**: las remuneraciones de los trabajadores son **inembargables**, igual que las cotizaciones de seguridad social ([artículo 57 del Código del Trabajo](/leyes/207436?art=3091)). Esto protege tu ingreso para vivir.
+
+## La excepción del monto: sobre 56 UF
+Sí se puede embargar la parte del sueldo que **exceda de 56 UF** al mes. Es decir, si ganas por debajo de ese monto, tu sueldo queda completamente a salvo de los acreedores comunes ([artículo 57](/leyes/207436?art=3091)).
+
+## Excepciones por el tipo de deuda
+La protección NO opera (o se reduce) en estos casos ([artículo 57](/leyes/207436?art=3091)):
+- **Pensiones de alimentos** decretadas por un juez: pueden descontarse directamente de tu sueldo (hasta el **50%**).
+- **Fraude, hurto o robo** cometidos por el trabajador contra su empleador.
+- **Remuneraciones que el propio trabajador** adeude a personas que trabajaron para él.
+
+## ¿Y mis otros bienes?
+La ley también declara **inembargables** ciertos bienes básicos (la cama, la ropa, herramientas de trabajo, alimentos del mes, etc.). Un embargo no puede dejarte sin lo indispensable para vivir y trabajar.
+
+## ¿Qué hacer si te llega un embargo o demanda?
+1. **No ignores la demanda:** preséntate y, si la deuda es antigua, evalúa **alegar la prescripción**.
+2. Si embargan tu sueldo bajo las 56 UF o un bien inembargable, **reclámalo ante el tribunal** (incidente de exclusión).
+3. Pide ayuda gratis en la **Corporación de Asistencia Judicial** si no puedes pagar abogado.
+4. Si tus deudas te superan, evalúa el **procedimiento de renegociación** de la Ley de Insolvencia (Ley 20.720), que permite ordenar y rebajar deudas ante la Superir.
+5. ¿Tu caso es distinto? Cuéntaselo a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Pueden embargar todo mi sueldo por una deuda?",
+        respuesta:
+          "No. El sueldo es inembargable salvo la parte que exceda de 56 UF mensuales (artículo 57 del Código del Trabajo). Un acreedor común no puede quedarse con tu remuneración bajo ese monto.",
+      },
+      {
+        pregunta: "¿Pueden descontar mi sueldo por pensión de alimentos?",
+        respuesta:
+          "Sí. La pensión de alimentos decretada judicialmente es una excepción: puede retenerse directamente de tu sueldo, hasta un máximo del 50% de tus ingresos.",
+      },
+      {
+        pregunta: "¿Las cotizaciones de mi AFP se pueden embargar?",
+        respuesta:
+          "No. Las cotizaciones de seguridad social son inembargables, al igual que las remuneraciones bajo el límite de 56 UF (artículo 57 del Código del Trabajo).",
+      },
+      {
+        pregunta: "¿Qué bienes no me pueden embargar?",
+        respuesta:
+          "La ley protege bienes básicos como la cama, la ropa de uso, las herramientas necesarias para tu trabajo y los alimentos del mes, entre otros. Un embargo no puede dejarte sin lo indispensable para vivir y trabajar.",
       },
     ],
   }

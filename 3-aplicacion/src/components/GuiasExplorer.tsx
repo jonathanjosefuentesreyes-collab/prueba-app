@@ -26,6 +26,15 @@ export default function GuiasExplorer({
 }) {
   const [activa, setActiva] = useState(categorias[0]?.clave ?? "");
 
+  // La categoría dorada "Deudas" (Premium) va al CENTRO del carrusel de temas.
+  const cats = (() => {
+    const dorada = categorias.find((c) => c.clave === "deudas");
+    const otras = categorias.filter((c) => c.clave !== "deudas");
+    if (!dorada) return categorias;
+    const mid = Math.floor((otras.length + 1) / 2);
+    return [...otras.slice(0, mid), dorada, ...otras.slice(mid)];
+  })();
+
   return (
     <div>
       {/* Carrusel de guías destacadas (scroll horizontal con snap) */}
@@ -84,8 +93,9 @@ export default function GuiasExplorer({
         Explora por tema
       </h2>
       <div role="tablist" aria-label="Temas de guías" style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 8, marginBottom: 14 }}>
-        {categorias.map((c) => {
+        {cats.map((c) => {
           const sel = c.clave === activa;
+          const oro = c.clave === "deudas"; // categoría dorada Premium
           return (
             <button
               key={c.clave}
@@ -95,24 +105,27 @@ export default function GuiasExplorer({
               style={{
                 flex: "0 0 auto",
                 cursor: "pointer",
-                border: sel ? "1px solid var(--azul)" : "1px solid var(--borde)",
-                background: sel ? "var(--azul)" : "#fff",
-                color: sel ? "#fff" : "var(--texto)",
+                border: oro ? "1px solid #C9A227" : sel ? "1px solid var(--azul)" : "1px solid var(--borde)",
+                background: oro
+                  ? (sel ? "linear-gradient(135deg,#E6C15A,#C9A227)" : "linear-gradient(135deg,#FBF3D0,#EFD98F)")
+                  : sel ? "var(--azul)" : "#fff",
+                color: oro ? "#5b4708" : sel ? "#fff" : "var(--texto)",
                 borderRadius: 20,
                 padding: "7px 14px",
                 fontSize: 13,
                 fontWeight: 700,
                 whiteSpace: "nowrap",
+                boxShadow: oro ? "0 2px 9px rgba(201,162,39,0.4)" : undefined,
               }}
             >
-              {c.emoji} {c.etiqueta} ({c.guias.length})
+              {oro ? "👑 " : ""}{c.emoji} {c.etiqueta} ({c.guias.length})
             </button>
           );
         })}
       </div>
 
       {/* Todas las secciones van al DOM (links crawlables); solo se muestra la activa */}
-      {categorias.map((c) => (
+      {cats.map((c) => (
         <div
           key={c.clave}
           role="tabpanel"

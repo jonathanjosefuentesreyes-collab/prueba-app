@@ -244,11 +244,10 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
   width: 100%; background: none; border: 0; padding: 0; margin: 0 0 8px; cursor: pointer; text-align: left;
 }
 .abogabot-invita-cara {
-  width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex: none;
+  width: 50px; height: 50px; border-radius: 50%; object-fit: cover; flex: none;
   border: 2.5px solid var(--azul); background: #fff;
   box-shadow: var(--sombra-flotante);
-  margin-right: 3px; /* centra el círculo sobre el botón Enviar (40px, a 7px del borde) */
-  animation: botSaluda 3.2s ease-in-out infinite;
+  margin-right: 3px; /* círculo FIJO, centrado sobre el botón Enviar */
 }
 .abogabot-invita-burbuja {
   position: relative; background: var(--superficie); color: var(--texto);
@@ -269,7 +268,50 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
   94% { transform: translateY(-3px) rotate(-6deg); }
   97% { transform: translateY(-3px) rotate(6deg); }
 }
-@media (prefers-reduced-motion: reduce) { .abogabot-invita-cara { animation: none; } }
+/* La cara: bob suave y, cada cierto rato, un saludito (tilt) — amigable y vivo. */
+@keyframes mascotaViva {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  20% { transform: translateY(-4px) rotate(0); }
+  40% { transform: translateY(0) rotate(0); }
+  48% { transform: translateY(-2px) rotate(-9deg); }
+  56% { transform: translateY(-2px) rotate(9deg); }
+  64% { transform: translateY(0) rotate(0); }
+}
+/* La mascota completa flota en horizontal sobre la barra de chat. */
+@keyframes mascotaFlotaH {
+  0%, 100% { transform: translateX(2px); }
+  50% { transform: translateX(-92px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .abogabot-invita-cara, .abogabot-invita { animation: none; }
+}
+
+/* ---------- Mascota personaje (sin fondo) dentro del chat ---------- */
+.chat-bienvenida { display: flex; flex-direction: column; align-items: center; margin-top: 16px; }
+.bienvenida-personaje {
+  width: 150px; height: 150px; object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(0, 57, 166, 0.18));
+  animation: mascotaFlotaSuave 5s ease-in-out infinite;
+}
+/* Flota en horizontal sobre la barra de entrada; height:0 para no ocupar layout. */
+.mascota-chat-flota {
+  position: sticky; bottom: 132px; z-index: 5; height: 0;
+  display: flex; justify-content: flex-end; pointer-events: none; padding-right: 4px;
+}
+.mascota-chat-cara {
+  width: 74px; height: 74px; object-fit: contain;
+  margin-top: -84px; /* se eleva sobre el input */
+  filter: drop-shadow(0 6px 9px rgba(0, 0, 0, 0.22));
+  animation: mascotaFlotaH 6s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes mascotaFlotaSuave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bienvenida-personaje, .mascota-chat-cara { animation: none; }
+}
 .barra-chat input { flex: 1; border: 0; outline: 0; font-size: calc(14.5px * var(--escala-letra, 1)); background: transparent; color: var(--texto); }
 .boton-enviar {
   width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--azul);

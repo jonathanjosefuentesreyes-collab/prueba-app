@@ -49,19 +49,15 @@ function leerConsultas(): ConsultaGuardada[] {
   try { return JSON.parse(localStorage.getItem("consultas_guardadas") || "[]"); } catch { return []; }
 }
 
-// Persistencia del hilo de chat: queda guardado en el dispositivo por 24 h, así no se
-// pierde al cambiar de pestaña, recargar o cerrar la app. Pasadas las 24 h se descarta.
+// Persistencia del hilo de chat: queda guardado en el dispositivo de forma PERMANENTE,
+// así no se pierde al cambiar de pestaña, recargar o cerrar la app. Solo se borra cuando
+// el usuario toca "Nueva" conversación. Se conservan los últimos MAX_MENSAJES mensajes.
 const CLAVE_HISTORIAL = "chat_historial";
-const VENTANA_HISTORIAL_MS = 24 * 60 * 60 * 1000;
-const MAX_MENSAJES = 40;
+const MAX_MENSAJES = 60;
 function leerHistorial(): { mensajes: Mensaje[]; restantes: number | null } | null {
   try {
     const raw = JSON.parse(localStorage.getItem(CLAVE_HISTORIAL) || "null");
     if (!raw || !Array.isArray(raw.mensajes) || raw.mensajes.length === 0) return null;
-    if (Date.now() - (raw.ts || 0) >= VENTANA_HISTORIAL_MS) {
-      localStorage.removeItem(CLAVE_HISTORIAL);
-      return null;
-    }
     return { mensajes: raw.mensajes, restantes: typeof raw.restantes === "number" ? raw.restantes : null };
   } catch {
     return null;
@@ -90,7 +86,7 @@ export default function ChatClient() {
     setHayVoz(Boolean(w.SpeechRecognition || w.webkitSpeechRecognition));
   }, []);
 
-  // Cargar el hilo guardado (si hay y es de las últimas 24 h) al abrir el chat.
+  // Cargar el hilo guardado (permanente) al abrir el chat.
   useEffect(() => {
     const h = leerHistorial();
     if (h) {
@@ -243,11 +239,15 @@ export default function ChatClient() {
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 10, paddingBottom: 12 }}>
         {mensajes.length === 0 && !pensando && (
-          <p className="vacio">
-            Hola 👋 Soy AbogaBot.<br />Cuéntame tu problema legal con tus palabras
-            {hayVoz ? <><br />— escribe o toca el micrófono y háblame —</> : null}<br />
-            y te explico qué dice la ley y qué hacer ahora.
-          </p>
+          <div className="chat-bienvenida">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/abogabot-personaje.png" alt="AbogaBot" className="bienvenida-personaje" />
+            <p className="vacio" style={{ padding: "8px 16px 0" }}>
+              Hola 👋 Soy <strong>AbogaBot</strong>.<br />Cuéntame tu problema legal con tus palabras
+              {hayVoz ? <><br />— escribe o toca el micrófono y háblame —</> : null}<br />
+              y te explico qué dice la ley y qué hacer ahora.
+            </p>
+          </div>
         )}
         {mensajes.map((m, i) => (
           <div key={i} className={`burbuja ${m.rol}`}>
@@ -298,7 +298,7 @@ export default function ChatClient() {
           <div className="cargando-bot">
             <span className="bot-loader">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/abogabot.png" alt="" className="bot-corriendo" onError={(e) => { e.currentTarget.style.display = "none"; }} />
+              <img src="/abogabot-personaje.png" alt="" className="bot-corriendo" onError={(e) => { e.currentTarget.style.display = "none"; }} />
               <span className="maletin-orbita">
                 <span className="maletin">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -313,6 +313,15 @@ export default function ChatClient() {
         )}
         <div ref={fondo} />
       </div>
+
+      {/* Mascota personaje (sin fondo) flotando en horizontal sobre la barra de entrada.
+          Desaparece mientras AbogaBot responde: ahí "entra" a la ventana como el loader. */}
+      {!pensando && (
+        <div className="mascota-chat-flota" aria-hidden>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/abogabot-personaje.png" alt="" className="mascota-chat-cara" />
+        </div>
+      )}
 
       {restantes !== null && (
         <p

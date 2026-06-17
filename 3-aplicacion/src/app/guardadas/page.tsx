@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import BibliotecaHeader from "@/components/BibliotecaHeader";
 import ArticuloItem from "@/components/ArticuloItem";
+import ChatBar from "@/components/ChatBar";
 
 interface ArticuloFavorito {
   id: number;
@@ -55,7 +56,7 @@ export default function Guardadas() {
   }, []);
 
   return (
-    <main>
+    <main style={{ paddingBottom: 196 }}>
       <BibliotecaHeader activeTab="guardadas" />
       
       <div style={{ padding: "0 2px 20px" }}>
@@ -139,6 +140,7 @@ export default function Guardadas() {
           </div>
         )}
       </div>
+      <ChatBar />
     </main>
   );
 }

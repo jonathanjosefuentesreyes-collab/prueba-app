@@ -62,8 +62,8 @@ export default function ChatBar() {
 
   return (
     <div className="barra-chat">
-      {/* AbogaBot invita a consultar — círculo a la derecha, centrado sobre el botón
-          Enviar, con la burbuja por encima de su cabeza. Al tocarlo abre el chat. */}
+      {/* Mascota AbogaBot (FIJA en las pestañas): círculo a la derecha, sobre el botón
+          Enviar, con la burbuja por encima de su cabeza. Al tocarla abre el chat. */}
       <button
         type="button"
         className="abogabot-invita"

@@ -3,6 +3,7 @@ import { buscar, listarNormas, gruposBiblioteca, MATERIAS } from "@/lib/db";
 import BibliotecaHeader from "@/components/BibliotecaHeader";
 import ArticuloItem from "@/components/ArticuloItem";
 import ItemLeyCompendio from "@/components/ItemLeyCompendio";
+import ChatBar from "@/components/ChatBar";
 
 export const metadata = {
   title: "Biblioteca de leyes chilenas | Ley Chilena",
@@ -166,6 +167,7 @@ export default async function Leyes(props: {
           </>
         )}
       </div>
+      <ChatBar />
     </main>
   );
 }

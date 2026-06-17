@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import SuscribirseBtn from "@/components/SuscribirseBtn";
+import ChatBar from "@/components/ChatBar";
 
 export const metadata: Metadata = {
   title: "AbogaBot Premium — tu asesor legal sin límites | Ley Chilena",
@@ -17,7 +18,7 @@ const BENEFICIOS = [
 
 export default function Premium() {
   return (
-    <main style={{ paddingBottom: 84 }}>
+    <main style={{ paddingBottom: 196 }}>
       <header className="header">
         <span className="marca" style={{ fontSize: 19 }}>
           <span className="azul">Aboga</span><span className="rojo">Bot</span> Premium
@@ -25,8 +26,9 @@ export default function Premium() {
       </header>
 
       <div className="premium-hero">
+        {/* AbogaBot dorado: versión Premium (piel gris recoloreada a oro), solo aquí. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/abogabot.png" alt="AbogaBot" className="premium-bot" />
+        <img src="/abogabot-premium.png" alt="AbogaBot Premium" className="premium-bot" />
         <h1 className="premium-titulo">Tu asesor legal, sin límites</h1>
         <p className="premium-sub">Desbloquea todo el poder de AbogaBot y resuelve tus dudas legales con calma.</p>
       </div>
@@ -70,6 +72,7 @@ export default function Premium() {
       <p className="nota" style={{ margin: "18px 2px 0", textAlign: "center" }}>
         ¿Dudas? Escríbenos desde <Link href="/quienes-somos" style={{ color: "var(--azul)" }}>Quiénes somos</Link>.
       </p>
+      <ChatBar />
     </main>
   );
 }

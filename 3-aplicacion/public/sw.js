@@ -2,7 +2,7 @@
 // Objetivo: que la app sea INSTALABLE (prompt "Agregar a pantalla de inicio") y abra
 // con lo último visto si no hay conexión. Estrategia: network-first con respaldo en caché.
 // NO intercepta /api/* ni métodos != GET (el chat es POST a Gemini y debe ir siempre a la red).
-const CACHE = "leyes-de-chile-v1";
+const CACHE = "leyes-de-chile-v2";
 
 self.addEventListener("install", () => self.skipWaiting());
 

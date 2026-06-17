@@ -642,6 +642,214 @@ Sí. Pueden pactarse hasta **2 horas extraordinarias por día**, y solo en faena
           "Igual deben pagártelas con recargo: se consideran extraordinarias las trabajadas con conocimiento del empleador, aunque no haya pacto escrito (artículos 30 y 32).",
       },
     ],
+  },
+  {
+    slug: "despido-por-necesidades-de-la-empresa",
+    titulo: "Me despidieron por necesidades de la empresa: ¿qué me corresponde?",
+    categoria: "laboral",
+    destacada: true,
+    metaTitle: "Despido por necesidades de la empresa: qué te pagan | Ley Chilena",
+    descripcion:
+      "Te despidieron por necesidades de la empresa en Chile: indemnización por años de servicio, mes de aviso, feriado y qué hacer si el despido es injustificado.",
+    fecha: "2026-06-17",
+    respuestaCorta:
+      "Si te despiden por **necesidades de la empresa** (artículo 161) y llevas **1 año o más**, te corresponde: **indemnización por años de servicio** (un mes de sueldo por año, con tope de 11 años y 90 UF), el **mes de aviso** (o pago en su reemplazo si no te avisaron con 30 días), el **feriado pendiente** y las remuneraciones que te deban. Si crees que el despido fue **injustificado**, tienes **60 días hábiles** para demandar y el juez puede subir la indemnización en un **30%**.",
+    contenido: `
+## ¿Qué es el despido por "necesidades de la empresa"?
+Es una causal que permite al empleador terminar tu contrato por razones de la empresa —no por una falta tuya— como baja en la productividad, cambios del mercado o reestructuración ([artículo 161 del Código del Trabajo](/leyes/207436?art=3295)). Al no ser culpa del trabajador, **da derecho a indemnización**.
+
+## ¿Cuánto me deben pagar?
+Si tu contrato estuvo vigente **un año o más**, te corresponde:
+
+1. **Indemnización por años de servicio:** un mes de la última remuneración por **cada año trabajado** y por la fracción superior a 6 meses, con un **tope de 11 años** (salvo contratos anteriores a agosto de 1981) y un **tope de 90 UF** por mes de remuneración ([artículo 163](/leyes/207436?art=3298)).
+2. **Indemnización sustitutiva del aviso previo:** si **no** te avisaron por escrito con **30 días** de anticipación, te deben pagar **un mes de sueldo** adicional ([artículo 162](/leyes/207436?art=3297)).
+3. **Feriado proporcional:** los días de vacaciones que tenías acumulados y no tomaste.
+4. **Remuneraciones pendientes:** sueldos, comisiones, horas extra y bonos que te adeuden hasta el último día.
+
+## ¿Cómo deben avisarme?
+Con una **carta de despido** entregada en persona o enviada por **carta certificada** a tu domicilio, dentro de los **3 días hábiles** siguientes a la separación. Debe indicar la causal (artículo 161), los hechos y el estado de tus cotizaciones. Una copia va a la **Inspección del Trabajo** ([artículo 162](/leyes/207436?art=3297)).
+
+> **Ley Bustos:** si al despedirte tus cotizaciones **no estaban pagadas**, el despido **no produce efecto** y el empleador debe seguir pagándote el sueldo hasta que las entere y te lo comunique.
+
+## ¿Y si el despido fue injustificado?
+Si crees que la causal no era real, puedes reclamar ante el **Juzgado del Trabajo** dentro de **60 días hábiles** desde la separación (el plazo se suspende si reclamas antes en la Inspección). Si el juez te da la razón, la **indemnización por años de servicio aumenta en un 30%** ([artículo 168](/leyes/207436?art=3304)).
+
+## ¿Tengo derecho al seguro de cesantía?
+Sí. Además de lo anterior, puedes cobrar tu **Seguro de Cesantía** en la AFC con el aviso de término y tu certificado de cotizaciones.
+
+## ¿Qué hacer ahora?
+1. **Guarda la carta de despido**, tu contrato y tus últimas liquidaciones de sueldo.
+2. **Revisa el finiquito** antes de firmar: que incluya indemnización por años, mes de aviso, feriado y lo pendiente. Si algo falta, **no lo firmes** y deja constancia.
+3. **Calcula lo que te corresponde** con la herramienta de abajo para comparar con la oferta.
+4. Si no hay acuerdo o el despido parece injustificado, **reclama en la Dirección del Trabajo** o demanda dentro de los 60 días hábiles.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley para tu situación.
+`,
+    herramienta: {
+      titulo: "Calcula tu finiquito",
+      descripcion: "Estima tu indemnización por años de servicio, el mes de aviso y el feriado pendiente.",
+      href: "/calculadora",
+      boton: "Calcular mi finiquito",
+    },
+    faq: [
+      {
+        pregunta: "¿Cuál es el tope de la indemnización por años de servicio?",
+        respuesta:
+          "Un mes de sueldo por año trabajado, con un máximo de 11 años (salvo contratos vigentes antes de agosto de 1981) y un tope de 90 UF en la remuneración mensual de cálculo (artículo 163 del Código del Trabajo).",
+      },
+      {
+        pregunta: "¿Me pueden despedir por necesidades de la empresa estando con licencia médica?",
+        respuesta:
+          "No durante la licencia: mientras estés con licencia médica vigente no pueden hacer efectivo el término por necesidades de la empresa. Distinto es el fuero (embarazo, sindical), que requiere autorización judicial.",
+      },
+      {
+        pregunta: "¿Cuánto tiempo tengo para reclamar un despido injustificado?",
+        respuesta:
+          "60 días hábiles desde la separación para demandar ante el Juzgado del Trabajo. Si reclamas antes en la Inspección del Trabajo, el plazo se suspende y no puede pasar de 90 días hábiles (artículo 168).",
+      },
+      {
+        pregunta: "¿Me tienen que pagar el mes de aviso sí o sí?",
+        respuesta:
+          "Solo si no te avisaron por escrito con 30 días de anticipación. Si te dieron el aviso con esa antelación, no corresponde la indemnización sustitutiva; si no, deben pagarte un mes de sueldo (artículo 162).",
+      },
+    ],
+  },
+  {
+    slug: "pension-de-alimentos-cuanto-y-como",
+    titulo: "Pensión de alimentos en Chile: ¿cuánto es y cómo se pide?",
+    categoria: "familia",
+    destacada: true,
+    metaTitle: "Pensión de alimentos: cuánto es y cómo pedirla | Ley Chilena",
+    descripcion:
+      "Cuánto corresponde de pensión de alimentos en Chile, montos mínimos, hasta qué edad se paga y cómo demandar en el Tribunal de Familia si no pagan.",
+    fecha: "2026-06-17",
+    respuestaCorta:
+      "La pensión de alimentos se fija según las **necesidades del hijo** y las **facultades de quien la paga** ([artículo 329 del Código Civil](/leyes/172986?art=506)). Como referencia, la ley establece **montos mínimos**: por **un** hijo, no menos del **40% de un ingreso mínimo**; por **dos o más**, no menos del **30% por cada uno**. En total, la pensión **no puede superar el 50%** de las rentas del alimentante. Se pide en el **Tribunal de Familia** y, por regla general, se paga hasta los **21 años** (o **28** si el hijo estudia).",
+    contenido: `
+## ¿Quién tiene derecho a pensión de alimentos?
+La ley obliga a darse alimentos entre sí, entre otros, al **cónyuge**, a los **hijos** (descendientes) y a los **padres** (ascendientes) ([artículo 321 del Código Civil](/leyes/172986?art=498)). Lo más común es la pensión que un padre o madre paga por sus hijos.
+
+## ¿Qué cubre la pensión?
+No es solo comida: debe permitir al hijo **subsistir y desarrollarse**, e incluye **enseñanza básica y media** y el aprendizaje de una profesión u oficio ([artículo 323](/leyes/172986?art=500)). En la práctica cubre alimentación, vivienda, salud, educación, vestuario y recreación.
+
+## ¿Cuánto se paga?
+El monto se fija caso a caso, considerando **las necesidades del hijo** y **las facultades económicas y circunstancias** de quien debe pagar ([artículo 329](/leyes/172986?art=506)). Para proteger al hijo, la **Ley 14.908** fija pisos y un techo:
+
+- **Mínimo:** por **un** hijo, no menos del **40%** de un ingreso mínimo remuneracional; por **dos o más** hijos, no menos del **30%** de un ingreso mínimo **por cada uno**.
+- **Máximo:** la suma de las pensiones **no puede exceder el 50%** de las rentas del alimentante.
+
+El juez puede fijar un monto mayor al mínimo si los ingresos lo permiten.
+
+## ¿Hasta qué edad se paga?
+Por regla general, hasta los **21 años**. Se extiende hasta los **28 años** si el hijo está **estudiando** una profesión u oficio, y sin límite de edad si tiene una **incapacidad** que le impida mantenerse o si el juez lo considera indispensable ([artículo 332](/leyes/172986?art=509)).
+
+## ¿Cómo se pide?
+Se demanda en el **Tribunal de Familia** del domicilio del hijo (alimentario). No necesitas abogado para pedir alimentos: puedes hacerlo con el **formulario de demanda** del propio tribunal o con la **Corporación de Asistencia Judicial** (gratuita). Mientras dura el juicio, el tribunal suele fijar **alimentos provisorios** desde el inicio.
+
+## ¿Y si no me pagan?
+La ley entrega herramientas potentes de cobro:
+
+- **Retención por el empleador:** el juez puede ordenar que la pensión se **descuente directamente del sueldo** del que debe pagar.
+- **Registro Nacional de Deudores de Pensiones de Alimentos:** quien acumula **3 mensualidades** impagas (continuas o no) queda inscrito, lo que **bloquea trámites** como renovar licencia de conducir o pasaporte, sacar créditos o recibir devoluciones de impuestos (que se retienen para pagar la deuda).
+- **Apremios:** el tribunal puede decretar **arraigo** (prohibición de salir del país) y hasta **arresto nocturno**.
+
+## ¿Qué hacer ahora?
+1. **Reúne pruebas** de los gastos del hijo (colegio, salud, etc.) y de los ingresos del que debe pagar.
+2. **Presenta la demanda** en el Tribunal de Familia (o pide ayuda gratis en la Corporación de Asistencia Judicial).
+3. Pide **alimentos provisorios** para no esperar todo el juicio.
+4. Si ya hay pensión fijada y no pagan, solicita la **liquidación de la deuda**, la inscripción en el **Registro de Deudores** y los **apremios**.
+5. ¿Dudas con tu caso? Cuéntaselo a **AbogaBot** y te orienta con la ley en la mano.
+`,
+    faq: [
+      {
+        pregunta: "¿Cuál es el monto mínimo de pensión de alimentos por un hijo?",
+        respuesta:
+          "Como referencia legal, no menos del 40% de un ingreso mínimo remuneracional por un hijo, y no menos del 30% por cada uno cuando son dos o más. El juez puede fijar un monto mayor según los ingresos de quien paga.",
+      },
+      {
+        pregunta: "¿Puede una pensión superar el 50% del sueldo?",
+        respuesta:
+          "No. La suma de las pensiones que se decreten no puede exceder el 50% de las rentas del alimentante. Dentro de ese límite, el monto depende de las necesidades del hijo y las facultades de quien paga (artículo 329 del Código Civil).",
+      },
+      {
+        pregunta: "¿Hasta qué edad se paga la pensión de alimentos?",
+        respuesta:
+          "Hasta los 21 años por regla general; hasta los 28 si el hijo estudia una profesión u oficio, y sin tope de edad si una incapacidad le impide subsistir por sí mismo (artículo 332 del Código Civil).",
+      },
+      {
+        pregunta: "¿Qué pasa si el padre o madre no paga la pensión?",
+        respuesta:
+          "Tras acumular 3 mensualidades impagas queda inscrito en el Registro Nacional de Deudores de Pensiones, lo que bloquea trámites (licencia, pasaporte, créditos) y permite retener su devolución de impuestos. El tribunal también puede decretar arraigo y arresto nocturno.",
+      },
+      {
+        pregunta: "¿Necesito abogado para pedir pensión de alimentos?",
+        respuesta:
+          "No es obligatorio para iniciar la demanda de alimentos: puedes usar el formulario del Tribunal de Familia o acudir gratis a la Corporación de Asistencia Judicial. Para casos complejos conviene asesoría de un abogado de familia.",
+      },
+    ],
+  },
+  {
+    slug: "como-salir-de-dicom",
+    titulo: "¿Cómo salir de DICOM en Chile? Cuándo te borran y qué hacer",
+    categoria: "consumidor",
+    destacada: true,
+    metaTitle: "Cómo salir de DICOM: cuándo te borran y qué hacer | Ley Chilena",
+    descripcion:
+      "Cómo salir de DICOM en Chile: cuándo deben borrarte al pagar, la caducidad a los 5 años, qué deudas ya no pueden publicarse y cómo exigir tu eliminación.",
+    fecha: "2026-06-17",
+    respuestaCorta:
+      "Cuando **pagas o se extingue** la deuda, el acreedor debe **avisar al registro dentro de 7 días hábiles** para que dejes de aparecer ([artículo 19 de la Ley 19.628](/leyes/141599?art=10599)). Además, una deuda **no puede seguir publicándose después de 5 años** desde que se hizo exigible, aunque no la hayas pagado ([artículo 18](/leyes/141599?art=10598)). No necesitas pagarle a ningún \"borrador de DICOM\": es **gratis** y es **obligación del acreedor**.",
+    contenido: `
+## ¿Qué es DICOM?
+DICOM (y otros boletines comerciales) es un **registro de datos** sobre deudas morosas y protestos. Aparecer ahí no es una "lista negra" eterna: la **Ley 19.628 sobre protección de la vida privada** regula **cuándo** pueden publicar tus deudas y **cuándo deben borrarlas**.
+
+## Pagué mi deuda, ¿cuándo me borran?
+Al **pagar o extinguir** la obligación, el acreedor (banco, casa comercial, etc.) está **obligado a avisar** al responsable del registro **dentro de los 7 días hábiles** siguientes, para que se actualice o elimine el dato ([artículo 19 de la Ley 19.628](/leyes/141599?art=10599)). Una vez pagada, **no pueden seguir comunicando** esa deuda ([artículo 18](/leyes/141599?art=10598)).
+
+## ¿Y si nunca pagué? La caducidad a los 5 años
+Aunque no pagues, una deuda **no puede seguir publicándose pasados 5 años** desde que se hizo exigible ([artículo 18](/leyes/141599?art=10598)). Ojo: que caduque la **publicación** no significa que la deuda desaparezca —el acreedor aún puede cobrarla mientras no prescriba— pero **deja de figurar** en el registro público.
+
+## Deudas que ya NO pueden publicarse
+La ley prohíbe informar en estos registros, entre otras, las deudas contraídas para financiar **servicios básicos** (agua, luz, gas), **educación** (colegios, universidades) y **salud**. Si apareces por una deuda de este tipo, pueden estar vulnerando la ley.
+
+## ¿Pagué y sigo apareciendo?
+Tienes derecho a exigir que **corrijan, bloqueen o eliminen** tus datos cuando estén equivocados, caducos o ya pagados ([artículo 12 de la Ley 19.628](/leyes/141599?art=10592)). Pasos:
+
+1. **Reúne el comprobante de pago** o el documento que acredite que la deuda se extinguió.
+2. **Exige por escrito al acreedor** (no al DICOM) que informe el pago y pida tu eliminación; conserva copia del reclamo.
+3. Si en un plazo razonable no lo corrigen, puedes **reclamar ante los tribunales** mediante el procedimiento de protección de datos de la Ley 19.628.
+
+## Cuidado con las estafas
+Salir de DICOM **es gratis** y es **obligación del acreedor** una vez pagada la deuda. **No le pagues a "limpiadores de DICOM"** que prometen borrarte: no pueden hacer nada que tú no puedas exigir gratis, y muchos son derechamente estafas.
+
+## ¿Qué hacer ahora?
+1. **Pide tu informe** para ver exactamente qué deudas figuran y desde cuándo.
+2. **Identifica** cuáles ya pagaste, cuáles superan los 5 años y cuáles no pueden publicarse (servicios básicos, educación, salud).
+3. **Reclama por escrito al acreedor** para que informe el pago o retire el dato.
+4. Si no corrigen, **acude a los tribunales** o pide orientación.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Cuánto demoran en borrarme de DICOM después de pagar?",
+        respuesta:
+          "El acreedor debe avisar el pago al registro dentro de los 7 días hábiles siguientes para que se actualice o elimine el dato (artículo 19 de la Ley 19.628). Desde ese aviso, deja de comunicarse la deuda.",
+      },
+      {
+        pregunta: "¿A los cuántos años se borra una deuda de DICOM?",
+        respuesta:
+          "No puede seguir publicándose después de 5 años desde que la obligación se hizo exigible, aunque no esté pagada (artículo 18). Que caduque la publicación no extingue la deuda, pero deja de figurar en el registro.",
+      },
+      {
+        pregunta: "¿Es verdad que salir de DICOM es gratis?",
+        respuesta:
+          "Sí. Actualizar o eliminar el dato al pagar es obligación del acreedor y no tiene costo. Desconfía de los 'limpiadores de DICOM' que cobran por borrarte: no pueden hacer nada que no puedas exigir gratuitamente.",
+      },
+      {
+        pregunta: "¿Pueden publicar en DICOM deudas de luz, agua o educación?",
+        respuesta:
+          "No. La ley prohíbe informar en estos registros las deudas contraídas para financiar servicios básicos (agua, luz, gas), educación y salud. Si apareces por ese tipo de deuda, podrían estar infringiendo la ley.",
+      },
+    ],
   }
 ];
 

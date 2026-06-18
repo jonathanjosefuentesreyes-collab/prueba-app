@@ -8,6 +8,10 @@
 // El proxy de Render agrega la IP real del cliente al FINAL de x-forwarded-for. Tomar
 // el último valor (no el primero) evita que el cliente falsee su IP para saltarse la cuota.
 export function ipDe(req: Request): string {
+  // Con el proxy de Cloudflare, la IP REAL del visitante viene en cf-connecting-ip
+  // (si no, x-forwarded-for tendría la IP de Cloudflare y todos compartirían cuota).
+  const cf = req.headers.get("cf-connecting-ip");
+  if (cf) return cf.trim();
   const xff = req.headers.get("x-forwarded-for");
   if (xff) {
     const partes = xff.split(",").map((s) => s.trim()).filter(Boolean);

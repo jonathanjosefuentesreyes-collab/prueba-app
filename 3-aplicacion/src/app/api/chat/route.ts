@@ -9,7 +9,6 @@
 // 4) la API key vive solo en el servidor.
 import {
   buscar,
-  articuloPorId,
   numeroReal,
   nombreDe,
   normaPorReferencia,
@@ -175,20 +174,12 @@ export async function POST(req: Request) {
     });
   }
 
-  const contexto = candidatos
-    .map((c) => {
-      const a = articuloPorId(c.articulo_id);
-      return `${c.nombre} — Artículo ${numeroReal(c.encabezado)}:\n${(a?.texto || "").slice(0, 800)}`;
-    })
-    .join("\n\n");
-
-  const bloqueRef = contexto
-    ? `ARTÍCULOS DE REFERENCIA (extractos reales de la base oficial; úsalos para precisar, sin limitarte a ellos):\n${contexto}`
-    : `(No se recuperaron extractos para esta consulta; responde con tu conocimiento de la ley chilena vigente.)`;
-
+  // Pregunta DIRECTA a Gemini: NO se le inyectan extractos de la base (eso bajaba la
+  // calidad, amarrándolo a artículos a veces poco relevantes). Gemini responde con su
+  // propio conocimiento de la ley chilena; los `candidatos` se reservan solo como
+  // respaldo de enlaces si Gemini no nombra ninguna ley resoluble. La verificación de
+  // citas (sección "Leyes relacionadas:" → artículos reales) se mantiene intacta.
   const prompt = `Eres un abogado chileno experto. La persona te preguntará sobre leyes. Responde buscando en tu conocimiento de fuentes verificadas y VIGENTES del derecho chileno, con la respuesta lo más COMPLETA posible, sin dejar pasar ningún derecho ni beneficio que le corresponda según las leyes de Chile.
-
-${bloqueRef}
 
 CÓMO RESPONDER:
 1. Lenguaje SIMPLE y cercano (como explicándole a un amigo), lo más BREVE posible pero sin dejar fuera nada importante. Solo derecho chileno vigente; nunca inventes datos, cifras ni plazos.
@@ -197,7 +188,7 @@ CÓMO RESPONDER:
 4. Si el tema no es legal o escapa a la ley chilena, dilo con honestidad y deriva al organismo o profesional adecuado.
 5. AL FINAL escribe una sección que empiece EXACTAMENTE con "Leyes relacionadas:". Por cada norma escribe su NOMBRE OFICIAL seguido de "artículos" y los números, así: "Código del Trabajo artículos 162, 168, 489". Separa una norma de otra con punto y coma ";". Ejemplo completo:
    Leyes relacionadas: Código del Trabajo artículos 162, 163, 168; Ley 21.325 artículo 5
-   Reglas: usa el nombre EXACTO del código ("Código del Trabajo", "Código Civil", "Código Penal", "Constitución Política") o el número de la ley ("Ley 21.325"); NUNCA nombres vagos como "ley laboral" o "normativa vigente". Cita SOLO artículos que de verdad regulen el tema (no rellenes). Si ninguna norma aplica, escribe "Leyes relacionadas: —".
+   Reglas ESTRICTAS: usa el nombre EXACTO del código ("Código del Trabajo", "Código Civil", "Código Penal", "Constitución Política") o el número de la ley ("Ley 21.325"); NUNCA nombres vagos como "ley laboral". Cita como MÁXIMO 3 normas y, por cada una, MÁXIMO 3 artículos: solo los CLAVE que regulan directamente el tema. PROHIBIDO listar rangos largos o muchos números seguidos (nada de "10, 11, 12, 13…"); si dudas, cita menos. Si ninguna norma aplica, escribe "Leyes relacionadas: —".
 
 La pregunta es: "${mensaje}"`;
 
@@ -316,7 +307,25 @@ La pregunta es: "${mensaje}"`;
       }
     }
 
-    return NextResponse.json({ respuesta, fuentes, disclaimer: DISCLAIMER, restantes });
+    // Red de seguridad: reescribe la línea visible "Leyes relacionadas:" a partir de los
+    // chips YA verificados, para que el texto coincida con los enlaces y nunca muestre el
+    // listado desbordado que el modelo a veces genera (ej. "art. 10, 11, 12 … 170").
+    const porLey = new Map<number, { ley: string; nums: string[] }>();
+    for (const f of fuentes) {
+      let g = porLey.get(f.norma_id);
+      if (!g) { g = { ley: f.ley, nums: [] }; porLey.set(f.norma_id, g); }
+      if (f.numero) g.nums.push(f.numero);
+    }
+    const lineaCitas = porLey.size
+      ? "Leyes relacionadas: " + [...porLey.values()]
+          .map((g) => (g.nums.length ? `${g.ley} ${g.nums.length > 1 ? "artículos" : "artículo"} ${g.nums.join(", ")}` : g.ley))
+          .join("; ")
+      : "Leyes relacionadas: —";
+    const respuestaFinal = /leyes\s*relacionadas\s*:/i.test(respuesta)
+      ? respuesta.replace(/\n*\s*leyes\s*relacionadas\s*:[\s\S]*$/i, "\n\n" + lineaCitas)
+      : `${respuesta}\n\n${lineaCitas}`;
+
+    return NextResponse.json({ respuesta: respuestaFinal, fuentes, disclaimer: DISCLAIMER, restantes });
   } catch {
     return NextResponse.json({
       respuesta:

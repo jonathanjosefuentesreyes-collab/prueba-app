@@ -3,28 +3,25 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-
-interface Fuente { articulo_id: number | null; norma_id: number; ley: string; numero: string; }
-interface Mensaje { rol: "usuario" | "bot"; texto: string; fuentes?: Fuente[]; disclaimer?: string; premium?: boolean; }
+import { useChat, useChatRef } from "@/contexts/ChatContext";
+import type { Fuente, Mensaje } from "@/contexts/ChatContext";
 
 // Formatea la respuesta del bot: escapa HTML (seguro), aplica **negritas** y
-// convierte líneas con *, - o • en viñetas. Evita mostrar markdown en crudo.
+// convierte líneas con *, - o • en viñetas.
 function negrita(s: string): string {
   return s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 }
 function formatearRespuesta(texto: string): string {
   const esc = texto.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  return esc
-    .split("\n")
-    .map((linea) => {
-      const t = linea.trim();
-      if (!t) return "";
-      const v = t.match(/^[*\-•]\s+(.*)$/);
-      if (v) return `<div class="cf-vinieta"><span class="cf-punto">•</span><span>${negrita(v[1])}</span></div>`;
-      return `<div class="cf-linea">${negrita(t)}</div>`;
-    })
-    .join("");
+  return esc.split("\n").map((linea) => {
+    const t = linea.trim();
+    if (!t) return "";
+    const v = t.match(/^[*\-•]\s+(.*)$/);
+    if (v) return `<div class="cf-vinieta"><span class="cf-punto">•</span><span>${negrita(v[1])}</span></div>`;
+    return `<div class="cf-linea">${negrita(t)}</div>`;
+  }).join("");
 }
+
 export interface ConsultaGuardada {
   id: number;
   pregunta: string;
@@ -33,7 +30,6 @@ export interface ConsultaGuardada {
   fecha: string;
 }
 
-// Tipado mínimo de la Web Speech API (no viene en lib.dom estándar)
 interface ReconocimientoVoz {
   lang: string;
   interimResults: boolean;
@@ -49,99 +45,52 @@ function leerConsultas(): ConsultaGuardada[] {
   try { return JSON.parse(localStorage.getItem("consultas_guardadas") || "[]"); } catch { return []; }
 }
 
-// Persistencia del hilo de chat: queda guardado en el dispositivo de forma PERMANENTE,
-// así no se pierde al cambiar de pestaña, recargar o cerrar la app. Solo se borra cuando
-// el usuario toca "Nueva" conversación. Se conservan los últimos MAX_MENSAJES mensajes.
-const CLAVE_HISTORIAL = "chat_historial";
-const MAX_MENSAJES = 60;
-function leerHistorial(): { mensajes: Mensaje[]; restantes: number | null } | null {
-  try {
-    const raw = JSON.parse(localStorage.getItem(CLAVE_HISTORIAL) || "null");
-    if (!raw || !Array.isArray(raw.mensajes) || raw.mensajes.length === 0) return null;
-    return { mensajes: raw.mensajes, restantes: typeof raw.restantes === "number" ? raw.restantes : null };
-  } catch {
-    return null;
-  }
-}
-
 export default function ChatClient() {
   const params = useSearchParams();
   const router = useRouter();
   const inicial = params.get("q") || "";
-  const [mensajes, setMensajes] = useState<Mensaje[]>([]);
+
+  // Estado del chat vive en el Context (persiste al cambiar de pestaña)
+  const { mensajes, pensando, restantes, respondioMientrasAfuera, enviar, limpiar, marcarVisto } = useChat();
+  const ctxRef = useChatRef();
+
   const [texto, setTexto] = useState("");
-  const [pensando, setPensando] = useState(false);
   const [escuchando, setEscuchando] = useState(false);
   const [hayVoz, setHayVoz] = useState(false);
   const [guardadas, setGuardadas] = useState<Set<number>>(new Set());
-  const [restantes, setRestantes] = useState<number | null>(null);
   const [notaPremium, setNotaPremium] = useState(false);
   const enviadoInicial = useRef(false);
   const reconocedor = useRef<ReconocimientoVoz | null>(null);
   const fondo = useRef<HTMLDivElement>(null);
-  const cargado = useRef(false);
+
+  // Avisar al context que el chat está visible → limpia el badge de "respondió"
+  useEffect(() => {
+    marcarVisto();
+    ctxRef?._setEnChat(true);
+    return () => { ctxRef?._setEnChat(false); };
+  }, [marcarVisto, ctxRef]);
 
   useEffect(() => {
     const w = window as unknown as { SpeechRecognition?: new () => ReconocimientoVoz; webkitSpeechRecognition?: new () => ReconocimientoVoz };
     setHayVoz(Boolean(w.SpeechRecognition || w.webkitSpeechRecognition));
   }, []);
 
-  // Cargar el hilo guardado (permanente) al abrir el chat.
+  // Envío de la pregunta inicial (?q=...)
   useEffect(() => {
-    const h = leerHistorial();
-    if (h) {
-      setMensajes(h.mensajes);
-      if (h.restantes !== null) setRestantes(h.restantes);
+    if (inicial && !enviadoInicial.current) {
+      enviadoInicial.current = true;
+      enviar(inicial);
+      window.history.replaceState(null, "", "/chat");
     }
-    cargado.current = true;
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inicial]);
 
-  // Guardar el hilo en el dispositivo cada vez que cambia (solo tras la carga inicial,
-  // y nunca cuando está vacío, para no pisar lo guardado antes de cargarlo).
   useEffect(() => {
-    if (!cargado.current || mensajes.length === 0) return;
-    try {
-      localStorage.setItem(
-        CLAVE_HISTORIAL,
-        JSON.stringify({ mensajes: mensajes.slice(-MAX_MENSAJES), restantes, ts: Date.now() })
-      );
-    } catch { /* almacenamiento lleno o no disponible */ }
-  }, [mensajes, restantes]);
-
-  function nuevaConversacion() {
-    setMensajes([]);
-    setGuardadas(new Set());
-    setNotaPremium(false);
-    try { localStorage.removeItem(CLAVE_HISTORIAL); } catch {}
-  }
-
-  async function enviar(contenido: string) {
-    const limpio = contenido.trim();
-    if (!limpio || pensando) return;
-    setMensajes((m) => [...m, { rol: "usuario", texto: limpio }]);
-    setTexto("");
-    setPensando(true);
-    try {
-      const r = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ mensaje: limpio }),
-      });
-      const j = await r.json();
-      if (typeof j.restantes === "number") setRestantes(j.restantes);
-      setMensajes((m) => [...m, { rol: "bot", texto: j.respuesta, fuentes: j.fuentes, disclaimer: j.disclaimer, premium: j.premium }]);
-    } catch {
-      setMensajes((m) => [...m, { rol: "bot", texto: "No pude conectarme. Revisa tu conexión e intenta de nuevo." }]);
-    } finally {
-      setPensando(false);
-    }
-  }
+    fondo.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [mensajes, pensando]);
 
   function alternarMicrofono() {
-    if (escuchando) {
-      reconocedor.current?.stop();
-      return;
-    }
+    if (escuchando) { reconocedor.current?.stop(); return; }
     const w = window as unknown as { SpeechRecognition?: new () => ReconocimientoVoz; webkitSpeechRecognition?: new () => ReconocimientoVoz };
     const Ctor = w.SpeechRecognition || w.webkitSpeechRecognition;
     if (!Ctor) return;
@@ -149,10 +98,7 @@ export default function ChatClient() {
     rec.lang = "es-CL";
     rec.interimResults = false;
     rec.maxAlternatives = 1;
-    rec.onresult = (e) => {
-      const dicho = e.results[0]?.[0]?.transcript || "";
-      if (dicho) setTexto(dicho);
-    };
+    rec.onresult = (e) => { const d = e.results[0]?.[0]?.transcript || ""; if (d) setTexto(d); };
     rec.onend = () => setEscuchando(false);
     rec.onerror = () => setEscuchando(false);
     reconocedor.current = rec;
@@ -164,43 +110,30 @@ export default function ChatClient() {
     if (!("speechSynthesis" in window)) return;
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(textoMsg);
-    u.lang = "es-CL";
-    u.rate = 1;
+    u.lang = "es-CL"; u.rate = 1;
     window.speechSynthesis.speak(u);
   }
 
   function guardarConsulta(indiceBot: number) {
-    const msg = mensajes[indiceBot];
+    const msg = mensajes[indiceBot] as Mensaje;
     if (!msg || msg.rol !== "bot") return;
     let pregunta = "";
     for (let i = indiceBot - 1; i >= 0; i--) {
       if (mensajes[i].rol === "usuario") { pregunta = mensajes[i].texto; break; }
     }
     const lista = leerConsultas();
-    lista.unshift({
-      id: Date.now(),
-      pregunta,
-      respuesta: msg.texto,
-      fuentes: msg.fuentes || [],
-      fecha: new Date().toISOString(),
-    });
+    lista.unshift({ id: Date.now(), pregunta, respuesta: msg.texto, fuentes: msg.fuentes || [], fecha: new Date().toISOString() });
     localStorage.setItem("consultas_guardadas", JSON.stringify(lista.slice(0, 100)));
     setGuardadas((g) => new Set(g).add(indiceBot));
   }
 
-  useEffect(() => {
-    if (inicial && !enviadoInicial.current) {
-      enviadoInicial.current = true;
-      enviar(inicial);
-      // Quita el ?q de la URL para no reenviar la misma pregunta si se recarga.
-      window.history.replaceState(null, "", "/chat");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inicial]);
-
-  useEffect(() => {
-    fondo.current?.scrollIntoView({ behavior: "smooth", block: "end" });
-  }, [mensajes, pensando]);
+  function enviarForm(e: React.FormEvent) {
+    e.preventDefault();
+    const q = texto.trim();
+    if (!q) return;
+    setTexto("");
+    enviar(q);
+  }
 
   return (
     <main style={{ display: "flex", flexDirection: "column", minHeight: "calc(100dvh - 96px)" }}>
@@ -223,11 +156,13 @@ export default function ChatClient() {
         <span className="marca" style={{ fontSize: 19 }}>
           <span className="azul">Aboga</span><span className="rojo">Bot</span>
         </span>
-        <span className="fecha" style={{ color: "#21b35a", fontWeight: 700 }}>● en línea</span>
+        <span className="fecha" style={{ color: pensando ? "#f5a623" : "#21b35a", fontWeight: 700 }}>
+          {pensando ? "● consultando…" : "● en línea"}
+        </span>
         {mensajes.length > 0 && (
           <button
             type="button"
-            onClick={nuevaConversacion}
+            onClick={limpiar}
             aria-label="Nueva conversación"
             style={{ marginLeft: "auto", background: "rgba(255,255,255,0.18)", color: "#fff", border: 0, borderRadius: 999, padding: "6px 12px", fontSize: 12.5, fontWeight: 700, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 5 }}
           >
@@ -236,6 +171,13 @@ export default function ChatClient() {
           </button>
         )}
       </header>
+
+      {/* Aviso sutil cuando llegó respuesta mientras el usuario estaba en otra pestaña */}
+      {respondioMientrasAfuera && (
+        <div style={{ background: "#e8f5e9", borderBottom: "1px solid #c8e6c9", padding: "8px 16px", fontSize: 13, color: "#2e7d32", fontWeight: 600 }}>
+          ✅ AbogaBot respondió mientras estabas en otra pestaña
+        </div>
+      )}
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 10, paddingBottom: 12 }}>
         {mensajes.length === 0 && !pensando && (
@@ -314,8 +256,6 @@ export default function ChatClient() {
         <div ref={fondo} />
       </div>
 
-      {/* Mascota personaje (sin fondo) flotando en horizontal sobre la barra de entrada.
-          Desaparece mientras AbogaBot responde: ahí "entra" a la ventana como el loader. */}
       {!pensando && (
         <div className="mascota-chat-flota" aria-hidden>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -324,20 +264,14 @@ export default function ChatClient() {
       )}
 
       {restantes !== null && (
-        <p
-          style={{
-            position: "sticky", bottom: 120, margin: 0, textAlign: "center",
-            fontSize: 11.5, fontWeight: 600,
-            color: restantes > 0 ? "var(--texto-suave)" : "var(--rojo)",
-          }}
-        >
+        <p style={{ position: "sticky", bottom: 120, margin: 0, textAlign: "center", fontSize: 11.5, fontWeight: 600, color: restantes > 0 ? "var(--texto-suave)" : "var(--rojo)" }}>
           {restantes > 0
             ? `Te ${restantes === 1 ? "queda" : "quedan"} ${restantes} ${restantes === 1 ? "consulta gratis hoy" : "consultas gratis hoy"}`
             : "Sin consultas gratis hoy · ✨ Actualiza a Premium para más"}
         </p>
       )}
       <form
-        onSubmit={(e) => { e.preventDefault(); enviar(texto); }}
+        onSubmit={enviarForm}
         style={{ position: "sticky", bottom: 76, display: "flex", gap: 8, background: "var(--fondo)", paddingTop: 6 }}
       >
         <input

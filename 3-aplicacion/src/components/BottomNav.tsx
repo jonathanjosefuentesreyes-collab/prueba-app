@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useChat } from "@/contexts/ChatContext";
 
 // Íconos line-art (mismo estilo trazo que el resto de la app)
 const ic = {
@@ -45,14 +46,31 @@ const items = [
 
 export default function BottomNav() {
   const ruta = usePathname();
+  const { pensando, respondioMientrasAfuera } = useChat();
+
   return (
     <nav className="nav-inferior" aria-label="Navegación principal">
-      {items.map((i) => (
-        <Link key={i.href} href={i.href} className={i.activo(ruta) ? "activo" : ""}>
-          {i.icono}
-          {i.etiqueta}
-        </Link>
-      ))}
+      {items.map((i) => {
+        const esChat = i.href === "/chat";
+        const badge = esChat && (pensando || respondioMientrasAfuera);
+        return (
+          <Link key={i.href} href={i.href} className={i.activo(ruta) ? "activo" : ""} style={{ position: "relative" }}>
+            {i.icono}
+            {i.etiqueta}
+            {badge && (
+              <span
+                aria-label={pensando ? "AbogaBot respondiendo" : "AbogaBot respondió"}
+                style={{
+                  position: "absolute", top: 4, right: "50%", transform: "translateX(10px)",
+                  width: 8, height: 8, borderRadius: "50%",
+                  background: pensando ? "#f5a623" : "#21b35a",
+                  border: "1.5px solid var(--fondo)",
+                }}
+              />
+            )}
+          </Link>
+        );
+      })}
     </nav>
   );
 }

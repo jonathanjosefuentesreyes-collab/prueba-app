@@ -6,6 +6,7 @@ import Splash from "@/components/Splash";
 import RegistrarSW from "@/components/RegistrarSW";
 import AbrirEnInicio from "@/components/AbrirEnInicio";
 import { SettingsProvider } from "@/contexts/SettingsContext";
+import { ChatProvider } from "@/contexts/ChatContext";
 
 // Tipografías del sistema de diseño oficial del Estado de Chile
 // (framework.digital.gob.cl): Roboto para el cuerpo (la fuente por defecto de
@@ -47,8 +48,10 @@ export default function RootLayout({
         <RegistrarSW />
         <AbrirEnInicio />
         <SettingsProvider>
-          <div className="shell">{children}</div>
-          <BottomNav />
+          <ChatProvider>
+            <div className="shell">{children}</div>
+            <BottomNav />
+          </ChatProvider>
         </SettingsProvider>
       </body>
     </html>

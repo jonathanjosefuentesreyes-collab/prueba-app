@@ -12,13 +12,15 @@ import {
 
 const clp = (n: number) => "$" + Math.round(n).toLocaleString("es-CL");
 const ANIOS = Object.keys(RETENCION_POR_ANIO).map(Number).sort();
+// Año por defecto = el actual, acotado a los años con tasa conocida (rueda solo cada año).
+const ANIO_DEF = Math.min(Math.max(new Date().getFullYear(), ANIOS[0]), ANIOS[ANIOS.length - 1]);
 
 export default function Facturacion() {
   const [tab, setTab] = useState<"honorarios" | "iva">("honorarios");
 
   // Boleta de honorarios
-  const [anio, setAnio] = useState(2026);
-  const [tasa, setTasa] = useState(retencionDefault(2026));
+  const [anio, setAnio] = useState(ANIO_DEF);
+  const [tasa, setTasa] = useState(retencionDefault(ANIO_DEF));
   const [modoH, setModoH] = useState<"bruto" | "liquido">("bruto");
   const [montoH, setMontoH] = useState(500000);
   const h = boletaHonorarios(montoH, tasa, modoH);

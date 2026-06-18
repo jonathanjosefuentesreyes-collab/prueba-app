@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { calcularFiniquito, type Causal, type ResultadoFiniquito } from "@/lib/finiquito";
+import valores from "@/lib/valores.json";
 
 // Cada fundamento legal se enlaza al artículo real en la Biblioteca (Código del Trabajo,
 // norma 207436). IDs verificados contra la base. Así el número que calcula la app queda
@@ -56,7 +57,7 @@ export default function Calculadora() {
   const [inicio, setInicio] = useState("2021-03-01");
   const [termino, setTermino] = useState(new Date().toISOString().slice(0, 10));
   const [sueldo, setSueldo] = useState(850000);
-  const [uf, setUf] = useState(40768.69);
+  const [uf, setUf] = useState(valores.uf);
   const [aviso, setAviso] = useState(false);
   const [vacaciones, setVacaciones] = useState(0);
   const [impagos, setImpagos] = useState(0);

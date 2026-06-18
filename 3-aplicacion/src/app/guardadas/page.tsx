@@ -56,7 +56,7 @@ export default function Guardadas() {
   }, []);
 
   return (
-    <main style={{ paddingBottom: 196 }}>
+    <main style={{ paddingBottom: 230 }}>
       <BibliotecaHeader activeTab="guardadas" />
       
       <div style={{ padding: "0 2px 20px" }}>

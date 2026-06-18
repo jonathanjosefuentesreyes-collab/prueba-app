@@ -37,7 +37,7 @@ export default async function Leyes(props: {
   const grupos = !consulta && !materiaActiva ? gruposBiblioteca() : [];
 
   return (
-    <main style={{ paddingBottom: 200 }}>
+    <main style={{ paddingBottom: 230 }}>
       <BibliotecaHeader activeTab="biblioteca" consulta={consulta} />
 
       <div style={{ padding: "0 2px" }}>

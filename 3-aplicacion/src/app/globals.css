@@ -95,6 +95,20 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
   box-shadow: 0 0 40px rgba(20, 40, 80, 0.05);
 }
 
+/* ---------- Versión WEB (escritorio): la app flota como columna enmarcada sobre un
+   fondo azul institucional. En móvil no cambia nada (las barras ya ocupan el 100%). ---------- */
+@media (min-width: 540px) {
+  body {
+    background: linear-gradient(165deg, #0a4595 0%, #07152e 100%);
+    background-attachment: fixed;
+  }
+  .shell {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 18px 60px rgba(0, 0, 0, 0.45);
+  }
+  /* Las barras fijas se alinean al ancho de la columna (500px). */
+  .nav-inferior, .barra-chat { width: min(500px, 100%); }
+}
+
 /* ---------- App bar institucional (sólida, estilo apps de gobierno) ---------- */
 .header {
   display: flex; align-items: center; justify-content: center; gap: 10px;

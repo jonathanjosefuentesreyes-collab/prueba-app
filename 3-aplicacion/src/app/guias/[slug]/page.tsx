@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import AccessibilityBar from "@/components/AccessibilityBar";
 import GuardarGuiaBtn from "@/components/GuardarGuiaBtn";
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyes-de-chile.onrender.com";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.leyesdechile.com";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;

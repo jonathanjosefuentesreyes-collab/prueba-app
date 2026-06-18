@@ -23,6 +23,7 @@ const robotoSlab = Roboto_Slab({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.leyesdechile.com"),
   title: "Ley Chilena — Todas las leyes de Chile, explicadas simple",
   description:
     "Consulta gratis las leyes chilenas actualizadas desde la fuente oficial (BCN), calcula tu finiquito y resuelve tus dudas legales con AbogaBot.",

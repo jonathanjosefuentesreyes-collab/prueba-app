@@ -62,19 +62,17 @@ export default function ChatBar() {
 
   return (
     <div className="barra-chat">
-      {/* Mascota AbogaBot (FIJA en las pestañas): círculo a la derecha, sobre el botón
-          Enviar, con la burbuja por encima de su cabeza. Al tocarla abre el chat. */}
+      {/* Mascota AbogaBot (FIJA en las pestañas): el PERSONAJE sin fondo ni círculo,
+          estático, saludando con la mano 👋. A la derecha sobre el botón Enviar. */}
       <button
         type="button"
         className="abogabot-invita"
         onClick={() => router.push("/chat")}
         aria-label="Consultar gratis con AbogaBot"
       >
-        <span className="abogabot-invita-burbuja">
-          <strong>¡Hola! Soy AbogaBot</strong> 👋 Cuéntame tu duda legal y te oriento gratis
-        </span>
+        <span className="abogabot-invita-saludo" aria-hidden>👋</span>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/abogabot.png" alt="AbogaBot" className="abogabot-invita-cara" />
+        <img src="/abogabot-personaje.png" alt="AbogaBot" className="abogabot-invita-personaje" />
       </button>
       <form onSubmit={enviar}>
         <input

@@ -4,6 +4,7 @@ import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import Splash from "@/components/Splash";
 import RegistrarSW from "@/components/RegistrarSW";
+import AbrirEnInicio from "@/components/AbrirEnInicio";
 import { SettingsProvider } from "@/contexts/SettingsContext";
 
 // Tipografías del sistema de diseño oficial del Estado de Chile
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body>
         <Splash />
         <RegistrarSW />
+        <AbrirEnInicio />
         <SettingsProvider>
           <div className="shell">{children}</div>
           <BottomNav />

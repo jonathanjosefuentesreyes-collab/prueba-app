@@ -111,7 +111,7 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
    que se vea completo (rojo Y azul), y contorno dorado. */
 .header .logo-inicio {
   width: 50px; height: 50px; border-radius: 50%;
-  background: #fff; padding: 3px; object-fit: contain;
+  background: #fff; padding: 0; object-fit: contain;
   border: 2px solid #e3b341;
   box-shadow: 0 0 7px rgba(227, 179, 65, 0.45);
 }
@@ -240,14 +240,18 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 /* AbogaBot invitando a consultar: círculo a la derecha (centrado sobre el botón
    Enviar) con la burbuja por encima de su cabeza. */
 .abogabot-invita {
-  display: flex; flex-direction: column; align-items: flex-end; gap: 7px;
-  width: 100%; background: none; border: 0; padding: 0; margin: 0 0 8px; cursor: pointer; text-align: left;
+  position: relative;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 0;
+  width: 100%; background: none; border: 0; padding: 0; margin: 0 0 6px; cursor: pointer; text-align: left;
 }
-.abogabot-invita-cara {
-  width: 50px; height: 50px; border-radius: 50%; object-fit: cover; flex: none;
-  border: 2.5px solid var(--azul); background: #fff;
-  box-shadow: var(--sombra-flotante);
-  margin-right: 3px; /* círculo FIJO, centrado sobre el botón Enviar */
+/* Personaje sin fondo ni círculo, ESTÁTICO (sin animación), sobre el botón Enviar. */
+.abogabot-invita-personaje {
+  width: 66px; height: 66px; object-fit: contain; flex: none; margin-right: 2px;
+  filter: drop-shadow(0 4px 7px rgba(0, 0, 0, 0.22));
+}
+/* Manito de saludo 👋 estática, junto a la cabeza. */
+.abogabot-invita-saludo {
+  position: absolute; top: -3px; right: 0; font-size: 23px; line-height: 1; pointer-events: none;
 }
 .abogabot-invita-burbuja {
   position: relative; background: var(--superficie); color: var(--texto);
@@ -543,12 +547,12 @@ input:checked + .slider:before { transform: translateX(20px); }
 
 .form-busqueda-header { position: relative; width: 100%; margin-top: 2px; }
 .campo-busqueda-header {
-  width: 100%; border: 0; background: #ffffff; color: #0f172a;
-  padding: 11px 16px 11px 40px; border-radius: var(--radio-pill);
-  font-size: calc(14px * var(--escala-letra, 1)); outline: none; box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  width: 100%; border: 1px solid #cdd8e8; background: #ffffff; color: #0f172a;
+  padding: 11px 40px; border-radius: var(--radio-pill); text-align: center;
+  font-size: calc(14px * var(--escala-letra, 1)); outline: none; box-shadow: 0 3px 11px rgba(7, 30, 70, 0.20);
 }
-.campo-busqueda-header:focus { box-shadow: 0 0 0 3px rgba(255,255,255,0.5); }
-.campo-busqueda-header::placeholder { color: #94a3b8; }
+.campo-busqueda-header:focus { border-color: var(--azul); box-shadow: 0 0 0 3px rgba(255,255,255,0.55); }
+.campo-busqueda-header::placeholder { color: #64748b; opacity: 1; }
 .icono-busqueda { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; display: flex; align-items: center; }
 
 .tabs-biblioteca {

@@ -223,7 +223,7 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
   font-size: calc(10.5px * var(--escala-letra, 1)); color: var(--texto-suave); padding: 3px 0; font-weight: 600;
   white-space: nowrap; min-width: 0;
 }
-.nav-inferior a svg { transition: background 0.18s ease, color 0.18s ease; padding: 3px 14px; border-radius: var(--radio-pill); }
+.nav-inferior a svg { box-sizing: content-box; transition: background 0.18s ease, color 0.18s ease; padding: 3px 14px; border-radius: var(--radio-pill); }
 .nav-inferior a.activo { color: var(--azul); font-weight: 700; }
 .nav-inferior a.activo svg { background: var(--azul-claro); color: var(--azul); }
 

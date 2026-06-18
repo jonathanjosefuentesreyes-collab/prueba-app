@@ -70,7 +70,6 @@ export default function ChatBar() {
         onClick={() => router.push("/chat")}
         aria-label="Consultar gratis con AbogaBot"
       >
-        <span className="abogabot-invita-saludo" aria-hidden>👋</span>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/abogabot-personaje.png" alt="AbogaBot" className="abogabot-invita-personaje" />
       </button>

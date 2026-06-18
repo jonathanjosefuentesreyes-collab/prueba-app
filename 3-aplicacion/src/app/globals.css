@@ -231,27 +231,23 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 .barra-chat {
   position: fixed; bottom: 60px; left: 50%; transform: translateX(-50%);
   width: min(460px, 100%); padding: 8px 14px 10px; z-index: 25;
+  display: flex; flex-direction: column; align-items: flex-end;
 }
 .barra-chat form {
-  display: flex; align-items: center; gap: 8px; background: var(--superficie);
+  display: flex; align-items: center; gap: 8px; width: 100%; background: var(--superficie);
   border: 1px solid var(--borde-fuerte); border-radius: var(--radio-pill); padding: 7px 7px 7px 18px;
   box-shadow: var(--sombra-flotante);
 }
-/* AbogaBot invitando a consultar: círculo a la derecha (centrado sobre el botón
-   Enviar) con la burbuja por encima de su cabeza. */
+/* AbogaBot: botón justo del tamaño de la imagen, hitbox preciso. */
 .abogabot-invita {
-  position: relative;
-  display: flex; flex-direction: column; align-items: flex-end; gap: 0;
-  width: 100%; background: none; border: 0; padding: 0; margin: 0 0 6px; cursor: pointer; text-align: left;
+  display: flex; align-items: flex-end; justify-content: flex-end;
+  width: fit-content; align-self: flex-end;
+  background: none; border: 0; padding: 0; margin: 0 2px 6px 0; cursor: pointer;
 }
-/* Personaje sin fondo ni círculo, ESTÁTICO (sin animación), sobre el botón Enviar. */
+/* Personaje HD sin fondo, 76px. drop-shadow recorta el contorno real del PNG. */
 .abogabot-invita-personaje {
-  width: 66px; height: 66px; object-fit: contain; flex: none; margin-right: 2px;
-  filter: drop-shadow(0 4px 7px rgba(0, 0, 0, 0.22));
-}
-/* Manito de saludo 👋 estática, junto a la cabeza. */
-.abogabot-invita-saludo {
-  position: absolute; top: -3px; right: 0; font-size: 23px; line-height: 1; pointer-events: none;
+  width: 76px; height: 76px; object-fit: contain; display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
 }
 .abogabot-invita-burbuja {
   position: relative; background: var(--superficie); color: var(--texto);

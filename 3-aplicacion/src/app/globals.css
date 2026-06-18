@@ -533,7 +533,7 @@ input:checked + .slider:before { transform: translateX(20px); }
 .ribbon-red { flex: 1; background: var(--rojo); }
 
 .header-principal-bcn { display: flex; align-items: center; gap: 12px; }
-.icono-balanza-header { flex: none; }
+.icono-balanza-header { flex: none; width: 58px; height: 58px; object-fit: contain; }
 .circulo-icono-balanza {
   width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.16); color: #fff;
   display: flex; align-items: center; justify-content: center; flex: none;

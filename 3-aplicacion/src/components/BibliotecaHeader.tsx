@@ -27,15 +27,9 @@ export default function BibliotecaHeader({ activeTab, consulta = "" }: Bibliotec
       </div>
 
       <div className="header-principal-bcn">
-        <svg className="icono-balanza-header" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-          <line x1="12" y1="3" x2="12" y2="21" />
-          <path d="M7 21h10" />
-          <path d="M5 7h14" />
-          <path d="M5 7l-2 6h4l-2-6" />
-          <path d="M3 13a2 2 0 0 0 4 0H3" />
-          <path d="M19 7l-2 6h4l-2-6" />
-          <path d="M17 13a2 2 0 0 0 4 0H17" />
-        </svg>
+        {/* Escudo: balanza con copihue (diseño propio). Más grande que el texto para que resalte. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="icono-balanza-header" src="/escudo-balanza.png" alt="Ley Chilena" width={58} height={58} />
         <div>
           <h1 className="titulo-bcn">{titulo.h1}</h1>
           <p className="subtitulo-bcn">{titulo.sub}</p>

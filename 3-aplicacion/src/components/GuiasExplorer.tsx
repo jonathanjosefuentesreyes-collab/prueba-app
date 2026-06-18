@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export interface CardGuia {
@@ -24,6 +25,7 @@ export default function GuiasExplorer({
   destacadas: CardGuia[];
   categorias: CatExplorer[];
 }) {
+  const router = useRouter();
   const [activa, setActiva] = useState(categorias[0]?.clave ?? "");
 
   // La categoría dorada "Deudas" (Premium) va al CENTRO del carrusel de temas.
@@ -125,30 +127,66 @@ export default function GuiasExplorer({
       </div>
 
       {/* Todas las secciones van al DOM (links crawlables); solo se muestra la activa */}
-      {cats.map((c) => (
-        <div
-          key={c.clave}
-          role="tabpanel"
-          style={{ display: c.clave === activa ? "flex" : "none", flexDirection: "column", gap: 10 }}
-        >
-          {c.guias.map((g) => (
-            <article key={g.slug} className="tarjeta" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              <h3 style={{ margin: 0, fontSize: "calc(15.5px * var(--escala-letra, 1))" }}>
-                <Link href={`/guias/${g.slug}`} style={{ color: "var(--azul)", textDecoration: "none", fontWeight: "bold" }}>
-                  {g.titulo}
-                </Link>
-              </h3>
-              <p style={{ margin: 0, fontSize: "calc(13px * var(--escala-letra, 1))" }}>{g.descripcion}</p>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 8 }}>
-                <span className="nota" style={{ fontSize: 11.5 }}>Actualizado: {g.fecha}</span>
-                <Link href={`/guias/${g.slug}`} className="chip" style={{ background: "var(--azul)", color: "white", padding: "4px 12px", borderRadius: 14, fontSize: 12, fontWeight: "bold" }}>
-                  Leer guía →
-                </Link>
+      {cats.map((c) => {
+        const esPremium = c.clave === "deudas";
+        return (
+          <div
+            key={c.clave}
+            role="tabpanel"
+            style={{ display: c.clave === activa ? "flex" : "none", flexDirection: "column", gap: 10 }}
+          >
+            {c.guias.map((g) => (
+              <div key={g.slug} style={{ position: "relative" }}>
+                <article className="tarjeta" style={{ display: "flex", flexDirection: "column", gap: 8, opacity: esPremium ? 0.45 : 1, pointerEvents: esPremium ? "none" : "auto", userSelect: esPremium ? "none" : "auto" }}>
+                  <h3 style={{ margin: 0, fontSize: "calc(15.5px * var(--escala-letra, 1))" }}>
+                    <Link href={`/guias/${g.slug}`} style={{ color: "var(--azul)", textDecoration: "none", fontWeight: "bold" }}>
+                      {g.titulo}
+                    </Link>
+                  </h3>
+                  <p style={{ margin: 0, fontSize: "calc(13px * var(--escala-letra, 1))" }}>{g.descripcion}</p>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 8 }}>
+                    <span className="nota" style={{ fontSize: 11.5 }}>Actualizado: {g.fecha}</span>
+                    <Link href={`/guias/${g.slug}`} className="chip" style={{ background: "var(--azul)", color: "white", padding: "4px 12px", borderRadius: 14, fontSize: 12, fontWeight: "bold" }}>
+                      Leer guía →
+                    </Link>
+                  </div>
+                </article>
+
+                {/* Overlay premium: cubre la tarjeta, semiopaco, redirige a /premium */}
+                {esPremium && (
+                  <button
+                    type="button"
+                    onClick={() => router.push("/premium")}
+                    aria-label="Conoce Premium para acceder a esta guía"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      borderRadius: "var(--radio-tarjeta, 12px)",
+                      background: "rgba(10, 30, 80, 0.62)",
+                      backdropFilter: "blur(2px)",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 8,
+                      border: "1.5px solid #C9A227",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <span style={{ fontSize: 22 }}>👑</span>
+                    <span style={{ color: "#FFE27A", fontWeight: 800, fontSize: 14, letterSpacing: 0.3, textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
+                      Conoce Premium
+                    </span>
+                    <span style={{ color: "rgba(255,255,255,0.82)", fontSize: 11.5, fontWeight: 600 }}>
+                      Toca para desbloquear
+                    </span>
+                  </button>
+                )}
               </div>
-            </article>
-          ))}
-        </div>
-      ))}
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -1378,6 +1378,122 @@ El cuidado personal y los **alimentos** van de la mano pero son distintos: quien
           "No. La relación directa y regular y la pensión de alimentos son obligaciones distintas: no se puede condicionar una a la otra. La deuda de alimentos se cobra por las vías legales (Registro de Deudores, retención, apremios).",
       },
     ],
+  },
+  {
+    slug: "cobranza-extrajudicial-que-pueden-hacer-y-que-no",
+    titulo: "Cobranza extrajudicial: ¿qué pueden hacer y qué no en Chile?",
+    categoria: "deudas",
+    destacada: true,
+    metaTitle: "Cobranza extrajudicial: qué es legal y qué no | Ley Chilena",
+    descripcion:
+      "Qué pueden y qué no pueden hacer las empresas de cobranza en Chile: límites a los gastos de cobranza y prácticas prohibidas como amenazas, llamados a horas indebidas o avisar a tu trabajo.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Cobrarte una deuda es legal, pero la **cobranza extrajudicial** tiene límites: la ley topa los **gastos de cobranza** que te pueden sumar y **prohíbe métodos abusivos** ([artículo 37 de la Ley del Consumidor](/leyes/1160403?art=138579)). No pueden **amenazarte**, llamarte a **horas inhábiles**, mandarte documentos que **aparenten ser una demanda** sin serlo, ni avisar de tu deuda a tu **empleador, familia o vecinos** para presionarte.",
+    contenido: `
+## ¿Es legal que me cobren?
+Sí: si debes, te pueden cobrar. Pero la **cobranza extrajudicial** (la que hace la empresa o una agencia **antes** de un juicio) está **regulada** por la Ley del Consumidor para que no se transforme en hostigamiento ([artículo 37 de la Ley 19.496](/leyes/1160403?art=138579)).
+
+## Lo que NO pueden hacer (prácticas prohibidas)
+- **Amenazarte, insultarte o presionarte** de forma abusiva.
+- Llamarte o visitarte a **horas inhábiles** (muy temprano, muy tarde, domingos y festivos).
+- Enviar documentos que **simulen ser escritos judiciales** (una "demanda" falsa) para asustarte.
+- **Comunicar tu deuda a terceros** —tu **empleador, familia, vecinos**— para presionarte (salvo a un garante/aval).
+- Afectar tu **privacidad, tu trabajo o la educación** con la cobranza.
+
+## Los gastos de cobranza tienen tope
+No te pueden cargar cualquier monto por "gastos de cobranza": la ley fija **límites** según el tamaño de la deuda, y solo se pueden cobrar **después** de transcurridos los días que la ley señala desde el atraso ([artículo 37](/leyes/1160403?art=138579)). Cualquier cobro por sobre eso es **reclamable**.
+
+## Ojo: cobranza extrajudicial NO es embargo
+La empresa de cobranza **no puede** embargar tus bienes, descontarte el sueldo ni sacarte cosas. El **embargo** solo ocurre tras un **juicio** y lo ordena un **tribunal**. Si te amenazan con "embargarte mañana" por teléfono, es presión indebida.
+
+## ¿Qué hacer ante cobranzas abusivas?
+1. **Guarda todo**: mensajes, llamadas, cartas, horarios. Es tu prueba.
+2. Pide por escrito el **detalle de la deuda** y de los **gastos de cobranza**.
+3. **Reclama en el SERNAC** (sernac.cl) las prácticas abusivas y los cobros excesivos.
+4. Si la deuda es antigua, evalúa si está **prescrita** (ver nuestra guía). Y nunca ignores una **demanda** real.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Pueden llamar a mi trabajo o a mi familia por una deuda?",
+        respuesta:
+          "No para presionarte. La cobranza no puede comunicar tu deuda a terceros como tu empleador, familia o vecinos (salvo a un garante). Tampoco puede afectar tu actividad laboral. Es una práctica prohibida (artículo 37 de la Ley 19.496).",
+      },
+      {
+        pregunta: "¿Cuánto me pueden cobrar por gastos de cobranza?",
+        respuesta:
+          "La ley fija topes según el monto de la deuda y solo se pueden cobrar tras los días de atraso que ella señala (artículo 37). Cobros por sobre esos límites son reclamables ante el SERNAC.",
+      },
+      {
+        pregunta: "¿Una empresa de cobranza puede embargarme?",
+        respuesta:
+          "No. El embargo solo procede tras un juicio y lo ordena un tribunal. Una agencia de cobranza extrajudicial no puede embargar, descontar tu sueldo ni retirar tus bienes. Amenazar con eso es presión indebida.",
+      },
+      {
+        pregunta: "¿Pueden mandarme una 'demanda' que en realidad no lo es?",
+        respuesta:
+          "No. Está prohibido enviar documentos que aparenten ser escritos judiciales sin serlo, para inducir a temor o error. Si recibes algo así, guárdalo y denúncialo al SERNAC.",
+      },
+    ],
+  },
+  {
+    slug: "renegociar-deudas-ley-de-insolvencia",
+    titulo: "Renegociar tus deudas: la Ley de Insolvencia (Ley 20.720)",
+    categoria: "deudas",
+    destacada: false,
+    metaTitle: "Renegociar deudas: Ley de Insolvencia en Chile | Ley Chilena",
+    descripcion:
+      "Si no puedes pagar tus deudas, el Procedimiento de Renegociación de la Ley 20.720 (ante la Superir) te permite ordenarlas y rebajarlas, gratis y sin abogado, con protección frente a cobros.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Si tienes varias deudas vencidas y no puedes pagarlas, la **Ley 20.720 de Insolvencia** ofrece un **Procedimiento Concursal de Renegociación** para personas: es **gratis, sin abogado**, se hace ante la **Superintendencia de Insolvencia (Superir)** y busca un **acuerdo** con tus acreedores para reordenar o rebajar tus deudas ([artículo 260](/leyes/1058072?art=10390) y [261](/leyes/1058072?art=10391)).",
+    contenido: `
+## ¿Qué es la renegociación de la Ley 20.720?
+Es un procedimiento para **personas sobreendeudadas** que ya no pueden pagar. Permite **ordenar todas tus deudas** y llegar a un **acuerdo** con tus acreedores (rebajar montos, alargar plazos, condonar intereses), ante la **Superintendencia de Insolvencia y Reemprendimiento (Superir)** ([artículo 260 de la Ley 20.720](/leyes/1058072?art=10390)).
+
+Lo bueno: es **gratuito** y **no necesitas abogado** para iniciarlo.
+
+## ¿Quién puede usarlo?
+La "**Persona Deudora**" que tiene **dos o más deudas vencidas** (con distintos acreedores), impagas por un tiempo, que superen el monto mínimo que fija la ley, y que no esté ya en otro procedimiento concursal ([artículo 260](/leyes/1058072?art=10390)). Conviene confirmar los requisitos vigentes en la **Superir** antes de postular.
+
+## ¿Cómo funciona?
+1. Presentas la **solicitud** ante la Superir, con la lista de tus deudas y tus ingresos ([artículo 261](/leyes/1058072?art=10391)).
+2. Si es admisible, se **publica** y, desde ese momento, tienes una **protección**: no te pueden iniciar nuevas ejecuciones ni embargos por esas deudas mientras dura el proceso.
+3. La Superir cita a **audiencias** donde tú y tus acreedores buscan un **acuerdo de renegociación** (o de ejecución).
+4. Aprobado el acuerdo, **se cumple** y vuelves a quedar al día según lo pactado.
+
+## ¿Y si no hay acuerdo?
+Si no se logra un acuerdo, la ley contempla otras salidas (como la **liquidación** de bienes para extinguir las deudas y "reemprender"). Es un último recurso, pero ordena tu situación.
+
+## ¿Qué hacer ahora?
+1. **Junta el detalle de todas tus deudas** (montos, acreedores, atrasos) y tus ingresos.
+2. Entra a la **Superir** (superir.gob.cl) y revisa el procedimiento de **renegociación de la persona deudora**.
+3. Evalúa también si alguna deuda está **prescrita** o si te conviene primero un acuerdo directo.
+4. ¿Tu caso es distinto? Cuéntaselo a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿La renegociación de la Ley 20.720 tiene costo o necesito abogado?",
+        respuesta:
+          "El Procedimiento Concursal de Renegociación de la persona deudora es gratuito y no requiere abogado: se inicia directamente ante la Superintendencia de Insolvencia (artículos 260 y 261 de la Ley 20.720).",
+      },
+      {
+        pregunta: "¿Me protegen de los embargos mientras renegocio?",
+        respuesta:
+          "Sí. Una vez admitida la solicitud, se aplica una protección que impide iniciar nuevas ejecuciones o embargos por esas deudas mientras dura el procedimiento, para poder negociar con calma.",
+      },
+      {
+        pregunta: "¿Quién puede pedir la renegociación?",
+        respuesta:
+          "La persona deudora con dos o más deudas vencidas con distintos acreedores, impagas, que superen el monto mínimo legal y que no esté en otro procedimiento concursal. Conviene confirmar los requisitos vigentes en la Superir (artículo 260).",
+      },
+      {
+        pregunta: "¿Qué pasa si no llego a acuerdo con mis acreedores?",
+        respuesta:
+          "Si no hay acuerdo de renegociación, la ley contempla la liquidación de bienes para extinguir las deudas y poder reemprender. Ordena tu situación financiera aunque sea como último recurso.",
+      },
+    ],
   }
 ];
 

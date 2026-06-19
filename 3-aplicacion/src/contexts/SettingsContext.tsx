@@ -15,7 +15,7 @@ const SettingsContext = createContext<SettingsContextType | undefined>(undefined
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const [fontScale, setFontScaleState] = useState<FontScale>("1");
-  const [plainLanguage, setPlainLanguageState] = useState<boolean>(false);
+  const [plainLanguage, setPlainLanguageState] = useState<boolean>(true);
   const [cargado, setCargado] = useState(false);
 
   // Cargar configuraciones iniciales desde localStorage

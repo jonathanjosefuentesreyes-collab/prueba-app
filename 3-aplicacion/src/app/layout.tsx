@@ -5,6 +5,8 @@ import BottomNav from "@/components/BottomNav";
 import Splash from "@/components/Splash";
 import RegistrarSW from "@/components/RegistrarSW";
 import AbrirEnInicio from "@/components/AbrirEnInicio";
+import ConsentimientoCookies from "@/components/ConsentimientoCookies";
+import Anuncios from "@/components/Anuncios";
 import { SettingsProvider } from "@/contexts/SettingsContext";
 import { ChatProvider } from "@/contexts/ChatContext";
 
@@ -52,8 +54,10 @@ export default function RootLayout({
           <ChatProvider>
             <div className="shell">{children}</div>
             <BottomNav />
+            <ConsentimientoCookies />
           </ChatProvider>
         </SettingsProvider>
+        <Anuncios />
       </body>
     </html>
   );

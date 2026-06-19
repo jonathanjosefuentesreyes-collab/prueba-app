@@ -7,13 +7,17 @@ const isDev = process.env.NODE_ENV !== "production";
 // 'unsafe-eval' y websockets para que funcione el hot-reload de Next.
 // AL INTEGRAR ADSENSE: agregar a script-src/frame-src/img-src los dominios de Google
 // (https://pagead2.googlesyndication.com, https://googleads.g.doubleclick.net, etc.).
+// Dominios de Google AdSense (permitidos para que los anuncios carguen cuando se active el ID).
+const ADS = "https://pagead2.googlesyndication.com https://partner.googleadservices.com https://*.googlesyndication.com https://adservice.google.com https://*.g.doubleclick.net https://*.doubleclick.net https://*.google.com";
+
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} ${ADS}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  `img-src 'self' data: blob: ${ADS}`,
   "font-src 'self' data:",
-  `connect-src 'self'${isDev ? " ws: http://localhost:*" : ""}`,
+  `connect-src 'self' ${ADS}${isDev ? " ws: http://localhost:*" : ""}`,
+  `frame-src 'self' ${ADS}`,
   "worker-src 'self'",
   "manifest-src 'self'",
   "frame-ancestors 'none'",

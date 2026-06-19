@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useSettings } from "@/contexts/SettingsContext";
+import { hablar } from "@/lib/hablar";
 
 interface Articulo {
   id: number;
@@ -34,7 +35,6 @@ export default function ArticuloItem({
   const [cargando, setCargando] = useState(false);
   const [reproduciendo, setReproduciendo] = useState(false);
   const [esFavorito, setEsFavorito] = useState(false);
-  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const articuloRef = useRef<HTMLElement>(null);
 
   // Si este es el artículo destacado (se llegó con ?art=ID desde un chip del chat o
@@ -116,16 +116,22 @@ export default function ArticuloItem({
     };
   }, [reproduciendo]);
 
-  // Cargar explicación simple cuando está activo
+  // Cargar la explicación simple SOLO cuando el artículo entra en pantalla (lazy). Así,
+  // aunque "Lenguaje Simple" esté activo por defecto, una ley con cientos de artículos no
+  // dispara cientos de llamadas a Gemini de golpe: solo se simplifican los que el usuario ve.
   useEffect(() => {
     if (!plainLanguage) return;
-
     if (cacheSimplificaciones[articulo.id]) {
       setExplicacion(cacheSimplificaciones[articulo.id]);
       return;
     }
+    const el = articuloRef.current;
+    if (!el) return;
 
+    let pedido = false;
     async function cargarSimplificacion() {
+      if (pedido) return;
+      pedido = true;
       setCargando(true);
       try {
         const res = await fetch(`/api/simplificar?id=${articulo.id}`);
@@ -141,7 +147,12 @@ export default function ArticuloItem({
       }
     }
 
-    cargarSimplificacion();
+    const obs = new IntersectionObserver(
+      (entries) => { if (entries.some((e) => e.isIntersecting)) { cargarSimplificacion(); obs.disconnect(); } },
+      { rootMargin: "200px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
   }, [plainLanguage, articulo.id]);
 
   // Manejar reproducción de voz
@@ -152,35 +163,12 @@ export default function ArticuloItem({
       return;
     }
 
-    window.speechSynthesis.cancel();
-
     const textoALeer = plainLanguage && explicacion
       ? `${articulo.encabezado}. Explicación simple: ${explicacion}`
       : `${articulo.encabezado}. ${articulo.texto}`;
 
-    const utterance = new SpeechSynthesisUtterance(textoALeer);
-    const voces = window.speechSynthesis.getVoices();
-    const vozCl = voces.find(v => v.lang.includes("es-CL")) || 
-                voces.find(v => v.lang.includes("es-ES")) || 
-                voces.find(v => v.lang.includes("es"));
-    if (vozCl) {
-      utterance.voice = vozCl;
-    }
-    
-    utterance.lang = "es-CL";
-    utterance.rate = 0.95;
-
-    utterance.onend = () => {
-      setReproduciendo(false);
-    };
-
-    utterance.onerror = () => {
-      setReproduciendo(false);
-    };
-
-    utteranceRef.current = utterance;
     setReproduciendo(true);
-    window.speechSynthesis.speak(utterance);
+    hablar(textoALeer, () => setReproduciendo(false));
   }
 
   const tituloArticulo = articulo.encabezado.replace(/^art[ií]culo\s*/i, "Artículo ").trim();

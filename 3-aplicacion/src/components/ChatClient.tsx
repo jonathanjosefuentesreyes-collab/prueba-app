@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useChat, useChatRef } from "@/contexts/ChatContext";
 import type { Fuente, Mensaje } from "@/contexts/ChatContext";
+import { hablar } from "@/lib/hablar";
 
 // Formatea la respuesta del bot: escapa HTML (seguro), aplica **negritas** y
 // convierte líneas con *, - o • en viñetas.
@@ -107,11 +108,7 @@ export default function ChatClient() {
   }
 
   function leerEnVozAlta(textoMsg: string) {
-    if (!("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(textoMsg);
-    u.lang = "es-CL"; u.rate = 1;
-    window.speechSynthesis.speak(u);
+    hablar(textoMsg);
   }
 
   function guardarConsulta(indiceBot: number) {

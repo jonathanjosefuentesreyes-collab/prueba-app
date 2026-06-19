@@ -16,7 +16,6 @@ import {
 } from "@/lib/db";
 import { NextResponse } from "next/server";
 import { ipDe, mismoOrigen } from "@/lib/seguridad";
-import { buscarQA } from "@/lib/qa-precomputed";
 
 const DISCLAIMER =
   "Esto es orientación general, no asesoría legal. Para tu caso concreto consulta a un abogado (la Corporación de Asistencia Judicial atiende gratis).";
@@ -142,26 +141,8 @@ export async function POST(req: Request) {
     }
   }
 
-  // Pre-respuesta instantánea: si la pregunta hace match con una QA curada,
-  // se sirve sin llamar a Gemini (más rápido, sin costo de API, respuesta verificada).
-  const qa = buscarQA(mensaje);
-  if (qa) {
-    const fuentes: { articulo_id: null; norma_id: number; ley: string; numero: string }[] = [];
-    // Si la QA cita leyes, intentamos resolverlas para mostrar chips de enlace
-    const refLine = qa.respuesta.match(/Leyes relacionadas:\s*(.+)$/m);
-    if (refLine) {
-      const partes = refLine[1].split(";").map((p) => p.trim());
-      for (const parte of partes) {
-        if (parte === "—") continue;
-        const norma = normaPorReferencia(parte.split(" art")[0].trim());
-        if (norma && fuentes.length < 4) {
-          fuentes.push({ articulo_id: null, norma_id: norma.id, ley: nombreDe(norma), numero: "" });
-        }
-      }
-    }
-    return NextResponse.json({ respuesta: qa.respuesta, fuentes, disclaimer: DISCLAIMER, precomputed: true });
-  }
-
+  // (Se eliminaron las Q&A precomputadas: confundían al bot. Salvo los casos SENSIBLES
+  //  de seguridad, TODA consulta la responde Gemini en vivo.)
   let consulta = mensaje;
   for (const [patron, extra] of SINONIMOS) {
     if (patron.test(mensaje)) consulta += " " + extra;

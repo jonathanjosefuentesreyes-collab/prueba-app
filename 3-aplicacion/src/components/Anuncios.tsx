@@ -1,24 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Script from "next/script";
 import { ADSENSE_CLIENT } from "@/lib/adsense";
-import { consintioCookies } from "./ConsentimientoCookies";
 
-// Carga el script de AdSense SOLO si (1) hay un ID configurado y (2) el usuario aceptó las
-// cookies. Si falta cualquiera de las dos, no inyecta nada. Reacciona al evento de consentimiento.
+// Carga el script de AdSense cuando hay un ID configurado. Debe estar presente sin gating
+// para que Google pueda VERIFICAR y revisar el sitio. El cumplimiento por región (consentimiento
+// EEA/GDPR) lo maneja el "mensaje de privacidad" que se activa en el panel de AdSense; el banner
+// propio de la app informa y enlaza a /privacidad. Si no hay ID, no inyecta nada.
 export default function Anuncios() {
-  const [ok, setOk] = useState(false);
-
-  useEffect(() => {
-    if (consintioCookies()) setOk(true);
-    const al = (e: Event) => { if ((e as CustomEvent).detail === "aceptado") setOk(true); };
-    window.addEventListener("consentimiento", al);
-    return () => window.removeEventListener("consentimiento", al);
-  }, []);
-
-  if (!ADSENSE_CLIENT || !ok) return null;
-
+  if (!ADSENSE_CLIENT) return null;
   return (
     <Script
       id="adsbygoogle-init"

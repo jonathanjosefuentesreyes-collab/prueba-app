@@ -43,8 +43,15 @@
 ### Estado actual
 - Nav 5 pestañas: Leyes 📚 · Guías 💡 · Inicio 🏠 · Guardados ❤️ · Premium 👑 (`components/BottomNav.tsx`).
 - ChatBar (mascota fija + input→/chat) en TODAS las pestañas. Chat persistente PERMANENTE.
-- Guías en `src/lib/guias.ts` (15). Por macro grupo: **Laboral 10 · Vivienda 1 · Familia 1 · Consumidor 0 · 👑 Deudas 3** (dorada).
-  (Consumidor quedó en 0 al mover DICOM a Deudas; reponer en TAREA 4.)
+- Guías en `src/lib/guias.ts` (24). Por macro grupo: **Laboral 10 · Vivienda 3 · Familia 3 · Consumidor 3 · 👑 Deudas 5**.
+  Faltan para llegar a 10/grupo: Vivienda +7, Familia +7, Consumidor +7, Deudas +5.
+  ### norma_id VERIFICADOS para guías (úsalos directo, evita re-buscar):
+  - Código del Trabajo 207436 · Código Civil 172986 · Constitución 242302
+  - Ley 18.101 Arrendamiento **29526** · Ley 19.947 Matrimonio Civil **225128**
+  - Ley 19.496 Consumidor **1160403** (arts 3→138511, 3bis→138512, 19→138556, 20→138557, 21→138558, 23→138560, 37→138579)
+  - Ley 20.720 Insolvencia **1058072** (260→10390, 261→10391) · Ley 19.628 DICOM 141599 · Ley 14.908 27977 (refundido VIEJO, no citar arts)
+  - Arrendamiento Cód.Civil: 1924→2137, 1927→2140, 1947→2160, 1950→2163 · Matrimonio: 42→11072, 53→11083, 54→11084, 55→11085
+  ### Temas que faltan (alto SEO): Vivienda (garantía de arriendo, subarriendo, gastos comunes, aumento de renta, contrato de arriendo, ruidos/copropiedad, no pago); Familia (pensión alimentos[ya], VIF Ley 20.066 con *1455*, compensación económica, relación directa y regular, reconocimiento de paternidad, acuerdo unión civil); Consumidor (cobros indebidos, publicidad engañosa, garantía autos, repactación, servicios básicos); Deudas (tarjetas/CAE, prescripción[ya], embargo[ya], aval/codeudor, quiebra/liquidación).
 - Explorador `components/GuiasExplorer.tsx`: carrusel destacadas + chips de categorías + listado.
 - Categorías en guias.ts (`CATEGORIAS`): laboral, vivienda, familia, consumidor. Cada guía: slug, titulo(H1 pregunta),
   descripcion(meta≤155), categoria, destacada, metaTitle, respuestaCorta(snippet), contenido(markdown con enlaces), faq, fecha.

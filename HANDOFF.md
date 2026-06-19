@@ -43,8 +43,9 @@
 ### Estado actual
 - Nav 5 pestañas: Leyes 📚 · Guías 💡 · Inicio 🏠 · Guardados ❤️ · Premium 👑 (`components/BottomNav.tsx`).
 - ChatBar (mascota fija + input→/chat) en TODAS las pestañas. Chat persistente PERMANENTE.
-- Guías en `src/lib/guias.ts` (24). Por macro grupo: **Laboral 10 · Vivienda 3 · Familia 3 · Consumidor 3 · 👑 Deudas 5**.
-  Faltan para llegar a 10/grupo: Vivienda +7, Familia +7, Consumidor +7, Deudas +5.
+- Guías en `src/lib/guias.ts` (29). Por macro grupo: **Laboral 10 · Vivienda 6 · Familia 5 · Consumidor 3 · 👑 Deudas 5**.
+  Faltan para llegar a 10/grupo: Vivienda +4, Familia +5, Consumidor +7, Deudas +5.
+  norma_id extra verificados: Ley 20.066 VIF **242648** (5→11580,7→11582,9→11584,15→11594); subarriendo Cód.Civil 1946→2159; compensación Ley 19.947 61→11091,62→11092.
   ### norma_id VERIFICADOS para guías (úsalos directo, evita re-buscar):
   - Código del Trabajo 207436 · Código Civil 172986 · Constitución 242302
   - Ley 18.101 Arrendamiento **29526** · Ley 19.947 Matrimonio Civil **225128**

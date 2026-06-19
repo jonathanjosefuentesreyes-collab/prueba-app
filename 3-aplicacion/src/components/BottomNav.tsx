@@ -50,6 +50,12 @@ export default function BottomNav() {
 
   return (
     <nav className="nav-inferior" aria-label="Navegación principal">
+      {/* Marca: solo visible en el sidebar de escritorio (oculta en móvil por CSS). */}
+      <Link href="/" className="nav-brand" aria-label="Ley Chilena — Inicio">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logo-medallon.png" alt="" />
+        <span><span className="azul">Ley</span> <span className="rojo">Chilena</span></span>
+      </Link>
       {items.map((i) => {
         const esChat = i.href === "/chat";
         const badge = esChat && (pensando || respondioMientrasAfuera);

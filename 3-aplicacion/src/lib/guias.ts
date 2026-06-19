@@ -1093,6 +1093,179 @@ Si necesita reparaciones grandes que el dueño no hace, el arrendatario puede **
           "Si es por antigüedad o desgaste normal de la instalación, es una reparación necesaria que paga el dueño. Si la falla la causó el mal uso del arrendatario, la paga él (artículo 1927 del Código Civil).",
       },
     ],
+  },
+  {
+    slug: "garantia-legal-cambio-reparacion-devolucion",
+    titulo: "Garantía legal en Chile: ¿cambio, reparación o devolución?",
+    categoria: "consumidor",
+    destacada: true,
+    metaTitle: "Garantía legal: cambio, reparación o devolución | Ley Chilena",
+    descripcion:
+      "Si compraste un producto con fallas en Chile, la garantía legal te deja elegir entre reparación, cambio o devolución del dinero dentro de 6 meses. Conoce tus derechos.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Si un producto sale **malo o falla**, tú **eliges a tu arbitrio** entre tres opciones: la **reparación gratuita**, el **cambio** por otro igual, o la **devolución del dinero** ([artículo 20 de la Ley del Consumidor](/leyes/1160403?art=138557)). Este derecho —la **garantía legal**— dura **6 meses** desde que recibiste el producto y se ejerce **ante el vendedor** (no te pueden mandar solo al servicio técnico) ([artículo 21](/leyes/1160403?art=138558)).",
+    contenido: `
+## ¿Qué es la garantía legal?
+Es un derecho que te da la **Ley 19.496 (del Consumidor)**, distinto de la "garantía" del fabricante: si el producto sale **defectuoso, no sirve para lo que se compró o viene incompleto**, puedes reclamar. Y lo mejor: **tú decides** qué solución quieres.
+
+## Las 3 opciones (eliges tú)
+Frente a un producto con fallas, tienes el **derecho irrenunciable a optar, a tu arbitrio**, entre ([artículo 20 de la Ley del Consumidor](/leyes/1160403?art=138557)):
+1. **Reparación gratuita** del producto.
+2. **Cambio** por uno nuevo igual (reposición).
+3. **Devolución de lo que pagaste**.
+
+El vendedor **no puede obligarte** a aceptar solo la reparación: la elección es tuya.
+
+## ¿Cuánto tiempo tengo?
+**6 meses** contados desde que recibiste el producto, y el reclamo se hace **ante el vendedor** (la tienda donde compraste), no solo en el servicio técnico ([artículo 21](/leyes/1160403?art=138558)). Para alimentos perecibles u otros casos el plazo puede ser menor.
+
+## ¿Y si el cambio o reparación no resultó?
+La ley también contempla la **bonificación** del valor en la compra de otro producto, o la devolución, cuando la reposición no es posible ([artículo 19](/leyes/1160403?art=138556)). Guarda siempre tu **boleta o comprobante**: es la prueba de la compra (aunque por ley también valen otros medios de prueba).
+
+## ¿Qué hacer ante una falla?
+1. **Reúne la boleta** (o el comprobante de la compra / correo de confirmación).
+2. Vuelve al **vendedor** y di claramente cuál de las **3 opciones** eliges.
+3. Si se niegan, **deja un reclamo formal** y guarda copia.
+4. Reclama en el **SERNAC** (sernac.cl) o, si corresponde, demanda en el **Juzgado de Policía Local**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Puedo pedir la devolución del dinero o solo el cambio?",
+        respuesta:
+          "Puedes elegir tú: la ley te da el derecho irrenunciable a optar entre reparación gratuita, cambio o devolución del dinero (artículo 20 de la Ley 19.496). El vendedor no puede obligarte a una sola opción.",
+      },
+      {
+        pregunta: "¿Cuánto dura la garantía legal en Chile?",
+        respuesta:
+          "6 meses desde que recibiste el producto, y el reclamo se hace ante el vendedor (artículo 21 de la Ley 19.496). Es independiente de la garantía voluntaria del fabricante o la tienda.",
+      },
+      {
+        pregunta: "¿Me pueden mandar solo al servicio técnico?",
+        respuesta:
+          "No. El derecho se ejerce ante el vendedor; no pueden obligarte a ir únicamente al servicio técnico ni a aceptar solo la reparación si tú prefieres el cambio o la devolución (artículos 20 y 21).",
+      },
+      {
+        pregunta: "¿Necesito la boleta para reclamar?",
+        respuesta:
+          "Ayuda mucho, pero la compra puede acreditarse por otros medios (comprobante de tarjeta, correo de confirmación, etc.). Guarda siempre lo que tengas como respaldo.",
+      },
+    ],
+  },
+  {
+    slug: "derecho-a-retracto-arrepentirme-de-una-compra",
+    titulo: "Derecho a retracto: ¿puedo arrepentirme de una compra en Chile?",
+    categoria: "consumidor",
+    destacada: true,
+    metaTitle: "Derecho a retracto: arrepentirse de una compra | Ley Chilena",
+    descripcion:
+      "El derecho a retracto te deja arrepentirte y anular una compra sin dar explicaciones dentro de 10 días en compras por internet, teléfono o catálogo. Cómo y cuándo aplica.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Sí, en varios casos puedes **arrepentirte sin dar explicaciones** y poner término a la compra dentro de **10 días** desde que recibiste el producto o contrataste el servicio ([artículo 3 bis de la Ley del Consumidor](/leyes/1160403?art=138512)). Aplica sobre todo a compras **por internet, teléfono o catálogo**, y te deben **devolver lo pagado**. No aplica a todo: hay excepciones (por ejemplo, si la empresa avisó que no había retracto y aceptaste expresamente).",
+    contenido: `
+## ¿Qué es el derecho a retracto?
+Es la posibilidad de **arrepentirte de una compra**, sin tener que explicar por qué, y dejarla sin efecto dentro de un plazo ([artículo 3 bis de la Ley 19.496](/leyes/1160403?art=138512)). Es distinto de la garantía: aquí el producto **no tiene que estar malo**, simplemente cambiaste de opinión.
+
+## ¿Cuándo aplica? (los casos típicos)
+- **Compras a distancia**: por **internet, teléfono o catálogo**, salvo que la empresa haya informado expresamente que no hay retracto y tú lo hayas aceptado.
+- **Compras en reuniones** convocadas por el vendedor o servicios contratados por medios electrónicos, en los casos que la ley señala.
+- Tienes **10 días** contados desde que recibiste el producto o desde que contrataste el servicio.
+
+## ¿Cuándo NO aplica?
+No corresponde, por ejemplo, cuando el bien **se deterioró por tu uso** más allá de revisarlo, en productos hechos a tu medida, o cuando la ley o el contrato (válidamente) lo excluyen. Por eso conviene revisar las condiciones antes de comprar.
+
+## ¿Qué pasa con mi dinero?
+Si te retractas a tiempo, la empresa debe **devolverte lo que pagaste** a la brevedad. Tú debes **devolver el producto** en buen estado. Los costos de devolución pueden depender de lo informado al comprar.
+
+## ¿Qué hacer para retractarte?
+1. **Avisa por escrito** (correo, formulario web) dentro de los **10 días**, guardando la fecha.
+2. Pide la **devolución del dinero** y coordina la **devolución del producto**.
+3. Conserva el comprobante de tu aviso y del envío de vuelta.
+4. Si no respetan tu retracto, reclama en el **SERNAC** o en el **Juzgado de Policía Local**.
+5. ¿Dudas con tu caso? Cuéntaselo a **AbogaBot** y te orienta.
+`,
+    faq: [
+      {
+        pregunta: "¿Cuántos días tengo para arrepentirme de una compra por internet?",
+        respuesta:
+          "10 días contados desde que recibiste el producto o contrataste el servicio (artículo 3 bis de la Ley 19.496), salvo que la empresa haya informado expresamente que no hay derecho a retracto y lo hayas aceptado.",
+      },
+      {
+        pregunta: "¿Necesito dar una razón para retractarme?",
+        respuesta:
+          "No. El derecho a retracto se ejerce sin expresión de causa: basta con avisar dentro del plazo. El producto no necesita tener fallas.",
+      },
+      {
+        pregunta: "¿Aplica el retracto a compras hechas en la tienda física?",
+        respuesta:
+          "Por regla general el retracto aplica a compras a distancia (internet, teléfono, catálogo) y a ciertos casos especiales. Las compras presenciales normales no dan derecho a retracto, salvo que el vendedor lo ofrezca.",
+      },
+      {
+        pregunta: "¿Me tienen que devolver el dinero si me retracto?",
+        respuesta:
+          "Sí. Ejercido el retracto a tiempo, la empresa debe restituir las sumas pagadas, y tú devolver el producto en buen estado. Guarda los comprobantes del aviso y la devolución.",
+      },
+    ],
+  },
+  {
+    slug: "mis-derechos-como-consumidor-en-chile",
+    titulo: "¿Cuáles son mis derechos como consumidor en Chile?",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Tus derechos como consumidor en Chile | Ley Chilena",
+    descripcion:
+      "Tus derechos básicos como consumidor en Chile: información veraz, libre elección, seguridad, no discriminación, garantía y reparación. Qué hacer si te los vulneran.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "La **Ley 19.496** te garantiza, entre otros, el derecho a la **libre elección**, a una **información veraz y oportuna**, a la **seguridad** en el consumo, a **no ser discriminado** arbitrariamente, y a la **reparación e indemnización** si te vulneran ([artículo 3 de la Ley del Consumidor](/leyes/1160403?art=138511)). El proveedor que actúa con **negligencia** y te causa un daño comete infracción ([artículo 23](/leyes/1160403?art=138560)).",
+    contenido: `
+## Tus derechos básicos
+La **Ley 19.496 (del Consumidor)** reconoce derechos que **no puedes renunciar**. Los principales ([artículo 3 de la Ley del Consumidor](/leyes/1160403?art=138511)):
+
+- **Libre elección** del bien o servicio (y el silencio no es aceptación).
+- **Información veraz y oportuna** sobre el precio, las condiciones y las características.
+- **No ser discriminado** arbitrariamente por el proveedor.
+- **Seguridad** en el consumo y protección de tu salud.
+- **Reparación e indemnización** adecuada si se vulneran tus derechos.
+- **Educación** para un consumo responsable.
+
+## Cuando el proveedor falla
+Comete infracción el proveedor que, en la venta de un bien o en un servicio, actúa con **negligencia** y causa **menoscabo** al consumidor por deficiencias de calidad, seguridad o por no entregar lo ofrecido ([artículo 23](/leyes/1160403?art=138560)). Además, la **publicidad engañosa** y las **cláusulas abusivas** están prohibidas.
+
+## ¿Y los cobros y el crédito?
+Si te venden con **crédito directo**, deben informarte de forma **clara y oportuna** el costo total, la tasa y las condiciones ([artículo 37](/leyes/1160403?art=138579)). Los cobros que no se ajustan a lo pactado puedes reclamarlos.
+
+## ¿Qué hacer si te vulneran un derecho?
+1. **Reclama primero al proveedor** y guarda copia (correo, formulario, ticket).
+2. Si no responden, **reclama en el SERNAC** (sernac.cl): es gratis y media con la empresa.
+3. Para indemnización, puedes demandar en el **Juzgado de Policía Local**.
+4. En compras masivas afectadas, existen las **demandas colectivas** que impulsa el SERNAC.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Cuáles son los derechos básicos del consumidor?",
+        respuesta:
+          "Libre elección, información veraz y oportuna, no ser discriminado arbitrariamente, seguridad en el consumo, reparación e indemnización, y educación para el consumo, entre otros (artículo 3 de la Ley 19.496). Son irrenunciables.",
+      },
+      {
+        pregunta: "¿Qué hago si una empresa no respeta mis derechos?",
+        respuesta:
+          "Reclama primero al proveedor por escrito; si no resuelve, reclama gratis en el SERNAC, que media con la empresa. Para indemnización puedes demandar en el Juzgado de Policía Local.",
+      },
+      {
+        pregunta: "¿La publicidad engañosa es ilegal?",
+        respuesta:
+          "Sí. Inducir a error con publicidad falsa o engañosa infringe la Ley del Consumidor, igual que las cláusulas abusivas en los contratos. Puedes denunciarlo ante el SERNAC.",
+      },
+      {
+        pregunta: "¿El SERNAC puede obligar a la empresa a pagarme?",
+        respuesta:
+          "El SERNAC media y puede iniciar acciones, pero la indemnización la ordena el tribunal (Juzgado de Policía Local) o se logra en un acuerdo. El SERNAC también impulsa demandas colectivas cuando hay muchos afectados.",
+      },
+    ],
   }
 ];
 

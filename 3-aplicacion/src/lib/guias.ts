@@ -970,6 +970,129 @@ La ley también declara **inembargables** ciertos bienes básicos (la cama, la r
           "La ley protege bienes básicos como la cama, la ropa de uso, las herramientas necesarias para tu trabajo y los alimentos del mes, entre otros. Un embargo no puede dejarte sin lo indispensable para vivir y trabajar.",
       },
     ],
+  },
+  {
+    slug: "cuanto-aviso-para-terminar-arriendo",
+    titulo: "¿Cuánto aviso me deben dar para terminar el arriendo en Chile?",
+    categoria: "vivienda",
+    destacada: true,
+    metaTitle: "Aviso para terminar el arriendo: plazos en Chile | Ley Chilena",
+    descripcion:
+      "Cuánto aviso te deben dar para terminar el arriendo en Chile: contratos mes a mes, indefinidos y a plazo fijo. Plazos para restituir y cómo debe notificarse.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Si tu contrato es **mes a mes** o **indefinido**, el arrendador solo puede terminarlo (desahucio) **por vía judicial o por carta de un notario**, y te debe dar al menos **2 meses** para irte, que **aumentan 1 mes por cada año** que llevas arrendando, hasta un **máximo de 6 meses** ([artículo 3 de la Ley 18.101](/leyes/29526?art=9607)). Si es a **plazo fijo de hasta un año**, te pueden pedir la restitución por tribunal y tienes **2 meses** desde la notificación ([artículo 4](/leyes/29526?art=9608)).",
+    contenido: `
+## ¿Cómo me pueden pedir que deje el arriendo?
+Depende del tipo de contrato. La **Ley 18.101** (arrendamiento de viviendas urbanas) protege al arrendatario con plazos y formas claras de aviso. El arrendador **no puede echarte de un día para otro**.
+
+## Contrato mes a mes o de duración indefinida
+El término por voluntad del arrendador (llamado **desahucio**) solo vale si se hace **judicialmente o mediante una notificación personal de un notario** ([artículo 3 de la Ley 18.101](/leyes/29526?art=9607)). Además, te deben dar un plazo para irte:
+
+- **Mínimo 2 meses** desde la notificación.
+- Ese plazo **aumenta en 1 mes por cada año completo** que hayas arrendado.
+- Con un **tope de 6 meses** en total.
+
+Durante ese plazo sigues pagando la renta y puedes seguir viviendo ahí.
+
+## Contrato a plazo fijo de hasta un año
+El arrendador solo puede pedir la **restitución del inmueble ante el tribunal**, y en ese caso tienes derecho a un plazo de **2 meses** contados desde que te notifican la demanda ([artículo 4](/leyes/29526?art=9608)).
+
+## Contrato a plazo fijo (con fecha de término)
+Si pactaron una fecha de término, el contrato **expira en esa fecha** ([artículo 1950 del Código Civil](/leyes/172986?art=2163)). Al terminar, debes **restituir la propiedad en buen estado**, salvo el desgaste normal por el uso ([artículo 1947](/leyes/172986?art=2160)).
+
+## ¿Y si no pago la renta?
+El no pago es causa de término, pero igual debe hacerse por un **juicio de arrendamiento**: el arrendador no puede cambiarte la chapa ni sacarte las cosas por su cuenta. Eso sería ilegal.
+
+## ¿Qué hacer ahora?
+1. **Revisa tu contrato**: ¿es mes a mes, indefinido o a plazo fijo? De eso dependen tus plazos.
+2. Exige que cualquier término te llegue **por escrito** (notario o demanda); un aviso verbal por WhatsApp no cumple la ley.
+3. Cuenta tu **plazo** (2 meses + 1 por año, tope 6) y úsalo para organizar tu mudanza.
+4. Si te presionan para salir antes o te cortan servicios, **reclama**: pide orientación gratis en la **Corporación de Asistencia Judicial**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Me pueden echar del arriendo sin aviso?",
+        respuesta:
+          "No. En contratos mes a mes o indefinidos, el desahucio debe hacerse por vía judicial o por notario, con un plazo mínimo de 2 meses que aumenta 1 mes por año arrendado, hasta 6 meses (artículo 3 de la Ley 18.101).",
+      },
+      {
+        pregunta: "¿Cuánto plazo tengo para irme si me piden la casa?",
+        respuesta:
+          "Al menos 2 meses desde la notificación en contratos mes a mes o indefinidos, sumando 1 mes por cada año arrendado (tope 6 meses). En plazo fijo de hasta un año, 2 meses desde la notificación de la demanda (artículos 3 y 4 de la Ley 18.101).",
+      },
+      {
+        pregunta: "¿El arrendador puede cambiar la chapa o cortarme la luz para que me vaya?",
+        respuesta:
+          "No. El término del contrato y la restitución deben pasar por un juicio de arrendamiento. Cortar servicios, cambiar la cerradura o sacar tus cosas por cuenta propia es ilegal y puedes reclamarlo.",
+      },
+      {
+        pregunta: "¿Tengo que dejar la propiedad como estaba?",
+        respuesta:
+          "Debes restituirla en el estado en que la recibiste, descontando el desgaste normal por el uso legítimo (artículo 1947 del Código Civil). Los daños que excedan ese desgaste sí los debes reparar o pagar.",
+      },
+    ],
+  },
+  {
+    slug: "quien-paga-las-reparaciones-del-arriendo",
+    titulo: "¿Quién paga las reparaciones en un arriendo: dueño o arrendatario?",
+    categoria: "vivienda",
+    destacada: true,
+    metaTitle: "Reparaciones del arriendo: ¿quién paga? | Ley Chilena",
+    descripcion:
+      "Quién paga las reparaciones de una vivienda arrendada en Chile: el dueño las reparaciones necesarias y el arrendatario las locativas (desgaste de uso). Ejemplos y qué hacer.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Por regla general, el **dueño (arrendador)** paga las **reparaciones necesarias** para que la vivienda siga siendo habitable (techo, cañerías, instalaciones), porque está obligado a mantenerla en buen estado ([artículos 1924](/leyes/172986?art=2137) y [1927 del Código Civil](/leyes/172986?art=2140)). El **arrendatario** paga las **reparaciones locativas**: los pequeños deterioros del uso diario (vidrios quebrados, chapas, etc.) y todo daño que cause por su culpa.",
+    contenido: `
+## La regla general
+En un arriendo, la ley reparte quién paga qué según el **tipo de reparación**. El dueño debe entregar y **mantener la vivienda en estado de servir** para vivir ([artículo 1924 del Código Civil](/leyes/172986?art=2137)).
+
+## Las paga el DUEÑO (reparaciones necesarias)
+Son las indispensables para que la propiedad siga habitable y funcional. El arrendador debe hacer **todas las reparaciones necesarias** durante el arriendo ([artículo 1927](/leyes/172986?art=2140)). Por ejemplo:
+- Filtraciones de techo o muros, problemas estructurales.
+- Cañerías, instalación eléctrica o de gas que fallan por antigüedad.
+- Calefont o instalaciones esenciales que se dañan por uso normal.
+
+## Las paga el ARRENDATARIO (reparaciones locativas)
+Son los **deterioros pequeños** que ocurren por el uso diario y que la costumbre pone a cargo de quien vive ahí ([artículo 1927](/leyes/172986?art=2140)). Por ejemplo:
+- Vidrios quebrados, chapas o llaves que se rompen por el uso.
+- Pequeños arreglos de pintura, sellos, manillas.
+- **Todo daño que cause el arrendatario** (o sus visitas/mascotas) por descuido.
+
+## ¿Y si la propiedad se vuelve inhabitable?
+Si necesita reparaciones grandes que el dueño no hace, el arrendatario puede **exigirlas**, y según el caso pedir una **rebaja de la renta** o incluso el **término del contrato**. Conviene avisar siempre **por escrito** y guardar la respuesta.
+
+## ¿Qué hacer ante un problema?
+1. **Avisa al dueño por escrito** (correo o WhatsApp) apenas detectes la falla, con fotos y fecha.
+2. **Identifica el tipo**: ¿es estructural/esencial (dueño) o un deterioro menor del uso (tú)?
+3. Si el dueño no responde y la falla es necesaria, **deja constancia** y pide orientación en la **Corporación de Asistencia Judicial** (gratis).
+4. **No descuentes la renta por tu cuenta** sin acuerdo o respaldo legal: podría dar pie a un cobro.
+5. ¿Dudas con tu caso? Cuéntaselo a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿El dueño está obligado a reparar el arriendo?",
+        respuesta:
+          "Sí. El arrendador debe mantener la vivienda en estado de servir y hacer las reparaciones necesarias durante el arriendo (artículos 1924 y 1927 del Código Civil). Las reparaciones locativas, en cambio, corresponden al arrendatario.",
+      },
+      {
+        pregunta: "¿Qué son las reparaciones locativas?",
+        respuesta:
+          "Son los pequeños deterioros que produce el uso diario y que por costumbre paga quien arrienda: vidrios, chapas, manillas, sellos y similares, además de cualquier daño causado por su culpa (artículo 1927 del Código Civil).",
+      },
+      {
+        pregunta: "¿Puedo descontar de la renta lo que gasté en reparar?",
+        respuesta:
+          "No por tu cuenta. Conviene avisar por escrito al dueño y acordar el descuento o reembolso. Descontar unilateralmente puede generarte un cobro o un conflicto; si no hay acuerdo, pide orientación legal.",
+      },
+      {
+        pregunta: "¿Quién paga si se tapa una cañería o falla el calefont?",
+        respuesta:
+          "Si es por antigüedad o desgaste normal de la instalación, es una reparación necesaria que paga el dueño. Si la falla la causó el mal uso del arrendatario, la paga él (artículo 1927 del Código Civil).",
+      },
+    ],
   }
 ];
 

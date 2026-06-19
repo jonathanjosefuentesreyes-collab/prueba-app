@@ -1494,6 +1494,169 @@ Si no se logra un acuerdo, la ley contempla otras salidas (como la **liquidació
           "Si no hay acuerdo de renegociación, la ley contempla la liquidación de bienes para extinguir las deudas y poder reemprender. Ordena tu situación financiera aunque sea como último recurso.",
       },
     ],
+  },
+  {
+    slug: "mes-de-garantia-de-arriendo-cuando-me-lo-devuelven",
+    titulo: "Mes de garantía de arriendo: ¿cuándo y cómo me lo devuelven?",
+    categoria: "vivienda",
+    destacada: true,
+    metaTitle: "Garantía de arriendo: cuándo te la devuelven | Ley Chilena",
+    descripcion:
+      "Cuándo te devuelven el mes de garantía del arriendo en Chile: para qué sirve, qué pueden descontar (daños o rentas impagas) y qué hacer si el dueño no te lo devuelve.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "El **mes de garantía** es un respaldo por **daños** o **rentas/cuentas impagas**. Si entregas la propiedad **en buen estado** (descontando el desgaste normal por el uso) y sin deudas, el dueño debe **devolvértelo** ([artículo 1947 del Código Civil](/leyes/172986?art=2160)). La ley permite al arrendador **retenerlo** solo para cubrir lo que realmente le debas ([artículo 1942](/leyes/172986?art=2155)); no es un mes extra de arriendo.",
+    contenido: `
+## ¿Para qué sirve el mes de garantía?
+Es una **caución**: un dinero que dejas al inicio para responder por eventuales **daños** a la propiedad o **deudas** (rentas, gastos comunes, cuentas de servicios) al terminar el arriendo. **No es** un pago extra ni "el último mes" automático: es un respaldo que, si todo está en orden, **te lo deben devolver**.
+
+## ¿Cuándo me lo devuelven?
+Al terminar el contrato y **restituir la propiedad**, si la dejas **en el estado en que la recibiste** —descontando el **deterioro normal** por el uso legítimo— y sin deudas pendientes, el arrendador debe **devolverte la garantía** ([artículo 1947 del Código Civil](/leyes/172986?art=2160)). El plazo suele pactarse en el contrato (revisa esa cláusula).
+
+## ¿Qué pueden descontar?
+La ley deja al arrendador **retener** lo necesario para cubrir lo que efectivamente le debas ([artículo 1942](/leyes/172986?art=2155)): por ejemplo, **reparar daños** que causaste (más allá del desgaste normal) o **rentas y cuentas impagas**. Lo que sobre, te lo deben devolver. El desgaste normal (pintura gastada, marcas de muebles) **no** se puede descontar.
+
+## ¿Y si no me la devuelven?
+1. **Pide por escrito** la devolución y un **detalle** de cualquier descuento (con respaldo: fotos, boletas de reparación).
+2. Junta tu **contrato**, el **acta de entrega/recepción** (si la hay) y fotos de cómo dejaste la propiedad.
+3. Si se niegan sin justificación, puedes **demandar la restitución** en el tribunal correspondiente.
+4. Para evitar conflictos: al entrar y al salir, **deja registro con fotos y un acta firmada** del estado de la propiedad.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿El mes de garantía sirve como último mes de arriendo?",
+        respuesta:
+          "No automáticamente. La garantía responde por daños y deudas al final del arriendo; no es un pago de renta. Usarla como 'último mes' sin acuerdo puede generar un conflicto. Devuélvela el dueño una vez verificado el estado y las cuentas.",
+      },
+      {
+        pregunta: "¿Qué pueden descontarme de la garantía?",
+        respuesta:
+          "Solo lo que realmente debas: reparación de daños que causaste (más allá del desgaste normal) y rentas o cuentas impagas (artículo 1942 del Código Civil). El desgaste normal por el uso no se descuenta.",
+      },
+      {
+        pregunta: "¿En cuánto tiempo deben devolver la garantía?",
+        respuesta:
+          "En el plazo que diga tu contrato; si no lo fija, debe ser dentro de un tiempo razonable tras la restitución y la revisión del estado y las cuentas. Pide siempre el detalle por escrito de cualquier descuento.",
+      },
+      {
+        pregunta: "¿Cómo evito que no me devuelvan la garantía?",
+        respuesta:
+          "Deja registro con fotos y un acta firmada del estado de la propiedad al entrar y al salir, paga todas las cuentas y entrega en buen estado. Así tienes prueba para exigir la devolución (artículo 1947).",
+      },
+    ],
+  },
+  {
+    slug: "puedo-subarrendar-la-propiedad-que-arriendo",
+    titulo: "¿Puedo subarrendar la propiedad que arriendo en Chile?",
+    categoria: "vivienda",
+    destacada: false,
+    metaTitle: "¿Se puede subarrendar en Chile? | Ley Chilena",
+    descripcion:
+      "Subarrendar en Chile: por regla general necesitas autorización expresa del dueño. Qué pasa si subarriendas sin permiso y cómo dejarlo bien en el contrato.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Por regla general **no puedes subarrendar ni ceder el arriendo** salvo que el dueño te lo **autorice expresamente** ([artículo 1946 del Código Civil](/leyes/172986?art=2159)). Si subarriendas sin permiso, el arrendador puede pedir el **término del contrato**. Si te autoriza, el subarrendatario debe usar la propiedad **solo según lo pactado** en tu contrato.",
+    contenido: `
+## La regla general
+El arrendatario **no tiene la facultad de ceder el arriendo ni de subarrendar**, a menos que se le haya **concedido expresamente** esa facultad ([artículo 1946 del Código Civil](/leyes/172986?art=2159)). Es decir: para subarrendar necesitas que el **dueño lo autorice**, idealmente **por escrito**.
+
+## ¿Qué pasa si subarriendo sin permiso?
+Es un **incumplimiento del contrato**. El arrendador puede **poner término al arriendo** y pedir la restitución de la propiedad, además de las indemnizaciones que correspondan. No vale la pena arriesgarse.
+
+## Si el dueño te autoriza
+- Que la autorización quede **por escrito** (en el contrato o en un anexo firmado).
+- El **subarrendatario** solo puede usar la propiedad **en los términos** que tú pactaste con el dueño ([artículo 1946](/leyes/172986?art=2159)).
+- Tú sigues siendo **responsable** ante el dueño por el cuidado de la propiedad y el pago de la renta.
+
+## ¿Y el arriendo por días (tipo Airbnb)?
+Arrendar por días a turistas suele ser una forma de subarriendo o de cambio de destino del inmueble: revisa tu contrato y el **reglamento de copropiedad** del edificio, que muchas veces lo **prohíbe**. Hacerlo sin permiso puede terminar tu contrato y traerte multas de la comunidad.
+
+## ¿Qué hacer?
+1. **Revisa tu contrato**: ¿dice algo sobre subarriendo o cesión?
+2. Si quieres subarrendar, **pide autorización por escrito** al dueño.
+3. Deja claro por escrito quién responde por daños y pagos.
+4. ¿Tu caso es distinto? Cuéntaselo a **AbogaBot** y te orienta.
+`,
+    faq: [
+      {
+        pregunta: "¿Necesito permiso para subarrendar?",
+        respuesta:
+          "Sí. Por regla general no puedes subarrendar ni ceder el arriendo salvo autorización expresa del arrendador (artículo 1946 del Código Civil). Conviene que esa autorización quede por escrito.",
+      },
+      {
+        pregunta: "¿Qué pasa si subarriendo sin autorización?",
+        respuesta:
+          "Es un incumplimiento del contrato: el dueño puede pedir el término del arriendo, la restitución de la propiedad y las indemnizaciones que correspondan.",
+      },
+      {
+        pregunta: "¿Puedo arrendar por días en Airbnb si yo arriendo?",
+        respuesta:
+          "Solo con autorización del dueño y si el reglamento de copropiedad lo permite. Muchos contratos y reglamentos lo prohíben; hacerlo sin permiso puede terminar tu contrato y generar multas.",
+      },
+      {
+        pregunta: "Si subarriendo con permiso, ¿dejo de ser responsable?",
+        respuesta:
+          "No. Aunque te autoricen, sigues respondiendo ante el dueño por el cuidado de la propiedad y el pago de la renta. El subarrendatario solo puede usarla en los términos de tu contrato (artículo 1946).",
+      },
+    ],
+  },
+  {
+    slug: "no-pago-de-arriendo-juicio-de-arrendamiento",
+    titulo: "No pago de arriendo: ¿cómo es el juicio de arrendamiento?",
+    categoria: "vivienda",
+    destacada: false,
+    metaTitle: "Juicio de arrendamiento por no pago | Ley Chilena",
+    descripcion:
+      "Qué pasa si no se paga el arriendo en Chile: el dueño debe ir a un juicio de arrendamiento para terminar el contrato y recuperar la propiedad. Plazos y derechos de ambas partes.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Si no se paga la renta, el arrendador **no puede echarte por su cuenta**: debe iniciar un **juicio de arrendamiento** ante el tribunal para terminar el contrato y recuperar la propiedad ([artículo 7 de la Ley 18.101](/leyes/29526?art=9611)). Mientras no restituyas, sigues **obligado a pagar la renta y las cuentas** ([artículo 6](/leyes/29526?art=9610)). Cortarte servicios o cambiar la chapa por la fuerza es ilegal.",
+    contenido: `
+## El dueño no puede echarte "por las suyas"
+Aunque debas renta, el arrendador **no puede** cambiar la cerradura, sacar tus cosas ni cortarte la luz o el agua para obligarte a salir. Para terminar el contrato y recuperar la propiedad debe pasar por un **juicio de arrendamiento** ante el tribunal ([artículo 7 de la Ley 18.101](/leyes/29526?art=9611)), que regula los juicios de **desahucio, terminación y restitución**.
+
+## ¿Cómo es el juicio?
+1. El arrendador presenta una **demanda** (por ejemplo, de terminación por no pago).
+2. Te **notifican** y tienes derecho a **defenderte** (por ejemplo, acreditar que sí pagaste o llegar a un acuerdo).
+3. El juez resuelve y, si corresponde, ordena la **restitución** del inmueble en un plazo.
+4. Es un procedimiento **especial y más rápido** que un juicio común, pero igual respeta tus derechos.
+
+## Mientras tanto, sigues debiendo la renta
+Hasta que **restituyas** efectivamente la propiedad, sigues **obligado a pagar la renta y los gastos** (servicios, gastos comunes) que correspondan ([artículo 6](/leyes/29526?art=9610)). Por eso conviene resolver pronto: la deuda sigue creciendo.
+
+## Consejos para ambos lados
+- **Si eres arrendatario y no pudiste pagar:** habla con el dueño y busca un **acuerdo de pago** por escrito antes de que escale; guarda tus comprobantes.
+- **Si eres arrendador:** no te tomes la justicia por tu mano; el camino legal es el juicio. Cortar servicios o sacar cosas puede volverse en tu contra.
+
+## ¿Qué hacer?
+1. Reúne el **contrato** y los **comprobantes** de pago o de la deuda.
+2. Intenta un **acuerdo** por escrito; muchas veces evita el juicio.
+3. Si hay juicio, pide orientación gratis en la **Corporación de Asistencia Judicial**.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Me pueden echar del arriendo por no pagar sin juicio?",
+        respuesta:
+          "No. El término por no pago y la recuperación de la propiedad deben pasar por un juicio de arrendamiento (artículo 7 de la Ley 18.101). Cambiar la chapa, sacar tus cosas o cortar servicios por la fuerza es ilegal.",
+      },
+      {
+        pregunta: "Si dejo de pagar, ¿sigo debiendo la renta?",
+        respuesta:
+          "Sí. Mientras no restituyas la propiedad sigues obligado a pagar la renta y los gastos que correspondan (artículo 6 de la Ley 18.101). La deuda se acumula hasta que entregues el inmueble.",
+      },
+      {
+        pregunta: "¿El juicio de arrendamiento es rápido?",
+        respuesta:
+          "Es un procedimiento especial más ágil que un juicio común, pero respeta el derecho a defensa de ambas partes. Llegar a un acuerdo de pago por escrito suele ser más rápido y barato que litigar.",
+      },
+      {
+        pregunta: "El dueño me cortó la luz para que me fuera, ¿es legal?",
+        respuesta:
+          "No. Cortar servicios o cambiar la cerradura para forzar la salida es ilegal, aunque debas renta. Puedes reclamarlo; el camino correcto del arrendador es el juicio de arrendamiento.",
+      },
+    ],
   }
 ];
 

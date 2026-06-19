@@ -7,6 +7,7 @@ import RegistrarSW from "@/components/RegistrarSW";
 import AbrirEnInicio from "@/components/AbrirEnInicio";
 import ConsentimientoCookies from "@/components/ConsentimientoCookies";
 import Anuncios from "@/components/Anuncios";
+import { ADSENSE_CLIENT } from "@/lib/adsense";
 import { SettingsProvider } from "@/contexts/SettingsContext";
 import { ChatProvider } from "@/contexts/ChatContext";
 
@@ -26,6 +27,7 @@ const robotoSlab = Roboto_Slab({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.leyesdechile.com"),
+  ...(ADSENSE_CLIENT ? { other: { "google-adsense-account": ADSENSE_CLIENT } } : {}),
   title: "Ley Chilena — Todas las leyes de Chile, explicadas simple",
   description:
     "Consulta gratis las leyes chilenas actualizadas desde la fuente oficial (BCN), calcula tu finiquito y resuelve tus dudas legales con AbogaBot.",

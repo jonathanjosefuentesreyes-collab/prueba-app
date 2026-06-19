@@ -1657,6 +1657,126 @@ Hasta que **restituyas** efectivamente la propiedad, sigues **obligado a pagar l
           "No. Cortar servicios o cambiar la cerradura para forzar la salida es ilegal, aunque debas renta. Puedes reclamarlo; el camino correcto del arrendador es el juicio de arrendamiento.",
       },
     ],
+  },
+  {
+    slug: "violencia-intrafamiliar-medidas-de-proteccion",
+    titulo: "Violencia intrafamiliar: cómo pedir medidas de protección en Chile",
+    categoria: "familia",
+    destacada: true,
+    metaTitle: "Violencia intrafamiliar: medidas de protección | Ley Chilena",
+    descripcion:
+      "Qué es la violencia intrafamiliar en Chile y cómo pedir medidas de protección: denuncia, medidas cautelares y accesorias de la Ley 20.066. Teléfonos de ayuda 24/7.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Si estás en peligro **ahora**, llama al **133** (Carabineros). Para orientación gratuita en violencia, al **1455** (SernamEG, 24/7). La **Ley 20.066** protege a quien sufre maltrato de un familiar o pareja: puedes **denunciar** y el juez puede dictar **medidas cautelares y de protección** —como prohibir al agresor acercarse— en cualquier etapa ([artículo 15](/leyes/242648?art=11594) y [artículo 9](/leyes/242648?art=11584)).",
+    contenido: `
+> ⚠️ **Si estás en peligro ahora, llama al 133 (Carabineros).** Orientación gratuita 24/7 en violencia contra la mujer: **1455** (SernamEG) o WhatsApp **+56 9 9700 7000**. Denuncias: **149** (Fono Familia de Carabineros) o en cualquier comisaría, Fiscalía o Tribunal de Familia. **No estás solo/a.**
+
+## ¿Qué es la violencia intrafamiliar?
+Es **todo maltrato** que afecte la **vida o la integridad física o psíquica** de quien tenga o haya tenido la calidad de **cónyuge o conviviente**, de un **pariente**, o de los hijos, entre otros ([artículo 5 de la Ley 20.066](/leyes/242648?art=11580)). No es solo el golpe: también el **maltrato psicológico** (amenazas, humillación, control) es violencia.
+
+## ¿Dónde denuncio?
+Puedes denunciar en **Carabineros (133 / 149)**, la **PDI**, la **Fiscalía** o el **Tribunal de Familia**. La denuncia es **gratuita** y puede hacerla la víctima u **otra persona** que sepa de los hechos. Si hay delito (lesiones, amenazas), el caso va a la **Fiscalía**.
+
+## Las medidas de protección
+La ley permite proteger a la víctima rápido. El juez puede dictar **medidas cautelares en cualquier etapa**, incluso al inicio ([artículo 15](/leyes/242648?art=11594)), y **medidas accesorias** en la sentencia ([artículo 9](/leyes/242648?art=11584)), como:
+- **Prohibir al agresor acercarse** a la víctima, su casa, trabajo o estudio.
+- **Salida del agresor** del hogar común.
+- Prohibición de **porte y tenencia de armas**.
+- Retención de armas, y en ciertos casos **monitoreo telemático** (tobillera).
+
+Frente a **riesgo inminente**, el tribunal debe actuar aunque aún no haya una denuncia formal completa ([artículo 7](/leyes/242648?art=11582)).
+
+## ¿Qué hacer ahora?
+1. Si hay peligro inmediato, **llama al 133**. Ponte a salvo primero.
+2. **Denuncia** (133/149, comisaría, Fiscalía o Tribunal de Familia) y pide **medidas de protección**.
+3. Guarda **pruebas**: mensajes, fotos de lesiones, testigos, constancias médicas.
+4. Pide apoyo gratuito en **SernamEG (1455)** y orientación legal en la **Corporación de Asistencia Judicial**.
+5. ¿Necesitas entender un paso? Pregúntale a **AbogaBot** —pero tu seguridad va primero.
+`,
+    faq: [
+      {
+        pregunta: "¿A qué número llamo por violencia intrafamiliar en Chile?",
+        respuesta:
+          "Si estás en peligro ahora, al 133 (Carabineros). Para orientación 24/7, al 1455 (SernamEG) o WhatsApp +56 9 9700 7000. Para denunciar, al 149 (Fono Familia) o en cualquier comisaría, Fiscalía o Tribunal de Familia.",
+      },
+      {
+        pregunta: "¿El maltrato psicológico también es violencia intrafamiliar?",
+        respuesta:
+          "Sí. La Ley 20.066 considera violencia intrafamiliar todo maltrato que afecte la integridad física o psíquica (artículo 5). Amenazas, humillaciones y control también cuentan, no solo la agresión física.",
+      },
+      {
+        pregunta: "¿Qué medidas de protección puede ordenar el juez?",
+        respuesta:
+          "Entre otras, prohibir al agresor acercarse a la víctima o su hogar, ordenar su salida del hogar común, prohibir el porte de armas y, en ciertos casos, el monitoreo telemático. Puede hacerlo como medida cautelar en cualquier etapa (artículos 9 y 15).",
+      },
+      {
+        pregunta: "¿Puedo pedir protección antes de que pase algo grave?",
+        respuesta:
+          "Sí. Ante una situación de riesgo inminente, el tribunal debe adoptar medidas de protección aunque la investigación recién comience (artículo 7 de la Ley 20.066). No esperes a que escale.",
+      },
+    ],
+  },
+  {
+    slug: "compensacion-economica-en-el-divorcio",
+    titulo: "Compensación económica en el divorcio: ¿qué es y cuándo me corresponde?",
+    categoria: "familia",
+    destacada: false,
+    metaTitle: "Compensación económica en el divorcio | Ley Chilena",
+    descripcion:
+      "Qué es la compensación económica en el divorcio en Chile, cuándo te corresponde si te dedicaste al hogar o los hijos, cómo se calcula y cómo se paga.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Si durante el matrimonio te **dedicaste al hogar o a los hijos** y por eso **no pudiste trabajar o desarrollarte** como el otro, al divorciarte (o anularse el matrimonio) puedes tener derecho a una **compensación económica** ([artículo 61 de la Ley de Matrimonio Civil](/leyes/225128?art=11091)). El monto lo **acuerdan** o lo fija el **juez**, considerando la duración del matrimonio, tu situación y la del otro ([artículo 62](/leyes/225128?art=11092)).",
+    contenido: `
+## ¿Qué es la compensación económica?
+Es un **resarcimiento** que la ley reconoce a quien, por **dedicarse al cuidado de los hijos o a las labores del hogar**, no pudo desarrollar una actividad remunerada o lo hizo en menor medida de lo que quería o podía ([artículo 61 de la Ley de Matrimonio Civil](/leyes/225128?art=11091)). Busca **equilibrar** el menoscabo económico que deja la ruptura.
+
+No es una pensión de alimentos ni un "castigo": es reconocer el **aporte no remunerado** que hiciste al matrimonio.
+
+## ¿Cuándo me corresponde?
+Cuando, al **divorciarte** o al declararse la **nulidad**, se da que uno de los cónyuges quedó en **desventaja económica** por haberse dedicado a la familia. Se evalúa caso a caso.
+
+## ¿Cómo se determina el monto?
+Para fijar si hay menoscabo y cuánto, el juez considera **especialmente** ([artículo 62](/leyes/225128?art=11092)):
+- La **duración del matrimonio** y de la vida en común.
+- La **situación patrimonial** de ambos.
+- La **edad y estado de salud** del que pide la compensación.
+- Su situación **previsional** y de **salud**.
+- Su **calificación profesional** y posibilidades de acceder al **trabajo**.
+- La **colaboración** que prestó a las actividades del otro cónyuge.
+
+## ¿Cómo se paga?
+Puede pagarse en **dinero** (de una vez o en cuotas), o entregando **bienes** o derechos. Si se paga en cuotas, se consideran **alimentos** para efectos de su cobro, lo que refuerza su pago.
+
+## ¿Qué hacer?
+1. Reúne antecedentes de tu **aporte al hogar** y de tu **situación laboral/previsional**.
+2. En el **divorcio de común acuerdo**, inclúyela en el **acuerdo regulador**.
+3. Si no hay acuerdo, **pídela en el juicio de divorcio** (debes solicitarla; el juez no la otorga de oficio sin petición). Asesórate con un **abogado de familia** (o la Corporación de Asistencia Judicial, gratis).
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Quién tiene derecho a compensación económica?",
+        respuesta:
+          "El cónyuge que, por dedicarse al cuidado de los hijos o al hogar, no pudo trabajar o desarrollarse laboralmente como hubiera querido, y queda en desventaja económica al divorciarse o anularse el matrimonio (artículo 61 de la Ley de Matrimonio Civil).",
+      },
+      {
+        pregunta: "¿Cómo se calcula la compensación económica?",
+        respuesta:
+          "No hay una fórmula fija: el juez considera la duración del matrimonio, la situación patrimonial, la edad y salud, lo previsional, la calificación profesional y las posibilidades de trabajo del solicitante (artículo 62).",
+      },
+      {
+        pregunta: "¿Es lo mismo que la pensión de alimentos?",
+        respuesta:
+          "No. La pensión de alimentos cubre las necesidades de los hijos (o del cónyuge en ciertos casos); la compensación económica resarce el menoscabo de quien se dedicó al hogar. Son cosas distintas, aunque la compensación en cuotas se cobra como alimentos.",
+      },
+      {
+        pregunta: "¿Debo pedirla o me la dan automáticamente?",
+        respuesta:
+          "Debes solicitarla: en el acuerdo regulador (divorcio de común acuerdo) o en la demanda/contestación del juicio de divorcio. Conviene asesorarte para acreditar el menoscabo económico.",
+      },
+    ],
   }
 ];
 

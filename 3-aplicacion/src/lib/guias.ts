@@ -1777,6 +1777,166 @@ Puede pagarse en **dinero** (de una vez o en cuotas), o entregando **bienes** o 
           "Debes solicitarla: en el acuerdo regulador (divorcio de común acuerdo) o en la demanda/contestación del juicio de divorcio. Conviene asesorarte para acreditar el menoscabo económico.",
       },
     ],
+  },
+  {
+    slug: "publicidad-enganosa-que-puedo-hacer",
+    titulo: "Publicidad engañosa: ¿qué puedo hacer en Chile?",
+    categoria: "consumidor",
+    destacada: true,
+    metaTitle: "Publicidad engañosa: tus derechos | Ley Chilena",
+    descripcion:
+      "La publicidad engañosa es ilegal en Chile. Si te indujeron a error con un anuncio falso sobre precio, características o condiciones, puedes reclamar en el SERNAC. Cómo hacerlo.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "La **publicidad engañosa o falsa es una infracción** a la Ley del Consumidor: comete falta quien, **a sabiendas**, induce a error con un mensaje publicitario sobre el precio, las características, la utilidad o las condiciones de un producto o servicio ([artículo 28 de la Ley 19.496](/leyes/1160403?art=138568)). Puedes **reclamar en el SERNAC** y, además, lo que se promete en la publicidad **obliga** al proveedor.",
+    contenido: `
+## ¿Qué es la publicidad engañosa?
+Es cuando un anuncio te **induce a error** sobre lo que realmente vas a recibir: el **precio**, las **características**, la **utilidad**, la **marca**, el **origen** o las **condiciones** del producto o servicio. Comete infracción quien lo hace **a sabiendas o debiendo saberlo** ([artículo 28 de la Ley 19.496](/leyes/1160403?art=138568)).
+
+## Lo importante: la publicidad OBLIGA
+Lo que el proveedor **promete o informa en su publicidad forma parte del contrato**. Si te ofrecieron algo en el anuncio (un precio, una característica, un regalo), **te lo deben cumplir**, aunque después digan que "era un error". Guarda el aviso como prueba.
+
+## Ojo con las "ofertas" y promociones
+En toda **promoción u oferta** te deben informar las **bases** y el **plazo** de duración ([artículo 35](/leyes/1160403?art=138577)). Si no lo hacen, o cambian las reglas a mitad de camino, puedes reclamar.
+
+## ¿Qué hacer ante publicidad engañosa?
+1. **Guarda la prueba**: captura de pantalla, foto del cartel, el correo o el folleto con la oferta.
+2. Exige al proveedor que **cumpla lo publicitado** o te devuelva el dinero.
+3. Si se niegan, **reclama en el SERNAC** (sernac.cl): es gratis y media con la empresa.
+4. Para indemnización, puedes demandar en el **Juzgado de Policía Local**; si afecta a muchos, el SERNAC puede impulsar una **demanda colectiva**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿La publicidad engañosa es ilegal en Chile?",
+        respuesta:
+          "Sí. Es una infracción a la Ley del Consumidor inducir a error, a sabiendas, con un mensaje publicitario sobre el precio, características, utilidad o condiciones de un producto o servicio (artículo 28 de la Ley 19.496).",
+      },
+      {
+        pregunta: "Si el precio publicado era 'un error', ¿igual me lo deben respetar?",
+        respuesta:
+          "Lo que se promete en la publicidad obliga al proveedor y forma parte del contrato. Guarda la prueba del anuncio y exige que lo cumplan; si se niegan, reclama en el SERNAC.",
+      },
+      {
+        pregunta: "¿Qué pasa si una oferta no informa sus bases o plazo?",
+        respuesta:
+          "Toda promoción u oferta debe informar sus bases y el plazo de duración (artículo 35). Si no lo hace, es reclamable ante el SERNAC.",
+      },
+      {
+        pregunta: "¿Dónde reclamo por publicidad engañosa?",
+        respuesta:
+          "Primero al proveedor; si no resuelve, en el SERNAC (gratis), que media con la empresa. Para indemnización puedes ir al Juzgado de Policía Local, y el SERNAC puede impulsar demandas colectivas si hay muchos afectados.",
+      },
+    ],
+  },
+  {
+    slug: "clausulas-abusivas-en-contratos",
+    titulo: "Cláusulas abusivas en contratos: ¿qué son y cómo me protegen?",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Cláusulas abusivas en contratos | Ley Chilena",
+    descripcion:
+      "Las cláusulas abusivas en los contratos de adhesión no tienen efecto en Chile. Qué son, ejemplos, y cómo reclamar si una empresa te las quiere aplicar.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Las **cláusulas abusivas** en los contratos de adhesión (esos que firmas sin poder negociar) **no producen ningún efecto** ([artículo 16 de la Ley 19.496](/leyes/1160403?art=138537)). Por ejemplo, las que dejan que la empresa cambie el contrato a su antojo o te cargan todos los riesgos. Además, el contrato debe estar **escrito de forma legible** ([artículo 17](/leyes/1160403?art=138541)). Si te aplican una cláusula abusiva, puedes pedir su **nulidad**.",
+    contenido: `
+## ¿Qué es un contrato de adhesión?
+Es el contrato que la empresa **redacta de antemano** y tú solo **firmas o aceptas** sin poder negociar (planes de telefonía, cuentas bancarias, gimnasios, etc.). Para equilibrar esa desigualdad, la ley **prohíbe ciertas cláusulas**.
+
+## Cláusulas que NO tienen efecto (abusivas)
+No producen efecto alguno, entre otras, las cláusulas que ([artículo 16 de la Ley 19.496](/leyes/1160403?art=138537)):
+- Permiten a la **empresa** dejar sin efecto o **modificar el contrato a su sola voluntad**.
+- Te hacen cargar **todos los riesgos** o te quitan responsabilidad a la empresa por sus fallas.
+- Invierten la **carga de la prueba** en tu perjuicio.
+- Contienen **espacios en blanco** que no firmaste.
+- En general, las que generan un **desequilibrio importante** en tus derechos, contra la buena fe.
+
+## El contrato debe ser legible
+Los contratos de adhesión deben estar **escritos de modo claramente legible**, con un tamaño de letra adecuado y en español ([artículo 17](/leyes/1160403?art=138541)). La "letra chica" ilegible juega a tu favor para reclamar.
+
+## ¿Qué hacer?
+1. **Guarda tu copia** del contrato (te la deben entregar).
+2. Si una cláusula te parece abusiva, puedes **pedir su nulidad**: no te obliga.
+3. **Reclama en el SERNAC** (sernac.cl); también existe un procedimiento para **declarar nulas** esas cláusulas.
+4. No firmes **espacios en blanco** y exige que te expliquen lo que no entiendas.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué es una cláusula abusiva?",
+        respuesta:
+          "Una estipulación de un contrato de adhesión que genera un desequilibrio importante en tu perjuicio, contra la buena fe: por ejemplo, dejar que la empresa modifique el contrato a su antojo o cargarte todos los riesgos. No producen efecto (artículo 16 de la Ley 19.496).",
+      },
+      {
+        pregunta: "¿Me obliga la 'letra chica' que no se entiende?",
+        respuesta:
+          "Los contratos de adhesión deben estar escritos de forma claramente legible (artículo 17). Una cláusula ilegible o abusiva puede declararse sin efecto; guarda tu copia y reclama.",
+      },
+      {
+        pregunta: "¿Puede la empresa cambiar el contrato cuando quiera?",
+        respuesta:
+          "No de forma unilateral y arbitraria: una cláusula que permita a la empresa dejar sin efecto o modificar el contrato a su sola voluntad es abusiva y no produce efecto (artículo 16).",
+      },
+      {
+        pregunta: "¿Qué hago si me aplican una cláusula abusiva?",
+        respuesta:
+          "Puedes alegar su nulidad (no te obliga) y reclamar en el SERNAC. Existe además un procedimiento para declarar nulas las cláusulas abusivas de los contratos de adhesión.",
+      },
+    ],
+  },
+  {
+    slug: "cobros-indebidos-e-intereses-excesivos",
+    titulo: "Cobros indebidos e intereses excesivos: ¿cómo me defiendo?",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Cobros indebidos e intereses excesivos | Ley Chilena",
+    descripcion:
+      "Cobrar intereses sobre el máximo legal o cargos no pactados es infracción en Chile. Conoce el interés máximo convencional, los cobros prohibidos y cómo reclamar.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Cobrarte **intereses por sobre el máximo legal** (el interés máximo convencional) es **infracción** a la Ley del Consumidor ([artículo 39 de la Ley 19.496](/leyes/1160403?art=138581)). Tampoco te pueden cargar montos **no pactados** ni gastos de cobranza por sobre los topes ([artículo 37](/leyes/1160403?art=138579)). Si te hacen un cobro indebido, **reclama en el SERNAC** y exige la devolución.",
+    contenido: `
+## Hay un tope legal a los intereses
+En Chile existe el **interés máximo convencional**: nadie te puede cobrar intereses por sobre ese límite. El proveedor que lo hace **comete infracción** a la Ley del Consumidor ([artículo 39 de la Ley 19.496](/leyes/1160403?art=138581)). Si tu crédito o tarjeta te cobra intereses desproporcionados, revísalo.
+
+## Cobros que no te pueden hacer
+- **Cargos o servicios no pactados** expresamente por ti (no vale el "silencio" como aceptación).
+- **Gastos de cobranza** por sobre los topes legales, o antes de los días que la ley señala ([artículo 37](/leyes/1160403?art=138579)).
+- Cobros por productos o servicios que **no contrataste** ("ventas atadas" o adicionales que no aceptaste).
+
+## Información clara en el crédito
+Cuando te dan crédito, deben informarte de forma **clara y oportuna** el **precio al contado**, la **tasa de interés**, el **costo total del crédito (CTC)** y el detalle de las cuotas ([artículo 37](/leyes/1160403?art=138579)). Si no te informaron bien, es reclamable.
+
+## ¿Qué hacer ante un cobro indebido?
+1. **Revisa tu cartola o boleta** y marca el cobro que no reconoces.
+2. **Pide por escrito** al proveedor el detalle y la **devolución** de lo cobrado de más.
+3. Si no resuelven, **reclama en el SERNAC** (sernac.cl).
+4. Para recuperar lo pagado de más o indemnización, puedes demandar en el **Juzgado de Policía Local**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Me pueden cobrar cualquier interés?",
+        respuesta:
+          "No. Existe el interés máximo convencional, un tope legal. Cobrar intereses por sobre ese máximo es una infracción a la Ley del Consumidor (artículo 39 de la Ley 19.496) y puedes reclamarlo.",
+      },
+      {
+        pregunta: "¿Pueden cobrarme un servicio que no contraté?",
+        respuesta:
+          "No. No te pueden cargar productos o servicios no pactados expresamente; el silencio no es aceptación. Reclama la devolución al proveedor y, si no resuelve, al SERNAC.",
+      },
+      {
+        pregunta: "¿Cuánto me pueden cobrar de gastos de cobranza?",
+        respuesta:
+          "Solo dentro de los topes legales y tras los días de atraso que la ley señala (artículo 37). Cobros por sobre eso son indebidos y reclamables.",
+      },
+      {
+        pregunta: "¿Qué hago si me hicieron un cobro indebido?",
+        respuesta:
+          "Pide por escrito el detalle y la devolución al proveedor; si no resuelve, reclama en el SERNAC. Para recuperar lo pagado de más o indemnización puedes demandar en el Juzgado de Policía Local.",
+      },
+    ],
   }
 ];
 

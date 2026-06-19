@@ -1266,6 +1266,118 @@ Si te venden con **crédito directo**, deben informarte de forma **clara y oport
           "El SERNAC media y puede iniciar acciones, pero la indemnización la ordena el tribunal (Juzgado de Policía Local) o se logra en un acuerdo. El SERNAC también impulsa demandas colectivas cuando hay muchos afectados.",
       },
     ],
+  },
+  {
+    slug: "divorcio-en-chile-tipos-y-requisitos",
+    titulo: "Divorcio en Chile: tipos, requisitos y cómo se pide",
+    categoria: "familia",
+    destacada: true,
+    metaTitle: "Divorcio en Chile: tipos y requisitos | Ley Chilena",
+    descripcion:
+      "Tipos de divorcio en Chile: de común acuerdo (cese de 1 año), unilateral (cese de 3 años) y por culpa. Requisitos, el acuerdo regulador y cómo se tramita.",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "En Chile hay tres caminos: **de común acuerdo** (ambos lo piden, acreditando **más de 1 año** de cese de convivencia, [artículo 55 de la Ley de Matrimonio Civil](/leyes/225128?art=11085)); **unilateral** (uno lo demanda tras **3 años** de cese); y **por culpa** (por una falta grave del otro, como violencia, [artículo 54](/leyes/225128?art=11084)). El divorcio **pone término al matrimonio** pero no afecta la filiación de los hijos ([artículo 53](/leyes/225128?art=11083)).",
+    contenido: `
+## ¿Cuándo termina un matrimonio?
+El matrimonio termina por muerte, por nulidad o por **divorcio**, entre otras causas ([artículo 42 de la Ley de Matrimonio Civil](/leyes/225128?art=11072)). El divorcio lo decreta un **juez de familia** y **pone fin al matrimonio**, pero **no afecta** la relación con los hijos ni la filiación ya determinada ([artículo 53](/leyes/225128?art=11083)).
+
+## Los 3 tipos de divorcio
+1. **De común acuerdo (de mutuo acuerdo):** ambos cónyuges lo solicitan juntos y acreditan que la **convivencia cesó por más de 1 año**. Deben acompañar un **acuerdo regulador** completo y suficiente ([artículo 55](/leyes/225128?art=11085)).
+2. **Unilateral:** uno de los cónyuges lo demanda cuando la **convivencia cesó por al menos 3 años**, aunque el otro no esté de acuerdo.
+3. **Por culpa:** uno lo demanda por una **falta grave** del otro que hace intolerable la vida en común —por ejemplo, **violencia** contra el cónyuge o los hijos, o transgresión grave de los deberes del matrimonio ([artículo 54](/leyes/225128?art=11084)). Aquí **no se exige** un plazo de cese.
+
+## El "acuerdo regulador"
+En el divorcio de común acuerdo deben presentar un acuerdo que regule **todas** sus relaciones: **pensión de alimentos**, **cuidado personal** de los hijos, **relación directa y regular** (visitas) y, si corresponde, la **compensación económica**. El juez revisa que **resguarde el interés de los hijos** y sea equitativo.
+
+## ¿Y la compensación económica?
+Si uno de los cónyuges se dedicó al hogar o a los hijos y por eso no pudo desarrollarse laboralmente, puede tener derecho a una **compensación económica**. Se acuerda o la fija el juez.
+
+## ¿Cómo se pide?
+1. Reúne tu **certificado de matrimonio** y los antecedentes de los hijos y bienes.
+2. Para el **común acuerdo**, preparen juntos el **acuerdo regulador**.
+3. Se presenta la demanda en el **Tribunal de Familia**. Conviene asesorarte con un **abogado de familia**; si no puedes pagarlo, acude gratis a la **Corporación de Asistencia Judicial**.
+4. El juez cita a audiencia y, cumplidos los requisitos, decreta el divorcio.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Cuánto tiempo separados se necesita para divorciarse en Chile?",
+        respuesta:
+          "Para el divorcio de común acuerdo, más de 1 año de cese de convivencia; para el unilateral (sin acuerdo del otro), al menos 3 años. El divorcio por culpa no exige plazo de cese (artículos 54 y 55 de la Ley de Matrimonio Civil).",
+      },
+      {
+        pregunta: "¿Puedo divorciarme si el otro no quiere?",
+        respuesta:
+          "Sí. Puedes pedir el divorcio unilateral acreditando 3 años de cese de convivencia, aunque el otro cónyuge se oponga, o el divorcio por culpa si hubo una falta grave (artículo 54).",
+      },
+      {
+        pregunta: "¿El divorcio afecta a los hijos?",
+        respuesta:
+          "El divorcio pone término al matrimonio pero no afecta la filiación ni los derechos y deberes con los hijos (artículo 53). Igual deben regularse alimentos, cuidado personal y la relación directa y regular.",
+      },
+      {
+        pregunta: "¿Necesito abogado para divorciarme?",
+        respuesta:
+          "Sí, el juicio de divorcio requiere patrocinio de abogado. Si no puedes pagar uno, la Corporación de Asistencia Judicial atiende gratis. En el común acuerdo el trámite es más rápido.",
+      },
+    ],
+  },
+  {
+    slug: "cuidado-personal-de-los-hijos-tras-la-separacion",
+    titulo: "Cuidado personal de los hijos tras la separación: ¿con quién quedan?",
+    categoria: "familia",
+    destacada: false,
+    metaTitle: "Cuidado personal de los hijos en Chile | Ley Chilena",
+    descripcion:
+      "Con quién quedan los hijos tras la separación en Chile: el cuidado personal, el acuerdo de los padres, el interés superior del niño y la relación directa y regular (visitas).",
+    fecha: "2026-06-19",
+    respuestaCorta:
+      "Tras una separación, los padres pueden **acordar** con quién vive el hijo (el **cuidado personal**); si no hay acuerdo, decide el juez pensando siempre en el **interés superior del niño** ([artículo 225 del Código Civil](/leyes/172986?art=400)). El padre o madre que no tiene el cuidado conserva el derecho —y el deber— a una **relación directa y regular** (las visitas) ([artículo 229](/leyes/172986?art=405)).",
+    contenido: `
+## ¿Qué es el cuidado personal?
+Es con quién **vive y se cría** el hijo día a día. Tras una separación, **ambos padres siguen siendo responsables**; lo que se define es quién ejerce el cuidado personal y cómo se mantiene el vínculo con el otro ([artículo 224 del Código Civil](/leyes/172986?art=399)).
+
+## ¿Quién decide?
+1. **Por acuerdo de los padres:** pueden pactar quién tiene el cuidado personal (incluso compartido), por escrito. Es lo ideal.
+2. **Si no hay acuerdo:** decide el **juez de familia**, guiándose **siempre por el interés superior del niño**, no por el sexo del padre o madre ([artículo 225](/leyes/172986?art=400)).
+
+El juez puede entregar el cuidado a quien ofrezca mejores condiciones para el desarrollo del niño, y puede modificarlo si las circunstancias cambian.
+
+## La relación directa y regular (las "visitas")
+El padre o madre que **no** tiene el cuidado personal mantiene el derecho y el deber a una **relación directa y regular** con su hijo: verlo, compartir y mantener el vínculo ([artículo 229](/leyes/172986?art=405)). Esto **no depende** de si está al día con la pensión: son cosas distintas (aunque la deuda de alimentos tiene sus propias consecuencias).
+
+## ¿Y la pensión de alimentos?
+El cuidado personal y los **alimentos** van de la mano pero son distintos: quien no vive con el hijo normalmente debe contribuir con una **pensión**. Revisa nuestra guía de pensión de alimentos para el detalle.
+
+## ¿Qué hacer ahora?
+1. **Intenten un acuerdo** por el bien del niño (cuidado personal + visitas + alimentos); pueden formalizarlo ante el Tribunal de Familia.
+2. Si no hay acuerdo, **demanda en el Tribunal de Familia**; pide ayuda gratis en la **Corporación de Asistencia Judicial**.
+3. Recuerda: las decisiones se toman por el **interés superior del niño**, no como "premio o castigo" entre los padres.
+4. ¿Tu caso es distinto? Cuéntaselo a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Con quién quedan los hijos si los padres se separan?",
+        respuesta:
+          "Con quien los padres acuerden; si no hay acuerdo, lo decide el juez de familia según el interés superior del niño, no por el sexo del padre o madre (artículo 225 del Código Civil).",
+      },
+      {
+        pregunta: "¿El padre que no tiene el cuidado puede ver a sus hijos?",
+        respuesta:
+          "Sí. Tiene derecho y deber a una relación directa y regular con el hijo (artículo 229 del Código Civil). Este derecho no depende de estar al día con la pensión de alimentos.",
+      },
+      {
+        pregunta: "¿Existe el cuidado personal compartido en Chile?",
+        respuesta:
+          "Sí, los padres pueden acordar el cuidado personal compartido. A falta de acuerdo, el juez determina el régimen que mejor resguarde el interés superior del niño.",
+      },
+      {
+        pregunta: "¿Si no me pagan la pensión puedo negar las visitas?",
+        respuesta:
+          "No. La relación directa y regular y la pensión de alimentos son obligaciones distintas: no se puede condicionar una a la otra. La deuda de alimentos se cobra por las vías legales (Registro de Deudores, retención, apremios).",
+      },
+    ],
   }
 ];
 

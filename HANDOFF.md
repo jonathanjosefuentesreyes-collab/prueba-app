@@ -43,8 +43,19 @@
 ### Estado actual
 - Nav 5 pestañas: Leyes 📚 · Guías 💡 · Inicio 🏠 · Guardados ❤️ · Premium 👑 (`components/BottomNav.tsx`).
 - ChatBar (mascota fija + input→/chat) en TODAS las pestañas. Chat persistente PERMANENTE.
-- Guías en `src/lib/guias.ts` (29). Por macro grupo: **Laboral 10 · Vivienda 6 · Familia 5 · Consumidor 3 · 👑 Deudas 5**.
-  Faltan para llegar a 10/grupo: Vivienda +4, Familia +5, Consumidor +7, Deudas +5.
+- Guías en `src/lib/guias.ts` (32). Por macro grupo: **Laboral 10 · Vivienda 6 · Familia 5 · Consumidor 6 · 👑 Deudas 5**.
+  Faltan para llegar a 10/grupo: Vivienda +4, Familia +5, Consumidor +4, Deudas +5.
+  Ley 19.496 (1160403) IDs extra: 16→138537, 17→138541, 28→138568, 35→138577, 39→138581.
+- ⏳ PENDIENTE: **bloquear las guías de DEUDAS para Premium** con un **cuadro dorado** que las
+  destaque en el carrusel/listado de Guías (candado + CTA a /premium; mantener el slug/SEO pero
+  mostrar resumen y gate). Va con la categoría dorada Deudas ya existente.
+- ⏳ PENDIENTE DISEÑO: el usuario pidió alinear la web al **diseño institucional gob.cl**
+  (framework.digital.gob.cl): header/barra de gobierno, azul institucional, tipografía y
+  accesibilidad oficiales, footer. Ya hay layout desktop con sidebar (≥1024px). Usar skill `abogabot-diseno`
+  + loop visual (capturar.mjs) antes de desplegar. "Confío en ti, déjala bien."
+- Desktop: layout con **barra lateral** (≥1024px) ya implementado (nav izq + contenido ~760px). Riel de anuncios pendiente para cuando AdSense apruebe.
+- Chat: se quitaron las Q&A precomputadas; TODO va a Gemini (salvo SENSIBLES). Cuota gratis se agota → recomendar Gemini de pago.
+- Lenguaje Simple: 3.695 explicaciones pre-generadas en `src/data/simplificaciones.json` (servidas por /api/simplificar sin Gemini).
   norma_id extra verificados: Ley 20.066 VIF **242648** (5→11580,7→11582,9→11584,15→11594); subarriendo Cód.Civil 1946→2159; compensación Ley 19.947 61→11091,62→11092.
   ### norma_id VERIFICADOS para guías (úsalos directo, evita re-buscar):
   - Código del Trabajo 207436 · Código Civil 172986 · Constitución 242302

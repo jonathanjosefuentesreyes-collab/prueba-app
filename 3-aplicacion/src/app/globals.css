@@ -153,6 +153,8 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
   body .shell { max-width: 1080px; margin: 0 auto; padding: 0 28px 120px; }
   /* Los 10 macrogrupos en 5 columnas (2 filas) para llenar el ancho en escritorio. */
   body .materias { grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  body .materia { padding: 18px 8px 15px; border-radius: var(--radio); font-size: calc(12px * var(--escala-letra, 1)); }
+  body .materia svg { width: 26px; height: 26px; margin-bottom: 7px; }
 
   /* La barra de chat fija se centra en el área del contenido (no del viewport) */
   body .barra-chat { left: calc(50% + 120px); width: min(700px, calc(100% - 320px)); }
@@ -215,13 +217,14 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 .seccion-titulo a { color: var(--azul); font-weight: 600; text-transform: none; letter-spacing: 0; font-size: calc(12.5px * var(--escala-letra, 1)); }
 
 /* ---------- Materias (grid) ---------- */
-.materias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+/* Móvil: los 10 macrogrupos en 2 filas de 5 (compactos, ~mismo alto que ocupaban 6). */
+.materias { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
 .materia {
-  background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio);
-  padding: 18px 8px 15px; text-align: center; box-shadow: var(--sombra);
-  font-size: calc(12px * var(--escala-letra, 1)); font-weight: 700; letter-spacing: 0.3px; color: var(--texto);
+  background: var(--superficie); border: 1px solid var(--borde); border-radius: 12px;
+  padding: 11px 3px 9px; text-align: center; box-shadow: var(--sombra); line-height: 1.15;
+  font-size: calc(9.5px * var(--escala-letra, 1)); font-weight: 700; letter-spacing: 0; color: var(--texto);
 }
-.materia svg { display: block; margin: 0 auto 7px; }
+.materia svg { display: block; margin: 0 auto 5px; width: 22px; height: 22px; }
 .materia:active { transform: scale(0.96); }
 
 /* ---------- Carrusel de leyes recién aprobadas (estilo gob.cl) ---------- */

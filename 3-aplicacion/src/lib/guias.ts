@@ -2106,6 +2106,120 @@ Solo si: (a) **firmaste** la deuda (como deudor, aval o codeudor), o (b) en soci
           "Sí. Durante el matrimonio se puede pactar la separación total de bienes mediante escritura pública, subinscrita al margen del matrimonio. Conviene asesorarse con un abogado.",
       },
     ],
+  },
+  {
+    slug: "reconocer-un-hijo-y-demanda-de-paternidad",
+    titulo: "Reconocer un hijo y demanda de paternidad en Chile",
+    categoria: "familia",
+    destacada: true,
+    metaTitle: "Reconocimiento de hijo y demanda de paternidad | Ley Chilena",
+    descripcion:
+      "Cómo se reconoce a un hijo en Chile y cómo demandar la paternidad si el padre no reconoce. La prueba de ADN, los derechos del hijo y dónde acudir.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Un hijo se reconoce legalmente por el **reconocimiento** de uno o ambos progenitores ([artículo 186 del Código Civil](/leyes/172986?art=360)). Si el padre **no reconoce**, puedes **demandar la paternidad** ante el Tribunal de Familia ([artículo 195](/leyes/172986?art=369)), y la **prueba de ADN** (que realiza el Servicio Médico Legal) es clave ([artículo 199](/leyes/172986?art=373)). Determinada la filiación, el hijo tiene derecho a **apellido, alimentos y herencia**.",
+    contenido: `
+## ¿Cómo se reconoce a un hijo?
+La filiación no matrimonial queda determinada por el **reconocimiento** de uno de los progenitores o de ambos ([artículo 186 del Código Civil](/leyes/172986?art=360)). El reconocimiento se hace, por ejemplo, al **inscribir** al hijo en el Registro Civil o por declaración ante notario.
+
+## Si el padre no reconoce: la demanda de paternidad
+La ley permite **investigar la paternidad o maternidad** ([artículo 195 del Código Civil](/leyes/172986?art=369)). Puedes presentar una **demanda de reclamación de filiación** en el **Tribunal de Familia** para que se declare quién es el padre (o la madre).
+
+## La prueba de ADN
+La **prueba pericial biológica (ADN)** la realiza el **Servicio Médico Legal** o laboratorios idóneos ([artículo 199](/leyes/172986?art=373)). Es la prueba más potente. Importante: si el demandado **se niega injustificadamente** a hacerse el examen, esa negativa puede tomarse como un **indicio en su contra**.
+
+## ¿Qué gana el hijo al determinarse la filiación?
+- El **apellido** del padre o madre.
+- Derecho a **pensión de alimentos**.
+- Derechos **hereditarios** (es heredero).
+- El vínculo legal completo (cuidado, relación directa y regular, etc.).
+
+## ¿Qué hacer?
+1. Si el padre **está de acuerdo**, basta el **reconocimiento** en el Registro Civil o ante notario.
+2. Si **no reconoce**, presenta una **demanda de reclamación de paternidad** en el Tribunal de Familia (puedes pedir alimentos en el mismo juicio).
+3. Pide la **prueba de ADN**; la negativa injustificada juega en contra del demandado.
+4. No necesitas pagar abogado si acudes a la **Corporación de Asistencia Judicial** (gratis).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Cómo demando la paternidad de mi hijo?",
+        respuesta:
+          "Con una demanda de reclamación de filiación en el Tribunal de Familia (artículo 195 del Código Civil). La prueba de ADN del Servicio Médico Legal es clave (artículo 199). Puedes pedir alimentos en el mismo juicio.",
+      },
+      {
+        pregunta: "¿Qué pasa si el padre se niega al examen de ADN?",
+        respuesta:
+          "La negativa injustificada a someterse a la prueba biológica puede ser considerada por el juez como un indicio en contra del demandado (artículo 199 del Código Civil).",
+      },
+      {
+        pregunta: "¿Qué derechos gana el hijo al reconocerse la paternidad?",
+        respuesta:
+          "Apellido del padre, derecho a pensión de alimentos, derechos hereditarios y el vínculo legal completo (cuidado personal, relación directa y regular). La filiación da plenos derechos al hijo.",
+      },
+      {
+        pregunta: "¿Necesito abogado para demandar la paternidad?",
+        respuesta:
+          "El juicio requiere patrocinio de abogado, pero la Corporación de Asistencia Judicial atiende gratis. El reconocimiento voluntario, en cambio, se hace directamente en el Registro Civil o ante notario.",
+      },
+    ],
+  },
+  {
+    slug: "acuerdo-de-union-civil-que-es-y-que-derechos-da",
+    titulo: "Acuerdo de Unión Civil (AUC): ¿qué es y qué derechos da?",
+    categoria: "familia",
+    destacada: false,
+    metaTitle: "Acuerdo de Unión Civil (AUC) en Chile | Ley Chilena",
+    descripcion:
+      "Qué es el Acuerdo de Unión Civil en Chile, qué derechos da (herencia, salud, bienes) a los convivientes civiles, en qué se diferencia del matrimonio y cómo se hace.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "El **Acuerdo de Unión Civil (AUC)** es un contrato entre **dos personas** —del mismo o distinto sexo— que comparten un hogar, para regular su vida en común ([artículo 1 de la Ley 20.830](/leyes/1075210?art=11140)). Da derechos importantes: el conviviente civil es **heredero y legitimario** del otro ([artículo 16](/leyes/1075210?art=11155)), accede a salud como carga, y cada uno conserva sus bienes salvo que pacten lo contrario ([artículo 15](/leyes/1075210?art=11154)).",
+    contenido: `
+## ¿Qué es el Acuerdo de Unión Civil?
+Es un **contrato** entre **dos personas que comparten un hogar**, del mismo o distinto sexo, para **regular los efectos jurídicos** de su vida afectiva en común ([artículo 1 de la Ley 20.830](/leyes/1075210?art=11140)). Quienes lo celebran se llaman **convivientes civiles**. Se celebra en el **Registro Civil**.
+
+## ¿Qué derechos da?
+- **Herencia**: el conviviente civil es **heredero intestado y legitimario** del otro, con los mismos derechos que un cónyuge ([artículo 16](/leyes/1075210?art=11155)). Es uno de los efectos más importantes.
+- **Salud y previsión**: puede ser **carga** del otro en el sistema de salud y acceder a ciertos beneficios.
+- **Estado civil**: pasas a tener el estado civil de "conviviente civil".
+- **Bienes**: por regla general, **cada uno conserva sus propios bienes** ([artículo 15](/leyes/1075210?art=11154)), salvo que pacten un régimen de comunidad al celebrarlo.
+
+## ¿En qué se diferencia del matrimonio?
+El AUC da muchos derechos parecidos (herencia, salud, bienes), pero **no es idéntico al matrimonio** en todos sus efectos (por ejemplo, en materia de filiación y algunos beneficios). Es una opción más **simple** de formalizar la pareja y proteger derechos.
+
+## ¿Cómo se hace y cómo termina?
+- Se **celebra** en el Registro Civil, presentando los documentos requeridos.
+- **Termina** por mutuo acuerdo, por voluntad unilateral (notificada), por matrimonio de los convivientes entre sí, o por muerte, entre otras causas.
+
+## ¿Qué hacer?
+1. Reúnan sus **documentos de identidad** y agenden hora en el **Registro Civil**.
+2. Decidan si quieren un **régimen de comunidad** de bienes o conservar cada uno los suyos.
+3. Si les interesa la **protección hereditaria**, el AUC es una vía sencilla para lograrla.
+4. ¿Dudas con su caso? Pregúntenle a **AbogaBot** y les explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué es el Acuerdo de Unión Civil?",
+        respuesta:
+          "Un contrato entre dos personas, del mismo o distinto sexo, que comparten un hogar, para regular los efectos jurídicos de su vida en común (artículo 1 de la Ley 20.830). Se celebra en el Registro Civil y crea el estado civil de conviviente civil.",
+      },
+      {
+        pregunta: "¿El conviviente civil hereda?",
+        respuesta:
+          "Sí. El conviviente civil es heredero intestado y legitimario del otro, con los mismos derechos que tendría un cónyuge (artículo 16 de la Ley 20.830). Es uno de los efectos más relevantes del AUC.",
+      },
+      {
+        pregunta: "¿Qué pasa con los bienes en el AUC?",
+        respuesta:
+          "Por regla general cada conviviente conserva la propiedad y administración de sus bienes (artículo 15), salvo que al celebrar el acuerdo pacten un régimen de comunidad.",
+      },
+      {
+        pregunta: "¿Es lo mismo que casarse?",
+        respuesta:
+          "No exactamente. El AUC otorga muchos derechos similares (herencia, salud, bienes), pero no es idéntico al matrimonio en todos sus efectos. Es una forma más simple de formalizar la pareja y proteger derechos.",
+      },
+    ],
   }
 ];
 

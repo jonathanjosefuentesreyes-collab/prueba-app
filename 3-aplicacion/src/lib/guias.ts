@@ -2446,6 +2446,118 @@ El retracto **no es para todo**. En general no aplica cuando, por ejemplo, el pr
           "Avisa por un medio que deje registro: correo electrónico, formulario web o carta, dentro de los 10 días. Guarda el comprobante del aviso; te servirá si debes reclamar en el SERNAC.",
       },
     ],
+  },
+  {
+    slug: "mi-ex-no-me-deja-ver-a-mi-hijo-relacion-directa-y-regular",
+    titulo: "Mi ex no me deja ver a mi hijo: relación directa y regular",
+    categoria: "familia",
+    destacada: true,
+    metaTitle: "Mi ex no me deja ver a mi hijo: qué hacer | Ley Chilena",
+    descripcion:
+      "Si no tienes el cuidado personal de tu hijo, igual tienes derecho a mantener una relación directa y regular (visitas). Qué hacer si tu ex no te deja verlo, según el Código Civil.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Aunque no tengas el cuidado personal, tienes el **derecho y el deber** de mantener una **relación directa y regular** con tu hijo —lo que se conoce como \"visitas\"— ([artículo 229 del Código Civil](/leyes/172986?art=405)). Si tu ex no te deja verlo, puedes pedir al **Tribunal de Familia** que **fije un régimen** de relación directa y regular, y si ya existe uno y no se cumple, exigir su **cumplimiento**.",
+    contenido: `
+## Tengo derecho a ver a mi hijo aunque no viva con él
+Sí. El padre o la madre que **no tiene el cuidado personal** del hijo conserva el **derecho y el deber** de mantener con él una **relación directa y regular** ([artículo 229 del Código Civil](/leyes/172986?art=405)). Es un derecho del **hijo** tanto como del padre o madre: nadie debería impedir ese vínculo sin una razón grave.
+
+## ¿Qué es la "relación directa y regular"?
+Es lo que antes se llamaba "régimen de visitas": el contacto periódico (días, horarios, fines de semana, vacaciones) entre el hijo y el progenitor con quien no vive. Se ejerce con la **frecuencia y libertad** acordadas o las que fije el tribunal, siempre pensando en el **bienestar del hijo**.
+
+## Si mi ex no me deja verlo, ¿qué hago?
+- Si **no hay un régimen fijado**, puedes pedir al **Tribunal de Familia** que **establezca** la relación directa y regular.
+- Si **ya existe** un régimen (por acuerdo o sentencia) y no se cumple, puedes pedir su **cumplimiento** ante el mismo tribunal.
+- Antes del juicio suele exigirse una **mediación familiar** (es gratuita en muchos casos): es la vía más rápida y menos desgastante.
+
+## ¿Y si hay riesgo para el niño?
+El derecho puede **limitarse o suspenderse** solo cuando sea necesario para **proteger al hijo** (por ejemplo, situaciones de violencia). Esa decisión la toma el **tribunal**, no el otro progenitor por su cuenta.
+
+## ¿Qué hacer?
+1. Intenta primero un **acuerdo** y, si no resulta, acude a **mediación familiar**.
+2. Si no hay acuerdo, presenta una solicitud en el **Tribunal de Familia** para fijar o hacer cumplir la relación directa y regular.
+3. Guarda pruebas de que se te ha impedido el contacto (mensajes, testigos).
+4. Puedes pedir ayuda gratis en la **Corporación de Asistencia Judicial**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Tengo derecho a ver a mi hijo si no tengo su cuidado personal?",
+        respuesta:
+          "Sí. Tienes el derecho y el deber de mantener una relación directa y regular con él (artículo 229 del Código Civil). Es también un derecho del hijo. Nadie puede impedirlo sin una razón grave avalada por un tribunal.",
+      },
+      {
+        pregunta: "¿Qué hago si mi ex no respeta el régimen de visitas?",
+        respuesta:
+          "Si ya hay un régimen fijado y no se cumple, puedes pedir su cumplimiento al Tribunal de Familia. Si no existe régimen, puedes solicitar que se establezca. Antes suele haber una mediación familiar gratuita.",
+      },
+      {
+        pregunta: "¿Pueden quitarme la relación directa y regular?",
+        respuesta:
+          "Solo un tribunal puede limitarla o suspenderla, y únicamente cuando sea necesario para proteger al hijo (por ejemplo, riesgo de violencia). El otro progenitor no puede hacerlo por su cuenta.",
+      },
+      {
+        pregunta: "¿Necesito ir a juicio para ver a mi hijo?",
+        respuesta:
+          "No siempre. Lo ideal es un acuerdo o una mediación familiar (gratuita en muchos casos). Solo si no hay acuerdo se acude al Tribunal de Familia para fijar o hacer cumplir el régimen.",
+      },
+    ],
+  },
+  {
+    slug: "patria-potestad-quien-decide-y-administra-bienes-del-hijo",
+    titulo: "Patria potestad: ¿quién decide y administra los bienes del hijo?",
+    categoria: "familia",
+    destacada: false,
+    metaTitle: "Patria potestad en Chile: qué es y quién la tiene | Ley Chilena",
+    descripcion:
+      "La patria potestad es el conjunto de derechos y deberes sobre los bienes del hijo. Qué es, quién la ejerce y qué pasa cuando los padres viven separados, según el Código Civil.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "La **patria potestad** es el conjunto de **derechos y deberes** que tienen el padre o la madre sobre los **bienes** del hijo no emancipado ([artículo 243 del Código Civil](/leyes/172986?art=420)). Puede ejercerla el padre, la madre o **ambos**, según acuerden ([artículo 244](/leyes/172986?art=421)); y si los padres **viven separados**, la ejerce quien tiene el **cuidado personal** del hijo, o ambos ([artículo 245](/leyes/172986?art=422)).",
+    contenido: `
+## ¿Qué es la patria potestad?
+Es el conjunto de **derechos y deberes** que la ley reconoce al padre o a la madre sobre los **bienes** de sus hijos **no emancipados** ([artículo 243 del Código Civil](/leyes/172986?art=420)). Ojo: la patria potestad se refiere sobre todo a los **bienes** del hijo (administrarlos, representarlo legalmente), distinta del **cuidado personal**, que es la crianza y el día a día.
+
+## ¿Quién la ejerce?
+La patria potestad la ejerce el **padre, la madre o ambos conjuntamente**, según lo que acuerden por escritura pública o acta ante el Registro Civil ([artículo 244 del Código Civil](/leyes/172986?art=421)). Si no hay acuerdo, la ley y, en su caso, el tribunal determinan a quién corresponde.
+
+## ¿Y si los padres viven separados?
+Si los padres están separados, la patria potestad la ejerce **quien tenga el cuidado personal** del hijo, o **ambos** si así lo acuerdan ([artículo 245 del Código Civil](/leyes/172986?art=422)). Es decir, suele seguir al progenitor con quien vive el niño, salvo pacto distinto.
+
+## ¿Para qué sirve en la práctica?
+Quien tiene la patria potestad:
+- **Administra** los bienes del hijo (por ejemplo, una herencia o una propiedad a su nombre).
+- Lo **representa legalmente** en actos que lo requieran.
+- Tiene el **derecho legal de goce** sobre ciertos bienes del hijo, con los límites de la ley.
+
+## ¿Qué hacer?
+1. Si vas a **acordar** quién ejerce la patria potestad, hazlo por **escritura pública o acta** en el Registro Civil.
+2. Si hay **conflicto**, el **Tribunal de Familia** puede resolver a quién corresponde.
+3. Recuerda distinguir **patria potestad** (bienes) de **cuidado personal** (crianza) y de **relación directa y regular** (visitas): son cosas distintas.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué es la patria potestad?",
+        respuesta:
+          "Es el conjunto de derechos y deberes del padre o la madre sobre los bienes del hijo no emancipado (artículo 243 del Código Civil): administrarlos y representarlo legalmente. Es distinta del cuidado personal, que es la crianza.",
+      },
+      {
+        pregunta: "¿Quién tiene la patria potestad si los padres están separados?",
+        respuesta:
+          "Por regla general, quien tiene el cuidado personal del hijo, o ambos padres si así lo acuerdan (artículo 245 del Código Civil). Se puede pactar de otra forma por escritura pública o acta en el Registro Civil.",
+      },
+      {
+        pregunta: "¿Es lo mismo patria potestad que cuidado personal?",
+        respuesta:
+          "No. La patria potestad se refiere a los bienes del hijo y su representación legal. El cuidado personal es la crianza y el día a día. La relación directa y regular son las visitas. Son tres conceptos distintos.",
+      },
+      {
+        pregunta: "¿Se puede acordar que ambos padres ejerzan la patria potestad?",
+        respuesta:
+          "Sí. El padre y la madre pueden acordar ejercerla conjuntamente mediante escritura pública o acta ante el Registro Civil (artículo 244 del Código Civil).",
+      },
+    ],
   }
 ];
 

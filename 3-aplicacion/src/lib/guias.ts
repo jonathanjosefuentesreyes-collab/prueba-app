@@ -2671,6 +2671,289 @@ Si la empresa **publicó un precio** y luego te cobra más, en general debe resp
           "Captura o foto del anuncio o del precio publicado, el correo, catálogo o sitio donde se hizo la oferta, y tu comprobante de compra. Con eso reclamas en el SERNAC o en el Juzgado de Policía Local.",
       },
     ],
+  },
+  {
+    slug: "reparaciones-en-el-arriendo-quien-paga",
+    titulo: "Reparaciones en el arriendo: ¿quién paga, el dueño o yo?",
+    categoria: "vivienda",
+    destacada: true,
+    metaTitle: "Reparaciones del arriendo: ¿quién paga? | Ley Chilena",
+    descripcion:
+      "En un arriendo, el dueño paga las reparaciones necesarias y el arrendatario las locativas (el desgaste del uso diario). Qué le toca a cada uno según el Código Civil.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Como regla general, el **arrendador (dueño)** debe hacer las **reparaciones necesarias** para mantener la propiedad en buen estado ([artículo 1927 del Código Civil](/leyes/172986?art=2140)), y el **arrendatario** paga las **reparaciones locativas**, es decir, los deterioros normales del **uso diario** ([artículo 1940](/leyes/172986?art=2153)). En palabras simples: lo estructural lo paga el dueño; el desgaste cotidiano, el que arrienda.",
+    contenido: `
+## ¿Quién repara qué en un arriendo?
+La ley reparte las reparaciones entre dueño y arrendatario según su naturaleza. Saber cuál es cuál evita peleas al momento de devolver la propiedad o de descontar la garantía.
+
+## Lo que paga el dueño: reparaciones necesarias
+El arrendador debe mantener la cosa arrendada **en buen estado**, haciendo durante el arriendo **todas las reparaciones necesarias** ([artículo 1927 del Código Civil](/leyes/172986?art=2140)). Son las que afectan lo **estructural o esencial** para poder vivir ahí: por ejemplo, una **filtración grave**, el **sistema eléctrico**, las **cañerías**, el **techo**, fallas que no provienen de tu mal uso.
+
+## Lo que paga el arrendatario: reparaciones locativas
+El arrendatario está obligado a las **reparaciones locativas** ([artículo 1940 del Código Civil](/leyes/172986?art=2153)): los deterioros que ocurren por el **uso normal y cotidiano** de la vivienda. Por ejemplo: cambiar **ampolletas**, reponer **vidrios quebrados** por descuido, **chapas**, pequeños arreglos de mantención.
+
+## ¿Y los daños por mal uso?
+Los daños que cause el arrendatario (o las personas que viven con él) por **descuido o mal uso** los paga el arrendatario, no el dueño. Por eso conviene dejar **constancia con fotos** del estado de la propiedad al entrar y al salir.
+
+## ¿Qué hacer?
+1. Revisa tu **contrato**: puede detallar quién hace cada reparación (siempre dentro de lo que permite la ley).
+2. Avisa **por escrito** al dueño las reparaciones necesarias apenas aparezcan; guarda el aviso.
+3. Documenta el estado de la vivienda con **fotos** al inicio y al final del arriendo.
+4. Si el dueño no hace una reparación necesaria, puedes reclamar; si te descuentan de la garantía algo que no te toca, también.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Quién paga si se rompe una cañería en el arriendo?",
+        respuesta:
+          "Por regla general el dueño, porque es una reparación necesaria para mantener la propiedad en buen estado (artículo 1927 del Código Civil), salvo que el daño lo hayas causado tú por mal uso.",
+      },
+      {
+        pregunta: "¿Qué son las reparaciones locativas que me tocan a mí?",
+        respuesta:
+          "Los deterioros del uso normal y cotidiano de la vivienda: ampolletas, vidrios quebrados por descuido, chapas, pequeños arreglos de mantención (artículo 1940 del Código Civil).",
+      },
+      {
+        pregunta: "Me descontaron de la garantía una reparación, ¿es correcto?",
+        respuesta:
+          "Solo si era una reparación locativa o un daño que tú causaste. Si te descuentan una reparación necesaria (estructural) o un desgaste normal, puedes reclamar. Tener fotos del estado inicial y final ayuda mucho.",
+      },
+      {
+        pregunta: "¿El contrato puede cambiar quién paga las reparaciones?",
+        respuesta:
+          "El contrato puede detallar responsabilidades, pero dentro de lo que permite la ley. Lo estructural y necesario es del dueño; el desgaste del uso diario, del arrendatario.",
+      },
+    ],
+  },
+  {
+    slug: "puedo-subarrendar-mi-arriendo",
+    titulo: "¿Puedo subarrendar la propiedad que tengo en arriendo?",
+    categoria: "vivienda",
+    destacada: false,
+    metaTitle: "¿Puedo subarrendar mi arriendo? | Ley Chilena",
+    descripcion:
+      "Subarrendar sin permiso del dueño puede costarte el contrato. El Código Civil exige autorización expresa para ceder o subarrendar. Qué dice la ley y cómo hacerlo bien.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Por regla general **no**, salvo que el dueño te lo **autorice expresamente**. El Código Civil dice que el arrendatario **no tiene la facultad** de ceder el arriendo ni de subarrendar **a menos que se le haya concedido expresamente** ([artículo 1946](/leyes/172986?art=2159)). Subarrendar sin permiso puede ser causal para **poner término** a tu contrato, así que conviene pedirlo por escrito.",
+    contenido: `
+## ¿Puedo subarrendar sin avisar al dueño?
+No conviene. La regla del Código Civil es clara: el arrendatario **no puede ceder el arriendo ni subarrendar**, **salvo** que se le haya **concedido expresamente** esa facultad ([artículo 1946 del Código Civil](/leyes/172986?art=2159)). Si tu contrato no lo permite y subarriendas igual, el dueño podría pedir el **término del arriendo**.
+
+## Ceder vs subarrendar: ¿es lo mismo?
+- **Subarrendar**: tú sigues siendo el arrendatario frente al dueño, pero le arriendas (todo o parte) a un tercero.
+- **Ceder el arriendo**: traspasas tu posición de arrendatario a otra persona, que pasa a ocupar tu lugar.
+
+En ambos casos, **necesitas autorización** del arrendador si el contrato no la incluye.
+
+## ¿Cómo subarrendar bien?
+1. Revisa tu **contrato**: a veces ya autoriza (o prohíbe expresamente) el subarriendo.
+2. Si no dice nada o lo prohíbe, **pide autorización por escrito** al dueño y guárdala.
+3. Deja claro en un **contrato de subarriendo** las condiciones con el subarrendatario.
+4. Recuerda: ante el dueño, **tú sigues respondiendo** por el arriendo y por los daños.
+
+## ¿Qué protege al subarrendatario?
+La Ley de Arrendamiento da ciertas protecciones a los subarrendatarios en los juicios (por ejemplo, para que les sean oponibles las sentencias solo si fueron debidamente considerados). Pero la base sigue siendo: **sin autorización, el subarriendo es riesgoso** para ti.
+
+## ¿Qué hacer?
+1. **No subarriendes sin permiso** si el contrato no lo autoriza: arriesgas perder tu propio arriendo.
+2. Pide la **autorización por escrito** y formaliza el subarriendo en un contrato.
+3. Si eres subarrendatario, exige ver la **autorización del dueño**.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Puedo subarrendar sin permiso del dueño?",
+        respuesta:
+          "Por regla general no. El arrendatario no puede ceder ni subarrendar salvo autorización expresa (artículo 1946 del Código Civil). Hacerlo sin permiso puede ser causal de término de tu contrato.",
+      },
+      {
+        pregunta: "¿Qué pasa si subarriendo igual sin autorización?",
+        respuesta:
+          "El dueño podría pedir el término del arriendo por incumplimiento. Además, ante el arrendador tú sigues respondiendo por el arriendo y los daños que cause el subarrendatario.",
+      },
+      {
+        pregunta: "¿Cómo pido autorización para subarrendar?",
+        respuesta:
+          "Pídela por escrito al dueño y guarda su respuesta. Si la concede, formaliza el subarriendo en un contrato con el subarrendatario, dejando claras las condiciones.",
+      },
+      {
+        pregunta: "¿La ley protege al subarrendatario?",
+        respuesta:
+          "La Ley de Arrendamiento da algunas protecciones procesales al subarrendatario, pero la base es que el subarriendo necesita autorización del dueño. Si eres subarrendatario, exige ver esa autorización.",
+      },
+    ],
+  },
+  {
+    slug: "que-regimen-patrimonial-me-conviene-al-casarme",
+    titulo: "¿Qué régimen de bienes me conviene al casarme en Chile?",
+    categoria: "familia",
+    destacada: true,
+    metaTitle: "Régimen de bienes del matrimonio: cuál elegir | Ley Chilena",
+    descripcion:
+      "Al casarte en Chile eliges entre sociedad conyugal, separación de bienes o participación en los gananciales. Diferencias clave para decidir cuál te conviene.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Al casarte eliges entre tres regímenes: **sociedad conyugal**, **separación total de bienes** o **participación en los gananciales**. Si **no eliges**, la ley aplica por defecto la **sociedad conyugal** ([artículo 1718 del Código Civil](/leyes/172986?art=1904)). En **separación** cada uno mantiene y administra lo suyo; en **sociedad conyugal** se forma un patrimonio común que administra el marido; la **participación** funciona como separación y al final se reparten las ganancias.",
+    contenido: `
+## Los tres regímenes patrimoniales del matrimonio
+En Chile, al casarte defines cómo se manejan los **bienes y las deudas** del matrimonio. Hay tres opciones, y la decisión tiene efectos importantes.
+
+### 1. Sociedad conyugal (régimen por defecto)
+Si los novios **no dicen nada**, por el solo hecho del matrimonio queda contraída la **sociedad conyugal** ([artículo 1718 del Código Civil](/leyes/172986?art=1904)). Se forma un **patrimonio común** (la "sociedad"), que **administra el marido**. Muchos bienes adquiridos durante el matrimonio entran a ese patrimonio común.
+
+### 2. Separación total de bienes
+Cada cónyuge **mantiene, administra y dispone** libremente de **sus propios bienes**, y responde solo de **sus propias deudas**. Es el régimen que da más **independencia patrimonial** a cada uno.
+
+### 3. Participación en los gananciales
+Durante el matrimonio funciona como **separación** (cada uno con su patrimonio). Pero al **terminar**, se comparan las ganancias obtenidas por cada uno y se **reparten por igual** las diferencias. Combina independencia durante y reparto justo al final.
+
+## ¿Cuál me conviene?
+Depende de tu situación: si uno tiene **negocios o deudas** y quieren proteger el patrimonio del otro, la **separación** suele ser más segura. Si quieren **compartir** lo construido, la sociedad conyugal o la participación pueden encajar mejor. No hay una respuesta única.
+
+## ¿Se puede cambiar después?
+Sí. Durante el matrimonio se puede **cambiar de régimen** (por ejemplo, de sociedad conyugal a separación) mediante **escritura pública** subinscrita al margen del matrimonio.
+
+## ¿Qué hacer?
+1. Conversen qué buscan: **proteger** patrimonios separados o **compartir** lo construido.
+2. Definan el régimen al **casarse** (en el Registro Civil) o cámbienlo después por escritura.
+3. Si tienen dudas o patrimonios complejos, asesórense con un **abogado de familia**.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué régimen aplica si no elijo ninguno al casarme?",
+        respuesta:
+          "La sociedad conyugal. Por el solo hecho del matrimonio, a falta de pacto en contrario, queda contraída la sociedad conyugal (artículo 1718 del Código Civil).",
+      },
+      {
+        pregunta: "¿Cuál es la diferencia entre separación y sociedad conyugal?",
+        respuesta:
+          "En separación total cada cónyuge mantiene y administra sus propios bienes y responde solo por sus deudas. En sociedad conyugal se forma un patrimonio común que administra el marido.",
+      },
+      {
+        pregunta: "¿Qué es la participación en los gananciales?",
+        respuesta:
+          "Durante el matrimonio funciona como separación de bienes; al terminar, se comparan las ganancias de cada uno y se reparten por igual las diferencias. Combina independencia y reparto final.",
+      },
+      {
+        pregunta: "¿Puedo cambiar de régimen después de casado?",
+        respuesta:
+          "Sí. Se puede cambiar durante el matrimonio (por ejemplo, de sociedad conyugal a separación total de bienes) mediante escritura pública subinscrita al margen del acta de matrimonio.",
+      },
+    ],
+  },
+  {
+    slug: "el-acreedor-no-quiere-recibir-mi-pago-consignacion",
+    titulo: "El acreedor no quiere recibir mi pago: el pago por consignación",
+    categoria: "deudas",
+    destacada: false,
+    metaTitle: "El acreedor no acepta mi pago: consignación | Ley Chilena",
+    descripcion:
+      "Si quieres pagar una deuda y el acreedor se niega a recibir o no aparece, puedes liberarte con el pago por consignación, depositando lo que debes. Cómo funciona según el Código Civil.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Si quieres pagar y el acreedor **se niega a recibir** o **no aparece**, no quedas atrapado: puedes usar el **pago por consignación**, que es **depositar la cosa que debes** para liberarte de la obligación ([artículo 1599 del Código Civil](/leyes/172986?art=1785)). Así pagas válidamente aunque el acreedor no coopere, y evitas seguir acumulando intereses o caer en mora.",
+    contenido: `
+## ¿Qué pasa si quiero pagar y no me reciben?
+A veces el acreedor **se niega a recibir** el pago (por ejemplo, para que sigas debiendo intereses o para alegar incumplimiento) o simplemente **no aparece**. La ley te protege: existe el **pago por consignación**.
+
+## ¿Qué es el pago por consignación?
+Es el **depósito de la cosa que se debe**, hecho ante la **repugnancia o no comparecencia del acreedor** a recibirla ([artículo 1599 del Código Civil](/leyes/172986?art=1785)). En la práctica, consignas (depositas) lo que debes —normalmente en la cuenta del tribunal o como la ley indique— y eso vale como **pago válido**, aunque el acreedor no lo reciba en persona.
+
+## ¿Para qué me sirve?
+- Te **liberas de la deuda** (extingues la obligación) aunque el acreedor no coopere.
+- **Detienes los intereses** y evitas caer en **mora** por algo que no es culpa tuya.
+- Te deja una **prueba** de que cumpliste con tu parte.
+
+## ¿Cómo se hace?
+El pago por consignación tiene un **procedimiento** (oferta del pago y luego la consignación). Por eso conviene **asesorarse**: un pequeño error de forma puede restarle efecto. Para montos o deudas relevantes, lo mejor es hacerlo con apoyo legal.
+
+## ¿Qué hacer?
+1. Deja por escrito tu **intención de pagar** y guarda la prueba de que el acreedor no recibió.
+2. Infórmate del **procedimiento de consignación** (oferta + depósito) que corresponde a tu caso.
+3. Para deudas importantes, pide apoyo en la **Corporación de Asistencia Judicial** (gratis) o con un abogado.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué hago si el acreedor no quiere recibir mi pago?",
+        respuesta:
+          "Puedes usar el pago por consignación: depositar lo que debes para liberarte de la obligación, aunque el acreedor se niegue a recibir o no aparezca (artículo 1599 del Código Civil).",
+      },
+      {
+        pregunta: "¿La consignación me libera de la deuda?",
+        respuesta:
+          "Sí, hecha correctamente, el pago por consignación extingue la obligación y detiene los intereses, porque equivale a un pago válido aunque el acreedor no lo reciba en persona.",
+      },
+      {
+        pregunta: "¿Puedo consignar yo solo o necesito ayuda?",
+        respuesta:
+          "Tiene un procedimiento (oferta y consignación) y un error de forma puede restarle efecto. Para deudas relevantes conviene asesorarse con la Corporación de Asistencia Judicial o un abogado.",
+      },
+      {
+        pregunta: "¿Para qué me sirve consignar si igual puedo guardar la plata?",
+        respuesta:
+          "Porque guardar la plata no extingue la deuda ni detiene los intereses. La consignación sí: te libera de la obligación y deja prueba de que cumpliste, aunque el acreedor no coopere.",
+      },
+    ],
+  },
+  {
+    slug: "me-vendieron-mi-deuda-a-otra-empresa-cesion-de-credito",
+    titulo: "Me vendieron mi deuda a otra empresa: la cesión de crédito",
+    categoria: "deudas",
+    destacada: true,
+    metaTitle: "Me vendieron mi deuda a otra empresa: qué hacer | Ley Chilena",
+    descripcion:
+      "Cuando una empresa vende tu deuda a otra (cobranza), esa cesión solo te afecta si te la notifican. Qué dice el Código Civil y cómo te protege.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Es legal que una empresa **venda tu deuda** a otra (cesión de crédito), pero esa cesión **no produce efecto contra ti mientras no te sea notificada** o la aceptes ([artículo 1902 del Código Civil](/leyes/172986?art=2115)). Es decir: si nadie te avisó formalmente del cambio de acreedor, puedes **exigir que te lo notifiquen** antes de pagarle a la nueva empresa. Además, la nueva empresa **no puede cobrarte más** de lo que realmente debes.",
+    contenido: `
+## ¿Pueden vender mi deuda sin avisarme?
+Sí pueden venderla, pero **para que te afecte deben notificarte**. La venta de una deuda se llama **cesión de crédito**: el acreedor original (cedente) traspasa el crédito a otro (cesionario), normalmente una empresa de cobranza.
+
+## La regla que te protege: la notificación
+La cesión **no produce efecto contra el deudor ni contra terceros mientras no haya sido notificada** por el nuevo acreedor al deudor, o aceptada por este ([artículo 1902 del Código Civil](/leyes/172986?art=2115)). Entre las empresas, la cesión vale con la **entrega del título** ([artículo 1901](/leyes/172986?art=2114)); pero **frente a ti**, solo cuenta cuando **te avisan formalmente**.
+
+En la práctica: si una empresa nueva te cobra y **nunca te notificaron** el traspaso, puedes pedir que **acrediten la cesión** antes de pagarles.
+
+## ¿Cambian las condiciones de mi deuda?
+No. La nueva empresa **adquiere la misma deuda**, con las mismas condiciones: **no puede cobrarte más** de lo que debías, ni inventar intereses o gastos que no correspondían. Si la deuda ya estaba **prescrita**, sigue prescrita aunque la vendan.
+
+## ¿Y la cobranza?
+La empresa que compró la deuda debe respetar las **reglas de cobranza** (no acoso, horarios, no amenazas, no informar a terceros tu deuda). El cambio de acreedor **no le da más poderes** para cobrar.
+
+## ¿Qué hacer?
+1. Pide que te **notifiquen y acrediten** la cesión antes de pagarle a una empresa nueva.
+2. Verifica el **monto**: debe ser el mismo que debías, sin cobros extra.
+3. Revisa si la deuda pudo **prescribir**; la venta no reinicia el plazo.
+4. Si hay **acoso de cobranza**, guarda evidencia y reclama (SERNAC si es un proveedor regulado).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Es legal que vendan mi deuda a otra empresa?",
+        respuesta:
+          "Sí, se llama cesión de crédito. Pero no produce efecto contra ti mientras no te la notifiquen o la aceptes (artículo 1902 del Código Civil). Puedes exigir que te acrediten la cesión antes de pagar.",
+      },
+      {
+        pregunta: "¿La nueva empresa puede cobrarme más que la deuda original?",
+        respuesta:
+          "No. Adquiere la misma deuda con las mismas condiciones: no puede cobrarte más de lo que debías ni agregar intereses o gastos indebidos. Si la deuda estaba prescrita, sigue prescrita.",
+      },
+      {
+        pregunta: "Me cobra una empresa que no conozco, ¿qué hago?",
+        respuesta:
+          "Pídele que acredite la cesión (que demuestre que te notificaron el traspaso) antes de pagarle. Verifica que el monto sea el que realmente debías y revisa si la deuda pudo prescribir.",
+      },
+      {
+        pregunta: "¿La venta de la deuda reinicia el plazo de prescripción?",
+        respuesta:
+          "No. La cesión no reinicia el plazo de prescripción; la deuda conserva su antigüedad y condiciones. Si ya estaba prescrita, lo sigue estando aunque cambie de acreedor.",
+      },
+    ],
   }
 ];
 

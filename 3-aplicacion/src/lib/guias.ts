@@ -2220,6 +2220,117 @@ El AUC da muchos derechos parecidos (herencia, salud, bienes), pero **no es idé
           "No exactamente. El AUC otorga muchos derechos similares (herencia, salud, bienes), pero no es idéntico al matrimonio en todos sus efectos. Es una forma más simple de formalizar la pareja y proteger derechos.",
       },
     ],
+  },
+  {
+    slug: "me-pueden-echar-del-arriendo-plazos-de-desahucio",
+    titulo: "¿Me pueden echar del arriendo? Plazos de desahucio en Chile",
+    categoria: "vivienda",
+    destacada: true,
+    metaTitle: "¿Me pueden echar del arriendo? Plazos de aviso | Ley Chilena",
+    descripcion:
+      "Si el arrendador quiere que dejes el arriendo, debe darte aviso (desahucio) con plazos mínimos según la Ley 18.101: 2 meses y hasta 6. No te pueden echar de un día para otro.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "**No te pueden echar de un día para otro.** Si tu contrato es **mes a mes o indefinido**, el arrendador debe notificarte el **desahucio** por vía **judicial o por un notario**, con un plazo mínimo de **2 meses**, que aumenta **1 mes por cada año** arrendado, hasta un máximo de **6 meses** ([artículo 3 de la Ley 18.101](/leyes/29526?art=9607)). Si el contrato es a **plazo fijo de hasta un año**, tienes **2 meses** desde que te notifican la demanda ([artículo 4](/leyes/29526?art=9608)).",
+    contenido: `
+## ¿Me pueden echar del arriendo cuando quieran?
+No. La Ley de Arrendamiento (18.101) protege al arrendatario con **plazos mínimos de aviso**. El arrendador **no puede** sacarte por su cuenta, cambiar la chapa ni cortarte los servicios: para recuperar el inmueble debe seguir el procedimiento legal.
+
+## Contrato mes a mes o indefinido
+El **desahucio** (el aviso de que debes dejar el inmueble) **solo** vale si se hace **judicialmente o mediante notificación de un notario** ([artículo 3 de la Ley 18.101](/leyes/29526?art=9607)). El plazo es de:
+- **2 meses** mínimo desde la notificación, **+1 mes por cada año completo** que llevas arrendando,
+- con un **tope de 6 meses**.
+
+Ejemplo: si llevas 3 años arrendando, el plazo será de 5 meses (2 + 3).
+
+## Contrato a plazo fijo de hasta un año
+El arrendador **solo puede pedir judicialmente** la restitución, y tú tienes derecho a **2 meses** contados desde que te **notifican la demanda** ([artículo 4](/leyes/29526?art=9608)). Puedes devolver antes y pagar solo hasta esa fecha.
+
+## ¿Y si no pago el arriendo?
+La falta de pago es causa de término, pero **igual** requiere un **juicio de terminación de arriendo**; no te pueden echar sin sentencia. Lo mejor es regularizar o negociar antes de llegar a tribunales.
+
+## ¿Qué hacer?
+1. Revisa **qué tipo de contrato** tienes (mes a mes, indefinido o plazo fijo): de eso depende tu plazo.
+2. Exige que el desahucio sea **por notario o tribunal**: un aviso verbal o un WhatsApp **no cumple** el artículo 3.
+3. Cuenta tu plazo: **2 meses + 1 por año**, hasta 6.
+4. Si te presionan para salir antes o te cortan servicios, acude al **Juzgado** o a la **Corporación de Asistencia Judicial** (gratis).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Con cuánto aviso me pueden pedir que deje el arriendo?",
+        respuesta:
+          "En contratos mes a mes o indefinidos, mínimo 2 meses desde la notificación del desahucio, más 1 mes por cada año arrendado, hasta un máximo de 6 meses (artículo 3 de la Ley 18.101). El aviso debe ser judicial o por notario.",
+      },
+      {
+        pregunta: "¿Pueden echarme cambiando la chapa o cortando los servicios?",
+        respuesta:
+          "No. Eso es ilegal. El arrendador debe seguir el procedimiento de la Ley 18.101 (desahucio por notario o tribunal, o juicio de terminación). Si lo hace por su cuenta, puedes denunciarlo y reclamar en tribunales.",
+      },
+      {
+        pregunta: "¿Cuánto plazo tengo si mi contrato es a plazo fijo de un año?",
+        respuesta:
+          "Tienes derecho a 2 meses contados desde que te notifican la demanda de restitución (artículo 4 de la Ley 18.101). Puedes devolver antes y pagar solo hasta la fecha de restitución.",
+      },
+      {
+        pregunta: "Si no pagué el arriendo, ¿me pueden echar de inmediato?",
+        respuesta:
+          "No de inmediato. La falta de pago es causal de término, pero requiere un juicio de terminación de arriendo. No te pueden sacar sin sentencia judicial. Conviene regularizar o negociar antes.",
+      },
+    ],
+  },
+  {
+    slug: "gastos-comunes-morosos-pueden-cortar-servicios",
+    titulo: "Gastos comunes morosos: ¿pueden cortarme la luz o el agua?",
+    categoria: "vivienda",
+    destacada: false,
+    metaTitle: "¿Cortan servicios por gastos comunes impagos? | Ley Chilena",
+    descripcion:
+      "La Ley de Copropiedad permite suspender la electricidad o telecomunicaciones a quien debe 3 o más cuotas de gastos comunes. Cuándo procede y cómo evitarlo.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Sí, bajo condiciones. Si el condominio **no tiene sistemas propios** para cortar el servicio, las empresas de **electricidad o telecomunicaciones** deben **suspender** el suministro a la unidad cuyo propietario adeude **3 o más cuotas** (seguidas o no) de **gastos comunes**, a solicitud escrita del administrador ([artículo 36 de la Ley 21.442](/leyes/1174663?art=10644)). Por eso conviene **ponerte al día** o acordar un plan de pago antes de llegar a las 3 cuotas.",
+    contenido: `
+## ¿Pueden cortarme los servicios por no pagar gastos comunes?
+Sí, la **Ley de Copropiedad (21.442)** lo permite, pero **solo cumpliendo requisitos**. No es un corte arbitrario: la administración debe seguir el procedimiento legal.
+
+## ¿Cuándo procede el corte?
+Según el [artículo 36 de la Ley 21.442](/leyes/1174663?art=10644), si el condominio **no dispone de sistemas propios de control** del paso de los servicios, las **empresas** de **electricidad o telecomunicaciones** deben **suspender** el suministro a las unidades cuyos propietarios estén **morosos en 3 o más cuotas** de gastos comunes (continuas o discontinuas), a **requerimiento escrito del administrador**.
+
+En la práctica, muchos condominios cortan **agua caliente, gas central o el acceso a estacionamientos** cuando hay un sistema centralizado, según su reglamento.
+
+## ¿Es legal que me corten el agua potable?
+El corte de servicios básicos es un tema sensible. La norma habla de electricidad y telecomunicaciones a través de las empresas proveedoras; los cortes que haga directamente la administración deben ajustarse al **reglamento de copropiedad** y a la ley. Si crees que el corte es **abusivo o mal hecho**, puedes reclamar.
+
+## ¿Qué hacer si estás moroso (o te cortaron)?
+1. **Habla con la administración** antes de llegar a 3 cuotas: pide un **plan o convenio de pago**.
+2. Revisa el **reglamento de copropiedad**: ahí están las reglas de cobro y corte de tu condominio.
+3. Si te cortaron y pagas o repactas, exige la **reposición** del servicio.
+4. Si el corte fue **arbitrario** o sin cumplir el artículo 36, puedes reclamar ante el **Juzgado de Policía Local** o un tribunal.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Desde cuántas cuotas impagas pueden cortar el servicio?",
+        respuesta:
+          "Desde 3 o más cuotas de gastos comunes, continuas o discontinuas (artículo 36 de la Ley 21.442). La suspensión la hacen las empresas de electricidad o telecomunicaciones a requerimiento escrito del administrador.",
+      },
+      {
+        pregunta: "¿Pueden cortarme el agua por gastos comunes?",
+        respuesta:
+          "La ley se refiere expresamente a electricidad y telecomunicaciones vía las empresas proveedoras. Otros cortes (agua caliente, gas central) dependen del reglamento de copropiedad y deben ajustarse a la ley; si es abusivo, puedes reclamar.",
+      },
+      {
+        pregunta: "Me cortaron el servicio y ya pagué, ¿deben reponerlo?",
+        respuesta:
+          "Sí. Si te pusiste al día o firmaste un convenio de pago, debes exigir la reposición del servicio. Si no lo reponen, puedes reclamar ante el Juzgado de Policía Local.",
+      },
+      {
+        pregunta: "¿Cómo evito que me corten los servicios?",
+        respuesta:
+          "Hablando con la administración antes de acumular 3 cuotas y acordando un plan de pago. Revisa el reglamento de copropiedad de tu condominio, donde están las reglas de cobranza y corte.",
+      },
+    ],
   }
 ];
 

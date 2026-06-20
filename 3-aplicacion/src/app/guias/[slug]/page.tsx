@@ -96,8 +96,9 @@ export default async function GuiaDetailPage({ params }: { params: Promise<{ slu
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Guías", item: `${BASE}/guias` },
-        { "@type": "ListItem", position: 2, name: guia.titulo, item: url },
+        { "@type": "ListItem", position: 1, name: "Inicio", item: `${BASE}/` },
+        { "@type": "ListItem", position: 2, name: "Guías", item: `${BASE}/guias` },
+        { "@type": "ListItem", position: 3, name: guia.titulo, item: url },
       ],
     },
   ];
@@ -123,6 +124,14 @@ export default async function GuiaDetailPage({ params }: { params: Promise<{ slu
         </Link>
         <span style={{ fontWeight: 800, fontSize: 16, lineHeight: 1.2 }}>Guía Ciudadana</span>
       </header>
+
+      <nav className="migas" aria-label="Ruta de navegación">
+        <Link href="/">Inicio</Link>
+        <span aria-hidden>›</span>
+        <Link href="/guias">Guías</Link>
+        <span aria-hidden>›</span>
+        <span className="migas-actual">{guia.titulo}</span>
+      </nav>
 
       <AccessibilityBar />
 
@@ -183,7 +192,7 @@ export default async function GuiaDetailPage({ params }: { params: Promise<{ slu
         </div>
 
         <p className="nota" style={{ marginTop: 14, fontSize: 12, lineHeight: 1.5 }}>
-          Esta guía es orientación general basada en el Código del Trabajo y no reemplaza la asesoría de un abogado para tu caso particular.
+          Esta guía es orientación general basada en la legislación chilena vigente (fuente: Biblioteca del Congreso Nacional) y no reemplaza la asesoría de un abogado para tu caso particular.
         </p>
       </div>
     </main>

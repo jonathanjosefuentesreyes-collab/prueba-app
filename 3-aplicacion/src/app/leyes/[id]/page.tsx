@@ -8,13 +8,29 @@ import GuardarBtn from "@/components/GuardarBtn";
 import AccessibilityBar from "@/components/AccessibilityBar";
 import ArticuloItem from "@/components/ArticuloItem";
 
-export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.leyesdechile.com";
+
+export async function generateMetadata(props: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ pagina?: string; art?: string; q?: string }>;
+}) {
   const { id } = await props.params;
+  const { pagina: pg } = await props.searchParams;
   const norma = obtenerNorma(Number(id));
-  if (!norma) return { title: "Ley no encontrada | Ley Chilena" };
+  if (!norma) return { title: "Ley no encontrada | Ley Chilena", robots: { index: false, follow: true } };
+  const nombre = nombreDe(norma);
+  const nombreCorto = nombre.length > 56 ? nombre.slice(0, 53).trimEnd() + "…" : nombre;
+  const pagNum = Math.max(1, Number(pg) || 1);
+  // Canonical: la página limpia (o con ?pagina para que indexen todos los artículos);
+  // ?q y ?art son vistas de la misma ley → no generan URL canónica propia.
+  const canonical = pagNum > 1 ? `${BASE}/leyes/${norma.id}?pagina=${pagNum}` : `${BASE}/leyes/${norma.id}`;
+  const desc = `${nombre}: ${norma.total_articulos} artículos. Texto oficial actualizado de la BCN${norma.fecha_version ? ` (versión ${norma.fecha_version})` : ""}. Léelo en simple y consulta gratis a AbogaBot.`.slice(0, 155);
   return {
-    title: `${nombreDe(norma)}: texto completo y actualizado | Ley Chilena`,
-    description: norma.titulo.slice(0, 155),
+    title: `${nombreCorto} — texto actualizado | Ley Chilena`,
+    description: desc,
+    alternates: { canonical },
+    openGraph: { title: `${nombre} | Ley Chilena`, description: desc, url: canonical, type: "article", siteName: "Ley Chilena" },
+    robots: { index: true, follow: true },
   };
 }
 
@@ -36,14 +52,53 @@ export default async function Norma(props: {
   const articulos = consulta ? [] : articulosDeNorma(norma.id, pagina);
   const resultados = consulta ? buscar(consulta, 20, norma.id) : [];
 
+  const nombre = nombreDe(norma);
+  const urlLey = `${BASE}/leyes/${norma.id}`;
+  // Datos estructurados: ayudan a Google a entender que esto es legislación chilena
+  // oficial y a mostrar resultados enriquecidos (Legislation + BreadcrumbList).
+  const ldLegislacion = {
+    "@context": "https://schema.org",
+    "@type": "Legislation",
+    name: nombre,
+    ...(norma.numero_norma ? { legislationIdentifier: norma.numero_norma } : {}),
+    legislationType: norma.tipo || "Ley",
+    legislationJurisdiction: "Chile",
+    inLanguage: "es-CL",
+    ...(norma.fecha_version ? { datePublished: norma.fecha_version } : {}),
+    url: urlLey,
+    ...(norma.url ? { sameAs: norma.url } : {}),
+    publisher: { "@type": "GovernmentOrganization", name: "Biblioteca del Congreso Nacional de Chile" },
+    isAccessibleForFree: true,
+  };
+  const ldBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `${BASE}/` },
+      { "@type": "ListItem", position: 2, name: "Leyes", item: `${BASE}/leyes` },
+      { "@type": "ListItem", position: 3, name: nombre, item: urlLey },
+    ],
+  };
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ldLegislacion) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ldBreadcrumb) }} />
       <header className="header" style={{ justifyContent: "flex-start", gap: 12 }}>
         <Link href="/leyes" aria-label="Volver a la biblioteca" style={{ display: "flex" }}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M15 18l-6-6 6-6" /></svg>
         </Link>
-        <span style={{ fontWeight: 800, fontSize: 16, lineHeight: 1.2 }}>{nombreDe(norma)}</span>
+        <h1 style={{ fontWeight: 800, fontSize: 16, lineHeight: 1.2, margin: 0 }}>{nombre}</h1>
       </header>
+
+      {/* Migas de pan (institucional + refuerza el BreadcrumbList) */}
+      <nav className="migas" aria-label="Ruta de navegación">
+        <Link href="/">Inicio</Link>
+        <span aria-hidden>›</span>
+        <Link href="/leyes">Leyes</Link>
+        <span aria-hidden>›</span>
+        <span className="migas-actual">{nombre}</span>
+      </nav>
 
       <AccessibilityBar />
 

@@ -33,6 +33,22 @@ export const metadata: Metadata = {
   title: "Ley Chilena — Todas las leyes de Chile, explicadas simple",
   description:
     "Consulta gratis las leyes chilenas actualizadas desde la fuente oficial (BCN), calcula tu finiquito y resuelve tus dudas legales con AbogaBot.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "es_CL",
+    siteName: "Ley Chilena",
+    url: "/",
+    title: "Ley Chilena — Todas las leyes de Chile, explicadas simple",
+    description:
+      "Consulta gratis las leyes chilenas actualizadas desde la BCN, calcula tu finiquito y resuelve tus dudas legales con AbogaBot.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Ley Chilena — Todas las leyes de Chile, explicadas simple",
+    description:
+      "Leyes chilenas actualizadas (fuente BCN), calculadora de finiquito y AbogaBot, tu asistente legal gratis.",
+  },
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,

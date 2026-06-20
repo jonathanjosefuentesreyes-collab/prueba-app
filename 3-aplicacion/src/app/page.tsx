@@ -45,12 +45,41 @@ function nombreCarrusel(n: { nombre_corto: string | null; titulo: string }): str
   return nom;
 }
 
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.leyesdechile.com";
+
+// Identidad del sitio para Google: WebSite habilita el cuadro de búsqueda en los
+// resultados (sitelinks searchbox) y Organization define la marca como entidad.
+const LD_SITIO = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Ley Chilena",
+  alternateName: "Leyes de Chile",
+  url: BASE,
+  inLanguage: "es-CL",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: `${BASE}/leyes?q={search_term_string}` },
+    "query-input": "required name=search_term_string",
+  },
+};
+const LD_ORG = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Ley Chilena",
+  url: BASE,
+  logo: `${BASE}/logo-medallon.png`,
+  description:
+    "Plataforma ciudadana para consultar las leyes de Chile explicadas en simple, con fuente oficial de la Biblioteca del Congreso Nacional (BCN).",
+};
+
 export default function Inicio() {
   const ultimas = ultimasPublicaciones(6);
   const populares = normasPopulares();
 
   return (
     <main style={{ paddingBottom: 20 }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(LD_SITIO) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(LD_ORG) }} />
       <header className="header">
         <Link href="/leyes" aria-label="Ver todas las leyes de Chile" style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}

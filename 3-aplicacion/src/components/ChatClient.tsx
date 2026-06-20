@@ -6,22 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { useChat, useChatRef } from "@/contexts/ChatContext";
 import type { Fuente, Mensaje } from "@/contexts/ChatContext";
 import { hablar } from "@/lib/hablar";
-
-// Formatea la respuesta del bot: escapa HTML (seguro), aplica **negritas** y
-// convierte líneas con *, - o • en viñetas.
-function negrita(s: string): string {
-  return s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-}
-function formatearRespuesta(texto: string): string {
-  const esc = texto.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  return esc.split("\n").map((linea) => {
-    const t = linea.trim();
-    if (!t) return "";
-    const v = t.match(/^[*\-•]\s+(.*)$/);
-    if (v) return `<div class="cf-vinieta"><span class="cf-punto">•</span><span>${negrita(v[1])}</span></div>`;
-    return `<div class="cf-linea">${negrita(t)}</div>`;
-  }).join("");
-}
+import { formatearRespuesta } from "@/lib/formato-chat";
 
 export interface ConsultaGuardada {
   id: number;

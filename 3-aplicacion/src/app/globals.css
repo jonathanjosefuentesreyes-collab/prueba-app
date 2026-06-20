@@ -721,23 +721,42 @@ input:checked + .slider:before { transform: translateX(20px); }
 .migas a:hover { text-decoration: underline; }
 .migas-actual { color: var(--texto-suave); font-weight: 600; max-width: 60vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-/* ---------- Columna derecha (riel) — solo escritorio ancho ≥1280px ---------- */
+/* ---------- Columna derecha (riel) = chat AbogaBot docked — escritorio ≥1280px ---------- */
 .riel { display: none; }
-.riel-card { background: var(--superficie); border: 1px solid var(--borde); border-radius: 14px; padding: 15px 16px; box-shadow: var(--sombra); display: flex; flex-direction: column; gap: 8px; }
-.riel-tit { font-size: 11px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; color: var(--texto-suave); margin-bottom: 2px; }
-.riel-link { color: var(--texto); text-decoration: none; font-size: 13.5px; font-weight: 600; padding: 3px 0; }
-.riel-link:hover { color: var(--azul); }
-.riel-bot { background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%); color: #fff; text-decoration: none; }
-.riel-bot-tit { font-weight: 800; font-size: 15px; font-family: var(--font-titulo), serif; }
-.riel-bot-sub { font-size: 12.5px; opacity: 0.92; line-height: 1.45; }
-.riel-bot-cta { font-weight: 800; font-size: 13px; margin-top: 2px; }
+
+/* El chat docked: cabecera (fija) + mensajes (scroll) + input (fijo abajo). */
+.riel-chat { display: flex; flex-direction: column; height: 100vh; }
+.riel-chat-head {
+  flex: 0 0 auto; display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px; border-bottom: 1px solid var(--borde);
+  background: linear-gradient(180deg, var(--azul), var(--azul-oscuro)); color: #fff;
+}
+.riel-chat-ava { width: 38px; height: 38px; border-radius: 50%; background: #fff; padding: 2px; object-fit: contain; flex: 0 0 auto; }
+.riel-chat-id { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+.riel-chat-id strong { font-size: 15px; }
+.riel-chat-id span { font-size: 11px; opacity: 0.9; }
+.riel-chat-limpiar { margin-left: auto; flex: 0 0 auto; background: rgba(255,255,255,0.16); color: #fff; border: 0; border-radius: 8px; padding: 5px 9px; font-size: 11.5px; font-weight: 600; cursor: pointer; }
+.riel-chat-limpiar:hover { background: rgba(255,255,255,0.28); }
+.riel-chat-msgs { flex: 1 1 auto; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 12px; background: var(--fondo); }
+.riel-chat-bienvenida { background: var(--superficie); border: 1px solid var(--borde); border-radius: 14px; padding: 14px; font-size: 13.5px; line-height: 1.55; color: var(--texto-suave); box-shadow: var(--sombra); }
+.riel-chat-bienvenida p { margin: 0 0 8px; }
+.riel-chat-bienvenida p:last-child { margin-bottom: 0; }
+.riel-chat-aviso { color: var(--texto-tenue); font-size: 12px; }
+.riel-disc { display: block; margin-top: 6px; font-size: 11px; color: var(--texto-tenue); line-height: 1.4; }
+.riel-pensando { opacity: 0.7; font-style: italic; }
+.riel-chat-form { flex: 0 0 auto; display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--borde); background: var(--superficie); }
+.riel-chat-form input { flex: 1; min-width: 0; border: 1px solid var(--borde-fuerte); border-radius: var(--radio-pill); padding: 10px 14px; font-size: 13.5px; outline: none; background: #fff; }
+.riel-chat-form input:focus { border-color: var(--azul); }
+.riel-chat-form button { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--azul); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.riel-chat-form button:disabled { opacity: 0.5; cursor: default; }
+
 @media (min-width: 1280px) {
-  body { padding-right: 296px; }
+  body { padding-right: 320px; }
   .riel {
-    display: flex; flex-direction: column; gap: 14px;
-    position: fixed; right: 0; top: 0; width: 296px; height: 100vh;
-    padding: 22px 16px; overflow-y: auto;
-    border-left: 1px solid var(--borde); background: var(--fondo);
+    display: block;
+    position: fixed; right: 0; top: 0; width: 320px; height: 100vh;
+    border-left: 1px solid var(--borde); background: var(--superficie); overflow: hidden;
   }
-  body .barra-chat { left: calc(50% - 28px); }
+  /* El chat ya vive en el riel: ocultamos la barra de chat flotante en pantalla ancha. */
+  body .barra-chat { display: none; }
 }

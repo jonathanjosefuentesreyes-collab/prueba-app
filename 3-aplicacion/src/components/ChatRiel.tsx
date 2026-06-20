@@ -7,6 +7,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useChat } from "@/contexts/ChatContext";
 import { formatearRespuesta } from "@/lib/formato-chat";
+import { hablar } from "@/lib/hablar";
 
 export default function ChatRiel() {
   const { mensajes, pensando, enviar, limpiar } = useChat();
@@ -16,6 +17,17 @@ export default function ChatRiel() {
   useEffect(() => {
     finRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [mensajes, pensando]);
+
+  // Reporte de respuestas IA (política de Google Play; útil también en web).
+  function reportarRespuesta(textoMsg: string) {
+    const asunto = encodeURIComponent("Reporte de respuesta de AbogaBot");
+    const cuerpo = encodeURIComponent(
+      "Quiero reportar esta respuesta de AbogaBot por ser incorrecta, ofensiva o problemática:\n\n“" +
+      textoMsg.slice(0, 1500) +
+      "”\n\nMotivo del reporte (cuéntanos qué estuvo mal):\n"
+    );
+    window.location.href = `mailto:jonathanjosefuentesreyes@gmail.com?subject=${asunto}&body=${cuerpo}`;
+  }
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -65,6 +77,18 @@ export default function ChatRiel() {
                     {f.articulo_id ? `${f.ley} · art. ${f.numero}` : f.ley}
                   </Link>
                 ))}
+              </span>
+            )}
+            {m.rol === "bot" && (
+              <span style={{ display: "flex", gap: 8, marginTop: 8 }}>
+                <button className="accion-msg" onClick={() => hablar(m.texto)} aria-label="Escuchar respuesta">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14" /></svg>
+                  Escuchar
+                </button>
+                <button className="accion-msg" onClick={() => reportarRespuesta(m.texto)} aria-label="Reportar respuesta">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" /></svg>
+                  Reportar
+                </button>
               </span>
             )}
             {m.rol === "bot" && m.disclaimer && <span className="riel-disc">{m.disclaimer}</span>}

@@ -19,19 +19,31 @@ export default function Privacidad() {
         <h2 style={{ fontSize: 16 }}>El chat</h2>
         <p>
           Para generar cada respuesta, el texto de tu consulta se procesa en nuestros
-          servidores y mediante la API de Gemini (Google). Te recomendamos no incluir datos
-          personales identificables (RUT, nombres completos, direcciones) en tus preguntas.
-          No vendemos ni compartimos tus consultas con terceros para otros fines.
+          servidores y mediante la API de Gemini (Google). <strong>No incluyas datos
+          personales identificables</strong> (RUT, nombres completos, direcciones, datos de
+          tu caso) en tus preguntas: en el plan gratuito de la API, Google puede usar el
+          contenido enviado para mejorar sus modelos. No vendemos ni compartimos tus
+          consultas con terceros para otros fines.
         </p>
         <h2 style={{ fontSize: 16 }}>Cookies y publicidad</h2>
         <p>
           El sitio se financia con publicidad. Cuando los anuncios estén activos, Google
-          AdSense podrá usar cookies para mostrar avisos relevantes; podrás gestionar tu
-          consentimiento conforme a las políticas de Google y a la ley chilena (Ley 19.628
-          sobre protección de la vida privada y sus actualizaciones).
+          AdSense podrá usar cookies para mostrar avisos relevantes; podrás aceptar o
+          rechazar su uso desde el aviso de cookies y gestionar tu consentimiento conforme a
+          las políticas de Google.
+        </p>
+        <h2 style={{ fontSize: 16 }}>Tus derechos sobre tus datos</h2>
+        <p>
+          De acuerdo con la ley chilena de protección de datos personales (Ley 19.628 y la
+          Ley 21.719, que la moderniza y rige desde el 1 de diciembre de 2026), tienes
+          derecho a <strong>acceder, rectificar, cancelar (eliminar), oponerte al tratamiento
+          y solicitar la portabilidad</strong> de tus datos. Como el sitio funciona sin
+          cuentas y tus guardados viven solo en tu navegador, en la práctica controlas tú
+          mismo esa información desde la pestaña Guardadas; para cualquier otra solicitud,
+          escríbenos al contacto de más abajo.
         </p>
         <h2 style={{ fontSize: 16 }}>Contacto</h2>
-        <p>Escríbenos a <strong>jonathanjosefuentesreyes@gmail.com</strong> para cualquier solicitud sobre tus datos.</p>
+        <p>Escríbenos a <strong>jonathanjosefuentesreyes@gmail.com</strong> para ejercer tus derechos o cualquier solicitud sobre tus datos.</p>
         <p><Link href="/" style={{ color: "var(--azul)", fontWeight: 700 }}>← Volver al inicio</Link></p>
       </article>
     </main>

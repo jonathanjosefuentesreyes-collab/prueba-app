@@ -16,7 +16,17 @@ export default function AvisoLegal() {
           legales provienen de la fuente oficial (Biblioteca del Congreso Nacional —
           leychile.cl) y cada respuesta del asistente cita los artículos en que se basa.
           Sin embargo, <strong>nada en este sitio constituye asesoría legal profesional</strong>:
-          cada caso tiene particularidades que solo un abogado puede evaluar.
+          cada caso tiene particularidades que solo un abogado puede evaluar. El uso del sitio
+          <strong> no crea una relación abogado-cliente</strong> y no nos hace responsables de
+          decisiones tomadas a partir de esta información.
+        </p>
+        <h2 style={{ fontSize: 16 }}>El asistente usa inteligencia artificial</h2>
+        <p>
+          AbogaBot responde con un modelo de IA (Gemini, de Google). Está diseñado para citar
+          solo artículos reales que existen en nuestra base, pero <strong>puede equivocarse o
+          quedar incompleto</strong>. Verifica siempre la fuente citada (te enlazamos al
+          artículo en la Biblioteca) antes de actuar, y ante cualquier duda consulta a un
+          profesional.
         </p>
         <h2 style={{ fontSize: 16 }}>Si necesitas un abogado</h2>
         <p>

@@ -111,6 +111,18 @@ export default function ChatClient() {
     hablar(textoMsg);
   }
 
+  // Reporte de respuestas IA problemáticas (incorrectas/ofensivas). Exigido por la
+  // política de contenido generado por IA de Google Play; útil también en la web.
+  function reportarRespuesta(textoMsg: string) {
+    const asunto = encodeURIComponent("Reporte de respuesta de AbogaBot");
+    const cuerpo = encodeURIComponent(
+      "Quiero reportar esta respuesta de AbogaBot por ser incorrecta, ofensiva o problemática:\n\n“" +
+      textoMsg.slice(0, 1500) +
+      "”\n\nMotivo del reporte (cuéntanos qué estuvo mal):\n"
+    );
+    window.location.href = `mailto:jonathanjosefuentesreyes@gmail.com?subject=${asunto}&body=${cuerpo}`;
+  }
+
   function guardarConsulta(indiceBot: number) {
     const msg = mensajes[indiceBot] as Mensaje;
     if (!msg || msg.rol !== "bot") return;
@@ -186,6 +198,10 @@ export default function ChatClient() {
               {hayVoz ? <><br />— escribe o toca el micrófono y háblame —</> : null}<br />
               y te explico qué dice la ley y qué hacer ahora.
             </p>
+            <p className="vacio" style={{ padding: "10px 16px 0", fontSize: 11.5, opacity: 0.7 }}>
+              🔒 Por tu privacidad, no escribas datos personales sensibles (RUT, nombre
+              completo, dirección).
+            </p>
           </div>
         )}
         {mensajes.map((m, i) => (
@@ -215,6 +231,10 @@ export default function ChatClient() {
                 <button className="accion-msg" onClick={() => guardarConsulta(i)} disabled={guardadas.has(i)} aria-label="Guardar consulta">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill={guardadas.has(i) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinejoin="round" aria-hidden><path d="M19 21 12 16 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /></svg>
                   {guardadas.has(i) ? "Guardada ✓" : "Guardar"}
+                </button>
+                <button className="accion-msg" onClick={() => reportarRespuesta(m.texto)} aria-label="Reportar respuesta">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" /></svg>
+                  Reportar
                 </button>
               </span>
             )}

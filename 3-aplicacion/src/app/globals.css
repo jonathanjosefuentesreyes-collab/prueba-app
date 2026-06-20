@@ -712,3 +712,24 @@ input:checked + .slider:before { transform: translateX(20px); }
   .pie-cols { flex-direction: row; justify-content: space-between; gap: 30px; padding: 28px 24px 8px; }
   .pie-marca { flex: 0 0 210px; align-items: flex-start; }
 }
+
+/* ---------- Columna derecha (riel) — solo escritorio ancho ≥1280px ---------- */
+.riel { display: none; }
+.riel-card { background: var(--superficie); border: 1px solid var(--borde); border-radius: 14px; padding: 15px 16px; box-shadow: var(--sombra); display: flex; flex-direction: column; gap: 8px; }
+.riel-tit { font-size: 11px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; color: var(--texto-suave); margin-bottom: 2px; }
+.riel-link { color: var(--texto); text-decoration: none; font-size: 13.5px; font-weight: 600; padding: 3px 0; }
+.riel-link:hover { color: var(--azul); }
+.riel-bot { background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%); color: #fff; text-decoration: none; }
+.riel-bot-tit { font-weight: 800; font-size: 15px; font-family: var(--font-titulo), serif; }
+.riel-bot-sub { font-size: 12.5px; opacity: 0.92; line-height: 1.45; }
+.riel-bot-cta { font-weight: 800; font-size: 13px; margin-top: 2px; }
+@media (min-width: 1280px) {
+  body { padding-right: 296px; }
+  .riel {
+    display: flex; flex-direction: column; gap: 14px;
+    position: fixed; right: 0; top: 0; width: 296px; height: 100vh;
+    padding: 22px 16px; overflow-y: auto;
+    border-left: 1px solid var(--borde); background: var(--fondo);
+  }
+  body .barra-chat { left: calc(50% - 28px); }
+}

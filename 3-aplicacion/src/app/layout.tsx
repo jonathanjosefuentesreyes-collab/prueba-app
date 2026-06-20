@@ -8,6 +8,7 @@ import AbrirEnInicio from "@/components/AbrirEnInicio";
 import ConsentimientoCookies from "@/components/ConsentimientoCookies";
 import Anuncios from "@/components/Anuncios";
 import PieInstitucional from "@/components/PieInstitucional";
+import RielEscritorio from "@/components/RielEscritorio";
 import { ADSENSE_CLIENT } from "@/lib/adsense";
 import { SettingsProvider } from "@/contexts/SettingsContext";
 import { ChatProvider } from "@/contexts/ChatContext";
@@ -60,6 +61,7 @@ export default function RootLayout({
               <PieInstitucional />
             </div>
             <BottomNav />
+            <RielEscritorio />
             <ConsentimientoCookies />
           </ChatProvider>
         </SettingsProvider>

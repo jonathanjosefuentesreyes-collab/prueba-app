@@ -2558,6 +2558,119 @@ Quien tiene la patria potestad:
           "Sí. El padre y la madre pueden acordar ejercerla conjuntamente mediante escritura pública o acta ante el Registro Civil (artículo 244 del Código Civil).",
       },
     ],
+  },
+  {
+    slug: "clausulas-abusivas-letra-chica-que-no-vale",
+    titulo: "Cláusulas abusivas: la \"letra chica\" que no tiene validez",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Cláusulas abusivas: la letra chica que no vale | Ley Chilena",
+    descripcion:
+      "Algunas cláusulas de los contratos (telefonía, créditos, gimnasios) son abusivas y la ley las declara sin efecto. Cómo reconocerlas y reclamar, según la Ley del Consumidor.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "La \"letra chica\" tiene límites: en los **contratos de adhesión** (esos que firmas sin poder negociar), **no producen efecto alguno** las cláusulas **abusivas**, como las que dejan que la empresa **modifique el contrato a su solo arbitrio**, traspasen al consumidor responsabilidades que no le tocan o inviertan la carga de la prueba en su contra ([artículo 16 de la Ley 19.496](/leyes/1160403?art=138537)). Aunque las hayas firmado, **no te obligan**.",
+    contenido: `
+## ¿Qué es una cláusula abusiva?
+Es una condición de un **contrato de adhesión** (predispuesto por la empresa, que tú solo aceptas o rechazas) que genera un **desequilibrio importante** en tu contra. La Ley del Consumidor las declara **sin efecto**: aunque estén en el contrato y lo hayas firmado, **no te obligan** ([artículo 16 de la Ley 19.496](/leyes/1160403?art=138537)).
+
+## Ejemplos de cláusulas que NO valen
+Según el artículo 16, entre otras, no producen efecto las cláusulas que:
+- Permiten a la empresa **dejar sin efecto o modificar el contrato a su solo arbitrio** (cambiar precios o condiciones cuando quiera, sin tu acuerdo).
+- Te hacen **responsable de deficiencias o errores** que no son tuyos.
+- **Invierten la carga de la prueba** en tu perjuicio.
+- Contienen **espacios en blanco** que no fueron llenados o informados antes de firmar.
+- En general, las que van **contra la buena fe** y desequilibran los derechos y obligaciones en tu contra.
+
+## ¿Dónde aparecen más seguido?
+En contratos de **telefonía e internet, créditos y tarjetas, gimnasios, estacionamientos, seguros y servicios por suscripción**. Si una cláusula te parece injusta, probablemente valga la pena revisarla.
+
+## ¿Qué hacer?
+1. **Guarda el contrato** y marca la cláusula que crees abusiva.
+2. Reclama primero a la **empresa** por escrito, pidiendo que no aplique esa cláusula.
+3. Si insisten, presenta un **reclamo en el SERNAC** (sernac.cl).
+4. Una cláusula abusiva puede declararse **nula** en el **Juzgado de Policía Local**; el resto del contrato sigue válido.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "Si firmé una cláusula abusiva, ¿igual me obliga?",
+        respuesta:
+          "No. La ley dice que las cláusulas abusivas en contratos de adhesión no producen efecto alguno, aunque las hayas firmado (artículo 16 de la Ley 19.496). El resto del contrato sigue siendo válido.",
+      },
+      {
+        pregunta: "¿Es abusivo que la empresa cambie el contrato cuando quiera?",
+        respuesta:
+          "Sí. Las cláusulas que permiten a la empresa dejar sin efecto o modificar el contrato a su solo arbitrio no producen efecto (artículo 16 letra a de la Ley 19.496). No pueden cambiar precios o condiciones sin tu acuerdo.",
+      },
+      {
+        pregunta: "¿Dónde reclamo por una cláusula abusiva?",
+        respuesta:
+          "Primero a la empresa por escrito; si no resuelve, en el SERNAC (sernac.cl). La nulidad de la cláusula se puede declarar en el Juzgado de Policía Local, manteniéndose válido el resto del contrato.",
+      },
+      {
+        pregunta: "¿Qué contratos tienen más cláusulas abusivas?",
+        respuesta:
+          "Suelen aparecer en telefonía e internet, créditos y tarjetas, gimnasios, estacionamientos, seguros y servicios por suscripción. Conviene revisar la letra chica antes y después de firmar.",
+      },
+    ],
+  },
+  {
+    slug: "publicidad-enganosa-que-hacer",
+    titulo: "Publicidad engañosa: ¿qué hacer si me engañaron con un anuncio?",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Publicidad engañosa: tus derechos | Ley Chilena",
+    descripcion:
+      "Si un anuncio te indujo a error sobre el precio, las características o los beneficios de un producto, es publicidad engañosa y la Ley del Consumidor la sanciona. Cómo reclamar.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "La **publicidad engañosa está prohibida**: comete infracción quien, a sabiendas, **induce a error o engaño** sobre aspectos como el **precio**, las **características**, los **beneficios** o la **idoneidad** de un producto o servicio ([artículo 28 de la Ley 19.496](/leyes/1160403?art=138568)). Si te pasó, puedes **reclamar en el SERNAC** y exigir que se respete lo ofrecido o una indemnización.",
+    contenido: `
+## ¿Qué es la publicidad engañosa?
+Es cualquier **mensaje publicitario** que te **induce a error o engaño** sobre algo relevante del producto o servicio. La Ley del Consumidor la sanciona: comete infracción quien, **a sabiendas o debiendo saberlo**, engaña respecto de aspectos como ([artículo 28 de la Ley 19.496](/leyes/1160403?art=138568)):
+- El **precio** o la forma de pago.
+- Los **componentes, características o idoneidad** del producto para su uso.
+- Los **beneficios** o resultados que promete.
+- La **marca, origen o condiciones** de la oferta.
+
+## "El precio era otro": el precio publicado obliga
+Si la empresa **publicó un precio** y luego te cobra más, en general debe respetar el **precio informado**. Cobrar distinto al exhibido es una de las infracciones más comunes. Guarda **captura o foto** del precio publicado.
+
+## ¿Qué puedo exigir?
+- Que se **respete lo ofrecido** en la publicidad (la oferta obliga a quien la hace).
+- La **indemnización** de los perjuicios que te causó el engaño.
+- Las **sanciones** que aplique el tribunal a la empresa.
+
+## ¿Qué hacer?
+1. **Guarda la evidencia**: captura del anuncio, foto del precio, correo o catálogo donde se hizo la oferta.
+2. Reclama a la **empresa** exigiendo que respete lo publicitado.
+3. Si no resuelve, presenta tu **reclamo en el SERNAC** (sernac.cl) con la evidencia.
+4. Puedes demandar en el **Juzgado de Policía Local** para que se respete la oferta y se indemnicen los perjuicios.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué cuenta como publicidad engañosa?",
+        respuesta:
+          "Todo mensaje publicitario que induce a error o engaño sobre el precio, las características, la idoneidad, los beneficios o el origen de un producto o servicio (artículo 28 de la Ley 19.496).",
+      },
+      {
+        pregunta: "Me publicaron un precio y me cobran más, ¿qué hago?",
+        respuesta:
+          "Por regla general la empresa debe respetar el precio publicado. Guarda captura o foto del precio exhibido, reclama a la empresa y, si no resuelve, presenta un reclamo en el SERNAC.",
+      },
+      {
+        pregunta: "¿La oferta de la publicidad obliga a la empresa?",
+        respuesta:
+          "Sí. Las condiciones ofrecidas en la publicidad obligan a quien las hace. Puedes exigir que se respete lo ofrecido y, si el engaño te causó perjuicios, una indemnización.",
+      },
+      {
+        pregunta: "¿Qué evidencia necesito para reclamar?",
+        respuesta:
+          "Captura o foto del anuncio o del precio publicado, el correo, catálogo o sitio donde se hizo la oferta, y tu comprobante de compra. Con eso reclamas en el SERNAC o en el Juzgado de Policía Local.",
+      },
+    ],
   }
 ];
 

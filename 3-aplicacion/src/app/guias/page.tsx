@@ -27,6 +27,7 @@ export default function GuiasIndexPage() {
     titulo: g.titulo,
     descripcion: g.descripcion,
     fecha: g.fecha,
+    categoria: g.categoria,
   }));
   const categorias = categoriasConGuias().map((c) => ({
     clave: c.clave,
@@ -37,6 +38,7 @@ export default function GuiasIndexPage() {
       titulo: g.titulo,
       descripcion: g.descripcion,
       fecha: g.fecha,
+      categoria: g.categoria,
     })),
   }));
 

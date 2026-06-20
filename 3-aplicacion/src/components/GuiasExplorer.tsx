@@ -9,6 +9,7 @@ export interface CardGuia {
   titulo: string;
   descripcion: string;
   fecha: string;
+  categoria?: string;
 }
 
 export interface CatExplorer {
@@ -55,37 +56,45 @@ export default function GuiasExplorer({
               marginBottom: 22,
             }}
           >
-            {destacadas.map((g) => (
-              <Link
-                key={g.slug}
-                href={`/guias/${g.slug}`}
-                style={{
-                  scrollSnapAlign: "start",
-                  flex: "0 0 82%",
-                  maxWidth: 300,
-                  textDecoration: "none",
-                  background: "linear-gradient(135deg, var(--azul), var(--azul-oscuro))",
-                  color: "#fff",
-                  borderRadius: 14,
-                  padding: 16,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 8,
-                  boxShadow: "var(--sombra)",
-                }}
-              >
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 0.5, opacity: 0.85, textTransform: "uppercase" }}>
-                  ⭐ Destacada
-                </span>
-                <span style={{ fontSize: 15.5, fontWeight: 800, lineHeight: 1.3, fontFamily: "var(--font-titulo), serif" }}>
-                  {g.titulo}
-                </span>
-                <span style={{ fontSize: 12.5, opacity: 0.9, lineHeight: 1.45 }}>
-                  {g.descripcion.length > 90 ? g.descripcion.slice(0, 90) + "…" : g.descripcion}
-                </span>
-                <span style={{ marginTop: "auto", fontSize: 12.5, fontWeight: 700 }}>Leer guía →</span>
-              </Link>
-            ))}
+            {destacadas.map((g) => {
+              const oro = g.categoria === "deudas"; // Deudas = guía Premium → cuadro DORADO bloqueado
+              return (
+                <Link
+                  key={g.slug}
+                  href={oro ? "/premium" : `/guias/${g.slug}`}
+                  style={{
+                    scrollSnapAlign: "start",
+                    flex: "0 0 82%",
+                    maxWidth: 300,
+                    textDecoration: "none",
+                    background: oro
+                      ? "linear-gradient(135deg, #E6C15A 0%, #C9A227 60%, #A9851a 100%)"
+                      : "linear-gradient(135deg, var(--azul), var(--azul-oscuro))",
+                    color: oro ? "#3d2f06" : "#fff",
+                    borderRadius: 14,
+                    padding: 16,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 8,
+                    boxShadow: oro ? "0 4px 16px rgba(201,162,39,0.45)" : "var(--sombra)",
+                    border: oro ? "1.5px solid #f0d97a" : undefined,
+                  }}
+                >
+                  <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: 0.5, opacity: oro ? 1 : 0.85, textTransform: "uppercase" }}>
+                    {oro ? "👑 Premium" : "⭐ Destacada"}
+                  </span>
+                  <span style={{ fontSize: 15.5, fontWeight: 800, lineHeight: 1.3, fontFamily: "var(--font-titulo), serif" }}>
+                    {g.titulo}
+                  </span>
+                  <span style={{ fontSize: 12.5, opacity: oro ? 0.92 : 0.9, lineHeight: 1.45 }}>
+                    {g.descripcion.length > 90 ? g.descripcion.slice(0, 90) + "…" : g.descripcion}
+                  </span>
+                  <span style={{ marginTop: "auto", fontSize: 12.5, fontWeight: 800 }}>
+                    {oro ? "🔒 Desbloquea con Premium →" : "Leer guía →"}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </>
       )}
@@ -161,24 +170,25 @@ export default function GuiasExplorer({
                     style={{
                       position: "absolute",
                       inset: 0,
-                      borderRadius: "var(--radio-tarjeta, 12px)",
-                      background: "rgba(10, 30, 80, 0.62)",
+                      borderRadius: 12,
+                      background: "linear-gradient(135deg, rgba(230,193,90,0.95) 0%, rgba(201,162,39,0.96) 55%, rgba(169,133,26,0.96) 100%)",
                       backdropFilter: "blur(2px)",
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
                       justifyContent: "center",
-                      gap: 8,
-                      border: "1.5px solid #C9A227",
+                      gap: 6,
+                      border: "1.5px solid #f0d97a",
+                      boxShadow: "0 2px 12px rgba(201,162,39,0.45)",
                       cursor: "pointer",
                     }}
                   >
-                    <span style={{ fontSize: 22 }}>👑</span>
-                    <span style={{ color: "#FFE27A", fontWeight: 800, fontSize: 14, letterSpacing: 0.3, textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
-                      Conoce Premium
+                    <span style={{ fontSize: 24 }}>👑</span>
+                    <span style={{ color: "#3d2f06", fontWeight: 800, fontSize: 14.5, letterSpacing: 0.3 }}>
+                      Guía Premium
                     </span>
-                    <span style={{ color: "rgba(255,255,255,0.82)", fontSize: 11.5, fontWeight: 600 }}>
-                      Toca para desbloquear
+                    <span style={{ color: "#5b4708", fontSize: 11.5, fontWeight: 700 }}>
+                      🔒 Toca para desbloquear
                     </span>
                   </button>
                 )}

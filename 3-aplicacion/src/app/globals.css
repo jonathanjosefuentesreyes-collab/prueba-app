@@ -13,20 +13,20 @@
   --rojo: #d52b1e;           /* acento (bandera), uso escaso */
   --rojo-claro: #fdecea;
 
-  --fondo: #eef2f7;          /* fondo de pantalla */
+  --fondo: #f4f7fc;          /* fondo de pantalla (más limpio/aireado, estilo gob.cl) */
   --superficie: #ffffff;     /* tarjetas */
   --texto: #1a2433;
   --texto-suave: #5b6573;
   --texto-tenue: #8a93a3;
-  --borde: #e3e8f0;
+  --borde: #e6ebf3;
   --borde-fuerte: #d3dae6;
 
-  /* Forma y elevación (Material, compacto) */
-  --radio: 12px;
-  --radio-sm: 8px;
+  /* Forma y elevación (más suave y aireado) */
+  --radio: 16px;
+  --radio-sm: 10px;
   --radio-pill: 999px;
-  --sombra: 0 1px 2px rgba(16, 32, 64, 0.06), 0 1px 3px rgba(16, 32, 64, 0.05);
-  --sombra-flotante: 0 4px 16px rgba(10, 40, 90, 0.16);
+  --sombra: 0 1px 2px rgba(16, 32, 64, 0.05), 0 2px 8px rgba(16, 32, 64, 0.06);
+  --sombra-flotante: 0 6px 20px rgba(10, 40, 90, 0.16);
 }
 
 * { box-sizing: border-box; }
@@ -36,8 +36,8 @@ body {
   background: var(--fondo);
   color: var(--texto);
   font-family: var(--font-app), "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: calc(14px * var(--escala-letra, 1));
-  line-height: 1.5;
+  font-size: calc(14.5px * var(--escala-letra, 1));
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -204,18 +204,18 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 
 /* ---------- Títulos de sección ---------- */
 .seccion-titulo {
-  font-size: calc(12px * var(--escala-letra, 1)); font-weight: 700; letter-spacing: 0.5px;
-  color: var(--texto-suave); text-transform: uppercase; margin: 18px 2px 9px;
+  font-size: calc(12.5px * var(--escala-letra, 1)); font-weight: 800; letter-spacing: 0.6px;
+  color: var(--texto-suave); text-transform: uppercase; margin: 26px 2px 12px;
   display: flex; justify-content: space-between; align-items: baseline;
 }
 .seccion-titulo a { color: var(--azul); font-weight: 600; text-transform: none; letter-spacing: 0; font-size: calc(12.5px * var(--escala-letra, 1)); }
 
 /* ---------- Materias (grid) ---------- */
-.materias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.materias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .materia {
   background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio);
-  padding: 14px 6px 11px; text-align: center; box-shadow: var(--sombra);
-  font-size: calc(11.5px * var(--escala-letra, 1)); font-weight: 700; letter-spacing: 0.3px; color: var(--texto);
+  padding: 18px 8px 15px; text-align: center; box-shadow: var(--sombra);
+  font-size: calc(12px * var(--escala-letra, 1)); font-weight: 700; letter-spacing: 0.3px; color: var(--texto);
 }
 .materia svg { display: block; margin: 0 auto 7px; }
 .materia:active { transform: scale(0.96); }
@@ -257,7 +257,7 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 /* ---------- Tarjetas / listas ---------- */
 .tarjeta {
   background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio);
-  padding: 13px 15px; box-shadow: var(--sombra); display: block;
+  padding: 16px 18px; box-shadow: var(--sombra); display: block;
 }
 .lista { display: flex; flex-direction: column; gap: 9px; }
 .badge {

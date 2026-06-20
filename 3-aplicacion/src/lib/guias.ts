@@ -1937,6 +1937,175 @@ Cuando te dan crédito, deben informarte de forma **clara y oportuna** el **prec
           "Pide por escrito el detalle y la devolución al proveedor; si no resuelve, reclama en el SERNAC. Para recuperar lo pagado de más o indemnización puedes demandar en el Juzgado de Policía Local.",
       },
     ],
+  },
+  {
+    slug: "heredo-las-deudas-de-un-familiar",
+    titulo: "¿Heredo las deudas de un familiar fallecido en Chile?",
+    categoria: "deudas",
+    destacada: true,
+    metaTitle: "¿Se heredan las deudas en Chile? | Ley Chilena",
+    descripcion:
+      "En Chile heredas bienes y deudas, pero puedes protegerte: aceptando con beneficio de inventario respondes solo hasta lo que heredas, o puedes renunciar a la herencia. Cómo hacerlo.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Al heredar, en principio recibes el patrimonio del fallecido: **bienes y también deudas**. Pero puedes **protegerte**: si aceptas la herencia **con beneficio de inventario**, **solo respondes de las deudas hasta el monto de lo que heredas**, nunca con tu propio patrimonio ([artículo 1247 del Código Civil](/leyes/172986?art=1433)). Y si las deudas superan los bienes, puedes **renunciar** a la herencia.",
+    contenido: `
+## ¿Se heredan las deudas?
+Sí: la herencia incluye el **activo (bienes) y el pasivo (deudas)** del fallecido. Pero la ley te da herramientas para **no arriesgar tu propio patrimonio**. No estás obligado a "pagar de tu bolsillo" las deudas de un familiar.
+
+## La protección clave: beneficio de inventario
+Si aceptas la herencia **con beneficio de inventario**, **no respondes** de las deudas más allá del **valor de lo que heredas** ([artículo 1247 del Código Civil](/leyes/172986?art=1433)). Es decir: si heredas $5 millones y había $8 millones de deudas, solo respondes hasta esos $5 millones; el resto **no lo pagas tú**.
+
+Para esto se hace un **inventario** de los bienes y deudas. Conviene declararlo expresamente al aceptar.
+
+## ¿Y si las deudas son más que los bienes?
+Puedes **renunciar a la herencia**: si renuncias, **no recibes nada** pero **tampoco respondes** de las deudas. Es lo razonable cuando la herencia está "en rojo".
+
+> Ojo: si **usas o dispones** de los bienes del fallecido como dueño antes de decidir, podrías entenderse que aceptaste pura y simplemente (sin beneficio). Por eso conviene **no tocar nada** hasta asesorarte.
+
+## ¿Qué pasa con las deudas con aval o garantía?
+Si la deuda tenía un **aval, fiador o codeudor**, el acreedor puede cobrarles a ellos. Y las deudas con **garantía** (hipoteca, prenda) se pagan con ese bien.
+
+## ¿Qué hacer?
+1. **No dispongas de los bienes** del fallecido hasta tener claro el panorama.
+2. Haz un **inventario** de bienes y deudas.
+3. Decide: **aceptar con beneficio de inventario** (si hay más bienes que deudas) o **renunciar** (si hay más deudas).
+4. Tramita la **posesión efectiva** de la herencia; asesórate con un abogado o en la **Corporación de Asistencia Judicial** (gratis).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Tengo que pagar las deudas de un familiar fallecido?",
+        respuesta:
+          "No con tu propio patrimonio si aceptas con beneficio de inventario: respondes solo hasta el valor de lo que heredas (artículo 1247 del Código Civil). Si las deudas superan los bienes, puedes renunciar a la herencia.",
+      },
+      {
+        pregunta: "¿Qué es el beneficio de inventario?",
+        respuesta:
+          "Es aceptar la herencia limitando tu responsabilidad por las deudas al valor de los bienes heredados. Así nunca pagas las deudas con tu patrimonio personal (artículo 1247 del Código Civil).",
+      },
+      {
+        pregunta: "¿Puedo rechazar una herencia llena de deudas?",
+        respuesta:
+          "Sí. Puedes renunciar a la herencia: no recibes los bienes, pero tampoco respondes de las deudas. Conviene hacerlo cuando las deudas superan claramente al patrimonio.",
+      },
+      {
+        pregunta: "¿Conviene usar los bienes del fallecido antes de decidir?",
+        respuesta:
+          "No. Disponer de los bienes como dueño puede interpretarse como aceptación pura y simple, perdiendo el beneficio de inventario. No toques nada hasta asesorarte y hacer el inventario.",
+      },
+    ],
+  },
+  {
+    slug: "ser-aval-o-fiador-que-riesgo-corro",
+    titulo: "Ser aval o fiador: ¿qué riesgo corro al garantizar una deuda?",
+    categoria: "deudas",
+    destacada: false,
+    metaTitle: "Ser aval o fiador: el riesgo | Ley Chilena",
+    descripcion:
+      "Ser aval, fiador o codeudor solidario significa responder por la deuda de otro con tu propio patrimonio. Qué riesgo corres en Chile y qué revisar antes de firmar.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Ser **aval o fiador** es comprometerte a **responder por la deuda de otra persona** si esta no paga ([artículo 2335 del Código Civil](/leyes/172986?art=2548)). El riesgo es real: el acreedor puede **cobrarte a ti** con tu propio patrimonio (sueldo embargable, bienes). Si firmas como **codeudor solidario**, te pueden cobrar el **total** directamente, sin perseguir primero al deudor principal.",
+    contenido: `
+## ¿Qué significa ser aval o fiador?
+La **fianza** es una obligación accesoria: te comprometes a **responder de una deuda ajena** si el deudor principal no cumple ([artículo 2335 del Código Civil](/leyes/172986?art=2548)). En palabras simples: si tu amigo o familiar no paga, **te pueden cobrar a ti**.
+
+## Aval, fiador, codeudor solidario: ¡no es lo mismo!
+- **Fiador simple**: respondes si el deudor no paga, pero podrías exigir que primero le cobren a él (beneficio de excusión), salvo que hayas renunciado a ese derecho.
+- **Codeudor solidario / "aval"**: lo más común en créditos y arriendos. Aquí **te pueden cobrar el total directamente**, sin perseguir primero al deudor principal. Es el más riesgoso.
+
+Lee bien el contrato: la mayoría de los créditos te hacen firmar como **codeudor solidario**.
+
+## El riesgo concreto
+Si el deudor no paga, el acreedor puede **demandarte a ti**: cobrarte la deuda, sumar intereses y, con sentencia, **embargar** la parte de tu sueldo sobre 56 UF u otros bienes. Tu nombre puede ir a **DICOM**. Y todo por una deuda que **no era tuya**.
+
+## Antes de firmar como aval, revisa
+1. **¿De cuánto es la deuda y en qué condiciones?** Vas a responder por todo eso.
+2. **¿Firmas como fiador simple o codeudor solidario?** El solidario es mucho más riesgoso.
+3. **¿Confías realmente** en que la persona pagará? Si no paga, el problema será tuyo.
+4. Si ya eres aval y el deudor dejó de pagar, **habla con el acreedor** y busca una solución; si te pagas tú la deuda, puedes **cobrarle después** al deudor principal.
+5. ¿Dudas con tu caso? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué riesgo corro al ser aval de alguien?",
+        respuesta:
+          "Que te cobren a ti la deuda si la persona no paga (artículo 2335 del Código Civil): pueden demandarte, embargar parte de tu sueldo o bienes y dejarte en DICOM, por una deuda que no era tuya.",
+      },
+      {
+        pregunta: "¿Es lo mismo aval que codeudor solidario?",
+        respuesta:
+          "No. El codeudor solidario (lo más común en créditos) responde por el total de inmediato, sin que cobren primero al deudor principal. El fiador simple puede, en ciertos casos, exigir que primero le cobren al deudor.",
+      },
+      {
+        pregunta: "Si pago como aval, ¿puedo recuperar la plata?",
+        respuesta:
+          "Sí. Si pagas la deuda como aval o fiador, tienes derecho a cobrarle (repetir) al deudor principal lo que pagaste por él. Guarda los comprobantes del pago.",
+      },
+      {
+        pregunta: "¿Pueden embargarme por ser aval?",
+        respuesta:
+          "Sí, tras un juicio el acreedor puede embargar la parte de tu sueldo sobre 56 UF u otros bienes, igual que a un deudor directo. Por eso ser aval debe tomarse con seriedad.",
+      },
+    ],
+  },
+  {
+    slug: "deudas-del-conyuge-respondo-yo",
+    titulo: "Deudas del cónyuge: ¿respondo por las deudas de mi pareja?",
+    categoria: "deudas",
+    destacada: false,
+    metaTitle: "¿Respondo por las deudas de mi cónyuge? | Ley Chilena",
+    descripcion:
+      "Si respondes por las deudas de tu cónyuge en Chile depende del régimen patrimonial: sociedad conyugal, separación de bienes o participación en los gananciales. Diferencias clave.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Depende del **régimen de bienes** del matrimonio. En **separación de bienes**, cada uno responde solo por **sus propias deudas**. En **sociedad conyugal**, muchas deudas las paga la **sociedad** (el patrimonio común) ([artículo 1740 del Código Civil](/leyes/172986?art=1926)), y el marido administra esos bienes ([artículo 1750](/leyes/172986?art=1936)). Las deudas personales anteriores al matrimonio, en general, las paga quien las contrajo.",
+    contenido: `
+## La respuesta corta: depende del régimen
+En Chile, si respondes o no por las deudas de tu cónyuge depende del **régimen patrimonial** que eligieron al casarse:
+
+### Separación total de bienes
+Cada cónyuge tiene su **propio patrimonio** y responde **solo por sus propias deudas**. Si tu pareja contrae una deuda a su nombre, **tus bienes no responden** (salvo que hayas firmado como aval o codeudor).
+
+### Sociedad conyugal (régimen por defecto si no eligen otro)
+Existe un **patrimonio común** (la "sociedad"). Muchas deudas contraídas durante el matrimonio las paga **la sociedad** con los bienes comunes ([artículo 1740 del Código Civil](/leyes/172986?art=1926)). El **marido administra** los bienes sociales frente a terceros ([artículo 1750](/leyes/172986?art=1936)). Las **deudas personales** anteriores al matrimonio, en general, las paga quien las contrajo, no la sociedad.
+
+### Participación en los gananciales
+Durante el matrimonio funciona como **separación** (cada uno con su patrimonio y sus deudas); al terminar, se reparten las ganancias.
+
+## ¿Pueden cobrarme a mí?
+Solo si: (a) **firmaste** la deuda (como deudor, aval o codeudor), o (b) en sociedad conyugal, la deuda es de aquellas que responde la **sociedad**. Una deuda **personal** de tu cónyuge, que tú no firmaste, en separación de bienes **no te alcanza**.
+
+## ¿Qué hacer?
+1. **Averigua tu régimen**: lo dice tu certificado de matrimonio (sociedad conyugal, separación o participación).
+2. Si te cobran por una deuda que **no firmaste** y estás en separación de bienes, **reclámalo**: no corresponde.
+3. Si están en sociedad conyugal y te preocupa, evalúa **cambiar de régimen** (se puede pactar separación durante el matrimonio).
+4. Asesórate con un abogado de familia o en la **Corporación de Asistencia Judicial** (gratis).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta.
+`,
+    faq: [
+      {
+        pregunta: "¿Respondo por las deudas de mi esposo o esposa?",
+        respuesta:
+          "Depende del régimen. En separación de bienes, solo respondes por tus propias deudas. En sociedad conyugal, muchas deudas del matrimonio las paga el patrimonio común (artículo 1740 del Código Civil). Si no firmaste la deuda y están separados de bienes, no te alcanza.",
+      },
+      {
+        pregunta: "¿Cómo sé qué régimen de bienes tengo?",
+        respuesta:
+          "Aparece en tu certificado de matrimonio: sociedad conyugal (el régimen por defecto), separación total de bienes o participación en los gananciales. Puedes pedirlo en el Registro Civil.",
+      },
+      {
+        pregunta: "¿Pueden embargar mis bienes por una deuda de mi cónyuge?",
+        respuesta:
+          "Solo si firmaste esa deuda o si, en sociedad conyugal, es una deuda que responde la sociedad. Una deuda personal de tu cónyuge, que tú no firmaste, no afecta tus bienes en separación de bienes.",
+      },
+      {
+        pregunta: "¿Puedo cambiar de sociedad conyugal a separación de bienes?",
+        respuesta:
+          "Sí. Durante el matrimonio se puede pactar la separación total de bienes mediante escritura pública, subinscrita al margen del matrimonio. Conviene asesorarse con un abogado.",
+      },
+    ],
   }
 ];
 

@@ -43,11 +43,20 @@
 ### Estado actual
 - Nav 5 pestañas: Leyes 📚 · Guías 💡 · Inicio 🏠 · Guardados ❤️ · Premium 👑 (`components/BottomNav.tsx`).
 - ChatBar (mascota fija + input→/chat) en TODAS las pestañas. Chat persistente PERMANENTE.
-- Guías en `src/lib/guias.ts` (37). Por macro grupo: **Laboral 10 · Vivienda 6 · Familia 7 · Consumidor 6 · 👑 Deudas 8**.
-  FALTAN para 10/grupo: **Vivienda +4, Familia +3, Consumidor +4, Deudas +2**.
-  norma_id verificados extra: Ley 19.496 (1160403) 16→138537,17→138541,28→138568,35→138577,39→138581;
-  Ley 20.830 AUC **1075210** (1→11140,15→11154,16→11155); Cód.Civil filiación 186→360,195→369,199→373;
-  fianza 2335→2548; herencia/benef.inventario 1247→1433; sociedad conyugal 1740→1926,1750→1936.
+- Guías en `src/lib/guias.ts`: **50 — ✅ COMPLETO 10/grupo** (Laboral·Vivienda·Familia·Consumidor·👑Deudas).
+  norma_id verificados (para futuras guías): Ley 19.496 (1160403) 16→138537 (cláusulas abusivas),
+  20→138557 (garantía triple opción), 21→138558 (6 meses), 28→138568 (publicidad engañosa),
+  3bis→138512 (retracto); Ley 18.101 Arriendo **29526** (3→9607 desahucio, 4→9608 restitución);
+  Ley 21.442 Copropiedad **1174663** (36→10644 corte servicios); Ley 20.830 AUC **1075210**
+  (1→11140,15→11154,16→11155); Cód.Civil: filiación 186→360,195→369,199→373; relación directa
+  229→405; patria potestad 243→420,244→421,245→422; régimen 1718→1904; reparaciones 1927→2140,
+  1940→2153; subarriendo 1946→2159; consignación 1599→1785; cesión crédito 1901→2114,1902→2115;
+  fianza 2335→2548; benef.inventario 1247→1433; sociedad conyugal 1740→1926,1750→1936.
+  ⚠️ NO existen en la BD curada: Ley 18.010, Ley 20.009, Código de Procedimiento Civil (no citarlos).
+- ✅ SEO afinado: páginas de ley con JSON-LD Legislation+BreadcrumbList+canonical+H1+migas; guías con
+  migas + breadcrumb completo; home con WebSite(SearchAction)+Organization; OpenGraph/Twitter global;
+  sitemap cubre las 20.088 leyes + páginas fijas (facturacion/premium/legales). Fix: disclaimer de guías
+  ya no dice "Código del Trabajo" (era erróneo para familia/deudas) → "legislación chilena vigente (BCN)".
 - ⏳ PENDIENTE: **bloquear las guías de DEUDAS para Premium** con un **cuadro dorado** que las
   destaque en el carrusel/listado de Guías (candado + CTA a /premium; mantener el slug/SEO pero
   mostrar resumen y gate). Va con la categoría dorada Deudas ya existente.

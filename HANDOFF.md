@@ -43,9 +43,11 @@
 ### Estado actual
 - Nav 5 pestañas: Leyes 📚 · Guías 💡 · Inicio 🏠 · Guardados ❤️ · Premium 👑 (`components/BottomNav.tsx`).
 - ChatBar (mascota fija + input→/chat) en TODAS las pestañas. Chat persistente PERMANENTE.
-- Guías en `src/lib/guias.ts` (32). Por macro grupo: **Laboral 10 · Vivienda 6 · Familia 5 · Consumidor 6 · 👑 Deudas 5**.
-  Faltan para llegar a 10/grupo: Vivienda +4, Familia +5, Consumidor +4, Deudas +5.
-  Ley 19.496 (1160403) IDs extra: 16→138537, 17→138541, 28→138568, 35→138577, 39→138581.
+- Guías en `src/lib/guias.ts` (37). Por macro grupo: **Laboral 10 · Vivienda 6 · Familia 7 · Consumidor 6 · 👑 Deudas 8**.
+  FALTAN para 10/grupo: **Vivienda +4, Familia +3, Consumidor +4, Deudas +2**.
+  norma_id verificados extra: Ley 19.496 (1160403) 16→138537,17→138541,28→138568,35→138577,39→138581;
+  Ley 20.830 AUC **1075210** (1→11140,15→11154,16→11155); Cód.Civil filiación 186→360,195→369,199→373;
+  fianza 2335→2548; herencia/benef.inventario 1247→1433; sociedad conyugal 1740→1926,1750→1936.
 - ⏳ PENDIENTE: **bloquear las guías de DEUDAS para Premium** con un **cuadro dorado** que las
   destaque en el carrusel/listado de Guías (candado + CTA a /premium; mantener el slug/SEO pero
   mostrar resumen y gate). Va con la categoría dorada Deudas ya existente.

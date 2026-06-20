@@ -139,3 +139,24 @@ Prompt del chat validado + citas visibles + enlace de artículos exactos · 3 gu
 ## D. UX ABIERTO (revisar si molesta)
 - /premium: ChatBar fija puede solaparse con "Suscribirme" al hacer scroll arriba (paddingBottom:196 deja espacio al final).
 - /chat vacío: se ven 2 personajes (saludo grande + flotante sobre input). Si se quiere, dejar solo uno.
+
+## E. GOOGLE PLAY (TWA) — listo a medias; faltan pasos de la cuenta del usuario
+Ya HECHO en código (no repetir): manifest completo (id/scope/orientation/categories/shortcuts),
+íconos reales `icon-192/icon-512/icon-maskable-512.png`, botón **Reportar** en cada respuesta del
+bot (política IA de Play). Falta lo que depende de la cuenta de Jonathan:
+1. **Cuenta Google Play Developer**: US$25 (una vez) + verificación de identidad (cédula). NO marcar
+   como "servicio de gobierno". (Solo Jonathan; Claude no puede pagar/verificar.)
+2. **Generar el TWA** con Bubblewrap: `npx @bwa/cli init --manifest https://www.leyesdechile.com/manifest.webmanifest`
+   → genera el `.aab` y un **keystore** (guardarlo, da la huella SHA-256).
+3. **Digital Asset Links**: crear `3-aplicacion/public/.well-known/assetlinks.json` con la huella del
+   keystore y el package name (ej. `com.leyesdechile.app`), luego desplegar:
+   ```json
+   [{"relation":["delegate_permission/common.handle_all_urls"],
+     "target":{"namespace":"android_app","package_name":"com.leyesdechile.app",
+       "sha256_cert_fingerprints":["<SHA256 DEL KEYSTORE>"]}}]
+   ```
+   Verificar que sirva en `https://www.leyesdechile.com/.well-known/assetlinks.json`.
+4. **Ficha de Play**: ícono 512, capturas (sacar con Playwright), descripción honesta (sin "oficial
+   del Estado"), enlace a /privacidad, **Data safety form** veraz y coherente con /privacidad,
+   clasificación IARC. **Anuncios en la app: AdMob o ninguno** (NO AdSense web dentro del TWA).
+5. Subir `.aab` → revisión → publicar. (Prioridad: DESPUÉS de que la web tenga AdSense + tráfico.)

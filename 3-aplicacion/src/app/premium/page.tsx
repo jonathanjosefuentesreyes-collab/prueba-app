@@ -18,7 +18,7 @@ const BENEFICIOS = [
 
 export default function Premium() {
   return (
-    <main style={{ paddingBottom: 196 }}>
+    <main style={{ paddingBottom: 20 }}>
       <header className="header">
         <span className="marca" style={{ fontSize: 19 }}>
           <span className="azul">Aboga</span><span className="rojo">Bot</span> Premium

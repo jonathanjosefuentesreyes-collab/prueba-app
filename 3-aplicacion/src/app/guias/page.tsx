@@ -43,7 +43,7 @@ export default function GuiasIndexPage() {
   }));
 
   return (
-    <main style={{ paddingBottom: 230 }}>
+    <main style={{ paddingBottom: 20 }}>
       <BibliotecaHeader activeTab="guias" />
 
       <div style={{ padding: "0 2px 20px" }}>

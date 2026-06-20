@@ -50,7 +50,7 @@ export default function Inicio() {
   const populares = normasPopulares();
 
   return (
-    <main style={{ paddingBottom: 196 }}>
+    <main style={{ paddingBottom: 20 }}>
       <header className="header">
         <Link href="/leyes" aria-label="Ver todas las leyes de Chile" style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -109,17 +109,6 @@ export default function Inicio() {
           </Link>
         ))}
       </div>
-
-      <p className="nota" style={{ margin: "18px 2px 0", textAlign: "center" }}>
-        Fuente oficial: Biblioteca del Congreso Nacional · Orientación general, no asesoría legal.
-      </p>
-      <p className="nota" style={{ margin: "8px 2px 0", textAlign: "center" }}>
-        <Link href="/quienes-somos" style={{ color: "var(--azul)" }}>Quiénes somos</Link>
-        {" · "}
-        <Link href="/privacidad" style={{ color: "var(--azul)" }}>Privacidad</Link>
-        {" · "}
-        <Link href="/aviso-legal" style={{ color: "var(--azul)" }}>Aviso legal</Link>
-      </p>
 
       <ChatBar />
     </main>

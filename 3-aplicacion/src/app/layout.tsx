@@ -7,6 +7,7 @@ import RegistrarSW from "@/components/RegistrarSW";
 import AbrirEnInicio from "@/components/AbrirEnInicio";
 import ConsentimientoCookies from "@/components/ConsentimientoCookies";
 import Anuncios from "@/components/Anuncios";
+import PieInstitucional from "@/components/PieInstitucional";
 import { ADSENSE_CLIENT } from "@/lib/adsense";
 import { SettingsProvider } from "@/contexts/SettingsContext";
 import { ChatProvider } from "@/contexts/ChatContext";
@@ -54,7 +55,10 @@ export default function RootLayout({
         <AbrirEnInicio />
         <SettingsProvider>
           <ChatProvider>
-            <div className="shell">{children}</div>
+            <div className="shell">
+              {children}
+              <PieInstitucional />
+            </div>
             <BottomNav />
             <ConsentimientoCookies />
           </ChatProvider>

@@ -9,6 +9,34 @@ biblioteca DB, guías y PWA — todo verificado funcionando en producción.
 > en git (`data/leyes.db.gz`, 79MB) y el Dockerfile la descomprime. Render free duerme tras
 > 15 min (cold start ~30-60s). Gemini sigue free (tope diario global) → pagar para público real.
 
+## 🛡️ Cumplimiento + QA de las 52 guías (2026-06-20)
+
+Sesión en paralelo con Jonathan. Foco: dejar todo listo para lanzar, lado legal/cumplimiento.
+
+- **Nueva skill `abogabot-cumplimiento`** (rulebook de TODOS los términos y condiciones:
+  Gemini, AdSense, Búsqueda, Google Play/TWA, ley chilena de datos/consumidor/IP/ejercicio
+  profesional). Prevalece sobre las demás. Registrada en `MEJORAS-SKILLS.md`.
+- **Mejoras de cumplimiento en la app** (build OK, 71 rutas): Privacidad ahora declara
+  derechos ARCO + portabilidad, Ley 21.719 y que el free tier de Gemini entrena con los
+  prompts; Aviso legal agrega "no crea relación abogado-cliente" + "el chat es IA falible,
+  verifica la fuente"; el chat muestra aviso de no escribir datos sensibles. (Alguien ya
+  agregó `reportarRespuesta()` en `ChatClient.tsx` → cubre la política de IA de Play.)
+- **Scorecard de lanzamiento**: `5-documentacion/CHECKLIST-LANZAMIENTO.md` (checklist de
+  cumplimiento vs. estado real + lo que depende de decisiones del usuario).
+- **🔢 CORRECCIÓN: hay 52 guías, no 6** (alguien las produjo en paralelo). Categorías:
+  laboral, vivienda, familia, deudas, consumidor. → requisito de cantidad para AdSense YA
+  cumplido.
+- **✅ QA Nivel 2 de las 52 guías = APTO** (`node scripts/qa-citas-guias.mjs`, nuevo, regresión):
+  **100/100 citas únicas existen en la DB y su norma coincide; cero inventadas.**
+- **🎉 El bloqueante de datos de familia/consumidor quedó RESUELTO**: la DB ya tiene la
+  **Ley 19.496 versión 2021** (norma 1160403, v.2021-05-31) — el art. 21 dice textual
+  "dentro de los **seis** meses" (no los 3 viejos). La guía de garantía cita 6 meses y la DB
+  lo respalda. La guía de pensión cita el Código Civil (vigente) y enuncia los mínimos
+  40/30% + Registro de Deudores en prosa (correcto). **Ya no aplica la advertencia de
+  "guías de familia/consumidor diferidas".**
+- **Pendiente menor a futuro**: la Ley 19.628 (datos, norma 141599) está en v.1999; cuando
+  la **Ley 21.719 entre en vigencia (1-dic-2026)** revisar la guía de DICOM y sus citas.
+
 ## ✅ MVP freemium + auditoría (2026-06-16)
 
 Modelo definido con el usuario y aplicado:

@@ -28,7 +28,7 @@ Estado de la app frente al rulebook de la skill `abogabot-cumplimiento` (§7).
 | 🔧 | CMP **certificada por Google** (IAB TCF) para EEA/UK/Suiza | El banner propio sirve para Chile; para tráfico europeo Google exige CMP certificada. Activar al postular a AdSense |
 | 🔧 | Dominio propio HTTPS | Pendiente de decisión (metadataBase apunta a `leyesdechile.com`). Hoy en `onrender.com` |
 | ✅ | `ads.txt` listo | Ruta `app/ads.txt/route.ts` (publica el ID al aprobar) |
-| ✅🟡 | 12–15+ guías originales indexadas, con citas verificadas | **52 guías** ya (laboral, vivienda, familia, deudas, consumidor) — cantidad para AdSense CUMPLIDA. ⚠️ **QA pendiente**: hay guías de **familia y consumidor** que CONTINUAR.md daba por bloqueadas hasta refrescar Ley 14.908 (pensión, versión 1962) y Ley 19.496 (consumidor, garantía 3 vs 6 meses 2021). Verificar que sus citas no usen texto desactualizado ([[abogabot-qa]]) |
+| ✅ | 12–15+ guías originales indexadas, con citas verificadas | **52 guías** (laboral, vivienda, familia, deudas, consumidor) — cantidad CUMPLIDA. **QA Nivel 2 APTO** (`scripts/qa-citas-guias.mjs`): 100/100 citas existen en la DB y su norma coincide; cero inventadas. El riesgo familia/consumidor quedó RESUELTO: DB tiene Ley 19.496 v.2021 (art. 21 = "seis meses"), pensión cita Código Civil vigente |
 
 ## Google Play (cuando se publique — canal extra, no MVP)
 
@@ -43,10 +43,8 @@ Estado de la app frente al rulebook de la skill `abogabot-cumplimiento` (§7).
 | 🔧 | Anuncios en la app: AdMob o sin anuncios (NO AdSense web en el TWA) | Decisión al monetizar la app |
 
 ## Próximos pasos sugeridos (orden)
-1. **Claude (QA, prioritario)**: auditar las 52 guías con [[abogabot-qa]], en especial las de
-   **familia y consumidor**, verificando que sus citas existan y NO usen texto desactualizado
-   (Ley 14.908 y 19.496). Si la DB sigue con las versiones viejas, re-bajar esas normas de BCN
-   antes de promocionarlas. *(Antes 6 guías; hoy 52 — actualizar CONTINUAR.md.)*
+1. ~~QA de las 52 guías~~ ✅ **HECHO 2026-06-20** (APTO, 100/100 citas válidas; familia/consumidor desbloqueadas).
 2. **Tú**: decidir dominio y plan de Gemini (desbloquean AdSense + privacidad + Play).
 3. **Claude**: al haber dominio, conectar el gate de consentimiento real a `Anuncios.tsx` y generar el icono maskable.
-4. **Más adelante (Play)**: agregar botón de reporte de contenido IA, generar `assetlinks.json`, empaquetar TWA con Bubblewrap.
+4. **Más adelante (Play)**: generar `assetlinks.json` y empaquetar TWA con Bubblewrap (el botón de reporte de IA ya existe en `ChatClient.tsx`).
+5. **Futuro (dic-2026)**: al entrar en vigencia la Ley 21.719, revisar la guía de DICOM (Ley 19.628 está en v.1999 en la DB).

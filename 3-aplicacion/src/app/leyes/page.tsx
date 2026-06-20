@@ -4,6 +4,7 @@ import BibliotecaHeader from "@/components/BibliotecaHeader";
 import ArticuloItem from "@/components/ArticuloItem";
 import ItemLeyCompendio from "@/components/ItemLeyCompendio";
 import ChatBar from "@/components/ChatBar";
+import ScrollAGrupo from "@/components/ScrollAGrupo";
 
 export const metadata = {
   title: "Biblioteca de leyes chilenas | Ley Chilena",
@@ -25,9 +26,9 @@ const CONFIG_GRUPOS: Record<string, { emoji: string }> = {
 };
 
 export default async function Leyes(props: {
-  searchParams: Promise<{ q?: string; materia?: string }>;
+  searchParams: Promise<{ q?: string; materia?: string; grupo?: string }>;
 }) {
-  const { q, materia } = await props.searchParams;
+  const { q, materia, grupo } = await props.searchParams;
   const consulta = (q || "").trim();
   const materiaActiva = materia && MATERIAS[materia] ? MATERIAS[materia] : null;
   
@@ -122,12 +123,13 @@ export default async function Leyes(props: {
           <>
             <h2 className="seccion-titulo-compendio">Grupos de Leyes Chilenas</h2>
             <p className="seccion-subtitulo-compendio">Seleccione una categoría para desplegar la lista de leyes importantes.</p>
-            
+            <ScrollAGrupo grupo={grupo} />
+
             <div className="lista-compendio">
               {grupos.map((g) => {
                 const configGrupo = CONFIG_GRUPOS[g.clave] || CONFIG_GRUPOS.otras;
                 return (
-                  <details key={g.clave} className="grupo-compendio">
+                  <details key={g.clave} id={`grupo-${g.clave}`} className="grupo-compendio" open={g.clave === grupo}>
                     <summary className="summary-compendio">
                       <div 
                         className="icono-circulo-compendio"

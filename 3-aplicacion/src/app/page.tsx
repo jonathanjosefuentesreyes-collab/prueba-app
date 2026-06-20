@@ -1,15 +1,33 @@
 import Link from "next/link";
-import { ultimasPublicaciones, normasPopulares, nombreDe, MATERIAS } from "@/lib/db";
+import { ultimasPublicaciones, normasPopulares, nombreDe } from "@/lib/db";
 import ChatBar from "@/components/ChatBar";
 
 const COLORES: Record<string, string> = {
+  fundamentales: "#1E40AF",
   laboral: "#0039A6",
   familia: "#CE1126",
   civil: "#0E7A4E",
   penal: "#6B2FA8",
   comercial: "#C2630F",
   tributario: "#0B7C86",
+  estado: "#9D174D",
+  "dfl-dl": "#475569",
+  otras: "#0F766E",
 };
+
+// Los 10 macrogrupos de la Biblioteca (mismo orden que gruposBiblioteca()).
+const GRUPOS: { clave: string; etiqueta: string }[] = [
+  { clave: "fundamentales", etiqueta: "Códigos" },
+  { clave: "laboral", etiqueta: "Laboral" },
+  { clave: "familia", etiqueta: "Familia" },
+  { clave: "civil", etiqueta: "Civil" },
+  { clave: "penal", etiqueta: "Penal" },
+  { clave: "comercial", etiqueta: "Comercial" },
+  { clave: "tributario", etiqueta: "Tributario" },
+  { clave: "estado", etiqueta: "Estado" },
+  { clave: "dfl-dl", etiqueta: "Decretos" },
+  { clave: "otras", etiqueta: "Otras" },
+];
 
 const ICONOS: Record<string, React.ReactNode> = {
   laboral: <path d="M4 8h16v12H4zM9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 13h16" />,
@@ -27,6 +45,25 @@ const ICONOS: Record<string, React.ReactNode> = {
   ),
   comercial: <path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M4 21h16M9 7h2m-2 4h2m-2 4h2m5 6v-8h4v8" />,
   tributario: <path d="M6 2h9l5 5v15H6zM14 2v6h6M9 13h6m-6 4h6" />,
+  fundamentales: (
+    <>
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+    </>
+  ),
+  estado: (
+    <>
+      <path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7" />
+      <path d="M12 2 20 7H4z" />
+    </>
+  ),
+  "dfl-dl": (
+    <>
+      <path d="M8 21h11a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4" />
+      <path d="M19 17V5a2 2 0 0 0-2-2H6" />
+    </>
+  ),
+  otras: <path d="m16 6 4 14M12 6v14M8 8v12M4 4v16" />,
 };
 
 function fechaCorta(f: string | null): string {
@@ -96,14 +133,14 @@ export default function Inicio() {
         <span className="hero-titulo">TODAS LAS LEYES</span>
       </Link>
 
-      <h2 className="seccion-titulo">Acceso rápido por materia</h2>
+      <h2 className="seccion-titulo">Acceso rápido por grupo</h2>
       <div className="materias">
-        {Object.entries(MATERIAS).map(([clave, m]) => (
-          <Link key={clave} href={`/leyes?materia=${clave}`} className="materia" style={{ color: COLORES[clave] }}>
+        {GRUPOS.map((g) => (
+          <Link key={g.clave} href={`/leyes?grupo=${g.clave}`} className="materia" style={{ color: COLORES[g.clave] }}>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              {ICONOS[clave]}
+              {ICONOS[g.clave]}
             </svg>
-            <span style={{ color: "var(--texto)" }}>{m.etiqueta.toUpperCase()}</span>
+            <span style={{ color: "var(--texto)" }}>{g.etiqueta.toUpperCase()}</span>
           </Link>
         ))}
       </div>

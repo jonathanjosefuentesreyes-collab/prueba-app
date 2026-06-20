@@ -2331,6 +2331,121 @@ El corte de servicios básicos es un tema sensible. La norma habla de electricid
           "Hablando con la administración antes de acumular 3 cuotas y acordando un plan de pago. Revisa el reglamento de copropiedad de tu condominio, donde están las reglas de cobranza y corte.",
       },
     ],
+  },
+  {
+    slug: "garantia-legal-cambio-reparacion-o-devolucion",
+    titulo: "Garantía legal: ¿me deben cambiar, reparar o devolver la plata?",
+    categoria: "consumidor",
+    destacada: true,
+    metaTitle: "Garantía legal: cambio, reparación o devolución | Ley Chilena",
+    descripcion:
+      "Si compraste un producto con fallas en Chile, la garantía legal te deja elegir TÚ entre cambio, reparación gratis o devolución de tu dinero, dentro de 6 meses. Cómo exigirla.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "Si un producto sale **malo o falla**, la **garantía legal** te da el derecho **irrenunciable a elegir tú** entre tres opciones: **cambio** por uno nuevo, **reparación gratis** o **devolución de lo que pagaste** ([artículo 20 de la Ley 19.496](/leyes/1160403?art=138557)). Tienes **6 meses** desde la compra para exigirlo ([artículo 21](/leyes/1160403?art=138558)). La tienda **no puede obligarte** a aceptar solo la reparación ni mandarte únicamente al servicio técnico.",
+    contenido: `
+## ¿Qué es la garantía legal?
+Es un derecho que tienes **por ley** (no es la "garantía" voluntaria de la tienda): si el producto sale **defectuoso, no sirve para su uso o falla**, puedes reclamar. Y lo más importante: **eliges tú**, no la tienda.
+
+## Las 3 opciones (eliges tú)
+Frente a un producto con falla, tienes el **derecho irrenunciable a optar, a tu arbitrio**, entre ([artículo 20 de la Ley 19.496](/leyes/1160403?art=138557)):
+1. **Cambio** del producto por uno nuevo (o, si no hay, bonificar su valor en otra compra).
+2. **Reparación gratuita**.
+3. **Devolución de lo que pagaste** (con la rebaja proporcional si corresponde).
+
+La tienda **no puede obligarte** a quedarte solo con la reparación ni a aceptar una nota de crédito si tú quieres tu dinero de vuelta.
+
+## ¿Cuánto plazo tengo?
+**6 meses** desde que recibiste el producto para ejercer estos derechos ([artículo 21 de la Ley 19.496](/leyes/1160403?art=138558)). (Algunos productos tienen plazos especiales, pero 6 meses es la regla general de la garantía legal.)
+
+## ¿Qué necesito para reclamar?
+La **boleta** es la prueba ideal, pero **no es la única**: también sirve la factura, el comprobante de pago, el voucher de la tarjeta o el correo de confirmación. La tienda no puede negarte la garantía solo por no tener la boleta física.
+
+## ¿Qué hacer?
+1. Vuelve a la **tienda donde compraste** y di claramente **cuál de las 3 opciones eliges** (cambio, reparación o devolución).
+2. Lleva tu **comprobante de compra** (boleta u otro).
+3. Si te niegan el derecho, presenta un **reclamo en el SERNAC** (sernac.cl) y guarda todo por escrito.
+4. Si aún no resuelven, puedes demandar en el **Juzgado de Policía Local**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Puedo exigir la devolución de mi dinero o solo la reparación?",
+        respuesta:
+          "Puedes exigir la devolución. La ley te da el derecho irrenunciable a elegir tú entre cambio, reparación gratis o devolución del dinero (artículo 20 de la Ley 19.496). La tienda no puede obligarte a aceptar solo la reparación.",
+      },
+      {
+        pregunta: "¿Cuánto tiempo tengo para reclamar la garantía legal?",
+        respuesta:
+          "6 meses desde que recibiste el producto, como regla general (artículo 21 de la Ley 19.496). Algunos productos tienen plazos especiales, pero la garantía legal estándar es de 6 meses.",
+      },
+      {
+        pregunta: "¿Necesito la boleta para usar la garantía?",
+        respuesta:
+          "Ayuda, pero no es obligatoria. También sirve la factura, el comprobante de pago, el voucher de la tarjeta o el correo de confirmación. La tienda no puede negarte la garantía solo por no tener la boleta física.",
+      },
+      {
+        pregunta: "La tienda me manda al servicio técnico, ¿es correcto?",
+        respuesta:
+          "Solo si tú elegiste la reparación. Si prefieres el cambio o la devolución, ese es tu derecho (artículo 20). Si te obligan a ir solo al servicio técnico, reclama en el SERNAC.",
+      },
+    ],
+  },
+  {
+    slug: "derecho-a-retracto-arrepentirse-de-una-compra",
+    titulo: "Derecho a retracto: ¿puedo arrepentirme de una compra?",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Derecho a retracto: arrepentirse de una compra | Ley Chilena",
+    descripcion:
+      "En Chile puedes arrepentirte de ciertas compras (internet, catálogo, eventos) dentro de 10 días y recuperar tu dinero. Cuándo aplica el derecho a retracto y cómo ejercerlo.",
+    fecha: "2026-06-20",
+    respuestaCorta:
+      "En ciertos casos **sí**: el **derecho a retracto** te permite poner término al contrato **sin dar explicaciones**, dentro de **10 días** desde que recibiste el producto o contrataste el servicio ([artículo 3 bis de la Ley 19.496](/leyes/1160403?art=138512)). Aplica sobre todo a compras por **internet, teléfono o catálogo** y a algunos contratos firmados fuera del local. No aplica a todo, así que conviene revisar las condiciones.",
+    contenido: `
+## ¿Puedo arrepentirme de una compra?
+En varios casos sí. El **derecho a retracto** te deja **dejar sin efecto** una compra o contrato **sin tener que justificarte**, recuperando lo pagado ([artículo 3 bis de la Ley 19.496](/leyes/1160403?art=138512)). El plazo general es de **10 días** contados desde que recibes el producto o desde que aceptas el servicio.
+
+## ¿Cuándo aplica?
+Principalmente en:
+- Compras hechas por **medios electrónicos (internet)**, **catálogo, teléfono** u otras formas a distancia.
+- Contratos celebrados **fuera del local comercial** (por ejemplo, vendedores que te visitan).
+- Algunos casos especiales que la ley señala (como ciertos servicios).
+
+Importante: para las compras por internet, el derecho aplica **salvo que el proveedor haya informado expresamente lo contrario** y de forma destacada al momento de comprar.
+
+## ¿Cuándo NO aplica?
+El retracto **no es para todo**. En general no aplica cuando, por ejemplo, el producto se hizo **a tu medida**, se trata de bienes que se **deterioran rápido**, o servicios ya **ejecutados completamente** con tu acuerdo, entre otros. Por eso conviene **leer las condiciones** antes de comprar.
+
+## ¿Qué hacer para retractarte?
+1. Avisa al proveedor **dentro de los 10 días**, por un medio que te deje **constancia** (correo, formulario, carta).
+2. **Devuelve el producto** en buen estado; el proveedor debe **restituirte lo pagado** lo antes posible.
+3. Si la compra fue con tarjeta, pide también la **reversa del cargo**.
+4. Si no respetan tu retracto, reclama en el **SERNAC** (sernac.cl).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Cuántos días tengo para arrepentirme de una compra por internet?",
+        respuesta:
+          "10 días contados desde que recibiste el producto o contrataste el servicio (artículo 3 bis de la Ley 19.496), salvo que el proveedor haya informado expresamente y de forma destacada que no aplica el retracto.",
+      },
+      {
+        pregunta: "¿El derecho a retracto aplica a todas las compras?",
+        respuesta:
+          "No. Aplica sobre todo a compras a distancia (internet, teléfono, catálogo) y contratos fuera del local. No aplica, por ejemplo, a productos hechos a tu medida, bienes que se deterioran rápido o servicios ya ejecutados con tu acuerdo.",
+      },
+      {
+        pregunta: "Si me retracto, ¿me devuelven todo lo que pagué?",
+        respuesta:
+          "Sí. Al retractarte dentro del plazo y devolver el producto en buen estado, el proveedor debe restituirte lo pagado lo antes posible. Si pagaste con tarjeta, puedes pedir además la reversa del cargo.",
+      },
+      {
+        pregunta: "¿Cómo dejo constancia de que me retracté a tiempo?",
+        respuesta:
+          "Avisa por un medio que deje registro: correo electrónico, formulario web o carta, dentro de los 10 días. Guarda el comprobante del aviso; te servirá si debes reclamar en el SERNAC.",
+      },
+    ],
   }
 ];
 

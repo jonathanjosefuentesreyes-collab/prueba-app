@@ -9,14 +9,52 @@ import { useChat } from "@/contexts/ChatContext";
 import { formatearRespuesta } from "@/lib/formato-chat";
 import { hablar } from "@/lib/hablar";
 
+// Tipado mínimo de la Web Speech API (no viene en lib.dom estándar)
+interface ReconocimientoVoz {
+  lang: string;
+  interimResults: boolean;
+  maxAlternatives: number;
+  start: () => void;
+  stop: () => void;
+  onresult: ((e: { results: { [i: number]: { [j: number]: { transcript: string } } } }) => void) | null;
+  onend: (() => void) | null;
+  onerror: (() => void) | null;
+}
+
 export default function ChatRiel() {
   const { mensajes, pensando, enviar, limpiar } = useChat();
   const [texto, setTexto] = useState("");
+  const [escuchando, setEscuchando] = useState(false);
+  const [hayVoz, setHayVoz] = useState(false);
+  const reconocedor = useRef<ReconocimientoVoz | null>(null);
   const finRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     finRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [mensajes, pensando]);
+
+  useEffect(() => {
+    const w = window as unknown as { SpeechRecognition?: new () => ReconocimientoVoz; webkitSpeechRecognition?: new () => ReconocimientoVoz };
+    setHayVoz(Boolean(w.SpeechRecognition || w.webkitSpeechRecognition));
+  }, []);
+
+  // Micrófono: dicta la consulta y la deja escrita en el input (no autoenvía).
+  function alternarMicrofono() {
+    if (escuchando) { reconocedor.current?.stop(); return; }
+    const w = window as unknown as { SpeechRecognition?: new () => ReconocimientoVoz; webkitSpeechRecognition?: new () => ReconocimientoVoz };
+    const Ctor = w.SpeechRecognition || w.webkitSpeechRecognition;
+    if (!Ctor) return;
+    const rec = new Ctor();
+    rec.lang = "es-CL";
+    rec.interimResults = false;
+    rec.maxAlternatives = 1;
+    rec.onresult = (e) => { const d = e.results[0]?.[0]?.transcript || ""; if (d) setTexto(d); };
+    rec.onend = () => setEscuchando(false);
+    rec.onerror = () => setEscuchando(false);
+    reconocedor.current = rec;
+    setEscuchando(true);
+    rec.start();
+  }
 
   // Reporte de respuestas IA (política de Google Play; útil también en web).
   function reportarRespuesta(textoMsg: string) {
@@ -102,9 +140,22 @@ export default function ChatRiel() {
         <input
           value={texto}
           onChange={(e) => setTexto(e.target.value)}
-          placeholder="Escribe tu consulta…"
+          placeholder={escuchando ? "Te escucho…" : "Escribe tu consulta…"}
           aria-label="Tu consulta a AbogaBot"
         />
+        {hayVoz && (
+          <button
+            type="button"
+            onClick={alternarMicrofono}
+            className="riel-chat-mic"
+            style={{ background: escuchando ? "var(--rojo)" : "var(--azul)", animation: escuchando ? "pulso 1s infinite" : undefined }}
+            aria-label={escuchando ? "Detener micrófono" : "Hablar la consulta"}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 10a7 7 0 0 0 14 0M12 19v3" />
+            </svg>
+          </button>
+        )}
         <button type="submit" disabled={pensando} aria-label="Enviar consulta">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
             <path d="M3 11.5 21 3l-8.5 18-2.4-7.1z" />

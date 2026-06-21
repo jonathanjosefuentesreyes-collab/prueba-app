@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { calcularFiniquito, type Causal, type ResultadoFiniquito } from "@/lib/finiquito";
 import GuiasRelacionadas from "@/components/GuiasRelacionadas";
+import { leerUsosHoy, registrarUso } from "@/lib/limiteDiario";
 import valores from "@/lib/valores.json";
 
 // Cada fundamento legal se enlaza al artículo real en la Biblioteca (Código del Trabajo,
@@ -20,27 +21,9 @@ function hrefFundamento(fundamento: string): string | null {
   return id ? `/leyes/207436?art=${id}` : null;
 }
 
-// Límite freemium: 1 cálculo gratis por día por persona (localStorage). El motor es
-// determinista y corre en el navegador, así que el límite es una barrera suave que
-// engancha a Premium —no un control estricto—, en la misma línea que la cuota del chat.
+// Límite freemium: 1 cálculo gratis por día (helper compartido en lib/limiteDiario).
 const MAX_CALC_DIA = 1;
 const CLAVE_USOS = "calc_finiquito_usos";
-function leerUsosHoy(): number {
-  try {
-    const raw = JSON.parse(localStorage.getItem(CLAVE_USOS) || "{}");
-    return raw.dia === new Date().toISOString().slice(0, 10) ? raw.n || 0 : 0;
-  } catch {
-    return 0;
-  }
-}
-function registrarUso(): number {
-  const dia = new Date().toISOString().slice(0, 10);
-  const n = leerUsosHoy() + 1;
-  try {
-    localStorage.setItem(CLAVE_USOS, JSON.stringify({ dia, n }));
-  } catch {}
-  return n;
-}
 
 const CAUSALES: { valor: Causal; etiqueta: string }[] = [
   { valor: "necesidades_empresa", etiqueta: "Necesidades de la empresa (art. 161)" },
@@ -82,7 +65,7 @@ export default function Calculadora() {
   const [premium, setPremium] = useState(false);
   const [notaPremium, setNotaPremium] = useState(false);
 
-  useEffect(() => { setUsados(leerUsosHoy()); }, []);
+  useEffect(() => { setUsados(leerUsosHoy(CLAVE_USOS)); }, []);
 
   // Autocompleta las vacaciones según las fechas: 15 días hábiles por año cumplido
   // (estimación con holgura, asume que no tomó vacaciones). El motor suma el proporcional
@@ -127,7 +110,7 @@ export default function Calculadora() {
         diasTrabajadosImpagos: impagos,
       });
       setResultado(r);
-      setUsados(registrarUso());
+      setUsados(registrarUso(CLAVE_USOS));
     } catch (err) {
       setResultado(null);
       setError(err instanceof Error ? err.message : "Revisa los datos ingresados.");

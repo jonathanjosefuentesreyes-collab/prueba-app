@@ -1,0 +1,41 @@
+name: CI
+
+# Check statuses en cada push y PR: tipos, lint, tests unitarios y build de producción.
+# Es la red de seguridad para que el proyecto siga mantenible y escalable en el tiempo.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 3-aplicacion
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: 3-aplicacion/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Descomprimir base de datos (la app la lee en build)
+        run: gunzip -kf data/leyes.db.gz
+
+      - name: Tipos (tsc)
+        run: npm run typecheck
+
+      - name: Lint (ESLint)
+        run: npm run lint
+
+      - name: Tests unitarios (Vitest)
+        run: npm test
+
+      - name: Build de producción
+        run: npm run build

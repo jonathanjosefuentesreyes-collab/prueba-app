@@ -19,7 +19,7 @@ export default function QuienesSomos() {
         <p>
           Por eso construimos una biblioteca con las normas vigentes descargadas de la
           fuente oficial (Biblioteca del Congreso Nacional), un buscador que entiende cómo
-          habla la gente ("me echaron sin aviso"), una calculadora de finiquito que muestra
+          habla la gente («me echaron sin aviso»), una calculadora de finiquito que muestra
           cada fórmula con su artículo, y AbogaBot: un asistente que responde en simple y
           <strong> siempre cita los artículos reales</strong> en que se basa — si no tiene
           la respuesta en la ley, te lo dice honestamente.

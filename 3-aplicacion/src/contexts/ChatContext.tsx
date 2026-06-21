@@ -97,7 +97,6 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   return <Ctx.Provider value={ctx}>{children}</Ctx.Provider>;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useChat() {
   const ctx = useContext(Ctx);
   if (!ctx) throw new Error("useChat debe usarse dentro de ChatProvider");

@@ -10,29 +10,14 @@ import {
   type ResultadoSueldo,
 } from "@/lib/sueldo";
 import GuiasRelacionadas from "@/components/GuiasRelacionadas";
+import { leerUsosHoy, registrarUso } from "@/lib/limiteDiario";
 import valores from "@/lib/valores.json";
 
 const clp = (n: number) => "$" + Math.round(n).toLocaleString("es-CL");
 
-// Límite freemium: 1 cálculo gratis por día (localStorage propio), igual que las demás.
+// Límite freemium: 1 cálculo gratis por día (helper compartido en lib/limiteDiario).
 const MAX_CALC_DIA = 1;
 const CLAVE_USOS = "calc_sueldo_usos";
-function leerUsosHoy(): number {
-  try {
-    const raw = JSON.parse(localStorage.getItem(CLAVE_USOS) || "{}");
-    return raw.dia === new Date().toISOString().slice(0, 10) ? raw.n || 0 : 0;
-  } catch {
-    return 0;
-  }
-}
-function registrarUso(): number {
-  const dia = new Date().toISOString().slice(0, 10);
-  const n = leerUsosHoy() + 1;
-  try {
-    localStorage.setItem(CLAVE_USOS, JSON.stringify({ dia, n }));
-  } catch {}
-  return n;
-}
 
 export default function SueldoLiquido() {
   const [modo, setModo] = useState<"bruto" | "liquido">("bruto");
@@ -45,14 +30,14 @@ export default function SueldoLiquido() {
   const [notaPremium, setNotaPremium] = useState(false);
   const [res, setRes] = useState<ResultadoSueldo | null>(null);
 
-  useEffect(() => { setUsados(leerUsosHoy()); }, []);
+  useEffect(() => { setUsados(leerUsosHoy(CLAVE_USOS)); }, []);
   const sinCalculosHoy = usados >= MAX_CALC_DIA;
 
   function calcular() {
     if (sinCalculosHoy) { setPremium(true); return; }
     const p = { afpComision: afpCom, salud: saludPct, valorUF: valores.uf, valorUTM: valores.utm };
     setRes(modo === "bruto" ? sueldoDesdeBruto(monto, p) : sueldoDesdeLiquido(monto, p));
-    setUsados(registrarUso());
+    setUsados(registrarUso(CLAVE_USOS));
   }
 
   return (

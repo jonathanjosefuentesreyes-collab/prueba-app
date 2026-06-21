@@ -10,30 +10,15 @@ import {
   IVA,
 } from "@/lib/facturacion";
 import GuiasRelacionadas from "@/components/GuiasRelacionadas";
+import { leerUsosHoy, registrarUso } from "@/lib/limiteDiario";
 
 const clp = (n: number) => "$" + Math.round(n).toLocaleString("es-CL");
 const ANIOS = Object.keys(RETENCION_POR_ANIO).map(Number).sort();
 const ANIO_DEF = Math.min(Math.max(new Date().getFullYear(), ANIOS[0]), ANIOS[ANIOS.length - 1]);
 
-// Límite freemium: 1 cálculo gratis por día (localStorage), igual que las demás herramientas.
+// Límite freemium: 1 cálculo gratis por día (helper compartido en lib/limiteDiario).
 const MAX_CALC_DIA = 1;
 const CLAVE_USOS = "calc_facturacion_usos";
-function leerUsosHoy(): number {
-  try {
-    const raw = JSON.parse(localStorage.getItem(CLAVE_USOS) || "{}");
-    return raw.dia === new Date().toISOString().slice(0, 10) ? raw.n || 0 : 0;
-  } catch {
-    return 0;
-  }
-}
-function registrarUso(): number {
-  const dia = new Date().toISOString().slice(0, 10);
-  const n = leerUsosHoy() + 1;
-  try {
-    localStorage.setItem(CLAVE_USOS, JSON.stringify({ dia, n }));
-  } catch {}
-  return n;
-}
 
 type ResHon = ReturnType<typeof boletaHonorarios> & { tasa: number };
 type ResIva = ReturnType<typeof calcularIVA>;
@@ -55,18 +40,18 @@ export default function Facturacion() {
   const [resH, setResH] = useState<ResHon | null>(null);
   const [resI, setResI] = useState<ResIva | null>(null);
 
-  useEffect(() => { setUsados(leerUsosHoy()); }, []);
+  useEffect(() => { setUsados(leerUsosHoy(CLAVE_USOS)); }, []);
   const sinCalculosHoy = usados >= MAX_CALC_DIA;
 
   function calcularHon() {
     if (sinCalculosHoy) { setPremium(true); return; }
     setResH({ ...boletaHonorarios(montoH, tasa, modoH), tasa });
-    setUsados(registrarUso());
+    setUsados(registrarUso(CLAVE_USOS));
   }
   function calcularIva() {
     if (sinCalculosHoy) { setPremium(true); return; }
     setResI(calcularIVA(montoI, modoI));
-    setUsados(registrarUso());
+    setUsados(registrarUso(CLAVE_USOS));
   }
 
   const avisoUso = (

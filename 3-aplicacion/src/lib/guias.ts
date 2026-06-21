@@ -3962,6 +3962,393 @@ El acreedor debe ir a un **juicio**: con sentencia, se ordena el **embargo** de 
           "Reclámalo en el tribunal del juicio: puedes pedir que se excluya del embargo el bien inembargable (parte del sueldo, herramientas de trabajo, artículos esenciales del hogar).",
       },
     ],
+  },
+  {
+    slug: "no-pueden-negarte-la-venta-ni-condicionarla",
+    titulo: "¿Pueden negarme la venta o condicionarla? Tus derechos",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "No pueden negarte la venta injustificadamente | Ley Chilena",
+    descripcion:
+      "Un proveedor no puede negarte injustificadamente la venta de un producto o servicio disponible. Qué dice la Ley del Consumidor y qué hacer si te discriminan o condicionan.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Los proveedores **no pueden negar injustificadamente** la venta de bienes o la prestación de servicios que tengan disponibles ([artículo 13 de la Ley 19.496](/leyes/1160403?art=138530)). Tampoco pueden **condicionar** la venta a comprar otra cosa o discriminar sin razón. Si te niegan la atención teniendo stock, puedes reclamar en el SERNAC.",
+    contenido: `
+## La regla: no te pueden negar la venta sin razón
+La Ley del Consumidor lo dice claro: el proveedor **no puede negar injustificadamente** la venta de un bien o la prestación de un servicio que ofrece y tiene disponible ([artículo 13 de la Ley 19.496](/leyes/1160403?art=138530)). Si está en stock y a la venta, deben vendértelo.
+
+## ¿Qué cuenta como negativa injustificada?
+- No venderte un producto que **está en góndola** o publicado, sin motivo válido.
+- **Discriminarte** (por apariencia, origen u otra razón arbitraria).
+- **Condicionar** la venta a que compres **otra cosa** ("solo si llevas también esto").
+- Poner trabas que no aplican a otros clientes.
+
+> Sí pueden negarse por motivos **legítimos**: falta de stock real, que el producto sea para mayores de edad, riesgo de seguridad, etc.
+
+## ¿Qué puedes exigir?
+- Que te **vendan** en igualdad de condiciones.
+- Si hubo discriminación o daño, la **sanción** e **indemnización** que corresponda.
+
+## ¿Qué hacer?
+1. Pide hablar con el **encargado** y que te expliquen el motivo.
+2. Deja **constancia** (testigos, fecha, lo que te dijeron).
+3. Si la negativa es injustificada, reclama en el **SERNAC** (sernac.cl).
+4. Puedes demandar en el **Juzgado de Policía Local**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Pueden negarme la venta de un producto disponible?",
+        respuesta:
+          "No injustificadamente. El proveedor no puede negar la venta de un bien o servicio que tiene disponible (artículo 13 de la Ley 19.496), salvo motivos legítimos como falta de stock o restricciones legales del producto.",
+      },
+      {
+        pregunta: "¿Pueden condicionar la venta a comprar otra cosa?",
+        respuesta:
+          "No. Condicionar la venta de un producto a la compra de otro es una práctica que la ley no permite. Puedes exigir la venta del producto que quieres en igualdad de condiciones.",
+      },
+      {
+        pregunta: "¿Y si me discriminan al atenderme?",
+        respuesta:
+          "La discriminación arbitraria en la atención puede dar lugar a sanción e indemnización. Deja constancia de lo ocurrido y reclama en el SERNAC o en el Juzgado de Policía Local.",
+      },
+      {
+        pregunta: "¿Cuándo sí pueden negarse a venderme?",
+        respuesta:
+          "Por motivos legítimos: falta de stock real, productos con restricción de edad o por seguridad, entre otros. La negativa debe ser justificada, no arbitraria.",
+      },
+    ],
+  },
+  {
+    slug: "contrato-de-adhesion-letra-legible-y-copia",
+    titulo: "Contrato de adhesión: tu derecho a letra legible y a una copia",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Contrato de adhesión: letra legible y copia | Ley Chilena",
+    descripcion:
+      "Los contratos de adhesión (los que firmas sin negociar) deben estar en español, con letra legible y entregándote una copia. Qué exige la Ley del Consumidor.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Los **contratos de adhesión** (los que te dan ya redactados, sin que puedas negociar) tienen reglas de forma: deben estar redactados de manera **legible** y entregarte una **copia** ([artículo 17 de la Ley 19.496](/leyes/1160403?art=138541)). Una cláusula en letra ilegible o un contrato del que no te dan copia incumple la ley y puede reclamarse.",
+    contenido: `
+## ¿Qué es un contrato de adhesión?
+Es el contrato **predispuesto** por la empresa, que tú solo **aceptas o rechazas** sin poder negociar sus cláusulas (créditos, telefonía, seguros, gimnasios, etc.). Justamente porque no lo negocias, la ley exige **requisitos de forma** para protegerte.
+
+## Tus derechos de forma
+Según el [artículo 17 de la Ley 19.496](/leyes/1160403?art=138541), el contrato de adhesión debe:
+- Estar redactado de forma **legible** y comprensible (no letra chica imposible de leer).
+- Entregarte una **copia** del contrato firmado.
+- Estar en **español** (la información comercial básica debe entregarse en idioma español, art. 32).
+
+Si una cláusula está en condiciones que **no permiten leerla**, no produce efecto.
+
+## ¿Por qué importa?
+Porque muchas veces los problemas (cobros, renovaciones automáticas, penalidades) están escondidos en cláusulas que **no se entienden** o que el consumidor **nunca recibió**. Tener la copia y exigir legibilidad te protege.
+
+## ¿Qué hacer?
+1. **Exige una copia** del contrato que firmaste (es tu derecho).
+2. Si hay **letra ilegible** o cláusulas incomprensibles, déjalo por escrito.
+3. Guarda el contrato; te servirá ante cualquier cobro o conflicto.
+4. Si te niegan la copia o el contrato es ilegible, reclama en el **SERNAC** (sernac.cl).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Tengo derecho a una copia del contrato que firmé?",
+        respuesta:
+          "Sí. En los contratos de adhesión, el proveedor debe entregarte una copia del contrato (artículo 17 de la Ley 19.496). Exígela: te protege ante cobros y conflictos.",
+      },
+      {
+        pregunta: "¿Vale una cláusula en letra ilegible?",
+        respuesta:
+          "El contrato debe ser legible. Una cláusula redactada en condiciones que no permiten leerla o entenderla puede no producir efecto. Conviene reclamar y conservar el contrato.",
+      },
+      {
+        pregunta: "¿El contrato debe estar en español?",
+        respuesta:
+          "Sí. La información básica comercial debe entregarse en idioma español (artículo 32 de la Ley 19.496), de forma clara y comprensible para el consumidor.",
+      },
+      {
+        pregunta: "¿Dónde reclamo si no me dan copia o es ilegible?",
+        respuesta:
+          "En el SERNAC (sernac.cl). Guarda evidencia (fotos del contrato, correos) y, si corresponde, demanda en el Juzgado de Policía Local.",
+      },
+    ],
+  },
+  {
+    slug: "negligencia-del-proveedor-responde-por-los-danos",
+    titulo: "Negligencia del proveedor: ¿responde por los daños que me causó?",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Negligencia del proveedor y daños | Ley Chilena",
+    descripcion:
+      "Si por negligencia del proveedor en la venta de un producto o servicio sufres un daño, la Ley del Consumidor lo hace responder. Qué puedes exigir y cómo.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Comete infracción el proveedor que, en la venta de un bien o la prestación de un servicio, actúa con **negligencia** y causa **menoscabo** al consumidor por deficiencias en la calidad, cantidad, seguridad o aptitud del producto ([artículo 23 de la Ley 19.496](/leyes/1160403?art=138560)). Si te dañó por su descuido, puedes exigir la **reparación del perjuicio**, además de las sanciones.",
+    contenido: `
+## La responsabilidad por negligencia
+La Ley del Consumidor no solo cubre el cambio o la devolución: también responsabiliza al proveedor que, **actuando con negligencia**, causa un **menoscabo** al consumidor por deficiencias en la **calidad, cantidad, identidad, sustancia, seguridad o aptitud** del bien o servicio ([artículo 23 de la Ley 19.496](/leyes/1160403?art=138560)).
+
+## Ejemplos
+- Un producto que, por mal estado, te causa un **daño** (alimento en mal estado, aparato que falla y provoca un perjuicio).
+- Un servicio prestado con **descuido** que te genera pérdidas.
+- Información o seguridad deficiente que termina en un **daño** real.
+
+## ¿Qué puedes exigir?
+- La **reparación del perjuicio** sufrido (daño material y, según el caso, moral).
+- Las **sanciones** que aplique el tribunal por la infracción.
+- Y, si corresponde, la **garantía legal** (cambio, reparación o devolución) por la falla.
+
+## ¿Qué hacer?
+1. **Documenta el daño**: fotos, boletas, informes médicos o técnicos, testigos.
+2. Reclama por **escrito** al proveedor.
+3. Si no resuelve, presenta el **reclamo en el SERNAC** (sernac.cl).
+4. Para la indemnización, demanda en el **Juzgado de Policía Local**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿El proveedor responde si su negligencia me causó un daño?",
+        respuesta:
+          "Sí. Comete infracción el proveedor que con negligencia causa menoscabo al consumidor por deficiencias en la calidad, seguridad o aptitud del producto o servicio (artículo 23 de la Ley 19.496). Puedes exigir la reparación del perjuicio.",
+      },
+      {
+        pregunta: "¿Puedo pedir indemnización además del cambio?",
+        respuesta:
+          "Sí. La garantía legal (cambio, reparación o devolución) es independiente de la indemnización de los perjuicios que la negligencia te haya causado. Puedes reclamar ambas cosas.",
+      },
+      {
+        pregunta: "¿Qué pruebas necesito?",
+        respuesta:
+          "Documenta el daño y su origen: fotos, boletas, informes médicos o técnicos y testigos. Esa evidencia respalda tu reclamo en el SERNAC y tu demanda por indemnización.",
+      },
+      {
+        pregunta: "¿Dónde demando la indemnización?",
+        respuesta:
+          "En el Juzgado de Policía Local, que conoce las infracciones a la Ley del Consumidor y puede ordenar la indemnización de los perjuicios además de sancionar al proveedor.",
+      },
+    ],
+  },
+  {
+    slug: "informacion-en-espanol-y-rotulado-de-productos",
+    titulo: "Información en español y rotulado: ¿qué deben informarte del producto?",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Información comercial en español y rotulado | Ley Chilena",
+    descripcion:
+      "La información básica de un producto o servicio debe entregarse en español y de forma clara. Qué te deben informar (precio, condiciones, características) según la Ley del Consumidor.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "La **información básica comercial** de los productos y servicios debe entregarse en **idioma español**, de forma clara y comprensible ([artículo 32 de la Ley 19.496](/leyes/1160403?art=138574)). Eso incluye el **precio, las características, las condiciones de contratación, la garantía y las instrucciones**. Si te venden algo sin información en español o engañosa, puedes reclamar.",
+    contenido: `
+## Tu derecho a estar informado
+Antes de comprar, tienes derecho a saber **qué estás comprando y en qué condiciones**. Por eso la ley exige que la **información básica comercial** de los productos y servicios se entregue en **idioma español**, de manera clara y comprensible ([artículo 32 de la Ley 19.496](/leyes/1160403?art=138574)).
+
+## ¿Qué información te deben dar?
+- El **precio** y la forma de pago.
+- Las **características** del producto o servicio.
+- Las **condiciones de contratación** (plazos, vigencia, restricciones).
+- La **garantía** y el **rotulado** (instrucciones de uso, advertencias, contenido).
+
+En productos importados, las **instrucciones y advertencias** relevantes deben estar en español.
+
+## ¿Por qué importa?
+Porque comprar sin información clara te expone a errores y abusos: no saber el precio real, las condiciones de un contrato o cómo usar un producto de forma segura. La información veraz y en español es un **derecho del consumidor**.
+
+## ¿Qué hacer?
+1. Exige la **información en español**, sobre todo en productos importados.
+2. Si la información fue **falsa o no la entregaron**, guarda evidencia (foto, empaque, publicidad).
+3. Reclama en el **SERNAC** (sernac.cl) si te indujeron a error.
+4. Puedes demandar en el **Juzgado de Policía Local**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿La información del producto debe estar en español?",
+        respuesta:
+          "Sí. La información básica comercial de productos y servicios debe entregarse en idioma español, de forma clara y comprensible (artículo 32 de la Ley 19.496), incluidas instrucciones y advertencias.",
+      },
+      {
+        pregunta: "¿Qué información me deben dar antes de comprar?",
+        respuesta:
+          "El precio, las características, las condiciones de contratación, la garantía y el rotulado o instrucciones de uso. Todo de manera veraz y comprensible.",
+      },
+      {
+        pregunta: "Compré algo importado sin instrucciones en español, ¿qué hago?",
+        respuesta:
+          "Puedes reclamar: las instrucciones y advertencias relevantes deben estar en español. Guarda el empaque como evidencia y reclama en el SERNAC.",
+      },
+      {
+        pregunta: "¿Y si la información era falsa?",
+        respuesta:
+          "Si te indujeron a error con información falsa, además de esta norma puede haber publicidad engañosa. Reclama en el SERNAC y, para indemnización, en el Juzgado de Policía Local.",
+      },
+    ],
+  },
+  {
+    slug: "servidumbre-de-transito-acceso-a-un-predio-sin-salida",
+    titulo: "Servidumbre de tránsito: acceso a un terreno sin salida",
+    categoria: "vivienda",
+    destacada: false,
+    metaTitle: "Servidumbre de tránsito: derecho de paso | Ley Chilena",
+    descripcion:
+      "Si tu terreno no tiene salida al camino público, tienes derecho a exigir un paso por el predio vecino (servidumbre de tránsito), pagando la indemnización. Cómo funciona.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Si un terreno está **sin comunicación con el camino público** por estar rodeado de otros predios, su dueño tiene **derecho a exigir paso** por los predios vecinos para acceder a él, pagando la **indemnización** correspondiente ([artículo 847 del Código Civil](/leyes/172986?art=1033)). Es la **servidumbre legal de tránsito**: el vecino no puede dejarte sin acceso.",
+    contenido: `
+## El problema: un terreno sin salida
+A veces un predio queda **rodeado** por otros y **sin acceso** al camino público. La ley resuelve esto: el dueño del terreno encerrado tiene derecho a **exigir un paso** por los predios vecinos ([artículo 847 del Código Civil](/leyes/172986?art=1033)). Es la **servidumbre de tránsito**.
+
+## ¿Cómo funciona?
+- El predio **sin salida** (predio dominante) puede exigir paso por el **predio vecino** (predio sirviente).
+- Se debe **pagar una indemnización** al vecino por el paso y los perjuicios.
+- El paso debe fijarse por el lugar **menos perjudicial** para el predio que lo soporta.
+
+Si no hay acuerdo, lo fija el **juez**, que determina el trazado y la indemnización.
+
+## ¿Y si ya teníamos un acuerdo?
+Las servidumbres pueden ser **voluntarias** (pactadas, idealmente por escritura inscrita) o **legales** (impuestas por la ley, como esta de tránsito). Conviene **dejarla por escrito e inscrita** en el Conservador de Bienes Raíces para que conste.
+
+## ¿Qué hacer?
+1. Verifica si tu predio realmente **carece de acceso** al camino público.
+2. Intenta un **acuerdo** con el vecino (trazado e indemnización) y formalízalo por escritura.
+3. Si no hay acuerdo, pide al **tribunal** que constituya la servidumbre de tránsito.
+4. Inscríbela en el **Conservador de Bienes Raíces**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "Mi terreno no tiene salida, ¿pueden dejarme sin acceso?",
+        respuesta:
+          "No. Si tu predio está sin comunicación con el camino público, tienes derecho a exigir paso por los predios vecinos, pagando la indemnización (artículo 847 del Código Civil). Es la servidumbre de tránsito.",
+      },
+      {
+        pregunta: "¿Tengo que pagarle al vecino por el paso?",
+        respuesta:
+          "Sí. La servidumbre de tránsito se establece pagando una indemnización al dueño del predio que soporta el paso, por el uso y los perjuicios. El paso debe fijarse por el lugar menos dañino.",
+      },
+      {
+        pregunta: "¿Quién decide por dónde pasa la servidumbre?",
+        respuesta:
+          "Idealmente las partes de común acuerdo. Si no hay acuerdo, lo resuelve el juez, fijando el trazado menos perjudicial y la indemnización que corresponde.",
+      },
+      {
+        pregunta: "¿Conviene inscribir la servidumbre?",
+        respuesta:
+          "Sí. Dejarla por escritura pública e inscrita en el Conservador de Bienes Raíces le da certeza y la hace oponible a futuros dueños del predio.",
+      },
+    ],
+  },
+  {
+    slug: "cerco-y-deslinde-con-el-vecino",
+    titulo: "Cercos y deslindes con el vecino: ¿quién paga y dónde va el límite?",
+    categoria: "vivienda",
+    destacada: false,
+    metaTitle: "Cercos y deslindes con el vecino | Ley Chilena",
+    descripcion:
+      "Tienes derecho a cerrar tu terreno y, en los límites con el vecino, a compartir el cerco. Cómo funcionan el cerramiento y los deslindes, según el Código Civil.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Todo dueño tiene **derecho a cerrar o cercar su terreno** por todas partes ([artículo 844 del Código Civil](/leyes/172986?art=1030)). En el **límite con el vecino**, el cerco divisorio puede ser **medianero** (compartido) y, en ese caso, los costos de construirlo y mantenerlo se reparten. Para fijar el **deslinde** exacto, se puede pedir la demarcación.",
+    contenido: `
+## Tu derecho a cerrar tu terreno
+La ley reconoce que el dueño de un predio puede **cerrarlo o cercarlo** por todos sus lados (con muros, rejas, setos), como expresión de su propiedad ([artículo 844 del Código Civil](/leyes/172986?art=1030)).
+
+## El cerco con el vecino (medianería)
+Cuando el cerco está **en el límite** entre dos predios, puede ser **medianero**: pertenece a ambos vecinos. En ese caso:
+- Los **costos** de construirlo y mantenerlo se **reparten** entre los dueños colindantes.
+- Ninguno puede destruirlo o usarlo en perjuicio del otro sin acuerdo.
+
+## El deslinde (dónde va el límite)
+Si no está claro **por dónde pasa el límite** entre tu terreno y el del vecino, puedes pedir la **demarcación**: fijar y marcar el deslinde, con planos y, si es necesario, un perito. Esto evita conflictos por metros, cercos corridos o construcciones que invaden.
+
+## ¿Qué hacer?
+1. Para cercar, respeta el **deslinde real** (no invadas el predio vecino).
+2. Si el cerco es **compartido**, acuerda con el vecino el reparto de costos.
+3. Si hay **duda del límite**, revisa los **títulos y planos** y pide la demarcación.
+4. Ante conflicto, asesórate (un abogado o la **Corporación de Asistencia Judicial**, gratis).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Puedo cerrar mi terreno con reja o muro?",
+        respuesta:
+          "Sí. El dueño tiene derecho a cerrar o cercar su predio por todas partes (artículo 844 del Código Civil), respetando el deslinde con el vecino y las normas municipales de construcción.",
+      },
+      {
+        pregunta: "¿Quién paga el cerco entre dos casas?",
+        respuesta:
+          "Si el cerco es medianero (en el límite y compartido), los costos de construirlo y mantenerlo se reparten entre los dueños colindantes. Conviene acordarlo por escrito.",
+      },
+      {
+        pregunta: "No sabemos dónde está el límite exacto, ¿qué hacemos?",
+        respuesta:
+          "Pueden pedir la demarcación del deslinde: revisar títulos y planos y, si es necesario, un perito que fije y marque el límite. Así se evitan conflictos por invasiones o cercos corridos.",
+      },
+      {
+        pregunta: "El vecino corrió el cerco hacia mi terreno, ¿qué hago?",
+        respuesta:
+          "Revisa tus títulos y planos; si invadió tu propiedad, puedes exigir que se restituya el deslinde correcto. Si no hay acuerdo, el tribunal puede ordenar la demarcación y la restitución.",
+      },
+    ],
+  },
+  {
+    slug: "comodato-prestar-una-propiedad-o-cosa-gratis",
+    titulo: "Comodato: prestar gratis una casa o una cosa, ¿cómo me protejo?",
+    categoria: "vivienda",
+    destacada: false,
+    metaTitle: "Comodato: préstamo de uso gratuito | Ley Chilena",
+    descripcion:
+      "Prestar gratis una propiedad o una cosa es un comodato. Qué obligaciones tiene quien la recibe y cómo recuperarla, según el Código Civil. Conviene dejarlo por escrito.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "El **comodato** o préstamo de uso es el contrato en que una persona entrega **gratuitamente** una cosa para que otra la use y luego la devuelva ([artículo 2174 del Código Civil](/leyes/172986?art=2387)). Quien la recibe debe **cuidarla y devolverla**; no se vuelve dueño. Prestar una casa a un familiar es un comodato: conviene dejarlo por escrito para poder **recuperarla** sin problemas.",
+    contenido: `
+## ¿Qué es el comodato?
+Es el **préstamo de uso gratuito**: una parte (comodante) entrega una cosa —una casa, un auto, una herramienta— para que la otra (comodatario) la **use sin pagar** y después la **devuelva** ([artículo 2174 del Código Civil](/leyes/172986?art=2387)). Es **gratuito**: si se paga, ya no es comodato (sería arriendo).
+
+## ¿Qué obligaciones tiene quien recibe la cosa?
+- **Usarla** solo para lo acordado (o su uso natural).
+- **Cuidarla** como un buen padre de familia y responder por los daños por su culpa.
+- **Devolverla** cuando se acabe el uso o el plazo, o cuando el dueño la pida según lo pactado.
+
+Importante: quien recibe en comodato **no se hace dueño**; solo tiene el uso temporal.
+
+## Prestar una casa a un familiar
+Es muy común "prestar" una casa a un hijo o pariente. Eso es un **comodato**. El riesgo: si no quedó **por escrito**, puede ser difícil pedir la devolución cuando la necesitas. Por eso conviene un **contrato de comodato** simple que diga qué se presta, por cuánto tiempo y cómo se devuelve.
+
+## ¿Qué hacer?
+1. Deja el comodato **por escrito** (qué cosa, plazo o condición, estado en que se entrega).
+2. Si prestas una **propiedad**, define cuándo y cómo la recuperas.
+3. Guarda **fotos del estado** al entregar y al devolver.
+4. Si no te la devuelven, puedes **exigir la restitución** (es tuya, no del que la usa).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Prestar una casa gratis es un contrato?",
+        respuesta:
+          "Sí, es un comodato o préstamo de uso (artículo 2174 del Código Civil): entregas gratis una cosa para que otro la use y la devuelva. Conviene dejarlo por escrito para poder recuperarla.",
+      },
+      {
+        pregunta: "¿Quien recibe la casa en comodato se vuelve dueño?",
+        respuesta:
+          "No. El comodatario solo tiene el uso temporal y gratuito; no se hace dueño. Debe cuidar la cosa y devolverla cuando corresponda según lo pactado.",
+      },
+      {
+        pregunta: "Le presté mi casa a un familiar y no me la devuelve, ¿qué hago?",
+        respuesta:
+          "Como sigues siendo dueño, puedes exigir la restitución. Tener un contrato de comodato por escrito (con plazo o condición de devolución) facilita mucho recuperarla.",
+      },
+      {
+        pregunta: "¿Si cobro algo por el préstamo sigue siendo comodato?",
+        respuesta:
+          "No. El comodato es esencialmente gratuito. Si hay un pago por el uso, el contrato pasa a ser un arrendamiento, con otras reglas.",
+      },
+    ],
   }
 ];
 

@@ -50,17 +50,9 @@
 ### Estado actual
 - Nav 5 pestañas: Leyes 📚 · Guías 💡 · Inicio 🏠 · Guardados ❤️ · Premium 👑 (`components/BottomNav.tsx`).
 - ChatBar (mascota fija + input→/chat) en TODAS las pestañas. Chat persistente PERMANENTE.
-- Guías en `src/lib/guias.ts`: **75 entradas — 15 por grupo** (Laboral·Vivienda·Familia·Consumidor·👑Deudas).
-  ⚠️ HALLAZGO AUDITORÍA 2026-06-21: hay **7 pares DUPLICADOS** (mismo tema, slug distinto) a fusionar
-  para evitar contenido duplicado (SEO). Borrar UNO de cada par (quedan 68 únicas):
-  Consumidor: garantia-legal-cambio-reparacion-devolucion ↔ ...-o-devolucion ·
-  derecho-a-retracto-arrepentirme-de-una-compra ↔ ...-arrepentirse-de-una-compra ·
-  publicidad-enganosa-que-puedo-hacer ↔ publicidad-enganosa-que-hacer ·
-  clausulas-abusivas-en-contratos ↔ clausulas-abusivas-letra-chica-que-no-vale.
-  Vivienda: arriendo-me-quieren-echar ↔ me-pueden-echar-del-arriendo-plazos-de-desahucio ·
-  quien-paga-las-reparaciones-del-arriendo ↔ reparaciones-en-el-arriendo-quien-paga ·
-  puedo-subarrendar-la-propiedad-que-arriendo ↔ puedo-subarrendar-mi-arriendo.
-  (Tras fusionar, agregar el tema faltante para volver a 15 limpias por grupo si se desea.)
+- Guías en `src/lib/guias.ts`: **75 ÚNICAS — ✅ 15 por grupo** (Laboral·Vivienda·Familia·Consumidor·👑Deudas).
+  (2026-06-21: se detectaron y ELIMINARON 7 pares duplicados, y se repusieron con temas nuevos
+  distintos hasta dejar 15 únicas por grupo. Todas con citas verificadas contra la base.)
   norma_id verificados (para futuras guías): Ley 19.496 (1160403) 16→138537 (cláusulas abusivas),
   20→138557 (garantía triple opción), 21→138558 (6 meses), 28→138568 (publicidad engañosa),
   3bis→138512 (retracto); Ley 18.101 Arriendo **29526** (3→9607 desahucio, 4→9608 restitución);

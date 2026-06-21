@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   boletaHonorarios,
@@ -15,6 +15,30 @@ const ANIOS = Object.keys(RETENCION_POR_ANIO).map(Number).sort();
 // Año por defecto = el actual, acotado a los años con tasa conocida (rueda solo cada año).
 const ANIO_DEF = Math.min(Math.max(new Date().getFullYear(), ANIOS[0]), ANIOS[ANIOS.length - 1]);
 
+// Límite freemium: 1 cálculo gratis por día (localStorage), igual que el finiquito. El
+// resultado aparece al presionar "Calcular"; más cálculos quedan para Premium.
+const MAX_CALC_DIA = 1;
+const CLAVE_USOS = "calc_facturacion_usos";
+function leerUsosHoy(): number {
+  try {
+    const raw = JSON.parse(localStorage.getItem(CLAVE_USOS) || "{}");
+    return raw.dia === new Date().toISOString().slice(0, 10) ? raw.n || 0 : 0;
+  } catch {
+    return 0;
+  }
+}
+function registrarUso(): number {
+  const dia = new Date().toISOString().slice(0, 10);
+  const n = leerUsosHoy() + 1;
+  try {
+    localStorage.setItem(CLAVE_USOS, JSON.stringify({ dia, n }));
+  } catch {}
+  return n;
+}
+
+type ResHon = ReturnType<typeof boletaHonorarios> & { tasa: number };
+type ResIva = ReturnType<typeof calcularIVA>;
+
 export default function Facturacion() {
   const [tab, setTab] = useState<"honorarios" | "iva">("honorarios");
 
@@ -23,12 +47,50 @@ export default function Facturacion() {
   const [tasa, setTasa] = useState(retencionDefault(ANIO_DEF));
   const [modoH, setModoH] = useState<"bruto" | "liquido">("bruto");
   const [montoH, setMontoH] = useState(500000);
-  const h = boletaHonorarios(montoH, tasa, modoH);
 
   // IVA
   const [modoI, setModoI] = useState<"neto" | "total">("neto");
   const [montoI, setMontoI] = useState(100000);
-  const iva = calcularIVA(montoI, modoI);
+
+  // Freemium + resultados (snapshot tras "Calcular", no en vivo)
+  const [usados, setUsados] = useState(0);
+  const [premium, setPremium] = useState(false);
+  const [notaPremium, setNotaPremium] = useState(false);
+  const [resH, setResH] = useState<ResHon | null>(null);
+  const [resI, setResI] = useState<ResIva | null>(null);
+
+  useEffect(() => { setUsados(leerUsosHoy()); }, []);
+  const sinCalculosHoy = usados >= MAX_CALC_DIA;
+
+  function calcularHon() {
+    if (sinCalculosHoy) { setPremium(true); return; }
+    setResH({ ...boletaHonorarios(montoH, tasa, modoH), tasa });
+    setUsados(registrarUso());
+  }
+  function calcularIva() {
+    if (sinCalculosHoy) { setPremium(true); return; }
+    setResI(calcularIVA(montoI, modoI));
+    setUsados(registrarUso());
+  }
+
+  const avisoUso = (
+    <p style={{ margin: "10px 0 0", textAlign: "center", fontSize: 12, fontWeight: 600, color: sinCalculosHoy ? "var(--rojo)" : "var(--texto-suave)" }}>
+      {sinCalculosHoy ? "Usaste tu cálculo gratis de hoy · ✨ Premium para más" : "Tienes 1 cálculo de facturación gratis hoy"}
+    </p>
+  );
+
+  const bloquePremium = premium && (
+    <div className="tarjeta" style={{ marginTop: 14, textAlign: "center" }}>
+      <p style={{ margin: "0 0 4px", fontWeight: 700 }}>Llegaste a tu cálculo gratis de hoy 🙂</p>
+      <p className="nota" style={{ margin: "0 0 12px" }}>
+        Con <strong>Premium</strong> calculas boletas e IVA sin límite. Tu cálculo gratis se renueva mañana.
+      </p>
+      <button className="boton-premium" onClick={() => setNotaPremium(true)}>✨ Actualizar a Premium</button>
+      {notaPremium && (
+        <p className="nota" style={{ marginTop: 10 }}>🚧 Los planes Premium están en preparación. ¡Gracias por tu interés!</p>
+      )}
+    </div>
+  );
 
   return (
     <main style={{ paddingBottom: 80 }}>
@@ -68,16 +130,21 @@ export default function Facturacion() {
               <label className="etiqueta" htmlFor="montoH">{modoH === "bruto" ? "Monto bruto de la boleta (CLP)" : "Líquido que quieres recibir (CLP)"}</label>
               <input id="montoH" className="campo" type="number" min={0} step={1000} value={montoH} onChange={(e) => setMontoH(+e.target.value)} />
             </div>
+            <button className="boton" type="button" onClick={calcularHon}>Calcular boleta</button>
+            {avisoUso}
           </div>
 
-          <div className="tarjeta" style={{ marginTop: 12 }}>
-            <Fila etiqueta="Monto bruto (boleta)" valor={clp(h.bruto)} />
-            <Fila etiqueta={`Retención (${tasa}%)`} valor={"– " + clp(h.retencion)} />
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", paddingTop: 12 }}>
-              <strong>Líquido a recibir</strong>
-              <span style={{ fontSize: 24, fontWeight: 800, color: "var(--azul)" }}>{clp(h.liquido)}</span>
+          {resH && (
+            <div className="tarjeta" style={{ marginTop: 12 }}>
+              <Fila etiqueta="Monto bruto (boleta)" valor={clp(resH.bruto)} />
+              <Fila etiqueta={`Retención (${resH.tasa}%)`} valor={"– " + clp(resH.retencion)} />
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", paddingTop: 12 }}>
+                <strong>Líquido a recibir</strong>
+                <span style={{ fontSize: 24, fontWeight: 800, color: "var(--azul)" }}>{clp(resH.liquido)}</span>
+              </div>
             </div>
-          </div>
+          )}
+          {bloquePremium}
           <p className="nota" style={{ marginTop: 10, lineHeight: 1.5 }}>
             La retención es un <strong>pago provisional</strong> de impuesto (PPM) que la empresa entera al SII; suele
             devolverse o abonarse en tu <strong>declaración de renta anual</strong> (abril). Verifica la tasa vigente de tu año en{" "}
@@ -97,16 +164,21 @@ export default function Facturacion() {
               <label className="etiqueta" htmlFor="montoI">{modoI === "neto" ? "Monto neto (CLP)" : "Monto total con IVA (CLP)"}</label>
               <input id="montoI" className="campo" type="number" min={0} step={1000} value={montoI} onChange={(e) => setMontoI(+e.target.value)} />
             </div>
+            <button className="boton" type="button" onClick={calcularIva}>Calcular IVA</button>
+            {avisoUso}
           </div>
 
-          <div className="tarjeta" style={{ marginTop: 12 }}>
-            <Fila etiqueta="Neto" valor={clp(iva.neto)} />
-            <Fila etiqueta={`IVA (${IVA}%)`} valor={clp(iva.iva)} />
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", paddingTop: 12 }}>
-              <strong>Total con IVA</strong>
-              <span style={{ fontSize: 24, fontWeight: 800, color: "var(--azul)" }}>{clp(iva.total)}</span>
+          {resI && (
+            <div className="tarjeta" style={{ marginTop: 12 }}>
+              <Fila etiqueta="Neto" valor={clp(resI.neto)} />
+              <Fila etiqueta={`IVA (${IVA}%)`} valor={clp(resI.iva)} />
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", paddingTop: 12 }}>
+                <strong>Total con IVA</strong>
+                <span style={{ fontSize: 24, fontWeight: 800, color: "var(--azul)" }}>{clp(resI.total)}</span>
+              </div>
             </div>
-          </div>
+          )}
+          {bloquePremium}
           <p className="nota" style={{ marginTop: 10, lineHeight: 1.5 }}>
             El IVA general en Chile es <strong>19%</strong> (DL 825). Lo agregas al neto en tus facturas afectas; si emites
             boleta/factura exenta no corresponde. Para casos especiales, consulta en{" "}

@@ -9,23 +9,12 @@ import {
   RETENCION_POR_ANIO,
   IVA,
 } from "@/lib/facturacion";
-import {
-  sueldoDesdeBruto,
-  sueldoDesdeLiquido,
-  AFP_COMISION_DEF,
-  SALUD_DEF,
-  type ResultadoSueldo,
-} from "@/lib/sueldo";
-import valores from "@/lib/valores.json";
 
 const clp = (n: number) => "$" + Math.round(n).toLocaleString("es-CL");
-const num = (n: number) => Math.round(n).toLocaleString("es-CL");
 const ANIOS = Object.keys(RETENCION_POR_ANIO).map(Number).sort();
 const ANIO_DEF = Math.min(Math.max(new Date().getFullYear(), ANIOS[0]), ANIOS[ANIOS.length - 1]);
 
-// Límite freemium: 1 cálculo gratis por día (localStorage), igual que el finiquito. El
-// resultado aparece al presionar "Calcular"; más cálculos quedan para Premium. (El
-// conversor de valores queda libre: es una consulta rápida, no un cálculo gatillable.)
+// Límite freemium: 1 cálculo gratis por día (localStorage), igual que las demás herramientas.
 const MAX_CALC_DIA = 1;
 const CLAVE_USOS = "calc_facturacion_usos";
 function leerUsosHoy(): number {
@@ -45,83 +34,28 @@ function registrarUso(): number {
   return n;
 }
 
-type Tab = "honorarios" | "iva" | "sueldo" | "conversor";
 type ResHon = ReturnType<typeof boletaHonorarios> & { tasa: number };
 type ResIva = ReturnType<typeof calcularIVA>;
-const TABS: { id: Tab; label: string }[] = [
-  { id: "honorarios", label: "Honorarios" },
-  { id: "iva", label: "IVA 19%" },
-  { id: "sueldo", label: "Sueldo líquido" },
-  { id: "conversor", label: "Conversor" },
-];
 
 export default function Facturacion() {
-  const [tab, setTab] = useState<Tab>("honorarios");
+  const [tab, setTab] = useState<"honorarios" | "iva">("honorarios");
 
-  // Boleta de honorarios
   const [anio, setAnio] = useState(ANIO_DEF);
   const [tasa, setTasa] = useState(retencionDefault(ANIO_DEF));
   const [modoH, setModoH] = useState<"bruto" | "liquido">("bruto");
   const [montoH, setMontoH] = useState(500000);
 
-  // IVA
   const [modoI, setModoI] = useState<"neto" | "total">("neto");
   const [montoI, setMontoI] = useState(100000);
 
-  // Sueldo líquido
-  const [modoS, setModoS] = useState<"bruto" | "liquido">("bruto");
-  const [montoS, setMontoS] = useState(1000000);
-  const [afpCom, setAfpCom] = useState(AFP_COMISION_DEF);
-  const [saludPct, setSaludPct] = useState(SALUD_DEF);
-
-  // Conversor (valores del día): precarga desde valores.json (cron semanal) y refresca
-  // en vivo al abrir la pestaña.
-  const [vals, setVals] = useState<{ uf: number; utm: number; dolar: number | null; euro: number | null }>({
-    uf: valores.uf, utm: valores.utm, dolar: valores.dolar ?? null, euro: valores.euro ?? null,
-  });
-  const [cargandoVals, setCargandoVals] = useState(false);
-  const [valsFrescos, setValsFrescos] = useState(false);
-  const [montoC, setMontoC] = useState(1);
-  const [unidadC, setUnidadC] = useState<"UF" | "UTM" | "USD" | "EUR" | "CLP">("UF");
-
-  // Freemium + resultados (snapshot tras "Calcular")
   const [usados, setUsados] = useState(0);
   const [premium, setPremium] = useState(false);
   const [notaPremium, setNotaPremium] = useState(false);
   const [resH, setResH] = useState<ResHon | null>(null);
   const [resI, setResI] = useState<ResIva | null>(null);
-  const [resS, setResS] = useState<ResultadoSueldo | null>(null);
 
   useEffect(() => { setUsados(leerUsosHoy()); }, []);
   const sinCalculosHoy = usados >= MAX_CALC_DIA;
-
-  // Refresca los valores en vivo la primera vez que se abre el conversor (el precarga ya
-  // se muestra al instante mientras tanto).
-  useEffect(() => {
-    if (tab === "conversor" && !valsFrescos) {
-      setValsFrescos(true);
-      actualizarValores();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tab, valsFrescos]);
-
-  async function actualizarValores() {
-    setCargandoVals(true);
-    try {
-      const r = await fetch("https://mindicador.cl/api");
-      const j = await r.json();
-      setVals({
-        uf: j?.uf?.valor ?? valores.uf,
-        utm: j?.utm?.valor ?? valores.utm,
-        dolar: j?.dolar?.valor ?? null,
-        euro: j?.euro?.valor ?? null,
-      });
-    } catch {
-      // se queda con los valores precargados
-    } finally {
-      setCargandoVals(false);
-    }
-  }
 
   function calcularHon() {
     if (sinCalculosHoy) { setPremium(true); return; }
@@ -131,12 +65,6 @@ export default function Facturacion() {
   function calcularIva() {
     if (sinCalculosHoy) { setPremium(true); return; }
     setResI(calcularIVA(montoI, modoI));
-    setUsados(registrarUso());
-  }
-  function calcularSueldo() {
-    if (sinCalculosHoy) { setPremium(true); return; }
-    const p = { afpComision: afpCom, salud: saludPct, valorUF: vals.uf, valorUTM: vals.utm };
-    setResS(modoS === "bruto" ? sueldoDesdeBruto(montoS, p) : sueldoDesdeLiquido(montoS, p));
     setUsados(registrarUso());
   }
 
@@ -149,32 +77,28 @@ export default function Facturacion() {
   const bloquePremium = premium && (
     <div className="tarjeta" style={{ marginTop: 14, textAlign: "center" }}>
       <p style={{ margin: "0 0 4px", fontWeight: 700 }}>Llegaste a tu cálculo gratis de hoy 🙂</p>
-      <p className="nota" style={{ margin: "0 0 12px" }}>
-        Con <strong>Premium</strong> usas todas las calculadoras sin límite. Tu cálculo gratis se renueva mañana.
-      </p>
+      <p className="nota" style={{ margin: "0 0 12px" }}>Con <strong>Premium</strong> calculas boletas e IVA sin límite. Tu cálculo gratis se renueva mañana.</p>
       <button className="boton-premium" onClick={() => setNotaPremium(true)}>✨ Actualizar a Premium</button>
       {notaPremium && <p className="nota" style={{ marginTop: 10 }}>🚧 Los planes Premium están en preparación. ¡Gracias por tu interés!</p>}
     </div>
   );
 
-  // Valor en CLP de 1 unidad de cada tipo (para el conversor)
-  const unidadCLP: Record<string, number> = {
-    CLP: 1, UF: vals.uf, UTM: vals.utm, USD: vals.dolar ?? 0, EUR: vals.euro ?? 0,
-  };
-  const montoEnCLP = montoC * (unidadCLP[unidadC] || 0);
-
   return (
     <main style={{ paddingBottom: 80 }}>
-      <header className="header">
-        <span className="marca"><span className="azul">Calculadoras</span> <span className="rojo">de Facturación</span></span>
+      <header className="header" style={{ justifyContent: "flex-start", gap: 12 }}>
+        <Link href="/premium" aria-label="Volver a Premium" style={{ display: "flex" }}>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M15 18l-6-6 6-6" /></svg>
+        </Link>
+        <span className="marca" style={{ fontSize: 17 }}><span className="azul">Calculadora</span> <span className="rojo">de Facturación</span></span>
       </header>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 14 }}>
-        {TABS.map((t) => (
-          <button key={t.id} onClick={() => setTab(t.id)} className="boton" style={{ background: tab === t.id ? "var(--azul)" : "#fff", color: tab === t.id ? "#fff" : "var(--texto)", border: "1px solid var(--borde-fuerte)", fontSize: 14 }}>
-            {t.label}
-          </button>
-        ))}
+      <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>
+        <button onClick={() => setTab("honorarios")} className="boton" style={{ flex: 1, background: tab === "honorarios" ? "var(--azul)" : "#fff", color: tab === "honorarios" ? "#fff" : "var(--texto)", border: "1px solid var(--borde-fuerte)" }}>
+          Boleta de honorarios
+        </button>
+        <button onClick={() => setTab("iva")} className="boton" style={{ flex: 1, background: tab === "iva" ? "var(--azul)" : "#fff", color: tab === "iva" ? "#fff" : "var(--texto)", border: "1px solid var(--borde-fuerte)" }}>
+          Factura (IVA 19%)
+        </button>
       </div>
 
       {tab === "honorarios" && (
@@ -244,107 +168,6 @@ export default function Facturacion() {
           <p className="nota" style={{ marginTop: 10, lineHeight: 1.5 }}>
             El IVA general en Chile es <strong>19%</strong> (DL 825). Lo agregas al neto en tus facturas afectas. Casos
             especiales en <a href="https://www.sii.cl" target="_blank" rel="noopener noreferrer" style={{ color: "var(--azul)" }}>sii.cl</a>.
-          </p>
-        </>
-      )}
-
-      {tab === "sueldo" && (
-        <>
-          <div className="tarjeta" style={{ display: "grid", gap: 12 }}>
-            <div style={{ display: "flex", gap: 8 }}>
-              <button onClick={() => setModoS("bruto")} className="chip" style={{ flex: 1, padding: "8px", background: modoS === "bruto" ? "var(--azul)" : "#eef", color: modoS === "bruto" ? "#fff" : "var(--azul)", fontWeight: 700 }}>Tengo el bruto</button>
-              <button onClick={() => setModoS("liquido")} className="chip" style={{ flex: 1, padding: "8px", background: modoS === "liquido" ? "var(--azul)" : "#eef", color: modoS === "liquido" ? "#fff" : "var(--azul)", fontWeight: 700 }}>Quiero recibir (líquido)</button>
-            </div>
-            <div>
-              <label className="etiqueta" htmlFor="montoS">{modoS === "bruto" ? "Sueldo bruto imponible (CLP)" : "Líquido que quieres recibir (CLP)"}</label>
-              <input id="montoS" className="campo" type="number" min={0} step={10000} value={montoS} onChange={(e) => setMontoS(+e.target.value)} />
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-              <div>
-                <label className="etiqueta" htmlFor="afp">Comisión AFP (%)</label>
-                <input id="afp" className="campo" type="number" min={0} max={3} step={0.01} value={afpCom} onChange={(e) => setAfpCom(+e.target.value)} />
-              </div>
-              <div>
-                <label className="etiqueta" htmlFor="salud">Salud (%)</label>
-                <input id="salud" className="campo" type="number" min={7} max={20} step={0.1} value={saludPct} onChange={(e) => setSaludPct(+e.target.value)} />
-              </div>
-            </div>
-            <button className="boton" type="button" onClick={calcularSueldo}>Calcular sueldo líquido</button>
-            {avisoUso}
-          </div>
-          {resS && (
-            <div className="tarjeta" style={{ marginTop: 12 }}>
-              <Fila etiqueta="Sueldo bruto" valor={clp(resS.bruto)} />
-              <Fila etiqueta={`AFP (10% + comisión = ${resS.afpPct.toFixed(2)}%)`} valor={"– " + clp(resS.afp)} />
-              <Fila etiqueta={`Salud (${resS.saludPct}%)`} valor={"– " + clp(resS.salud)} />
-              <Fila etiqueta="Seguro de cesantía (0,6%)" valor={"– " + clp(resS.cesantia)} />
-              {resS.impuesto > 0 && <Fila etiqueta="Impuesto único 2ª categoría" valor={"– " + clp(resS.impuesto)} />}
-              <Total etiqueta="Líquido a recibir" valor={clp(resS.liquido)} />
-            </div>
-          )}
-          {bloquePremium}
-          <p className="nota" style={{ marginTop: 10, lineHeight: 1.5 }}>
-            <strong>Estimación.</strong> Asume contrato indefinido (cesantía 0,6%) y AFP 10% + comisión. La comisión real
-            de tu AFP y el valor de tu plan de <strong>Isapre</strong> pueden cambiar el resultado. Verifica en{" "}
-            <a href="https://www.previred.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--azul)" }}>previred.com</a>.
-          </p>
-        </>
-      )}
-
-      {tab === "conversor" && (
-        <>
-          <div className="tarjeta">
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-              <strong style={{ fontSize: 14 }}>Valores de hoy</strong>
-              <button className="chip" style={{ padding: "5px 12px", background: "var(--azul)", color: "#fff" }} onClick={actualizarValores} disabled={cargandoVals}>
-                {cargandoVals ? "Actualizando…" : "Actualizar"}
-              </button>
-            </div>
-            <Fila etiqueta="UF" valor={"$" + num(vals.uf)} />
-            <Fila etiqueta="UTM" valor={"$" + num(vals.utm)} />
-            <Fila etiqueta="Dólar (USD)" valor={vals.dolar ? "$" + num(vals.dolar) : "—"} />
-            <Fila etiqueta="Euro (EUR)" valor={vals.euro ? "$" + num(vals.euro) : "—"} />
-          </div>
-
-          <div className="tarjeta" style={{ marginTop: 12, display: "grid", gap: 12 }}>
-            <strong style={{ fontSize: 14 }}>Conversor</strong>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-              <div>
-                <label className="etiqueta" htmlFor="montoC">Cantidad</label>
-                <input id="montoC" className="campo" type="number" min={0} step="any" value={montoC} onChange={(e) => setMontoC(+e.target.value)} />
-              </div>
-              <div>
-                <label className="etiqueta" htmlFor="unidadC">Unidad</label>
-                <select id="unidadC" className="campo" value={unidadC} onChange={(e) => setUnidadC(e.target.value as typeof unidadC)}>
-                  <option value="UF">UF</option>
-                  <option value="UTM">UTM</option>
-                  <option value="USD">Dólar (USD)</option>
-                  <option value="EUR">Euro (EUR)</option>
-                  <option value="CLP">Pesos (CLP)</option>
-                </select>
-              </div>
-            </div>
-            <div style={{ background: "var(--azul-claro)", borderRadius: 12, padding: "12px 14px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                <span style={{ fontSize: 13, color: "var(--texto-suave)" }}>En pesos</span>
-                <strong style={{ fontSize: 22, color: "var(--azul)" }}>{clp(montoEnCLP)}</strong>
-              </div>
-            </div>
-            {unidadC !== "CLP" && (
-              <p className="nota" style={{ margin: 0 }}>{num(montoC)} {unidadC} equivale a {clp(montoEnCLP)} pesos.</p>
-            )}
-            {unidadC === "CLP" && (
-              <div style={{ fontSize: 13, lineHeight: 1.7 }}>
-                {num(montoC)} pesos equivalen a:{" "}
-                <strong>{(montoC / vals.uf).toFixed(4)} UF</strong> ·{" "}
-                <strong>{(montoC / vals.utm).toFixed(4)} UTM</strong>
-                {vals.dolar && <> · <strong>US${(montoC / vals.dolar).toFixed(2)}</strong></>}
-                {vals.euro && <> · <strong>€{(montoC / vals.euro).toFixed(2)}</strong></>}
-              </div>
-            )}
-          </div>
-          <p className="nota" style={{ marginTop: 10, lineHeight: 1.5 }}>
-            Valores referenciales del Banco Central vía mindicador.cl. La UF se reajusta a diario.
           </p>
         </>
       )}

@@ -76,6 +76,22 @@ export default function Premium() {
         </span>
         <span style={{ color: "var(--azul)", fontWeight: 800, fontSize: 18 }}>→</span>
       </Link>
+      <Link href="/sueldo" className="tarjeta" style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 10 }}>
+        <span style={{ fontSize: 26 }}>💰</span>
+        <span style={{ flex: 1 }}>
+          <strong style={{ fontSize: 15 }}>Calculadora de sueldo líquido</strong><br />
+          <span className="nota">Del bruto al líquido: AFP, salud, cesantía e impuesto.</span>
+        </span>
+        <span style={{ color: "var(--azul)", fontWeight: 800, fontSize: 18 }}>→</span>
+      </Link>
+      <Link href="/conversor" className="tarjeta" style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 10 }}>
+        <span style={{ fontSize: 26 }}>💱</span>
+        <span style={{ flex: 1 }}>
+          <strong style={{ fontSize: 15 }}>Conversor UF · UTM · Dólar · Euro</strong><br />
+          <span className="nota">Valores del día y conversor a pesos, al instante.</span>
+        </span>
+        <span style={{ color: "var(--azul)", fontWeight: 800, fontSize: 18 }}>→</span>
+      </Link>
 
       <p className="nota" style={{ margin: "18px 2px 0", textAlign: "center" }}>
         ¿Dudas? Escríbenos desde <Link href="/quienes-somos" style={{ color: "var(--azul)" }}>Quiénes somos</Link>.

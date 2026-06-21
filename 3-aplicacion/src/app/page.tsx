@@ -134,7 +134,7 @@ export default function Inicio() {
         <span className="hero-titulo">TODAS LAS LEYES</span>
       </Link>
 
-      <h2 className="seccion-titulo">Acceso rápido por grupo</h2>
+      <h2 className="seccion-titulo">Acceso por materia legal</h2>
       <div className="materias">
         {GRUPOS.map((g) => (
           <Link key={g.clave} href={`/leyes?grupo=${g.clave}`} className="materia" style={{ color: COLORES[g.clave] }}>

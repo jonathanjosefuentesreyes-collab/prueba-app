@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useArrastrarScroll } from "@/lib/useArrastrarScroll";
 
 export interface CardGuia {
   slug: string;
@@ -28,6 +29,8 @@ export default function GuiasExplorer({
 }) {
   const router = useRouter();
   const [activa, setActiva] = useState(categorias[0]?.clave ?? "");
+  const carDestacadas = useArrastrarScroll<HTMLDivElement>();
+  const carTemas = useArrastrarScroll<HTMLDivElement>();
 
   // La categoría dorada "Deudas" (Premium) va al CENTRO del carrusel de temas.
   const cats = (() => {
@@ -47,6 +50,7 @@ export default function GuiasExplorer({
             Guías destacadas
           </h2>
           <div
+            {...carDestacadas}
             style={{
               display: "flex",
               gap: 12,
@@ -54,6 +58,7 @@ export default function GuiasExplorer({
               scrollSnapType: "x mandatory",
               paddingBottom: 8,
               marginBottom: 22,
+              cursor: "grab",
             }}
           >
             {destacadas.map((g) => {
@@ -103,7 +108,7 @@ export default function GuiasExplorer({
       <h2 className="seccion-titulo-compendio" style={{ margin: "0 0 10px" }}>
         Explora por tema
       </h2>
-      <div role="tablist" aria-label="Temas de guías" style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 8, marginBottom: 14 }}>
+      <div role="tablist" aria-label="Temas de guías" {...carTemas} style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 8, marginBottom: 14, cursor: "grab" }}>
         {cats.map((c) => {
           const sel = c.clave === activa;
           const oro = c.clave === "deudas"; // categoría dorada Premium

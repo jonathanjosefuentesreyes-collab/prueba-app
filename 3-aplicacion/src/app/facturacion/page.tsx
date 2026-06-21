@@ -9,6 +9,7 @@ import {
   RETENCION_POR_ANIO,
   IVA,
 } from "@/lib/facturacion";
+import GuiasRelacionadas from "@/components/GuiasRelacionadas";
 
 const clp = (n: number) => "$" + Math.round(n).toLocaleString("es-CL");
 const ANIOS = Object.keys(RETENCION_POR_ANIO).map(Number).sort();
@@ -172,6 +173,9 @@ export default function Facturacion() {
         </>
       )}
 
+      <GuiasRelacionadas guias={[
+        ["honorarios-pero-trabajo-como-dependiente", "Boletas de honorarios pero trabajo como dependiente"],
+      ]} />
       <p className="nota" style={{ marginTop: 14, textAlign: "center", fontSize: 12 }}>
         Estimación referencial. No reemplaza la asesoría de un contador para tu caso.
       </p>

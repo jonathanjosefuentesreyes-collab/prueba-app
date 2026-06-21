@@ -9,6 +9,7 @@ import {
   SALUD_DEF,
   type ResultadoSueldo,
 } from "@/lib/sueldo";
+import GuiasRelacionadas from "@/components/GuiasRelacionadas";
 import valores from "@/lib/valores.json";
 
 const clp = (n: number) => "$" + Math.round(n).toLocaleString("es-CL");
@@ -111,6 +112,10 @@ export default function SueldoLiquido() {
         </div>
       )}
 
+      <GuiasRelacionadas guias={[
+        ["me-pueden-embargar-el-sueldo", "¿Me pueden embargar el sueldo?"],
+        ["gratificacion-legal-como-se-paga", "Gratificación legal: cómo se paga"],
+      ]} />
       <p className="nota" style={{ marginTop: 10, lineHeight: 1.5 }}>
         <strong>Estimación.</strong> Asume contrato indefinido (cesantía 0,6%) y AFP 10% + comisión. La comisión real
         de tu AFP y el valor de tu plan de <strong>Isapre</strong> pueden cambiar el resultado. Verifica en{" "}

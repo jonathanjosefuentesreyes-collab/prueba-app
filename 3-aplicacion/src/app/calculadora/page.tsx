@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { calcularFiniquito, type Causal, type ResultadoFiniquito } from "@/lib/finiquito";
+import GuiasRelacionadas from "@/components/GuiasRelacionadas";
 import valores from "@/lib/valores.json";
 
 // Cada fundamento legal se enlaza al artículo real en la Biblioteca (Código del Trabajo,
@@ -239,6 +240,12 @@ export default function Calculadora() {
           </Link>
         </div>
       )}
+
+      <GuiasRelacionadas guias={[
+        ["finiquito-cuanto-me-corresponde", "¿Cuánto me corresponde de finiquito?"],
+        ["despido-por-necesidades-de-la-empresa", "Despido por necesidades de la empresa"],
+        ["vacaciones-feriado-cuantos-dias", "Vacaciones: ¿cuántos días me tocan?"],
+      ]} />
     </main>
   );
 }

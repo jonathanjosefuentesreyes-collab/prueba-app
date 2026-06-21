@@ -28,6 +28,7 @@ export default function PieInstitucional() {
         <nav className="pie-col" aria-label="Información del sitio">
           <span className="pie-tit">Información</span>
           <Link href="/quienes-somos">Quiénes somos</Link>
+          <Link href="/estandar-editorial">Estándar editorial</Link>
           <Link href="/privacidad">Privacidad</Link>
           <Link href="/aviso-legal">Aviso legal</Link>
         </nav>

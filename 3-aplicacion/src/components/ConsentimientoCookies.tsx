@@ -22,6 +22,15 @@ export default function ConsentimientoCookies() {
   function elegir(valor: "aceptado" | "rechazado") {
     try { localStorage.setItem(CLAVE, valor); } catch {}
     setVisible(false);
+    // Consent Mode v2: concede o niega el consentimiento de anuncios/analítica de Google.
+    const concede = valor === "aceptado" ? "granted" : "denied";
+    const gtag = (window as Window & { gtag?: (...a: unknown[]) => void }).gtag;
+    try {
+      gtag?.("consent", "update", {
+        ad_storage: concede, ad_user_data: concede,
+        ad_personalization: concede, analytics_storage: concede,
+      });
+    } catch {}
     // Avisa al resto de la app (los anuncios escuchan este evento para cargarse al aceptar).
     window.dispatchEvent(new CustomEvent("consentimiento", { detail: valor }));
   }

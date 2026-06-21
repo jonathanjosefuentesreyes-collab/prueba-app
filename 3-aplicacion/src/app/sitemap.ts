@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/conversor`, changeFrequency: "weekly", priority: 0.6 },
     { url: `${BASE}/premium`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/quienes-somos`, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${BASE}/estandar-editorial`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/privacidad`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/aviso-legal`, changeFrequency: "yearly", priority: 0.3 },
   ];

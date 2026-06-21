@@ -7,6 +7,8 @@ import RegistrarSW from "@/components/RegistrarSW";
 import AbrirEnInicio from "@/components/AbrirEnInicio";
 import ConsentimientoCookies from "@/components/ConsentimientoCookies";
 import Anuncios from "@/components/Anuncios";
+import Analitica from "@/components/Analitica";
+import ConsentMode from "@/components/ConsentMode";
 import PieInstitucional from "@/components/PieInstitucional";
 import RielEscritorio from "@/components/RielEscritorio";
 import { ADSENSE_CLIENT } from "@/lib/adsense";
@@ -67,6 +69,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${roboto.variable} ${robotoSlab.variable}`}>
       <body>
+        <ConsentMode />
         <Splash />
         <RegistrarSW />
         <AbrirEnInicio />
@@ -82,6 +85,7 @@ export default function RootLayout({
           </ChatProvider>
         </SettingsProvider>
         <Anuncios />
+        <Analitica />
       </body>
     </html>
   );

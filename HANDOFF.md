@@ -167,3 +167,24 @@ bot (política IA de Play). Falta lo que depende de la cuenta de Jonathan:
    del Estado"), enlace a /privacidad, **Data safety form** veraz y coherente con /privacidad,
    clasificación IARC. **Anuncios en la app: AdMob o ninguno** (NO AdSense web dentro del TWA).
 5. Subir `.aab` → revisión → publicar. (Prioridad: DESPUÉS de que la web tenga AdSense + tráfico.)
+
+## F. AUDITORÍA 2026-06-21 — pendientes de cuenta (lo codeable ya se aplicó)
+Ya HECHO en código (no repetir): Consent Mode v2 (`ConsentMode.tsx`, niega ads/analytics
+por defecto, lo concede el banner), página `/estandar-editorial` (E-E-A-T) enlazada en el
+pie, scaffold de GA4 (`lib/analitica.ts` + `Analitica.tsx`, se activa pegando el Measurement
+ID), enlazado interno calculadoras→guías (`GuiasRelacionadas.tsx`).
+Falta, y depende de TUS cuentas:
+1. **Gemini PAGADO** (Jonathan): en el plan gratis Google ENTRENA con los prompts → por datos
+   (no solo cuota) hay que pasar a pagado antes del público real. Es la misma API key, solo se
+   activa facturación en Google AI Studio. No requiere cambio de código.
+2. **CMP certificada de Google** (Jonathan, panel AdSense → "Privacidad y mensajes" → crear
+   mensaje GDPR). Complementa el Consent Mode v2 ya implementado; necesario para servir anuncios
+   a la UE de forma conforme.
+3. **Google Search Console + GA4** (Jonathan): crear la propiedad GA4 y pegar el Measurement ID
+   en `src/lib/analitica.ts`; registrar el sitio en Search Console (verificación por DNS de
+   Cloudflare). Con sus queries reales se deciden próximas guías y reescritura de títulos.
+4. **Verificar anualmente** la tabla del impuesto único 2ª categoría (`lib/sueldo.ts`, tramos en
+   UTM) contra sii.cl; la UTM ya se auto-actualiza por el cron semanal.
+5. **Rendimiento (cuando escale):** cachear páginas de ley populares (ISR) e imágenes con
+   next/image (hero/mascota) para mejorar LCP. Rellenar ~32 simplificaciones excluidas (necesita
+   cuota Gemini).

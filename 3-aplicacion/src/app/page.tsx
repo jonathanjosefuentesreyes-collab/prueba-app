@@ -146,6 +146,20 @@ export default function Inicio() {
         ))}
       </div>
 
+      <Link href="/guias" className="banner-guias">
+        <span className="banner-guias-ico" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18h6M10 22h4" />
+            <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z" fill="#FFC93C" stroke="#FFC93C" />
+          </svg>
+        </span>
+        <span className="banner-guias-txt">
+          <strong>Conoce las guías ciudadanas</strong>
+          <span>Tus derechos explicados en simple, con los artículos oficiales.</span>
+        </span>
+        <svg className="banner-guias-flecha" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </Link>
+
       <h2 className="seccion-titulo">
         Leyes más recientes
         <Link href="/leyes">Ver Diario Oficial</Link>
@@ -162,17 +176,6 @@ export default function Inicio() {
           </Link>
         ))}
       </CarruselArrastrable>
-
-      <Link href="/guias" className="banner-guias">
-        <span className="banner-guias-ico" aria-hidden>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18h6M10 22h4" /><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z" /></svg>
-        </span>
-        <span className="banner-guias-txt">
-          <strong>Conoce las guías ciudadanas</strong>
-          <span>Tus derechos explicados en simple, con los artículos oficiales.</span>
-        </span>
-        <svg className="banner-guias-flecha" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-      </Link>
 
       <h2 className="seccion-titulo">
         Las más consultadas

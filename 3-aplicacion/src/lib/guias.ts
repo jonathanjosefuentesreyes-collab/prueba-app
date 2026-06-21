@@ -2954,6 +2954,561 @@ La empresa que compró la deuda debe respetar las **reglas de cobranza** (no aco
           "No. La cesión no reinicia el plazo de prescripción; la deuda conserva su antigüedad y condiciones. Si ya estaba prescrita, lo sigue estando aunque cambie de acreedor.",
       },
     ],
+  },
+  {
+    slug: "semana-corrida-pago-del-domingo",
+    titulo: "Semana corrida: ¿me deben pagar el domingo?",
+    categoria: "laboral",
+    destacada: false,
+    metaTitle: "Semana corrida: el pago del día domingo | Ley Chilena",
+    descripcion:
+      "Si te pagan por día u hora, la semana corrida te da derecho a que también te paguen el domingo y los festivos. Cómo se calcula y a quién aplica, según el Código del Trabajo.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Si te remuneran **exclusivamente por día** (o por hora), tienes derecho a la **semana corrida**: que te paguen también el **domingo y los festivos** de esa semana, calculados como el **promedio de lo ganado** en los días trabajados ([artículo 45 del Código del Trabajo](/leyes/207436?art=3078)). Es plata que mucha gente no cobra por desconocerla.",
+    contenido: `
+## ¿Qué es la semana corrida?
+Es el derecho de quien trabaja **remunerado por día** a que se le pague también el **descanso semanal** (domingo) y los **festivos**, aunque esos días no se trabajen ([artículo 45 del Código del Trabajo](/leyes/207436?art=3078)). La idea es que el descanso no signifique perder ingreso.
+
+## ¿Cómo se calcula?
+El pago del domingo/festivo equivale al **promedio de lo devengado** en los días efectivamente trabajados de la semana. Si ganas distinto cada día (por trato, comisiones por venta, etc.), se promedia.
+
+También aplica, en lo pertinente, a la parte **variable** del sueldo de quienes tienen sueldo mensual más comisiones, respecto de esos componentes variables.
+
+## ¿A quién aplica?
+- Trabajadores con remuneración **exclusivamente por día**.
+- En lo que corresponde, a los **componentes variables** (comisiones, tratos) de quienes además tienen sueldo base.
+
+No aplica a quien ya tiene un **sueldo mensual fijo** que de por sí remunera el mes completo (incluidos domingos).
+
+## ¿Qué hacer?
+1. Revisa tu **liquidación**: ¿te están pagando el domingo y los festivos cuando te pagan por día o por comisiones?
+2. Si no, reclámalo por escrito al empleador.
+3. Si no resuelve, denuncia en la **Dirección del Trabajo** (dt.gob.cl) o demanda en el Juzgado del Trabajo.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Quién tiene derecho a semana corrida?",
+        respuesta:
+          "Quien es remunerado exclusivamente por día (artículo 45 del Código del Trabajo), y también, en lo pertinente, los componentes variables (comisiones, tratos) de quienes tienen sueldo base más variable.",
+      },
+      {
+        pregunta: "¿Cómo se calcula el pago del domingo?",
+        respuesta:
+          "Como el promedio de lo devengado en los días efectivamente trabajados de la semana. Ese promedio se paga por el domingo y los festivos de esa semana.",
+      },
+      {
+        pregunta: "Tengo sueldo mensual fijo, ¿me corresponde?",
+        respuesta:
+          "Por el sueldo fijo no, porque ya remunera el mes completo. Pero si además ganas comisiones o tratos, la semana corrida puede aplicar sobre esos componentes variables.",
+      },
+      {
+        pregunta: "¿Dónde reclamo si no me la pagan?",
+        respuesta:
+          "Primero por escrito al empleador; si no resuelve, en la Dirección del Trabajo (dt.gob.cl) o demandando en el Juzgado del Trabajo.",
+      },
+    ],
+  },
+  {
+    slug: "accidente-del-trabajo-obligaciones-del-empleador",
+    titulo: "Accidente del trabajo: ¿qué debe hacer el empleador?",
+    categoria: "laboral",
+    destacada: true,
+    metaTitle: "Accidente del trabajo: tus derechos | Ley Chilena",
+    descripcion:
+      "El empleador está obligado a proteger tu vida y salud en el trabajo. Qué pasa si sufres un accidente laboral, a qué tienes derecho y qué hacer, según el Código del Trabajo.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "El empleador está **obligado por ley a tomar todas las medidas necesarias para proteger eficazmente la vida y salud** de sus trabajadores ([artículo 184 del Código del Trabajo](/leyes/207436?art=3353)). Si sufres un **accidente del trabajo**, tienes derecho a **atención médica gratuita** y a las prestaciones del seguro de accidentes laborales; si el accidente ocurrió por falta de medidas de seguridad, el empleador puede responder además por los **daños**.",
+    contenido: `
+## La obligación del empleador
+El [artículo 184 del Código del Trabajo](/leyes/207436?art=3353) es claro: el empleador debe **proteger eficazmente la vida y la salud** de quienes trabajan, manteniendo condiciones adecuadas de higiene y seguridad y entregando los implementos necesarios para prevenir accidentes y enfermedades.
+
+## ¿Qué es un accidente del trabajo?
+Es toda lesión que sufres **a causa o con ocasión del trabajo** y que te produce incapacidad o muerte. También cuenta el **accidente de trayecto** (de ida o vuelta entre tu casa y el trabajo).
+
+## ¿A qué tienes derecho?
+Por el **seguro de accidentes del trabajo** (que paga el empleador), tienes derecho a:
+- **Atención médica gratuita** hasta tu recuperación.
+- **Subsidio** mientras dura la licencia (reemplaza tu sueldo).
+- **Indemnización o pensión** si quedas con una incapacidad permanente.
+
+Si el accidente ocurrió porque el empleador **no cumplió** las medidas de seguridad del artículo 184, además puedes **demandar los perjuicios** (daño moral, lucro cesante).
+
+## ¿Qué hacer?
+1. **Avisa de inmediato** y haz que te deriven al organismo del seguro (mutual o ISL).
+2. Pide que el accidente quede **registrado** (DIAT — Declaración Individual de Accidente del Trabajo).
+3. Guarda **constancia** de las condiciones inseguras si las hubo (fotos, testigos).
+4. Si crees que hubo falta de seguridad, asesórate: puedes reclamar indemnización.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué obligación tiene el empleador en seguridad?",
+        respuesta:
+          "Tomar todas las medidas necesarias para proteger eficazmente la vida y salud de los trabajadores, con condiciones de higiene y seguridad e implementos de prevención (artículo 184 del Código del Trabajo).",
+      },
+      {
+        pregunta: "¿El accidente de trayecto cuenta como accidente del trabajo?",
+        respuesta:
+          "Sí. El accidente ocurrido en el trayecto directo de ida o regreso entre tu casa y el trabajo se considera accidente del trabajo y da derecho a las prestaciones del seguro.",
+      },
+      {
+        pregunta: "¿La atención médica la pago yo?",
+        respuesta:
+          "No. La atención médica por un accidente del trabajo es gratuita y la cubre el seguro de accidentes laborales (mutual o ISL), que financia el empleador.",
+      },
+      {
+        pregunta: "¿Puedo demandar si hubo falta de seguridad?",
+        respuesta:
+          "Sí. Si el accidente ocurrió porque el empleador no cumplió su deber de protección (artículo 184), puedes demandar la indemnización de los perjuicios, además de las prestaciones del seguro.",
+      },
+    ],
+  },
+  {
+    slug: "descanso-dominical-y-festivos-derechos",
+    titulo: "Descanso dominical y festivos: ¿cuándo me deben dar libre?",
+    categoria: "laboral",
+    destacada: false,
+    metaTitle: "Descanso dominical y festivos en Chile | Ley Chilena",
+    descripcion:
+      "Por regla general el domingo y los festivos son de descanso. Quiénes son la excepción (comercio, turnos) y qué compensación les corresponde, según el Código del Trabajo.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Por regla general, los **domingos y festivos son días de descanso** ([artículo 35 del Código del Trabajo](/leyes/207436?art=3058)). Hay **excepciones** (comercio, turnos continuos, etc.) en que sí se puede trabajar esos días ([artículo 38](/leyes/207436?art=3063)), pero a cambio corresponde un **día de descanso compensatorio** y, en el comercio, al menos **dos domingos libres al mes**.",
+    contenido: `
+## La regla general
+Los **domingos** y los días que la ley declara **festivos** son de **descanso** ([artículo 35 del Código del Trabajo](/leyes/207436?art=3058)). Es la regla base: salvo excepción, no se trabaja esos días.
+
+## Las excepciones (quiénes sí trabajan domingo)
+El [artículo 38 del Código del Trabajo](/leyes/207436?art=3063) exceptúa a ciertas actividades que por su naturaleza no pueden parar: **comercio, turnos continuos, transporte, hotelería, salud, espectáculos**, entre otras.
+
+Pero esas excepciones tienen **contrapartidas**:
+- Un **día de descanso compensatorio** por cada domingo y festivo trabajado.
+- En el **comercio**, derecho a que al menos **dos de los domingos** del mes sean de descanso.
+
+## ¿Y si trabajo un festivo?
+Si estás dentro de las excepciones, trabajar el domingo/festivo te da el **descanso compensatorio**. Además, según tu contrato y la actividad, puede corresponder un **recargo** en la remuneración por esas horas; revisa tu contrato y la normativa de tu rubro.
+
+## ¿Qué hacer?
+1. Verifica si tu actividad está dentro de las **excepciones** del artículo 38.
+2. Lleva la cuenta de tus **domingos y festivos trabajados** y de los **compensatorios** que te dieron.
+3. Si en el comercio no te dan los **2 domingos libres al mes**, reclámalo.
+4. Denuncia incumplimientos en la **Dirección del Trabajo** (dt.gob.cl).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿El domingo es siempre día de descanso?",
+        respuesta:
+          "Por regla general sí (artículo 35 del Código del Trabajo). Pero hay actividades exceptuadas (comercio, turnos, transporte, salud, etc.) que pueden trabajar el domingo con descanso compensatorio (artículo 38).",
+      },
+      {
+        pregunta: "Si trabajo en comercio, ¿cuántos domingos libres tengo?",
+        respuesta:
+          "Al menos dos domingos de descanso al mes, además del día compensatorio por cada domingo o festivo trabajado (artículo 38 del Código del Trabajo).",
+      },
+      {
+        pregunta: "¿Me deben dar un día libre por trabajar el festivo?",
+        respuesta:
+          "Sí, si estás en las actividades exceptuadas: corresponde un día de descanso compensatorio por cada domingo y festivo trabajado.",
+      },
+      {
+        pregunta: "¿Dónde reclamo si no respetan mi descanso?",
+        respuesta:
+          "En la Dirección del Trabajo (dt.gob.cl), que fiscaliza el cumplimiento de las normas de descanso y puede cursar multas al empleador.",
+      },
+    ],
+  },
+  {
+    slug: "postnatal-y-permiso-parental-cuanto-dura",
+    titulo: "Postnatal y permiso parental: ¿cuánto dura y quién puede tomarlo?",
+    categoria: "laboral",
+    destacada: true,
+    metaTitle: "Postnatal y permiso parental en Chile | Ley Chilena",
+    descripcion:
+      "El descanso de maternidad y el permiso postnatal parental protegen a madres y, en parte, a padres. Cuánto duran, cómo se toman y el subsidio, según el Código del Trabajo.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "La trabajadora tiene **descanso de maternidad**: **6 semanas antes** del parto (prenatal) y **12 semanas después** (postnatal) ([artículo 195 del Código del Trabajo](/leyes/207436?art=3365)). A eso se suma el **permiso postnatal parental** de **12 semanas** adicionales (o 18 a media jornada), parte del cual puede traspasarse al **padre** ([artículo 197 bis](/leyes/207436?art=3368)). Durante estos descansos se paga un **subsidio** (no lo paga el empleador).",
+    contenido: `
+## El descanso de maternidad
+Toda trabajadora tiene derecho a un **descanso de maternidad** de **6 semanas antes del parto (prenatal)** y **12 semanas después (postnatal)** ([artículo 195 del Código del Trabajo](/leyes/207436?art=3365)). Es **irrenunciable** y está protegido por el **fuero maternal**.
+
+## El permiso postnatal parental
+Terminado el postnatal de 12 semanas, viene el **permiso postnatal parental** de **12 semanas adicionales** ([artículo 197 bis del Código del Trabajo](/leyes/207436?art=3368)). Puedes tomarlo de dos formas:
+- **12 semanas completas** con descanso total, o
+- **18 semanas a media jornada** (trabajando media jornada, con medio subsidio).
+
+## ¿El padre puede tomar parte?
+Sí. A partir de la **séptima semana** del postnatal parental, la madre puede **traspasar semanas al padre**, que las toma con su propio fuero y subsidio. Es una forma de compartir el cuidado.
+
+## ¿Quién paga durante el descanso?
+No lo paga el empleador: se paga un **subsidio maternal** (con cargo al sistema), calculado sobre tus remuneraciones, con un tope. Por eso el empleador no "pierde" el sueldo de esos meses.
+
+## ¿Qué hacer?
+1. Presenta la **licencia médica** correspondiente para el prenatal/postnatal.
+2. Decide cómo tomar el **postnatal parental** (completo o media jornada).
+3. Si quieres compartir, coordina el **traspaso de semanas al padre** desde la semana 7.
+4. Recuerda el **fuero**: no te pueden despedir sin autorización del juez.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Cuánto dura el postnatal en Chile?",
+        respuesta:
+          "El postnatal es de 12 semanas después del parto (artículo 195 del Código del Trabajo), más un permiso postnatal parental de 12 semanas adicionales (o 18 a media jornada) según el artículo 197 bis.",
+      },
+      {
+        pregunta: "¿El padre puede usar parte del postnatal parental?",
+        respuesta:
+          "Sí. Desde la séptima semana del permiso postnatal parental, la madre puede traspasar semanas al padre, que las toma con su propio fuero y subsidio.",
+      },
+      {
+        pregunta: "¿Quién me paga durante el postnatal?",
+        respuesta:
+          "Un subsidio maternal (no el empleador), calculado sobre tus remuneraciones con un tope. Por eso el descanso no implica perder tu ingreso.",
+      },
+      {
+        pregunta: "¿Pueden despedirme estando con postnatal?",
+        respuesta:
+          "No sin autorización judicial: el fuero maternal protege a la trabajadora durante el embarazo y hasta un año después del postnatal. Un despido sin desafuero no produce efecto.",
+      },
+    ],
+  },
+  {
+    slug: "contrato-a-plazo-fijo-cuando-pasa-a-indefinido",
+    titulo: "Contrato a plazo fijo: ¿cuándo se transforma en indefinido?",
+    categoria: "laboral",
+    destacada: false,
+    metaTitle: "Contrato a plazo fijo: cuándo pasa a indefinido | Ley Chilena",
+    descripcion:
+      "Un contrato a plazo fijo puede transformarse en indefinido si sigues trabajando tras el vencimiento o por la regla de las renovaciones. Cómo funciona, según el Código del Trabajo.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "El contrato a plazo fijo **termina al vencer el plazo** ([artículo 159 N°4 del Código del Trabajo](/leyes/207436?art=3293)), pero se **transforma en indefinido** si: sigues trabajando **con conocimiento del empleador** después del vencimiento; o si te hacen una **segunda renovación**; o si en **15 meses** prestaste servicios por **12 meses o más** con dos o más contratos a plazo.",
+    contenido: `
+## ¿Cuánto puede durar un contrato a plazo fijo?
+El plazo fijo es una excepción: por regla general no puede exceder de **un año** (dos años para gerentes o personas con título profesional). Vencido el plazo, el contrato **termina** ([artículo 159 N°4 del Código del Trabajo](/leyes/207436?art=3293)).
+
+## ¿Cuándo se vuelve indefinido?
+La ley evita el abuso del plazo fijo: el contrato **se transforma en indefinido** cuando ocurre cualquiera de estas situaciones:
+- **Sigues trabajando** después del vencimiento **con conocimiento del empleador** (continuación de servicios).
+- Te hacen una **segunda renovación** del contrato a plazo.
+- En un período de **15 meses**, prestaste servicios por **12 meses o más** en virtud de **dos o más contratos** a plazo.
+
+En esos casos, aunque el papel diga "plazo fijo", **legalmente eres indefinido**, con todos los derechos de un contrato indefinido (incluida la indemnización por años de servicio si te despiden por necesidades de la empresa).
+
+## ¿Por qué importa?
+Un contrato indefinido te da **más estabilidad** y derecho a **indemnización por años de servicio** si te despiden por el artículo 161. El plazo fijo, al terminar por vencimiento, **no genera** esa indemnización.
+
+## ¿Qué hacer?
+1. Cuenta tus **contratos y fechas**: ¿hubo segunda renovación o 12 meses en 15?
+2. Si seguiste trabajando tras el vencimiento, guarda pruebas (asistencia, pagos).
+3. Si te tratan como plazo fijo cuando ya eres indefinido, reclámalo (Dirección del Trabajo o tribunal).
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Cuánto puede durar un contrato a plazo fijo?",
+        respuesta:
+          "Por regla general hasta un año (dos años para gerentes o profesionales con título). Vencido el plazo, el contrato termina (artículo 159 N°4 del Código del Trabajo), salvo que se haya transformado en indefinido.",
+      },
+      {
+        pregunta: "¿Cuándo un plazo fijo se vuelve indefinido?",
+        respuesta:
+          "Si sigues trabajando tras el vencimiento con conocimiento del empleador, si hay una segunda renovación, o si en 15 meses trabajaste 12 o más con dos o más contratos a plazo.",
+      },
+      {
+        pregunta: "¿Tengo indemnización si termina mi plazo fijo?",
+        respuesta:
+          "Si termina por el solo vencimiento del plazo, en general no hay indemnización por años de servicio. Pero si el contrato ya se transformó en indefinido, sí tienes esos derechos.",
+      },
+      {
+        pregunta: "¿Cómo pruebo que ya soy indefinido?",
+        respuesta:
+          "Con tus contratos y fechas, comprobantes de pago y registros de asistencia que muestren la continuación de servicios o el cumplimiento de la regla de las renovaciones / 12 meses en 15.",
+      },
+    ],
+  },
+  {
+    slug: "contrato-de-arriendo-que-debe-tener",
+    titulo: "Contrato de arriendo: qué debe tener y por qué hacerlo por escrito",
+    categoria: "vivienda",
+    destacada: true,
+    metaTitle: "Contrato de arriendo: qué debe incluir | Ley Chilena",
+    descripcion:
+      "Qué es un contrato de arriendo, qué cláusulas debe tener y por qué conviene escriturarlo. El arriendo es válido aunque sea de palabra, pero por escrito te protege mucho más.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "El **arrendamiento** es el contrato en que una parte entrega el goce de una cosa y la otra paga un precio por ello ([artículo 1915 del Código Civil](/leyes/172986?art=2128)). Vale **aunque sea de palabra**, pero por escrito te protege: deja claros la **renta, el plazo, la garantía, el estado del inmueble y quién paga qué**. Sin contrato escrito, todo se vuelve "tu palabra contra la del otro".",
+    contenido: `
+## ¿Qué es el contrato de arriendo?
+Es el acuerdo en que el **arrendador** entrega el uso y goce de una propiedad y el **arrendatario** paga una **renta** por ella ([artículo 1915 del Código Civil](/leyes/172986?art=2128)). Es válido aunque sea **verbal**, pero probar lo acordado sin papel es muy difícil.
+
+## ¿Qué debería incluir?
+Un buen contrato de arriendo deja por escrito al menos:
+- **Identificación** de las partes y del **inmueble** (dirección, rol).
+- **Renta**, fecha de pago y forma de **reajuste** (por ejemplo, según la UF o el IPC).
+- **Plazo** (mes a mes, indefinido o plazo fijo) y condiciones de término.
+- **Garantía** (cuántos meses) y cuándo se devuelve.
+- **Estado del inmueble** al entregarlo (idealmente con un inventario y fotos).
+- Quién paga **gastos comunes, servicios y reparaciones**.
+- Si se permite **subarrendar** o tener mascotas.
+
+## ¿Por qué por escrito?
+Porque ante cualquier conflicto (no me devuelven la garantía, me quieren subir la renta, me acusan de daños), el **contrato es la prueba**. Sin él, todo queda al "dijo / no dijo". Además, para los juicios de arriendo, tener contrato facilita todo.
+
+## ¿Qué hacer?
+1. Exige un **contrato escrito** y léelo completo antes de firmar.
+2. Saca **fotos del estado** del inmueble al entrar y guarda copia firmada.
+3. Revisa la cláusula de **reajuste** (que no te suban la renta a voluntad).
+4. Guarda los **comprobantes de pago** de cada mes.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te explica qué dice la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Vale un arriendo sin contrato escrito?",
+        respuesta:
+          "Sí, el arrendamiento es válido aunque sea verbal (artículo 1915 del Código Civil). Pero sin documento es muy difícil probar lo acordado, por eso conviene siempre escriturarlo.",
+      },
+      {
+        pregunta: "¿Qué cláusulas no pueden faltar?",
+        respuesta:
+          "Identificación de las partes y del inmueble, renta y su reajuste, plazo, garantía y su devolución, estado del inmueble, y quién paga gastos comunes, servicios y reparaciones.",
+      },
+      {
+        pregunta: "¿Conviene un inventario del estado del inmueble?",
+        respuesta:
+          "Mucho. Un inventario con fotos al entrar y al salir evita discusiones sobre daños y descuentos de la garantía al término del arriendo.",
+      },
+      {
+        pregunta: "¿Quién redacta el contrato?",
+        respuesta:
+          "Suele hacerlo el arrendador, pero el arrendatario debe leerlo y negociar. No es obligatorio ante notario, aunque autorizar las firmas ante notario da más certeza.",
+      },
+    ],
+  },
+  {
+    slug: "promesa-de-compraventa-de-una-vivienda",
+    titulo: "Promesa de compraventa: comprar o vender una casa antes de la escritura",
+    categoria: "vivienda",
+    destacada: false,
+    metaTitle: "Promesa de compraventa de una vivienda | Ley Chilena",
+    descripcion:
+      "La promesa de compraventa compromete a comprar y vender una propiedad más adelante. Qué requisitos exige el Código Civil para que sea válida y te proteja.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "La **promesa de compraventa** es el contrato por el que dos personas se comprometen a **comprar y vender** una propiedad **más adelante**. Para que sirva y te obligue, debe cumplir requisitos del [artículo 1554 del Código Civil](/leyes/172986?art=1740): constar **por escrito**, que el contrato prometido no sea de los que la ley declara ineficaces, fijar un **plazo o condición** para celebrarlo y **especificar el contrato** de tal modo que solo falte firmarlo.",
+    contenido: `
+## ¿Qué es la promesa de compraventa?
+Es un contrato **previo**: las partes se comprometen a celebrar **en el futuro** la compraventa de una propiedad (por ejemplo, mientras se aprueba el crédito hipotecario). No transfiere todavía la casa, pero **obliga** a comprar y vender cuando llegue el momento.
+
+## Los 4 requisitos para que valga
+El [artículo 1554 del Código Civil](/leyes/172986?art=1740) exige, para que la promesa produzca efecto:
+1. Que conste **por escrito**.
+2. Que el contrato prometido **no sea de aquellos que la ley declara ineficaces**.
+3. Que contenga un **plazo o condición** que fije la época de la celebración.
+4. Que se **especifique** de tal manera el contrato prometido, que solo falte la tradición o las solemnidades para perfeccionarlo.
+
+Si falta alguno, la promesa **no obliga**. Por eso conviene hacerla con asesoría.
+
+## ¿Qué pasa si la otra parte no cumple?
+Si una parte se arrepiente, la otra puede **exigir el cumplimiento** (que se celebre la compraventa) o la **indemnización** de perjuicios. Es común pactar una **multa o arras** para ese caso.
+
+## ¿Qué hacer?
+1. Haz la promesa **por escrito** y, mejor, ante notario.
+2. Verifica los **4 requisitos** del artículo 1554.
+3. Define con claridad **precio, plazo y condiciones** (ej. "sujeto a aprobación del crédito").
+4. Revisa los **títulos de la propiedad** antes de prometer comprar.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿La promesa de compraventa me obliga a comprar?",
+        respuesta:
+          "Sí, si cumple los requisitos del artículo 1554 del Código Civil. La promesa válida obliga a celebrar la compraventa; si una parte no cumple, la otra puede exigir el cumplimiento o la indemnización.",
+      },
+      {
+        pregunta: "¿La promesa debe ser por escrito?",
+        respuesta:
+          "Sí. Constar por escrito es uno de los cuatro requisitos del artículo 1554. Una promesa solo verbal no produce efecto.",
+      },
+      {
+        pregunta: "¿Qué pasa si el banco no aprueba el crédito?",
+        respuesta:
+          "Por eso conviene pactar la promesa sujeta a la condición de que se apruebe el crédito. Si la condición no se cumple, la compraventa no se celebra sin responsabilidad, según lo pactado.",
+      },
+      {
+        pregunta: "¿Qué son las arras en una promesa?",
+        respuesta:
+          "Una suma que una parte entrega como señal o garantía. Sirve para asegurar el cumplimiento: si quien la dio se arrepiente la pierde, y si se arrepiente quien la recibió, suele devolverla doblada, según lo pactado.",
+      },
+    ],
+  },
+  {
+    slug: "pueden-subirme-el-arriendo-durante-el-contrato",
+    titulo: "¿Pueden subirme el arriendo durante el contrato?",
+    categoria: "vivienda",
+    destacada: true,
+    metaTitle: "¿Pueden subir el arriendo durante el contrato? | Ley Chilena",
+    descripcion:
+      "El arrendador no puede subir la renta cuando quiera: el contrato manda. Cuándo procede un reajuste y qué hacer si te suben el arriendo de forma unilateral, según el Código Civil.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "**No de forma unilateral.** Todo contrato legalmente celebrado es **ley para las partes** y no puede cambiarse sino por **acuerdo mutuo** ([artículo 1545 del Código Civil](/leyes/172986?art=1731)). Si tu contrato fija una **renta** y un **reajuste** (por ejemplo según la UF o el IPC), solo se aplica ese reajuste; el arrendador **no puede subir la renta a voluntad** durante el contrato vigente.",
+    contenido: `
+## La regla: el contrato manda
+Un contrato de arriendo, una vez firmado, es **obligatorio para ambas partes** y no puede modificarse unilateralmente: solo cambia por **consentimiento mutuo** o por causas legales ([artículo 1545 del Código Civil](/leyes/172986?art=1731)). En palabras simples: **lo pactado se respeta**.
+
+## ¿Cuándo sí puede subir la renta?
+- Si el contrato incluye una **cláusula de reajuste** (lo más común: la renta se reajusta según la **UF** o el **IPC**). Ese reajuste **estaba pactado**, así que vale.
+- Al **renovar** o firmar un **nuevo contrato**: ahí las partes pueden acordar una renta distinta (y tú puedes aceptar o no).
+- En contratos **mes a mes**, el arrendador puede proponer un cambio, pero para imponerlo necesita poner término al contrato con el aviso legal correspondiente.
+
+## ¿Cuándo NO puede?
+Si tienes un contrato **vigente** con renta fija y sin cláusula de reajuste, el arrendador **no puede** subirte la renta a mitad de camino solo porque quiere. Si lo hace, puedes **negarte** y seguir pagando lo pactado.
+
+## ¿Qué hacer?
+1. Revisa tu **contrato**: ¿qué dice sobre renta y reajuste?
+2. Si te exigen un alza no pactada, **recházala por escrito** y sigue pagando la renta del contrato.
+3. Guarda los **comprobantes de pago** (te protegen de que aleguen no pago).
+4. Si te presionan o te quieren echar por negarte, busca ayuda (Corporación de Asistencia Judicial, gratis).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿El arrendador puede subir la renta cuando quiera?",
+        respuesta:
+          "No. El contrato es ley para las partes y no se cambia unilateralmente (artículo 1545 del Código Civil). Solo procede el reajuste pactado (UF/IPC) o un nuevo acuerdo al renovar.",
+      },
+      {
+        pregunta: "¿Qué pasa si mi contrato no dice nada de reajuste?",
+        respuesta:
+          "Entonces la renta se mantiene durante la vigencia del contrato. El arrendador no puede subirla unilateralmente; necesitaría tu acuerdo o esperar a un nuevo contrato.",
+      },
+      {
+        pregunta: "Tengo contrato mes a mes, ¿pueden subir la renta?",
+        respuesta:
+          "Para imponer un alza, el arrendador debería poner término al contrato con el aviso de desahucio legal y proponer uno nuevo. Tú decides si aceptas la nueva renta o no.",
+      },
+      {
+        pregunta: "¿Qué hago si me suben el arriendo sin acuerdo?",
+        respuesta:
+          "Rechaza el alza por escrito, sigue pagando la renta pactada y guarda los comprobantes. Si te presionan o amenazan con echarte, acude a la Corporación de Asistencia Judicial (gratis).",
+      },
+    ],
+  },
+  {
+    slug: "reglamento-de-copropiedad-que-te-obliga",
+    titulo: "Reglamento de copropiedad: ¿qué me obliga y qué no?",
+    categoria: "vivienda",
+    destacada: false,
+    metaTitle: "Reglamento de copropiedad: qué te obliga | Ley Chilena",
+    descripcion:
+      "El reglamento de copropiedad fija las reglas de tu edificio o condominio. Qué puede regular, qué obliga a propietarios y arrendatarios, según la Ley de Copropiedad.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "El **reglamento de copropiedad** es el conjunto de reglas que los copropietarios deben acordar para administrar el condominio ([artículo 8 de la Ley 21.442](/leyes/1174663?art=10616)). Obliga a **propietarios, arrendatarios y ocupantes**: define el uso de los bienes comunes, los gastos comunes, las normas de convivencia y las sanciones. Pero **no puede** imponer reglas contrarias a la ley.",
+    contenido: `
+## ¿Qué es el reglamento de copropiedad?
+Es el "manual de reglas" del edificio o condominio. La ley obliga a los copropietarios a **acordar un reglamento** que regule la administración y la convivencia ([artículo 8 de la Ley 21.442](/leyes/1174663?art=10616)). Una vez vigente, **obliga a todos**: dueños, arrendatarios y ocupantes a cualquier título.
+
+## ¿Qué puede regular?
+- El **uso de los bienes comunes** (pasillos, estacionamientos de visita, áreas verdes, quincho) — los copropietarios, arrendatarios u ocupantes pueden usarlos según su destino ([artículo 4 de la Ley 21.442](/leyes/1174663?art=10612)).
+- Los **gastos comunes** y cómo se reparten.
+- Las **normas de convivencia** (ruidos, mascotas, horarios).
+- Las **sanciones y multas** por incumplir.
+
+## ¿Qué NO puede hacer?
+- Imponer reglas **contrarias a la ley** (por ejemplo, privarte de derechos que la ley te garantiza).
+- Discriminar o impedir el **uso legítimo** de tu unidad.
+- Cobrar multas sin el **procedimiento** que el propio reglamento y la ley establecen.
+
+## ¿Qué hacer?
+1. Pide y **lee tu reglamento** de copropiedad (la administración debe tenerlo).
+2. Antes de comprar o arrendar, revisa qué **permite y prohíbe** (mascotas, arriendo por días, etc.).
+3. Si una multa o regla te parece **ilegal o arbitraria**, reclama en la **asamblea** o ante el **Juzgado de Policía Local**.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿El reglamento de copropiedad obliga a los arrendatarios?",
+        respuesta:
+          "Sí. El reglamento obliga a propietarios, arrendatarios y ocupantes a cualquier título. Conviene leerlo antes de arrendar para conocer las reglas del condominio.",
+      },
+      {
+        pregunta: "¿El reglamento puede prohibir mascotas o arriendo por días?",
+        respuesta:
+          "Puede regular esos temas dentro de lo que permite la ley. Revisa tu reglamento: lo que ahí se acordó válidamente obliga a todos los ocupantes.",
+      },
+      {
+        pregunta: "¿Pueden multarme por el reglamento?",
+        respuesta:
+          "Sí, si la conducta está sancionada y se sigue el procedimiento previsto. Si la multa es arbitraria o sin procedimiento, puedes reclamarla en la asamblea o en el Juzgado de Policía Local.",
+      },
+      {
+        pregunta: "¿Dónde consigo el reglamento de mi condominio?",
+        respuesta:
+          "La administración o el comité de administración deben tenerlo y entregártelo. También suele estar inscrito en el Conservador de Bienes Raíces.",
+      },
+    ],
+  },
+  {
+    slug: "ruidos-molestos-y-convivencia-en-el-condominio",
+    titulo: "Ruidos molestos y convivencia en el condominio: ¿qué puedo hacer?",
+    categoria: "vivienda",
+    destacada: false,
+    metaTitle: "Ruidos molestos del vecino en condominio | Ley Chilena",
+    descripcion:
+      "Si un vecino hace ruidos molestos o usa mal los espacios comunes, la Ley de Copropiedad y el reglamento te dan herramientas. Qué hacer paso a paso.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Cada copropietario, arrendatario u ocupante puede **usar los bienes comunes según su destino y sin afectar a los demás** ([artículo 4 de la Ley 21.442](/leyes/1174663?art=10612)). Frente a **ruidos molestos** o mal uso de los espacios, primero recurre al **reglamento de copropiedad** y a la **administración**; si persiste, puedes denunciar a la **Municipalidad** o al **Juzgado de Policía Local**.",
+    contenido: `
+## La regla de convivencia
+En un condominio, el uso de tu unidad y de los espacios comunes tiene un límite: **no perjudicar a los demás**. La ley permite usar los bienes comunes **según su destino y de forma ordenada** ([artículo 4 de la Ley 21.442](/leyes/1174663?art=10612)), y el **reglamento de copropiedad** fija las normas concretas (horarios, ruidos, mascotas, uso del quincho, etc.).
+
+## ¿Qué cuenta como "ruido molesto"?
+Sonidos que **superan lo razonable** y alteran la tranquilidad: fiestas a altas horas, música muy fuerte, ruidos constantes. Las **ordenanzas municipales** suelen fijar horarios de silencio (por ejemplo, de noche).
+
+## Pasos para resolverlo
+1. **Habla con el vecino**: muchas veces se soluciona conversando.
+2. Si sigue, **avisa a la administración** o al comité por escrito, pidiendo que aplique el **reglamento**.
+3. La administración puede **amonestar o multar** según el reglamento.
+4. Si persiste, **denuncia a la Municipalidad** (fiscalización de ruidos) o al **Juzgado de Policía Local**.
+5. En casos graves o reiterados, guarda **pruebas** (grabaciones con fecha, testigos).
+
+## ¿Qué hacer?
+1. Revisa tu **reglamento de copropiedad** (qué horarios y reglas fija).
+2. Deja **constancia escrita** de los reclamos a la administración.
+3. Junta **evidencia** del ruido (fecha, hora, duración).
+4. Escala a **Municipalidad / Juzgado de Policía Local** si no cesa.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué hago si un vecino hace ruidos molestos?",
+        respuesta:
+          "Primero conversa; si sigue, reclama por escrito a la administración para que aplique el reglamento de copropiedad. Si persiste, denuncia a la Municipalidad o al Juzgado de Policía Local.",
+      },
+      {
+        pregunta: "¿La administración puede multar por ruidos?",
+        respuesta:
+          "Sí, si el reglamento de copropiedad lo contempla y se sigue su procedimiento. El reglamento fija las normas de convivencia y las sanciones aplicables.",
+      },
+      {
+        pregunta: "¿Quién fiscaliza los ruidos molestos?",
+        respuesta:
+          "Las Municipalidades, según sus ordenanzas de ruido, y el Juzgado de Policía Local. Conviene tener pruebas (grabaciones con fecha, testigos) para respaldar la denuncia.",
+      },
+      {
+        pregunta: "¿Puedo usar libremente los espacios comunes?",
+        respuesta:
+          "Puedes usarlos según su destino y sin afectar a los demás (artículo 4 de la Ley 21.442), respetando el reglamento de copropiedad del condominio.",
+      },
+    ],
   }
 ];
 

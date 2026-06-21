@@ -3509,6 +3509,527 @@ Sonidos que **superan lo razonable** y alteran la tranquilidad: fiestas a altas 
           "Puedes usarlos según su destino y sin afectar a los demás (artículo 4 de la Ley 21.442), respetando el reglamento de copropiedad del condominio.",
       },
     ],
+  },
+  {
+    slug: "declaracion-de-bien-familiar-proteger-la-casa",
+    titulo: "Declaración de bien familiar: cómo proteger la casa de la familia",
+    categoria: "familia",
+    destacada: true,
+    metaTitle: "Bien familiar: proteger la vivienda de la familia | Ley Chilena",
+    descripcion:
+      "Declarar la vivienda como bien familiar la protege: no se puede vender ni hipotecar sin el acuerdo del otro cónyuge. Cómo funciona y para qué sirve, según el Código Civil.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "El inmueble que sirve de **residencia principal de la familia** (y los muebles que lo guarnecen) puede declararse **bien familiar** ([artículo 141 del Código Civil](/leyes/172986?art=315)). Su efecto: aunque pertenezca a uno solo de los cónyuges, **no se puede vender, hipotecar ni arrendar sin la autorización del otro**. Protege a la familia frente a decisiones unilaterales o deudas.",
+    contenido: `
+## ¿Qué es un bien familiar?
+Es la **vivienda que es residencia principal de la familia** —y los muebles que la equipan— que se declara como tal para **protegerla** ([artículo 141 del Código Civil](/leyes/172986?art=315)). Aplica aunque la casa esté a nombre de **uno solo** de los cónyuges.
+
+## ¿Para qué sirve?
+Una vez declarada bien familiar, el dueño **no puede, por sí solo**:
+- **Vender** la propiedad,
+- **Hipotecarla** o darla en garantía,
+- **Arrendarla** o ceder su uso,
+
+sin la **autorización del otro cónyuge**. Así se evita que, por ejemplo, uno venda la casa donde vive la familia, o que un acreedor se la lleve fácilmente.
+
+## ¿Cómo se declara?
+- Puede declararla un cónyuge **pidiéndolo al tribunal de familia**; con la sola presentación de la demanda, el bien queda **provisoriamente** como familiar.
+- También protege a los **hijos**: la declaración mira el interés de la familia, no solo de la pareja.
+
+Importante: ser bien familiar **no cambia quién es el dueño**; solo limita su disposición para proteger el hogar.
+
+## ¿Qué hacer?
+1. Si temes que vendan o hipotequen la casa donde vive la familia, evalúa **declararla bien familiar** en el Tribunal de Familia.
+2. Reúne los **antecedentes** del inmueble (que es la residencia principal).
+3. Asesórate (un abogado o la **Corporación de Asistencia Judicial**, gratis).
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué protege la declaración de bien familiar?",
+        respuesta:
+          "La vivienda que es residencia principal de la familia: no se puede vender, hipotecar ni arrendar sin autorización del otro cónyuge (artículo 141 del Código Civil), aunque esté a nombre de uno solo.",
+      },
+      {
+        pregunta: "¿Sirve si la casa está a nombre de mi pareja?",
+        respuesta:
+          "Sí. Justamente protege ese caso: aunque el inmueble pertenezca a uno solo de los cónyuges, al ser bien familiar no se puede disponer de él sin el acuerdo del otro.",
+      },
+      {
+        pregunta: "¿La declaración me hace dueño de la casa?",
+        respuesta:
+          "No. No cambia quién es el propietario; solo limita su facultad de vender, hipotecar o arrendar sin autorización del otro cónyuge, para proteger el hogar familiar.",
+      },
+      {
+        pregunta: "¿Cómo se declara bien familiar?",
+        respuesta:
+          "Pidiéndolo al Tribunal de Familia. Con la sola presentación de la demanda, el inmueble queda provisoriamente como bien familiar mientras el tribunal resuelve.",
+      },
+    ],
+  },
+  {
+    slug: "testamento-como-dejar-mis-bienes",
+    titulo: "Testamento: cómo dejar mis bienes ordenados en Chile",
+    categoria: "familia",
+    destacada: false,
+    metaTitle: "Testamento en Chile: cómo hacerlo | Ley Chilena",
+    descripcion:
+      "El testamento te permite decidir qué pasa con tus bienes, dentro de los límites de la ley (legítimas). Qué es, cómo se hace y qué puedes y no puedes dejar, según el Código Civil.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "El **testamento** es el acto en que una persona **dispone de sus bienes** para que tengan efecto después de su muerte ([artículo 999 del Código Civil](/leyes/172986?art=1185)). Te deja **ordenar tu herencia**, pero con un límite: debes respetar las **legítimas** de tus herederos forzosos (hijos, cónyuge y ascendientes). No puedes dejar libremente el 100% a quien quieras si tienes esos herederos.",
+    contenido: `
+## ¿Qué es un testamento?
+Es un acto **solemne** y **personal** en que decides qué pasa con **tus bienes** después de fallecer ([artículo 999 del Código Civil](/leyes/172986?art=1185)). Puedes revocarlo o cambiarlo mientras vivas.
+
+## ¿Para qué sirve?
+- **Ordenar** quién recibe qué y evitar conflictos.
+- Dejar bienes a personas que **no heredarían por ley** (un amigo, una fundación), dentro de la parte de libre disposición.
+- Designar **albacea** (quien ejecuta el testamento).
+
+## El límite: las legítimas
+No puedes repartir **todo** a tu antojo si tienes **herederos forzosos**. La ley reserva una parte (la **legítima**) para ellos. La parte que puedes dejar libremente es menor cuando hay hijos o cónyuge (ver la guía de **herencia forzosa**).
+
+## ¿Cómo se hace?
+- **Testamento abierto**: ante notario y testigos (lo más común).
+- **Testamento cerrado**: se entrega cerrado al notario.
+- Hay formas especiales (testamento militar, marítimo) para casos excepcionales.
+
+Un testamento **mal hecho** puede ser nulo; por eso conviene hacerlo ante notario y con asesoría.
+
+## ¿Qué hacer?
+1. Haz un **inventario** mental de tus bienes y a quién quieres dejarlos.
+2. Considera las **legítimas** de tus herederos forzosos.
+3. Otórgalo ante **notario** (testamento abierto) con testigos.
+4. Guarda copia e informa a alguien de confianza dónde está.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Puedo dejar todos mis bienes a quien quiera?",
+        respuesta:
+          "No si tienes herederos forzosos (hijos, cónyuge, ascendientes): la ley reserva para ellos una parte llamada legítima. Solo puedes disponer libremente de la parte que queda.",
+      },
+      {
+        pregunta: "¿Qué tipos de testamento hay?",
+        respuesta:
+          "Principalmente el testamento abierto (ante notario y testigos, el más usado) y el cerrado (se entrega cerrado al notario). Existen formas especiales para casos excepcionales.",
+      },
+      {
+        pregunta: "¿Puedo cambiar mi testamento después?",
+        respuesta:
+          "Sí. El testamento es revocable: puedes modificarlo o hacer uno nuevo mientras vivas. El último testamento válido es el que rige.",
+      },
+      {
+        pregunta: "¿Necesito notario para el testamento?",
+        respuesta:
+          "El testamento abierto se otorga ante notario y testigos. Es la forma más segura; un testamento mal otorgado puede ser declarado nulo.",
+      },
+    ],
+  },
+  {
+    slug: "quien-hereda-si-no-hay-testamento",
+    titulo: "¿Quién hereda si no hay testamento? El orden de la herencia",
+    categoria: "familia",
+    destacada: true,
+    metaTitle: "¿Quién hereda sin testamento en Chile? | Ley Chilena",
+    descripcion:
+      "Sin testamento, la ley define quién hereda: primero los hijos y el cónyuge. Cómo es el orden de la sucesión intestada en Chile, según el Código Civil.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Si una persona muere **sin testamento**, hereda según el orden que fija la ley (sucesión intestada). En primer lugar, los **hijos**, que excluyen a los demás herederos; pero si hay **cónyuge sobreviviente**, este concurre junto con los hijos ([artículo 988 del Código Civil](/leyes/172986?art=1174)). Si no hay hijos, heredan los ascendientes y el cónyuge, y así sucesivamente.",
+    contenido: `
+## ¿Qué pasa si no hay testamento?
+La ley reparte la herencia por ti, siguiendo un **orden de sucesión** (sucesión intestada). No queda al azar ni a la voluntad de los parientes: hay reglas claras.
+
+## El primer orden: hijos y cónyuge
+Los **hijos heredan y excluyen** a los demás parientes; pero si hay **cónyuge sobreviviente**, este **concurre junto con los hijos** ([artículo 988 del Código Civil](/leyes/172986?art=1174)). En palabras simples: primero la herencia es para los **hijos y el cónyuge**.
+
+La parte del cónyuge tiene reglas especiales (en general recibe el doble de lo que recibe un hijo, con un mínimo garantizado).
+
+## ¿Y si no hay hijos?
+Si la persona **no tiene hijos**, heredan en órdenes siguientes:
+- Los **ascendientes** (padres, abuelos) **y el cónyuge**.
+- Si no hay ascendientes ni cónyuge, los **hermanos**.
+- A falta de ellos, otros colaterales, y finalmente el **Fisco**.
+
+## ¿Cómo se hace efectiva la herencia?
+Hay que tramitar la **posesión efectiva**:
+- Si **no hay testamento**, se pide en el **Registro Civil** (trámite administrativo).
+- Si **hay testamento**, se tramita ante un **tribunal**.
+
+## ¿Qué hacer?
+1. Identifica a los **herederos** según el orden legal.
+2. Tramita la **posesión efectiva** (Registro Civil si no hubo testamento).
+3. Recuerda que también se heredan **deudas** (revisa la guía de heredar deudas: conviene el beneficio de inventario).
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Quién hereda primero si no hay testamento?",
+        respuesta:
+          "Los hijos, que excluyen a los demás herederos; pero si hay cónyuge sobreviviente, este concurre junto con los hijos (artículo 988 del Código Civil).",
+      },
+      {
+        pregunta: "¿Cuánto hereda el cónyuge?",
+        respuesta:
+          "El cónyuge concurre con los hijos y, por regla general, recibe el doble de lo que recibe un hijo, con un mínimo garantizado por la ley. Hay reglas especiales según el número de hijos.",
+      },
+      {
+        pregunta: "¿Qué pasa si la persona no tuvo hijos?",
+        respuesta:
+          "Heredan los ascendientes y el cónyuge; a falta de ellos, los hermanos y otros colaterales; y en último término, el Fisco.",
+      },
+      {
+        pregunta: "¿Cómo se tramita la herencia sin testamento?",
+        respuesta:
+          "Con la posesión efectiva. Si no hubo testamento, se pide en el Registro Civil (trámite administrativo). Recuerda que también se heredan las deudas: conviene aceptar con beneficio de inventario.",
+      },
+    ],
+  },
+  {
+    slug: "herencia-forzosa-la-legitima",
+    titulo: "Herencia forzosa: ¿puedo desheredar a un hijo? La legítima",
+    categoria: "familia",
+    destacada: false,
+    metaTitle: "Herencia forzosa y legítima en Chile | Ley Chilena",
+    descripcion:
+      "La ley obliga a dejar una parte de la herencia a ciertos herederos (legitimarios). Quiénes son y cuánto les corresponde, según el Código Civil. No puedes desheredar libremente.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "No puedes desheredar libremente. Hay **asignaciones forzosas** que el testador está **obligado** a respetar; si no las hace, la ley las suple ([artículo 1167 del Código Civil](/leyes/172986?art=1353)). Los **legitimarios** —los hijos, los ascendientes y el cónyuge— tienen derecho a su **legítima** ([artículo 1182](/leyes/172986?art=1368)). Solo en casos graves y por las causales legales se puede desheredar.",
+    contenido: `
+## ¿Qué es la herencia forzosa?
+La libertad para repartir tu herencia **no es total**. Existen **asignaciones forzosas**: partes que el testador **debe** dejar a ciertos herederos, y que la ley **suple** si no las respeta, incluso en contra de lo que diga el testamento ([artículo 1167 del Código Civil](/leyes/172986?art=1353)).
+
+## ¿Quiénes son los legitimarios?
+Tienen derecho a una parte protegida (la **legítima**) los siguientes ([artículo 1182 del Código Civil](/leyes/172986?art=1368)):
+1. Los **hijos** (personalmente o representados por su descendencia).
+2. Los **ascendientes** (padres, abuelos).
+3. El **cónyuge sobreviviente**.
+
+A ellos no puedes dejarlos sin nada por simple voluntad.
+
+## ¿Cuánto está protegido?
+A grandes rasgos, **la mitad de la herencia** se reparte como legítima entre los legitimarios. De lo que queda, una parte es de **libre disposición** (puedes dejarla a quien quieras) y otra de "mejoras" (para favorecer a algunos legitimarios). Por eso, teniendo hijos o cónyuge, **no puedes dejar el 100% a un extraño**.
+
+## ¿Se puede desheredar?
+Solo **excepcionalmente** y por **causales legales graves** (por ejemplo, atentar contra la vida del causante), señaladas expresamente en el testamento y acreditadas. No basta con "no quiero dejarle nada".
+
+## ¿Qué hacer?
+1. Si vas a testar, considera las **legítimas** de tus legitimarios.
+2. Si crees que en una herencia **se vulneró tu legítima**, puedes reclamarla.
+3. Asesórate con un abogado: la sucesión tiene reglas técnicas.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Puedo dejar sin herencia a un hijo?",
+        respuesta:
+          "Por regla general no. Los hijos son legitimarios (artículo 1182 del Código Civil) y tienen derecho a su legítima. Solo se puede desheredar por causales legales graves, señaladas y acreditadas.",
+      },
+      {
+        pregunta: "¿Quiénes son los legitimarios?",
+        respuesta:
+          "Los hijos (personalmente o por su descendencia), los ascendientes y el cónyuge sobreviviente (artículo 1182 del Código Civil). Tienen derecho a una parte protegida de la herencia.",
+      },
+      {
+        pregunta: "¿Qué parte de la herencia puedo dejar libremente?",
+        respuesta:
+          "Teniendo legitimarios, una porción menor: la mitad se reparte como legítima, y del resto hay una parte de mejoras y otra de libre disposición. No puedes dejar el total a un extraño.",
+      },
+      {
+        pregunta: "¿Qué hago si no se respetó mi legítima?",
+        respuesta:
+          "Puedes reclamar tu legítima: la ley suple las asignaciones forzosas aunque el testamento disponga otra cosa (artículo 1167 del Código Civil). Conviene asesorarte con un abogado.",
+      },
+    ],
+  },
+  {
+    slug: "me-cobraron-mas-caro-que-el-precio-publicado",
+    titulo: "Me cobraron más caro que el precio publicado: ¿qué hago?",
+    categoria: "consumidor",
+    destacada: true,
+    metaTitle: "Me cobraron más que el precio publicado | Ley Chilena",
+    descripcion:
+      "Si te cobran un precio mayor al exhibido o publicado (en góndola, web o vitrina), es infracción a la Ley del Consumidor. Qué exigir y cómo reclamar.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Es **infracción a la ley** cobrar un **precio superior al exhibido, informado o publicado** ([artículo 18 de la Ley 19.496](/leyes/1160403?art=138555)). Si en la caja te cobran más que el precio de la góndola, vitrina o sitio web, puedes **exigir que te respeten el precio publicado**, y si no lo hacen, reclamar en el SERNAC. Guarda foto del precio exhibido.",
+    contenido: `
+## La regla: te cobran lo que estaba publicado
+La Ley del Consumidor es clara: cobrar un **precio superior al exhibido, informado o publicado** es una **infracción** ([artículo 18 de la Ley 19.496](/leyes/1160403?art=138555)). El precio que viste en la **góndola, la vitrina, el catálogo o la web** es el que te deben cobrar.
+
+## Casos típicos
+- El precio de la **góndola** es menor que el de la **caja**.
+- La **web** muestra un precio y al pagar aparece otro mayor.
+- Una **promoción** publicada que en la caja no aplican.
+
+En todos, el proveedor debe **respetar el precio publicado** o, al menos, no cobrarte más que ese.
+
+## ¿Qué puedes exigir?
+- Que te **vendan al precio publicado**.
+- Si ya pagaste de más, la **devolución** de la diferencia.
+- En caso de mala fe o negativa, la **sanción** que aplique el tribunal.
+
+> Atención: si se trata de un **error evidente y grosero** (un televisor a $100), los tribunales han matizado; pero el precio normal publicado **sí obliga**.
+
+## ¿Qué hacer?
+1. Saca **foto** del precio exhibido o del pantallazo de la web.
+2. En el local, pide hablar con el **encargado** y exige el precio publicado.
+3. Si no resuelven, reclama en el **SERNAC** (sernac.cl) con la evidencia.
+4. Puedes demandar en el **Juzgado de Policía Local** para recuperar la diferencia y por la infracción.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Me deben respetar el precio de la góndola?",
+        respuesta:
+          "Sí. Cobrar un precio superior al exhibido, informado o publicado es infracción (artículo 18 de la Ley 19.496). Puedes exigir el precio publicado o la devolución de la diferencia.",
+      },
+      {
+        pregunta: "La web me mostró un precio y me cobró otro, ¿qué hago?",
+        respuesta:
+          "Guarda el pantallazo del precio publicado y reclama. El proveedor debe respetar el precio informado; si te cobró más, puedes pedir la devolución de la diferencia y reclamar en el SERNAC.",
+      },
+      {
+        pregunta: "¿Sirve de algo el error de precio muy bajo?",
+        respuesta:
+          "El precio normal publicado obliga. En casos de error evidente y grosero (un valor irrisorio por equivocación) los tribunales han matizado, pero la regla general protege el precio exhibido.",
+      },
+      {
+        pregunta: "¿Dónde reclamo?",
+        respuesta:
+          "Primero con el encargado del local; si no resuelve, en el SERNAC (sernac.cl) con la foto del precio. También puedes demandar en el Juzgado de Policía Local.",
+      },
+    ],
+  },
+  {
+    slug: "no-me-cumplieron-lo-ofrecido-incumplimiento",
+    titulo: "No me cumplieron lo ofrecido: incumplimiento del proveedor",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "No cumplieron lo ofrecido: tus derechos | Ley Chilena",
+    descripcion:
+      "El proveedor está obligado a respetar las condiciones, plazos y características ofrecidas. Qué hacer si compraste algo y no te entregaron lo prometido, según la Ley del Consumidor.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Todo proveedor está **obligado a respetar los términos, condiciones y modalidades** conforme a los cuales ofreció o convino la entrega del bien o la prestación del servicio ([artículo 12 de la Ley 19.496](/leyes/1160403?art=138525)). Si no te cumplen lo ofrecido (características, plazo, condiciones), puedes **exigir que cumplan**, o la **devolución** y la **indemnización** de perjuicios.",
+    contenido: `
+## La obligación de cumplir lo ofrecido
+La oferta no es un adorno: el proveedor **debe respetar lo que ofreció** —características, plazo, condiciones y modalidades— al venderte ([artículo 12 de la Ley 19.496](/leyes/1160403?art=138525)). Si prometió "entrega en 48 horas", "incluye instalación" o "modelo X", eso es **exigible**.
+
+## Casos típicos
+- Te entregan un **producto distinto** al ofrecido.
+- El **plazo de entrega** prometido no se cumple.
+- El servicio **no incluye** lo que decía la oferta.
+- Las **condiciones** cambian respecto de lo pactado.
+
+## ¿Qué puedes exigir?
+- Que **cumplan** lo ofrecido (entreguen lo correcto, en el plazo, con lo incluido).
+- Si ya no sirve o no quieres, la **devolución de lo pagado**.
+- La **indemnización** de los perjuicios que el incumplimiento te causó.
+
+## ¿Qué hacer?
+1. Junta la **evidencia de lo ofrecido** (publicidad, correo, captura, contrato, comprobante).
+2. Reclama por **escrito** al proveedor pidiendo que cumpla o te devuelva.
+3. Si no resuelve, presenta el **reclamo en el SERNAC** (sernac.cl).
+4. Puedes demandar en el **Juzgado de Policía Local** para el cumplimiento o la indemnización.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿El proveedor debe cumplir lo que ofreció?",
+        respuesta:
+          "Sí. Está obligado a respetar los términos, condiciones y modalidades conforme a los cuales ofreció o convino el bien o servicio (artículo 12 de la Ley 19.496).",
+      },
+      {
+        pregunta: "No me entregaron en el plazo prometido, ¿qué hago?",
+        respuesta:
+          "Puedes exigir el cumplimiento, o la devolución de lo pagado y la indemnización de perjuicios. Guarda la evidencia del plazo ofrecido y reclama por escrito; si no resuelven, ve al SERNAC.",
+      },
+      {
+        pregunta: "Me entregaron un producto distinto al ofrecido, ¿puedo devolverlo?",
+        respuesta:
+          "Sí. Al no cumplir lo ofrecido, puedes exigir el producto correcto o la devolución de lo pagado, más la indemnización de los perjuicios (artículo 12 de la Ley 19.496).",
+      },
+      {
+        pregunta: "¿Qué evidencia necesito?",
+        respuesta:
+          "La que muestre lo ofrecido: publicidad, correos, capturas del sitio, catálogo o contrato, junto con tu comprobante de compra. Con eso reclamas en el SERNAC o en el Juzgado de Policía Local.",
+      },
+    ],
+  },
+  {
+    slug: "promociones-y-ofertas-que-debe-informar-la-empresa",
+    titulo: "Promociones y ofertas: ¿qué debe informar la empresa?",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Promociones y ofertas: tus derechos | Ley Chilena",
+    descripcion:
+      "En toda promoción u oferta, la empresa debe informar las bases y el plazo de duración. Qué exigir si una promoción no se cumple o tiene letra chica, según la Ley del Consumidor.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "En **toda promoción u oferta**, el proveedor debe informarte las **bases** de la misma y el **tiempo o plazo de duración** ([artículo 35 de la Ley 19.496](/leyes/1160403?art=138577)). Si una promoción no se cumple, cambia las reglas a mitad de camino o esconde condiciones que no informó, puedes **reclamar** y exigir que se respete lo ofrecido.",
+    contenido: `
+## La regla de las promociones
+Las promociones y ofertas tienen reglas: el proveedor debe **informar las bases** (condiciones, requisitos, límites) y el **plazo de duración** ([artículo 35 de la Ley 19.496](/leyes/1160403?art=138577)). No puede inventar condiciones después ni esconder lo importante en letra chica no informada.
+
+## ¿Qué cuenta como problema?
+- La promoción **no dice hasta cuándo** dura.
+- Aparecen **condiciones nuevas** en la caja que no estaban informadas.
+- El **stock** se agota sin que se haya advertido el límite.
+- Cambian las **reglas** durante la promoción.
+
+## ¿Qué puedes exigir?
+- Que se **respeten las bases** informadas.
+- Que se cumpla la **oferta** mientras esté vigente el plazo publicado.
+- Si te indujeron a error, la **devolución** o **indemnización** según el caso.
+
+## ¿Qué hacer?
+1. **Guarda** la publicidad de la promoción (foto, captura, folleto) con su plazo.
+2. Si no la respetan, reclama por **escrito** al proveedor.
+3. Presenta el **reclamo en el SERNAC** (sernac.cl) con la evidencia.
+4. Puedes demandar en el **Juzgado de Policía Local**.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Qué debe informar una promoción?",
+        respuesta:
+          "Las bases de la promoción (condiciones, requisitos, límites) y el tiempo o plazo de duración (artículo 35 de la Ley 19.496). No puede esconder condiciones esenciales que no informó.",
+      },
+      {
+        pregunta: "La promoción no decía hasta cuándo duraba, ¿es válido?",
+        respuesta:
+          "El proveedor debe informar el plazo de duración. Si no lo hizo y luego alega que terminó, puedes reclamar: la falta de información de las bases es infracción a la ley.",
+      },
+      {
+        pregunta: "Cambiaron las reglas de la promoción a mitad de camino, ¿qué hago?",
+        respuesta:
+          "Guarda la publicidad original y reclama. Deben respetarse las bases informadas mientras esté vigente el plazo publicado; cambiarlas unilateralmente puede ser infracción.",
+      },
+      {
+        pregunta: "¿Dónde reclamo por una promoción engañosa?",
+        respuesta:
+          "Primero al proveedor por escrito; si no resuelve, en el SERNAC (sernac.cl) con la evidencia. También puedes demandar en el Juzgado de Policía Local.",
+      },
+    ],
+  },
+  {
+    slug: "sernac-como-y-donde-reclamar",
+    titulo: "El SERNAC: qué hace y cómo reclamar paso a paso",
+    categoria: "consumidor",
+    destacada: true,
+    metaTitle: "Cómo reclamar en el SERNAC | Ley Chilena",
+    descripcion:
+      "El SERNAC vela por los derechos de los consumidores y recibe tus reclamos contra empresas. Qué puede hacer, qué no, y cómo presentar un reclamo paso a paso.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "El **Servicio Nacional del Consumidor (SERNAC)** debe **velar por el cumplimiento** de la Ley del Consumidor ([artículo 58 de la Ley 19.496](/leyes/1160403?art=138648)). Recibe tus **reclamos** contra empresas, gestiona una respuesta del proveedor y puede mediar; pero **no dicta sentencias ni fija indemnizaciones** (eso lo hace el Juzgado de Policía Local). Reclamar en el SERNAC es **gratis** y online.",
+    contenido: `
+## ¿Qué es el SERNAC?
+Es el organismo del Estado que **vela por el cumplimiento** de la Ley del Consumidor y por los derechos de las personas frente a las empresas ([artículo 58 de la Ley 19.496](/leyes/1160403?art=138648)). Informa, recibe reclamos y puede iniciar acciones colectivas.
+
+## ¿Qué puede y qué no puede hacer?
+**Puede:** recibir tu reclamo, **trasladarlo al proveedor** para que responda, **mediar** para un acuerdo, fiscalizar y, en casos masivos, demandar colectivamente.
+
+**No puede:** actuar como un juez de tu caso particular, **obligar** a la empresa a pagarte ni **fijar indemnizaciones**. Eso corresponde al **Juzgado de Policía Local**.
+
+## Cómo reclamar (paso a paso)
+1. Reúne la **evidencia**: comprobante de compra, contrato, correos, fotos, publicidad.
+2. Entra a **sernac.cl** y presenta tu reclamo (es gratis y online), o llámalos / ve a una oficina.
+3. El SERNAC **traslada** el reclamo a la empresa, que tiene un plazo para responder.
+4. Si hay **acuerdo**, se cumple; si la empresa no responde o no resuelve, queda **registro** y puedes demandar.
+5. Para indemnización o que se obligue a la empresa, demanda en el **Juzgado de Policía Local** (puedes hacerlo sin abogado en montos menores).
+
+## ¿Qué hacer?
+1. Primero reclama **directo a la empresa** (deja constancia escrita).
+2. Si no resuelve, reclama en el **SERNAC**.
+3. Si necesitas que te paguen o indemnicen, ve al **Juzgado de Policía Local**.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿El SERNAC puede obligar a la empresa a pagarme?",
+        respuesta:
+          "No. El SERNAC vela por el cumplimiento de la ley, traslada tu reclamo y media (artículo 58 de la Ley 19.496), pero no dicta sentencias ni fija indemnizaciones. Eso lo hace el Juzgado de Policía Local.",
+      },
+      {
+        pregunta: "¿Reclamar en el SERNAC tiene costo?",
+        respuesta:
+          "No. Reclamar en el SERNAC es gratis y se puede hacer online en sernac.cl, por teléfono o en sus oficinas.",
+      },
+      {
+        pregunta: "¿Qué necesito para reclamar?",
+        respuesta:
+          "La evidencia de tu caso: comprobante de compra o contrato, correos, fotos y la publicidad relevante. Conviene haber reclamado antes a la empresa y guardar esa constancia.",
+      },
+      {
+        pregunta: "¿Y si la empresa no responde al SERNAC?",
+        respuesta:
+          "Queda registro del reclamo y puedes demandar en el Juzgado de Policía Local para exigir el cumplimiento o la indemnización de perjuicios.",
+      },
+    ],
+  },
+  {
+    slug: "garantia-de-un-auto-usado",
+    titulo: "Garantía de un auto usado: ¿qué derechos tengo si sale malo?",
+    categoria: "consumidor",
+    destacada: false,
+    metaTitle: "Garantía de auto usado en Chile | Ley Chilena",
+    descripcion:
+      "Comprar un auto usado en una automotora también tiene garantía legal. Qué puedes exigir si el vehículo sale con fallas y qué pasa con las ventas entre particulares.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Si compras un **auto usado a una automotora o empresa**, tienes la **garantía legal**: ante fallas, eliges entre **reparación gratis, cambio o devolución** ([artículo 20 de la Ley 19.496](/leyes/1160403?art=138557)). En **ventas entre particulares** la Ley del Consumidor no aplica, pero igual rige el Código Civil (vicios ocultos). Conviene revisar el auto antes y guardar todo por escrito.",
+    contenido: `
+## ¿El auto usado tiene garantía?
+Sí, si lo compras a una **automotora o empresa** (proveedor): aplica la **garantía legal** de la Ley del Consumidor. Frente a una **falla** que afecte su uso, tienes el derecho a **optar** entre ([artículo 20 de la Ley 19.496](/leyes/1160403?art=138557)):
+- **Reparación gratuita**,
+- **Cambio** del vehículo, o
+- **Devolución** de lo pagado.
+
+La automotora **no puede** obligarte a quedarte solo con la reparación si tú prefieres otra opción.
+
+## ¿Y si lo compré a un particular?
+Si la venta es **entre particulares** (no una empresa), la **Ley del Consumidor no aplica**. Pero el **Código Civil** te protege frente a los **vicios ocultos** (defectos graves que no se veían y que el vendedor conocía o debía conocer): puedes pedir dejar sin efecto la venta o una rebaja del precio.
+
+## Antes de comprar
+- **Revisa** el auto con un mecánico de confianza.
+- Pide el **historial** (mantenciones, multas, prendas, restricciones).
+- Deja **por escrito** lo que la automotora promete (kilometraje, estado, garantía).
+
+## ¿Qué hacer si salió malo?
+1. Reclama de inmediato a la **automotora** y elige tu opción (reparación, cambio o devolución).
+2. Guarda la **documentación** (factura, informe de la falla).
+3. Si no responde, reclama en el **SERNAC** (sernac.cl).
+4. Demanda en el **Juzgado de Policía Local** si es necesario.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Un auto usado de automotora tiene garantía?",
+        respuesta:
+          "Sí. Aplica la garantía legal: ante fallas puedes optar entre reparación gratis, cambio o devolución (artículo 20 de la Ley 19.496). La automotora no puede obligarte a aceptar solo la reparación.",
+      },
+      {
+        pregunta: "¿Y si compré el auto a un particular?",
+        respuesta:
+          "La Ley del Consumidor no aplica entre particulares, pero el Código Civil te protege por los vicios ocultos: defectos graves no visibles que el vendedor conocía o debía conocer.",
+      },
+      {
+        pregunta: "¿Cuánto plazo tengo para reclamar la garantía del auto?",
+        respuesta:
+          "La garantía legal se ejerce, por regla general, dentro de 6 meses desde la compra (artículo 21 de la Ley 19.496). Conviene reclamar apenas aparezca la falla y guardar la documentación.",
+      },
+      {
+        pregunta: "¿Qué reviso antes de comprar un auto usado?",
+        respuesta:
+          "Llévalo a un mecánico de confianza, pide su historial (mantenciones, multas, prendas, restricciones) y deja por escrito lo que la automotora promete sobre estado, kilometraje y garantía.",
+      },
+    ],
   }
 ];
 

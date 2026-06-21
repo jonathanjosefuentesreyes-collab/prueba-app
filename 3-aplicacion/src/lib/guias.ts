@@ -3242,7 +3242,7 @@ Un contrato indefinido te da **más estabilidad** y derecho a **indemnización p
       "Qué es un contrato de arriendo, qué cláusulas debe tener y por qué conviene escriturarlo. El arriendo es válido aunque sea de palabra, pero por escrito te protege mucho más.",
     fecha: "2026-06-21",
     respuestaCorta:
-      "El **arrendamiento** es el contrato en que una parte entrega el goce de una cosa y la otra paga un precio por ello ([artículo 1915 del Código Civil](/leyes/172986?art=2128)). Vale **aunque sea de palabra**, pero por escrito te protege: deja claros la **renta, el plazo, la garantía, el estado del inmueble y quién paga qué**. Sin contrato escrito, todo se vuelve "tu palabra contra la del otro".",
+      "El **arrendamiento** es el contrato en que una parte entrega el goce de una cosa y la otra paga un precio por ello ([artículo 1915 del Código Civil](/leyes/172986?art=2128)). Vale **aunque sea de palabra**, pero por escrito te protege: deja claros la **renta, el plazo, la garantía, el estado del inmueble y quién paga qué**. Sin contrato escrito, todo se vuelve «tu palabra contra la del otro».",
     contenido: `
 ## ¿Qué es el contrato de arriendo?
 Es el acuerdo en que el **arrendador** entrega el uso y goce de una propiedad y el **arrendatario** paga una **renta** por ella ([artículo 1915 del Código Civil](/leyes/172986?art=2128)). Es válido aunque sea **verbal**, pero probar lo acordado sin papel es muy difícil.

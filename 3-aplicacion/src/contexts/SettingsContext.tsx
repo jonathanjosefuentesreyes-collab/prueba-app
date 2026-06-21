@@ -13,6 +13,10 @@ interface SettingsContextType {
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
+// Súbela para volver a aplicar los defaults actuales a TODOS (incluidos quienes ya tienen
+// una preferencia guardada). v2: Lenguaje Simple queda activado al entrar.
+const SETTINGS_VERSION = "2";
+
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const [fontScale, setFontScaleState] = useState<FontScale>("1");
   const [plainLanguage, setPlainLanguageState] = useState<boolean>(true);
@@ -25,9 +29,17 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
       if (fs === "1" || fs === "1.25" || fs === "1.5") {
         setFontScaleState(fs);
       }
-      const pl = localStorage.getItem("leychile_plain_lang");
-      if (pl !== null) {
-        setPlainLanguageState(pl === "true");
+      const ver = localStorage.getItem("leychile_settings_version");
+      if (ver !== SETTINGS_VERSION) {
+        // Migración única: aplica el default (Lenguaje Simple ACTIVADO) a todos y marca la versión.
+        setPlainLanguageState(true);
+        localStorage.setItem("leychile_plain_lang", "true");
+        localStorage.setItem("leychile_settings_version", SETTINGS_VERSION);
+      } else {
+        const pl = localStorage.getItem("leychile_plain_lang");
+        if (pl !== null) {
+          setPlainLanguageState(pl === "true");
+        }
       }
     } catch (e) {
       console.error("Error al acceder a localStorage", e);

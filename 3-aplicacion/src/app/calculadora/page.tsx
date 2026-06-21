@@ -52,9 +52,22 @@ const CAUSALES: { valor: Causal; etiqueta: string }[] = [
 
 const clp = (n: number) => "$" + Math.round(n).toLocaleString("es-CL");
 
+// Años completos de antigüedad entre dos fechas (replica la lógica del motor). Sirve para
+// estimar el feriado de los años YA CUMPLIDOS (15 días hábiles por año), asumiendo que no
+// tomó vacaciones; el motor agrega luego el proporcional del año en curso.
+function aniosCompletos(ini: string, ter: string): number {
+  const i = new Date(ini + "T00:00:00");
+  const t = new Date(ter + "T00:00:00");
+  if (isNaN(i.getTime()) || isNaN(t.getTime()) || !(i < t)) return 0;
+  let a = t.getFullYear() - i.getFullYear();
+  const aniv = new Date(i.getFullYear() + a, i.getMonth(), i.getDate());
+  if (aniv > t) a -= 1;
+  return Math.max(0, a);
+}
+
 export default function Calculadora() {
   const [causal, setCausal] = useState<Causal>("necesidades_empresa");
-  const [inicio, setInicio] = useState("2021-03-01");
+  const [inicio, setInicio] = useState("2025-01-01");
   const [termino, setTermino] = useState(new Date().toISOString().slice(0, 10));
   const [sueldo, setSueldo] = useState(850000);
   const [uf, setUf] = useState(valores.uf);
@@ -69,6 +82,14 @@ export default function Calculadora() {
   const [notaPremium, setNotaPremium] = useState(false);
 
   useEffect(() => { setUsados(leerUsosHoy()); }, []);
+
+  // Autocompleta las vacaciones según las fechas: 15 días hábiles por año cumplido
+  // (estimación con holgura, asume que no tomó vacaciones). El motor suma el proporcional
+  // del año en curso. El usuario puede ajustar el valor si tomó días.
+  useEffect(() => {
+    setVacaciones(15 * aniosCompletos(inicio, termino));
+  }, [inicio, termino]);
+
   const sinCalculosHoy = usados >= MAX_CALC_DIA;
 
   async function ufDeHoy() {
@@ -147,8 +168,9 @@ export default function Calculadora() {
             <input id="uf" className="campo" type="number" min={0} step={0.01} value={uf} onChange={(e) => setUf(+e.target.value)} />
           </div>
           <div>
-            <label className="etiqueta" htmlFor="vac">Vacaciones acumuladas (días hábiles)</label>
+            <label className="etiqueta" htmlFor="vac">Vacaciones no tomadas (días hábiles)</label>
             <input id="vac" className="campo" type="number" min={0} step={1} value={vacaciones} onChange={(e) => setVacaciones(+e.target.value)} />
+            <span className="nota" style={{ fontSize: 11, display: "block", marginTop: 3, lineHeight: 1.3 }}>Lo estimamos según las fechas; bájalo si ya tomó vacaciones.</span>
           </div>
           <div>
             <label className="etiqueta" htmlFor="imp">Días del mes sin pagar</label>

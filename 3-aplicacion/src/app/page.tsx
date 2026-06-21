@@ -161,7 +161,7 @@ export default function Inicio() {
       </Link>
 
       <h2 className="seccion-titulo">
-        Leyes más recientes
+        Nuevas leyes
         <Link href="/leyes">Ver Diario Oficial</Link>
       </h2>
       <CarruselArrastrable className="carrusel-leyes">
@@ -178,7 +178,7 @@ export default function Inicio() {
       </CarruselArrastrable>
 
       <h2 className="seccion-titulo">
-        Las más consultadas
+        Leyes más buscadas
         <Link href="/leyes">Ver todas</Link>
       </h2>
       <div className="tarjeta" style={{ padding: "4px 16px" }}>

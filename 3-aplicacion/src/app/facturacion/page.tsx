@@ -74,11 +74,13 @@ export default function Facturacion() {
   const [afpCom, setAfpCom] = useState(AFP_COMISION_DEF);
   const [saludPct, setSaludPct] = useState(SALUD_DEF);
 
-  // Conversor (valores del día)
+  // Conversor (valores del día): precarga desde valores.json (cron semanal) y refresca
+  // en vivo al abrir la pestaña.
   const [vals, setVals] = useState<{ uf: number; utm: number; dolar: number | null; euro: number | null }>({
-    uf: valores.uf, utm: valores.utm, dolar: null, euro: null,
+    uf: valores.uf, utm: valores.utm, dolar: valores.dolar ?? null, euro: valores.euro ?? null,
   });
   const [cargandoVals, setCargandoVals] = useState(false);
+  const [valsFrescos, setValsFrescos] = useState(false);
   const [montoC, setMontoC] = useState(1);
   const [unidadC, setUnidadC] = useState<"UF" | "UTM" | "USD" | "EUR" | "CLP">("UF");
 
@@ -93,12 +95,15 @@ export default function Facturacion() {
   useEffect(() => { setUsados(leerUsosHoy()); }, []);
   const sinCalculosHoy = usados >= MAX_CALC_DIA;
 
-  // Trae los valores del día (mindicador.cl) la primera vez que se abre el conversor.
+  // Refresca los valores en vivo la primera vez que se abre el conversor (el precarga ya
+  // se muestra al instante mientras tanto).
   useEffect(() => {
-    if (tab !== "conversor" || vals.dolar !== null) return;
-    actualizarValores();
+    if (tab === "conversor" && !valsFrescos) {
+      setValsFrescos(true);
+      actualizarValores();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tab]);
+  }, [tab, valsFrescos]);
 
   async function actualizarValores() {
     setCargandoVals(true);

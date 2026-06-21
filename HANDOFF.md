@@ -18,6 +18,13 @@
 - **Dev:** `http://localhost:3000` (suele estar corriendo, hot-reload). Si no: `cd 3-aplicacion && next dev`
   (usar `dev`, no `start`). Si node colgado: `powershell Get-Process node | Stop-Process -Force`.
 - **Capturas:** `herramientas-captura/` (Playwright Pixel 7 → screenshot → leer PNG).
+- **🔁 Cron semanal (auto-actualización):** GitHub Actions `.github/workflows/actualizar-valores.yml`
+  corre `3-aplicacion/scripts/actualizar-valores.mjs` cada **lunes 12:00 UTC (~08:00 Chile)**:
+  refresca **UF, UTM, dólar y euro** (mindicador.cl) en `src/lib/valores.json`, hace commit si
+  cambian y Render auto-despliega. **Es EL cron donde va cualquier dato actualizable**: si se agrega
+  un valor que cambia con el tiempo (nuevo indicador, tasa, tope), añadirlo a ese script (no crear
+  otro cron). La retención de honorarios es por AÑO (tabla fija 2020-2028 en `lib/facturacion.ts`,
+  el año actual se toma solo). El conversor además refresca en vivo al abrirse.
 
 ### Reglas duras (NO romper)
 - **Nunca inventar/citar artículos inexistentes.** Enlaces siempre `/leyes/{norma_id}?art={articulo_id}` verificados contra la base.

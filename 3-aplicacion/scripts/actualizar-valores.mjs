@@ -20,8 +20,11 @@ let prev = {};
 try { prev = JSON.parse(readFileSync(RUTA, "utf8")); } catch { /* primera vez */ }
 
 const out = { ...prev };
+// Cada dato actualizable se refresca; si una fuente falla, conserva el valor anterior.
 try { out.uf = Math.round(await indicador("uf")); } catch (e) { console.error("UF:", e.message); }
 try { out.utm = Math.round(await indicador("utm")); } catch (e) { console.error("UTM:", e.message); }
+try { out.dolar = Math.round(await indicador("dolar")); } catch (e) { console.error("Dólar:", e.message); }
+try { out.euro = Math.round(await indicador("euro")); } catch (e) { console.error("Euro:", e.message); }
 out.anioActual = new Date().getFullYear();
 out.actualizado = new Date().toISOString().slice(0, 10);
 

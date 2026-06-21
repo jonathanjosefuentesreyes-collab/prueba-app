@@ -4030,6 +4030,337 @@ Si la venta es **entre particulares** (no una empresa), la **Ley del Consumidor 
           "Llévalo a un mecánico de confianza, pide su historial (mantenciones, multas, prendas, restricciones) y deja por escrito lo que la automotora promete sobre estado, kilometraje y garantía.",
       },
     ],
+  },
+  {
+    slug: "deuda-solidaria-varios-responden-por-todo",
+    titulo: "Deuda solidaria: ¿por qué me cobran a mí toda la deuda?",
+    categoria: "deudas",
+    destacada: false,
+    metaTitle: "Deuda solidaria: cuando te cobran el total | Ley Chilena",
+    descripcion:
+      "Si firmaste como codeudor solidario, te pueden cobrar el total de la deuda, no solo tu parte. Qué es la solidaridad y qué puedes hacer, según el Código Civil.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Cuando varias personas se obligan **solidariamente**, el acreedor puede **cobrarle el total a cualquiera** de ellas, no solo su parte ([artículo 1511 del Código Civil](/leyes/172986?art=1697)). Por eso, si firmaste un crédito como **codeudor solidario**, te pueden exigir **toda la deuda**. Si pagas el total, después puedes **cobrarles a los demás** su parte.",
+    contenido: `
+## ¿Qué es una deuda solidaria?
+Por regla general, cuando varios deben algo, cada uno responde por **su parte**. Pero si la obligación se pactó **solidaria**, cambia: el acreedor puede exigir el **total a cualquiera** de los deudores ([artículo 1511 del Código Civil](/leyes/172986?art=1697)). La solidaridad no se presume: debe estar **pactada** (o establecida por ley).
+
+## ¿Por qué me cobran todo a mí?
+Porque firmaste como **codeudor solidario** (muy común en créditos y arriendos). Para el banco, da igual a quién le cobra: puede ir por el **total** contra el que tenga con qué pagar, aunque haya otros deudores.
+
+## ¿Y mi "parte"?
+Frente al acreedor respondes por **todo**. Pero entre los codeudores, la deuda se divide: si pagaste el total, tienes derecho a **cobrarles a los demás** la parte que les correspondía (acción de reembolso). Guarda el comprobante de lo que pagaste.
+
+## ¿Qué hacer?
+1. Revisa el contrato: ¿firmaste como **codeudor solidario** o como deudor por tu parte?
+2. Si te cobran el total, puedes pagar y luego **repetir** contra los demás codeudores.
+3. Si la deuda pudo **prescribir** o tiene cobros indebidos, revísalo antes de pagar.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Me pueden cobrar toda la deuda si éramos varios?",
+        respuesta:
+          "Sí, si la obligación es solidaria: el acreedor puede exigir el total a cualquiera de los deudores (artículo 1511 del Código Civil). La solidaridad debe estar pactada o establecida por ley.",
+      },
+      {
+        pregunta: "Si pago el total, ¿puedo cobrarles a los demás?",
+        respuesta:
+          "Sí. Entre los codeudores la deuda se divide: quien pagó el total puede cobrar (repetir) a los demás la parte que les correspondía. Guarda el comprobante del pago.",
+      },
+      {
+        pregunta: "¿La solidaridad se presume?",
+        respuesta:
+          "No. La solidaridad no se presume: debe estar expresamente pactada en el contrato o establecida por la ley. Si no lo está, cada deudor responde solo por su parte.",
+      },
+      {
+        pregunta: "Firmé como aval, ¿es lo mismo que codeudor solidario?",
+        respuesta:
+          "Suelen confundirse. El codeudor solidario responde por el total de inmediato; el fiador simple puede, en ciertos casos, exigir que cobren primero al deudor principal. Revisa cómo firmaste.",
+      },
+    ],
+  },
+  {
+    slug: "imputacion-del-pago-a-que-deuda-se-aplica",
+    titulo: "Imputación del pago: ¿a qué se aplica lo que abono?",
+    categoria: "deudas",
+    destacada: false,
+    metaTitle: "Imputación del pago: capital o intereses | Ley Chilena",
+    descripcion:
+      "Cuando abonas a una deuda con intereses, el pago se aplica primero a los intereses y luego al capital. Cómo funciona la imputación del pago, según el Código Civil.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Si debes **capital e intereses**, el pago se imputa **primero a los intereses** y luego al capital, salvo que el acreedor acepte lo contrario ([artículo 1595 del Código Civil](/leyes/172986?art=1781)). Por eso, cuando solo abonas montos pequeños, la deuda baja lento: gran parte se va en intereses. Conviene exigir que cada abono quede **claro** (cuánto a interés, cuánto a capital).",
+    contenido: `
+## ¿Qué es la imputación del pago?
+Es la regla que define **a qué se aplica** lo que pagas cuando tienes una deuda con varios componentes. La ley es clara: si debes **capital e intereses**, el pago se imputa **primero a los intereses** ([artículo 1595 del Código Civil](/leyes/172986?art=1781)), salvo que el acreedor acepte imputarlo de otro modo.
+
+## ¿Por qué importa?
+Porque explica por qué una deuda **no baja** aunque pagues: si tus abonos apenas cubren los intereses, el **capital** casi no se reduce. Entender esto te ayuda a negociar y a pedir que se aplique parte al capital.
+
+## ¿Y si tengo varias deudas con el mismo acreedor?
+Cuando hay varias deudas, en general **el deudor puede elegir** cuál paga al momento de pagar (con ciertas reglas). Si no eliges, la ley y el recibo definen la imputación. Por eso conviene **dejar constancia** de qué deuda estás pagando.
+
+## ¿Qué hacer?
+1. Al abonar, **pide un detalle**: cuánto fue a interés y cuánto a capital.
+2. Si quieres bajar el capital, **negócialo** expresamente con el acreedor.
+3. Guarda todos los **comprobantes** de pago (te protegen y prueban lo abonado).
+4. Si te cobran **intereses sobre el máximo legal**, eso es ilegal: revísalo.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Mi pago baja el capital o los intereses?",
+        respuesta:
+          "Si debes capital e intereses, el pago se imputa primero a los intereses y luego al capital (artículo 1595 del Código Civil), salvo que el acreedor acepte lo contrario.",
+      },
+      {
+        pregunta: "¿Por qué mi deuda no baja aunque pago?",
+        respuesta:
+          "Porque tus abonos pueden estar cubriendo principalmente los intereses, no el capital. Pide un detalle de cada pago y negocia que parte se aplique al capital.",
+      },
+      {
+        pregunta: "Tengo varias deudas con el mismo acreedor, ¿cuál pago primero?",
+        respuesta:
+          "Por regla general el deudor puede elegir qué deuda paga al momento de pagar, con ciertas reglas. Si no eliges, la ley y el recibo definen la imputación; conviene dejar constancia.",
+      },
+      {
+        pregunta: "¿Pueden cobrarme cualquier interés?",
+        respuesta:
+          "No. Cobrar intereses por sobre el interés máximo convencional es infracción. Si crees que te cobran de más, revisa la tasa y reclama; los intereses excesivos se pueden impugnar.",
+      },
+    ],
+  },
+  {
+    slug: "no-pago-el-credito-hipotecario-pueden-rematar-mi-casa",
+    titulo: "No pago el crédito hipotecario: ¿pueden rematar mi casa?",
+    categoria: "deudas",
+    destacada: true,
+    metaTitle: "No pago el crédito hipotecario: ¿remate? | Ley Chilena",
+    descripcion:
+      "Si dejas de pagar un crédito con hipoteca, el banco puede rematar la propiedad para cobrarse. Cómo funciona, qué plazos tienes y cómo evitar el remate.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "La **hipoteca** es una garantía sobre tu propiedad: si no pagas el crédito, el banco puede **ejecutarla y rematar el inmueble** para cobrarse ([artículo 2407 del Código Civil](/leyes/172986?art=2620)). No es inmediato: hay un **juicio** con plazos en que puedes ponerte al día, repactar o defenderte. Si el remate cubre más que la deuda, el saldo es tuyo.",
+    contenido: `
+## ¿Qué es la hipoteca?
+Es una **garantía** sobre un inmueble: la propiedad queda "respondiendo" por el crédito ([artículo 2407 del Código Civil](/leyes/172986?art=2620)). Sigues siendo dueño y la usas, pero si **no pagas**, el banco puede hacer **efectiva la garantía** rematando la casa.
+
+## ¿Pueden rematarme la casa de inmediato?
+No. El banco debe iniciar un **juicio ejecutivo** para cobrar. En ese juicio:
+- Te **notifican** la demanda y se traba el embargo sobre el inmueble.
+- Tienes **plazos para pagar, repactar o defenderte** (oponer excepciones).
+- Solo después, si no se resuelve, se ordena el **remate** (subasta pública).
+
+## ¿Qué pasa con lo que se obtiene en el remate?
+Con el dinero del remate se paga la **deuda, intereses y costas**. Si **sobra**, ese saldo te corresponde a ti. Si **no alcanza**, en principio sigues debiendo el resto (salvo pacto distinto).
+
+## Cómo evitar el remate
+- **Habla con el banco apenas** te atrases: repactar o reprogramar suele ser posible.
+- Si ya hay juicio, puedes **ponerte al día** dentro de los plazos.
+- Evalúa **vender tú mismo** la propiedad antes del remate (suele obtenerse más que en subasta).
+
+## ¿Qué hacer?
+1. **No ignores** las cartas ni la demanda: los plazos corren.
+2. Contacta al banco para **repactar** antes de que escale.
+3. Si te demandan, busca asesoría (un abogado o la **Corporación de Asistencia Judicial**, gratis).
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Pueden rematar mi casa si no pago el crédito hipotecario?",
+        respuesta:
+          "Sí, el banco puede ejecutar la hipoteca y rematar el inmueble para cobrarse (artículo 2407 del Código Civil), pero mediante un juicio con plazos en que puedes pagar, repactar o defenderte.",
+      },
+      {
+        pregunta: "¿El remate es inmediato?",
+        respuesta:
+          "No. Requiere un juicio ejecutivo: notificación, embargo y plazos para oponerte o ponerte al día. Solo si no se resuelve se ordena el remate en subasta pública.",
+      },
+      {
+        pregunta: "Si rematan mi casa y sobra dinero, ¿es mío?",
+        respuesta:
+          "Sí. Con el remate se paga la deuda, intereses y costas; si sobra, ese saldo te corresponde. Si no alcanza, en principio sigues debiendo el resto, salvo pacto distinto.",
+      },
+      {
+        pregunta: "¿Cómo evito que rematen mi propiedad?",
+        respuesta:
+          "Hablando con el banco apenas te atrasas (repactar/reprogramar), poniéndote al día dentro de los plazos del juicio, o vendiendo tú mismo la propiedad antes del remate.",
+      },
+    ],
+  },
+  {
+    slug: "novacion-y-repactar-ojo-con-reconocer-la-deuda",
+    titulo: "Repactar una deuda: ojo con la novación y reconocer la deuda",
+    categoria: "deudas",
+    destacada: false,
+    metaTitle: "Repactar deuda y novación: lo que debes saber | Ley Chilena",
+    descripcion:
+      "Repactar puede aliviar tus cuotas, pero también puede revivir una deuda prescrita o cambiar tus condiciones. Qué es la novación y qué revisar antes de firmar, según el Código Civil.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Repactar es renegociar tu deuda (nuevas cuotas o plazo). Cuidado: si se **sustituye la deuda anterior por una nueva**, eso es una **novación** ([artículo 1628 del Código Civil](/leyes/172986?art=1814)) y puede hacerte **reconocer** una deuda incluso **prescrita** o cambiar tus garantías. Antes de repactar, revisa el **monto total**, la **tasa** y si la deuda ya pudo prescribir.",
+    contenido: `
+## ¿Qué es repactar?
+Es **renegociar** una deuda: bajar la cuota, ampliar el plazo o juntar varias deudas en una. Puede aliviar, pero **no siempre conviene**: a veces alarga el pago y suma intereses, o cambia tus condiciones.
+
+## ¿Qué es la novación?
+La **novación** es **sustituir una obligación anterior por una nueva**, que extingue la antigua ([artículo 1628 del Código Civil](/leyes/172986?art=1814)). Si tu repactación es una novación, nace una **deuda nueva**: eso puede afectar **garantías, plazos y la prescripción**.
+
+## Los riesgos al repactar
+- **Revivir una deuda prescrita**: si firmas una repactación reconociendo una deuda que ya estaba **prescrita**, puedes perder esa defensa.
+- **Más intereses**: alargar el plazo puede significar pagar mucho más al final.
+- **Capitalizar intereses**: ojo con que te sumen los intereses atrasados al capital.
+
+## ¿Qué revisar antes de firmar?
+1. El **monto total** que terminarás pagando (no solo la cuota).
+2. La **tasa de interés** (que no supere el máximo legal).
+3. Si la deuda **ya pudo prescribir** (puede que no debas firmar nada).
+4. Qué **garantías** quedan involucradas.
+
+## ¿Qué hacer?
+1. Pide la **propuesta por escrito** y compárala con tu deuda actual.
+2. Calcula el **costo total**, no solo la cuota mensual.
+3. Si la deuda es antigua, revisa la **prescripción** antes de repactar.
+4. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Repactar una deuda me conviene siempre?",
+        respuesta:
+          "No siempre. Puede bajar la cuota pero alargar el pago y sumar intereses. Compara el costo total, no solo la cuota mensual, antes de firmar.",
+      },
+      {
+        pregunta: "¿Repactar puede revivir una deuda prescrita?",
+        respuesta:
+          "Sí. Si firmas una repactación reconociendo una deuda ya prescrita, puedes perder esa defensa. Por eso conviene revisar la prescripción antes de repactar.",
+      },
+      {
+        pregunta: "¿Qué es la novación?",
+        respuesta:
+          "Sustituir una obligación anterior por una nueva, que extingue la antigua (artículo 1628 del Código Civil). Si la repactación es una novación, nace una deuda nueva que puede cambiar garantías y plazos.",
+      },
+      {
+        pregunta: "¿Qué reviso antes de repactar?",
+        respuesta:
+          "El monto total a pagar, la tasa de interés (que no supere el máximo legal), si la deuda pudo prescribir y qué garantías quedan involucradas. Pide siempre la propuesta por escrito.",
+      },
+    ],
+  },
+  {
+    slug: "cambiar-a-separacion-de-bienes-durante-el-matrimonio",
+    titulo: "Cambiar a separación de bienes durante el matrimonio",
+    categoria: "familia",
+    destacada: false,
+    metaTitle: "Cambiar de sociedad conyugal a separación de bienes | Ley Chilena",
+    descripcion:
+      "Estando casados pueden cambiar el régimen de bienes: de sociedad conyugal a separación total o a participación en los gananciales. Cómo se hace, según el Código Civil.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Sí se puede. **Durante el matrimonio**, los cónyuges pueden **sustituir** el régimen de sociedad de bienes por el de **participación en los gananciales** o por el de **separación total de bienes** ([artículo 1723 del Código Civil](/leyes/172986?art=1909)). Se hace por **escritura pública** que debe **subinscribirse** al margen del acta de matrimonio dentro de 30 días.",
+    contenido: `
+## ¿Se puede cambiar el régimen estando casados?
+Sí. Aunque al casarse hayan quedado en **sociedad conyugal**, la ley permite **cambiar de régimen durante el matrimonio**: sustituirlo por **separación total de bienes** o por **participación en los gananciales** ([artículo 1723 del Código Civil](/leyes/172986?art=1909)).
+
+## ¿Para qué sirve cambiar a separación de bienes?
+- **Proteger el patrimonio** de un cónyuge frente a las **deudas** del otro (por ejemplo, si uno emprende un negocio).
+- Que **cada uno administre lo suyo** con independencia.
+- Ordenar el patrimonio antes de un eventual conflicto.
+
+Recuerda: el cambio **no es retroactivo** y no puede hacerse en **perjuicio de terceros** (acreedores que ya existían).
+
+## ¿Cómo se hace?
+1. Se otorga una **escritura pública** ante notario, donde ambos acuerdan el nuevo régimen.
+2. Esa escritura debe **subinscribirse al margen de la inscripción del matrimonio** en el Registro Civil, **dentro de 30 días** desde la escritura.
+3. Al liquidar la sociedad conyugal, se reparten los bienes según corresponda.
+
+## ¿Qué hacer?
+1. Conversen qué régimen les conviene (separación da más independencia).
+2. Vayan a una **notaría** a otorgar la escritura de cambio.
+3. **Subinscríbanla** en el Registro Civil dentro del plazo (clave para que valga).
+4. Asesórense con un abogado de familia si hay patrimonio importante.
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Puedo cambiar de sociedad conyugal a separación de bienes?",
+        respuesta:
+          "Sí. Durante el matrimonio pueden sustituir la sociedad de bienes por separación total o por participación en los gananciales (artículo 1723 del Código Civil), por escritura pública subinscrita al margen del matrimonio.",
+      },
+      {
+        pregunta: "¿Para qué sirve pasar a separación de bienes?",
+        respuesta:
+          "Para proteger el patrimonio de un cónyuge frente a las deudas del otro y para que cada uno administre sus bienes con independencia. Útil si uno emprende o tiene riesgo patrimonial.",
+      },
+      {
+        pregunta: "¿El cambio afecta a los acreedores anteriores?",
+        respuesta:
+          "No puede hacerse en perjuicio de terceros: los acreedores que ya existían conservan sus derechos. El cambio de régimen no es retroactivo.",
+      },
+      {
+        pregunta: "¿Qué pasa si no subinscribo la escritura a tiempo?",
+        respuesta:
+          "La subinscripción al margen del matrimonio dentro de 30 días es esencial para que el cambio produzca efecto. Sin ella, el cambio de régimen no se perfecciona.",
+      },
+    ],
+  },
+  {
+    slug: "que-bienes-responden-por-mis-deudas",
+    titulo: "¿Qué bienes me pueden quitar por una deuda?",
+    categoria: "deudas",
+    destacada: false,
+    metaTitle: "Qué bienes responden por mis deudas | Ley Chilena",
+    descripcion:
+      "Por una deuda, el acreedor puede perseguir tus bienes, pero no todos: hay bienes inembargables. Qué responde y qué está protegido, según el Código Civil.",
+    fecha: "2026-06-21",
+    respuestaCorta:
+      "Toda obligación da al acreedor el derecho de **perseguir su pago sobre todos los bienes** del deudor, presentes o futuros, salvo los **inembargables** ([artículo 2465 del Código Civil](/leyes/172986?art=2678)). En la práctica: te pueden embargar bienes para pagar una deuda, pero **no todo** — hay cosas protegidas (parte del sueldo, bienes esenciales del hogar y de tu trabajo).",
+    contenido: `
+## La regla general: tu patrimonio responde
+Cuando debes, el acreedor puede **perseguir el pago sobre tus bienes** —los que tienes y los que adquieras— ([artículo 2465 del Código Civil](/leyes/172986?art=2678)). Es lo que se llama el "derecho de prenda general": tu **patrimonio** es la garantía de tus deudas.
+
+## Pero NO todo es embargable
+La ley protege bienes **inembargables**, para que nadie quede en la indigencia. En general, **no se pueden embargar**, entre otros:
+- La parte del **sueldo** que la ley protege (en general, hasta **56 UF mensuales** del ingreso).
+- El **lecho del deudor y su familia**, ropa y artículos esenciales del hogar.
+- Los **libros y herramientas** necesarios para tu trabajo o profesión.
+- Ciertos **beneficios sociales** y pensiones.
+
+Estos límites buscan que una deuda no te deje sin lo básico para vivir y trabajar.
+
+## ¿Cómo se hace efectivo el cobro?
+El acreedor debe ir a un **juicio**: con sentencia, se ordena el **embargo** de bienes embargables y, si no pagas, su **remate** para pagar la deuda. No puede simplemente "llevarse" tus cosas por su cuenta.
+
+## ¿Qué hacer?
+1. Si te demandan, **no ignores** el juicio: hay plazos para defenderte o pagar.
+2. Si te embargan **bienes inembargables**, **reclámalo** en el tribunal.
+3. Revisa si la deuda **prescribió** o tiene cobros indebidos antes de pagar.
+4. Busca asesoría (un abogado o la **Corporación de Asistencia Judicial**, gratis).
+5. ¿Tu caso es distinto? Pregúntale a **AbogaBot** y te orienta con la ley.
+`,
+    faq: [
+      {
+        pregunta: "¿Pueden quitarme cualquier bien por una deuda?",
+        respuesta:
+          "El acreedor puede perseguir el pago sobre tus bienes (artículo 2465 del Código Civil), pero no los inembargables: parte del sueldo, lecho y artículos esenciales del hogar, y herramientas de trabajo, entre otros.",
+      },
+      {
+        pregunta: "¿Cuánto de mi sueldo es inembargable?",
+        respuesta:
+          "Por regla general, el sueldo es inembargable hasta 56 UF mensuales; sobre ese monto puede embargarse una parte. Hay excepciones, como las deudas por pensión de alimentos.",
+      },
+      {
+        pregunta: "¿El acreedor puede llevarse mis cosas sin juicio?",
+        respuesta:
+          "No. Para embargar y rematar bienes se requiere un juicio con sentencia. Nadie puede sacarte tus cosas por su cuenta; si lo hacen, es ilegal y puedes denunciarlo.",
+      },
+      {
+        pregunta: "Me embargaron algo inembargable, ¿qué hago?",
+        respuesta:
+          "Reclámalo en el tribunal del juicio: puedes pedir que se excluya del embargo el bien inembargable (parte del sueldo, herramientas de trabajo, artículos esenciales del hogar).",
+      },
+    ],
   }
 ];
 

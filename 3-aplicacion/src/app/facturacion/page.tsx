@@ -11,8 +11,10 @@ import {
 } from "@/lib/facturacion";
 import GuiasRelacionadas from "@/components/GuiasRelacionadas";
 import { leerUsosHoy, registrarUso } from "@/lib/limiteDiario";
+import { clp } from "@/lib/clp";
+import { Fila, Total } from "@/components/FilaResultado";
+import { AvisoUsos, BloquePremium } from "@/components/LimitePremium";
 
-const clp = (n: number) => "$" + Math.round(n).toLocaleString("es-CL");
 const ANIOS = Object.keys(RETENCION_POR_ANIO).map(Number).sort();
 const ANIO_DEF = Math.min(Math.max(new Date().getFullYear(), ANIOS[0]), ANIOS[ANIOS.length - 1]);
 
@@ -36,7 +38,6 @@ export default function Facturacion() {
 
   const [usados, setUsados] = useState(0);
   const [premium, setPremium] = useState(false);
-  const [notaPremium, setNotaPremium] = useState(false);
   const [resH, setResH] = useState<ResHon | null>(null);
   const [resI, setResI] = useState<ResIva | null>(null);
 
@@ -54,20 +55,8 @@ export default function Facturacion() {
     setUsados(registrarUso(CLAVE_USOS));
   }
 
-  const avisoUso = (
-    <p style={{ margin: "10px 0 0", textAlign: "center", fontSize: 12, fontWeight: 600, color: sinCalculosHoy ? "var(--rojo)" : "var(--texto-suave)" }}>
-      {sinCalculosHoy ? "Usaste tu cálculo gratis de hoy · ✨ Premium para más" : "Tienes 1 cálculo gratis hoy"}
-    </p>
-  );
-
-  const bloquePremium = premium && (
-    <div className="tarjeta" style={{ marginTop: 14, textAlign: "center" }}>
-      <p style={{ margin: "0 0 4px", fontWeight: 700 }}>Llegaste a tu cálculo gratis de hoy 🙂</p>
-      <p className="nota" style={{ margin: "0 0 12px" }}>Con <strong>Premium</strong> calculas boletas e IVA sin límite. Tu cálculo gratis se renueva mañana.</p>
-      <button className="boton-premium" onClick={() => setNotaPremium(true)}>✨ Actualizar a Premium</button>
-      {notaPremium && <p className="nota" style={{ marginTop: 10 }}>🚧 Los planes Premium están en preparación. ¡Gracias por tu interés!</p>}
-    </div>
-  );
+  const avisoUso = <AvisoUsos sinCalculosHoy={sinCalculosHoy} margenTop={10} />;
+  const bloquePremium = premium && <BloquePremium detalle="calculas boletas e IVA sin límite" />;
 
   return (
     <main style={{ paddingBottom: 80 }}>
@@ -168,22 +157,5 @@ export default function Facturacion() {
         Preguntar a AbogaBot →
       </Link>
     </main>
-  );
-}
-
-function Fila({ etiqueta, valor }: { etiqueta: string; valor: string }) {
-  return (
-    <div style={{ display: "flex", justifyContent: "space-between", gap: 10, padding: "8px 0", borderBottom: "1px solid var(--borde)", fontSize: 14 }}>
-      <span>{etiqueta}</span>
-      <strong style={{ whiteSpace: "nowrap" }}>{valor}</strong>
-    </div>
-  );
-}
-function Total({ etiqueta, valor }: { etiqueta: string; valor: string }) {
-  return (
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", paddingTop: 12 }}>
-      <strong>{etiqueta}</strong>
-      <span style={{ fontSize: 24, fontWeight: 800, color: "var(--azul)" }}>{valor}</span>
-    </div>
   );
 }

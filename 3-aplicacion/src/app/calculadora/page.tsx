@@ -5,6 +5,9 @@ import Link from "next/link";
 import { calcularFiniquito, type Causal, type ResultadoFiniquito } from "@/lib/finiquito";
 import GuiasRelacionadas from "@/components/GuiasRelacionadas";
 import { leerUsosHoy, registrarUso } from "@/lib/limiteDiario";
+import { clp } from "@/lib/clp";
+import { Total } from "@/components/FilaResultado";
+import { AvisoUsos, BloquePremium } from "@/components/LimitePremium";
 import valores from "@/lib/valores.json";
 
 // Cada fundamento legal se enlaza al artículo real en la Biblioteca (Código del Trabajo,
@@ -34,8 +37,6 @@ const CAUSALES: { valor: Causal; etiqueta: string }[] = [
   { valor: "art160", etiqueta: "Causal del art. 160" },
 ];
 
-const clp = (n: number) => "$" + Math.round(n).toLocaleString("es-CL");
-
 // Años completos de antigüedad entre dos fechas (replica la lógica del motor). Sirve para
 // estimar el feriado de los años YA CUMPLIDOS (15 días hábiles por año), asumiendo que no
 // tomó vacaciones; el motor agrega luego el proporcional del año en curso.
@@ -63,7 +64,6 @@ export default function Calculadora() {
   const [buscandoUf, setBuscandoUf] = useState(false);
   const [usados, setUsados] = useState(0);
   const [premium, setPremium] = useState(false);
-  const [notaPremium, setNotaPremium] = useState(false);
 
   useEffect(() => { setUsados(leerUsosHoy(CLAVE_USOS)); }, []);
 
@@ -172,25 +172,10 @@ export default function Calculadora() {
           </button>
         </div>
         {error && <p className="aviso">{error}</p>}
-        <p style={{ margin: "2px 0 0", textAlign: "center", fontSize: 12, fontWeight: 600, color: sinCalculosHoy ? "var(--rojo)" : "var(--texto-suave)" }}>
-          {sinCalculosHoy ? "Usaste tu cálculo gratis de hoy · ✨ Premium para más" : "Tienes 1 cálculo de finiquito gratis hoy"}
-        </p>
+        <AvisoUsos sinCalculosHoy={sinCalculosHoy} libre="Tienes 1 cálculo de finiquito gratis hoy" />
       </form>
 
-      {premium && (
-        <div className="tarjeta" style={{ marginTop: 14, textAlign: "center" }}>
-          <p style={{ margin: "0 0 4px", fontWeight: 700 }}>Llegaste a tu cálculo gratis de hoy 🙂</p>
-          <p className="nota" style={{ margin: "0 0 12px" }}>
-            Con <strong>Premium</strong> calculas finiquitos sin límite. Tu cálculo gratis se renueva mañana.
-          </p>
-          <button className="boton-premium" onClick={() => setNotaPremium(true)}>✨ Actualizar a Premium</button>
-          {notaPremium && (
-            <p className="nota" style={{ marginTop: 10 }}>
-              🚧 Los planes Premium están en preparación. ¡Gracias por tu interés!
-            </p>
-          )}
-        </div>
-      )}
+      {premium && <BloquePremium detalle="calculas finiquitos sin límite" />}
 
       {resultado && (
         <div style={{ marginTop: 14 }}>
@@ -210,10 +195,7 @@ export default function Calculadora() {
               </div>
             ))}
             {resultado.lineas.length === 0 && <p className="nota">Con esta causal y datos no se generan haberes.</p>}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", paddingTop: 12 }}>
-              <strong>Total estimado</strong>
-              <span style={{ fontSize: 24, fontWeight: 800, color: "var(--azul)" }}>{clp(resultado.total)}</span>
-            </div>
+            <Total etiqueta="Total estimado" valor={clp(resultado.total)} />
           </div>
           <div className="lista" style={{ marginTop: 10 }}>
             {resultado.advertencias.map((a, i) => <p key={i} className="aviso">⚠ {a}</p>)}

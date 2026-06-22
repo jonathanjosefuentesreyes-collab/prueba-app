@@ -11,9 +11,10 @@ import {
 } from "@/lib/sueldo";
 import GuiasRelacionadas from "@/components/GuiasRelacionadas";
 import { leerUsosHoy, registrarUso } from "@/lib/limiteDiario";
+import { clp } from "@/lib/clp";
+import { Fila, Total } from "@/components/FilaResultado";
+import { AvisoUsos, BloquePremium } from "@/components/LimitePremium";
 import valores from "@/lib/valores.json";
-
-const clp = (n: number) => "$" + Math.round(n).toLocaleString("es-CL");
 
 // Límite freemium: 1 cálculo gratis por día (helper compartido en lib/limiteDiario).
 const MAX_CALC_DIA = 1;
@@ -27,7 +28,6 @@ export default function SueldoLiquido() {
 
   const [usados, setUsados] = useState(0);
   const [premium, setPremium] = useState(false);
-  const [notaPremium, setNotaPremium] = useState(false);
   const [res, setRes] = useState<ResultadoSueldo | null>(null);
 
   useEffect(() => { setUsados(leerUsosHoy(CLAVE_USOS)); }, []);
@@ -69,9 +69,7 @@ export default function SueldoLiquido() {
           </div>
         </div>
         <button className="boton" type="button" onClick={calcular}>Calcular sueldo líquido</button>
-        <p style={{ margin: "2px 0 0", textAlign: "center", fontSize: 12, fontWeight: 600, color: sinCalculosHoy ? "var(--rojo)" : "var(--texto-suave)" }}>
-          {sinCalculosHoy ? "Usaste tu cálculo gratis de hoy · ✨ Premium para más" : "Tienes 1 cálculo gratis hoy"}
-        </p>
+        <AvisoUsos sinCalculosHoy={sinCalculosHoy} />
       </div>
 
       {res && (
@@ -81,21 +79,11 @@ export default function SueldoLiquido() {
           <Fila etiqueta={`Salud (${res.saludPct}%)`} valor={"– " + clp(res.salud)} />
           <Fila etiqueta="Seguro de cesantía (0,6%)" valor={"– " + clp(res.cesantia)} />
           {res.impuesto > 0 && <Fila etiqueta="Impuesto único 2ª categoría" valor={"– " + clp(res.impuesto)} />}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", paddingTop: 12 }}>
-            <strong>Líquido a recibir</strong>
-            <span style={{ fontSize: 24, fontWeight: 800, color: "var(--azul)" }}>{clp(res.liquido)}</span>
-          </div>
+          <Total etiqueta="Líquido a recibir" valor={clp(res.liquido)} />
         </div>
       )}
 
-      {premium && (
-        <div className="tarjeta" style={{ marginTop: 14, textAlign: "center" }}>
-          <p style={{ margin: "0 0 4px", fontWeight: 700 }}>Llegaste a tu cálculo gratis de hoy 🙂</p>
-          <p className="nota" style={{ margin: "0 0 12px" }}>Con <strong>Premium</strong> calculas sin límite. Tu cálculo gratis se renueva mañana.</p>
-          <button className="boton-premium" onClick={() => setNotaPremium(true)}>✨ Actualizar a Premium</button>
-          {notaPremium && <p className="nota" style={{ marginTop: 10 }}>🚧 Los planes Premium están en preparación. ¡Gracias por tu interés!</p>}
-        </div>
-      )}
+      {premium && <BloquePremium detalle="calculas sin límite" />}
 
       <GuiasRelacionadas guias={[
         ["me-pueden-embargar-el-sueldo", "¿Me pueden embargar el sueldo?"],
@@ -110,14 +98,5 @@ export default function SueldoLiquido() {
         Preguntar a AbogaBot →
       </Link>
     </main>
-  );
-}
-
-function Fila({ etiqueta, valor }: { etiqueta: string; valor: string }) {
-  return (
-    <div style={{ display: "flex", justifyContent: "space-between", gap: 10, padding: "8px 0", borderBottom: "1px solid var(--borde)", fontSize: 14 }}>
-      <span>{etiqueta}</span>
-      <strong style={{ whiteSpace: "nowrap" }}>{valor}</strong>
-    </div>
   );
 }

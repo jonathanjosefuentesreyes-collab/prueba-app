@@ -50,6 +50,19 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  // Canónico: consolida TODO el tráfico en el dominio sin www (leyesdechile.com).
+  // Sin esto, www y no-www son dos sitios distintos para Google (contenido duplicado)
+  // y la fuerza SEO se reparte entre ambos. 301 permanente del www al canónico.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.leyesdechile.com" }],
+        destination: "https://leyesdechile.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

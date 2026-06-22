@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { listarNormas } from "@/lib/db";
 import { guias } from "@/lib/guias";
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.leyesdechile.com";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const fijas: MetadataRoute.Sitemap = [

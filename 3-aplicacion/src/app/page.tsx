@@ -83,7 +83,7 @@ function nombreCarrusel(n: { nombre_corto: string | null; titulo: string }): str
   return nom;
 }
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.leyesdechile.com";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 
 // Identidad del sitio para Google: WebSite habilita el cuadro de búsqueda en los
 // resultados (sitelinks searchbox) y Organization define la marca como entidad.

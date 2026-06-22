@@ -8,7 +8,7 @@ import GuardarBtn from "@/components/GuardarBtn";
 import AccessibilityBar from "@/components/AccessibilityBar";
 import ArticuloItem from "@/components/ArticuloItem";
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.leyesdechile.com";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 
 export async function generateMetadata(props: {
   params: Promise<{ id: string }>;

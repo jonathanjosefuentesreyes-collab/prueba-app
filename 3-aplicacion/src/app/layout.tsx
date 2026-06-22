@@ -30,7 +30,7 @@ const robotoSlab = Roboto_Slab({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.leyesdechile.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com"),
   ...(ADSENSE_CLIENT ? { other: { "google-adsense-account": ADSENSE_CLIENT } } : {}),
   title: "Ley Chilena — Todas las leyes de Chile, explicadas simple",
   description:

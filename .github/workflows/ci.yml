@@ -25,6 +25,9 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
+      - name: Auditoría de dependencias (informativa, no bloquea)
+        run: npm audit --audit-level=high || true
+
       - name: Descomprimir base de datos (la app la lee en build)
         run: gunzip -kf data/leyes.db.gz
 

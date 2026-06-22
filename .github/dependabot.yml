@@ -1,0 +1,26 @@
+# Dependabot: vigila dependencias inseguras o desactualizadas y abre PRs solo.
+# Responde a la crítica de "dependencias sin vigilar". Semanal para no saturar.
+version: 2
+updates:
+  # Paquetes npm de la app (vive en el subdirectorio 3-aplicacion).
+  - package-ecosystem: "npm"
+    directory: "/3-aplicacion"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencias"
+    # Agrupa las actualizaciones menores/parche en un solo PR (menos ruido).
+    groups:
+      menores:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Las propias GitHub Actions del CI también se mantienen al día.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencias"

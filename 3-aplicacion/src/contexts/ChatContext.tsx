@@ -21,11 +21,19 @@ const Ctx = createContext<ChatCtx | null>(null);
 
 const CLAVE = "chat_historial";
 const MAX_MSG = 60;
+// La conversación guardada se borra automáticamente 1 hora después del último
+// mensaje (privacidad: el historial vive solo en el navegador, no de forma indefinida).
+const MAX_EDAD_MS = 60 * 60 * 1000;
 
 function leerLocal(): { mensajes: Mensaje[]; restantes: number | null } | null {
   try {
     const raw = JSON.parse(localStorage.getItem(CLAVE) || "null");
     if (!raw || !Array.isArray(raw.mensajes) || !raw.mensajes.length) return null;
+    // Caduca tras 1 h desde el último mensaje guardado (ts): se descarta y se limpia.
+    if (typeof raw.ts === "number" && Date.now() - raw.ts > MAX_EDAD_MS) {
+      try { localStorage.removeItem(CLAVE); } catch {}
+      return null;
+    }
     return { mensajes: raw.mensajes, restantes: raw.restantes ?? null };
   } catch { return null; }
 }

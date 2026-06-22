@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const guia = getGuiaBySlug(slug);
   if (!guia) return { title: "No encontrado" };
   return {
-    title: guia.metaTitle || `${guia.titulo} | Ley Chilena`,
+    title: guia.metaTitle || `${guia.titulo} | Leyes de Chile`,
     description: guia.descripcion,
     alternates: { canonical: `${BASE}/guias/${guia.slug}` },
     openGraph: {
@@ -88,8 +88,8 @@ export default async function GuiaDetailPage({ params }: { params: Promise<{ slu
       datePublished: guia.fecha,
       dateModified: guia.fecha,
       inLanguage: "es-CL",
-      author: { "@type": "Organization", name: "Ley Chilena" },
-      publisher: { "@type": "Organization", name: "Ley Chilena" },
+      author: { "@type": "Organization", name: "Leyes de Chile" },
+      publisher: { "@type": "Organization", name: "Leyes de Chile" },
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
     },
     {

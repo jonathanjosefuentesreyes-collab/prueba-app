@@ -4,7 +4,7 @@ import SuscribirseBtn from "@/components/SuscribirseBtn";
 import ChatBar from "@/components/ChatBar";
 
 export const metadata: Metadata = {
-  title: "AbogaBot Premium — tu asesor legal sin límites | Ley Chilena",
+  title: "AbogaBot Premium — tu asesor legal sin límites | Leyes de Chile",
   description: "Hazte Premium: consultas ilimitadas con AbogaBot, calculadora de finiquito sin límite, sin anuncios y soporte prioritario.",
 };
 

@@ -29,7 +29,7 @@ export default function BibliotecaHeader({ activeTab, consulta = "" }: Bibliotec
       <div className="header-principal-bcn">
         {/* Escudo: balanza con copihue (diseño propio). Más grande que el texto para que resalte. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="icono-balanza-header" src="/escudo-balanza.png" alt="Ley Chilena" width={58} height={58} />
+        <img className="icono-balanza-header" src="/escudo-balanza.png" alt="Leyes de Chile" width={58} height={58} />
         <div>
           <h1 className="titulo-bcn">{titulo.h1}</h1>
           <p className="subtitulo-bcn">{titulo.sub}</p>

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_CL",
-    siteName: "Ley Chilena",
+    siteName: "Leyes de Chile",
     url: "/",
     title: "Leyes de Chile — actualizadas y explicadas en simple",
     description:
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Ley Chilena",
+    title: "Leyes de Chile",
   },
 };
 

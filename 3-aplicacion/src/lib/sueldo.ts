@@ -1,4 +1,4 @@
-// Estimación de SUELDO LÍQUIDO (trabajador dependiente) — Ley Chilena / AbogaBot.
+// Estimación de SUELDO LÍQUIDO (trabajador dependiente) — Leyes de Chile / AbogaBot.
 // 100% determinista. Descuenta del sueldo bruto imponible las cotizaciones previsionales
 // (AFP, salud, seguro de cesantía) y el impuesto único de 2ª categoría (tabla SII en UTM).
 //

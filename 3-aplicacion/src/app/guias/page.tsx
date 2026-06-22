@@ -6,7 +6,7 @@ import GuiasExplorer from "@/components/GuiasExplorer";
 import ChatBar from "@/components/ChatBar";
 
 export const metadata: Metadata = {
-  title: "Guías legales para ciudadanos | Ley Chilena",
+  title: "Guías legales para ciudadanos | Leyes de Chile",
   description: "Guías prácticas sobre tus derechos en Chile: finiquito, gratificación, vacaciones, arriendo y más. Explicadas simple y con los artículos oficiales.",
 };
 

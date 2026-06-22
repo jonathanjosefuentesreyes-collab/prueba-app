@@ -7,7 +7,7 @@ import ChatBar from "@/components/ChatBar";
 import ScrollAGrupo from "@/components/ScrollAGrupo";
 
 export const metadata = {
-  title: "Biblioteca de leyes chilenas | Ley Chilena",
+  title: "Biblioteca de leyes chilenas | Leyes de Chile",
   description: "Todas las leyes de Chile actualizadas desde la BCN: códigos, leyes y decretos con sus artículos completos y buscables.",
 };
 

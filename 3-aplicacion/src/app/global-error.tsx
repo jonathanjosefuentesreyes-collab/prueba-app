@@ -15,7 +15,7 @@ export default function GlobalError({
       <body style={{ fontFamily: "system-ui, sans-serif", margin: 0, background: "#eef1f7", color: "#19233a" }}>
         <main style={{ maxWidth: 420, margin: "0 auto", padding: "64px 24px", textAlign: "center" }}>
           <p style={{ fontSize: 22, fontWeight: 800 }}>
-            <span style={{ color: "#0039a6" }}>Ley</span> <span style={{ color: "#ce1126" }}>Chilena</span>
+            <span style={{ color: "#0039a6" }}>Leyes de</span> <span style={{ color: "#ce1126" }}>Chile</span>
           </p>
           <h1 style={{ fontSize: 18, marginTop: 24 }}>Algo salió mal</h1>
           <p style={{ color: "#5a6478", fontSize: 15, lineHeight: 1.6 }}>

@@ -17,7 +17,7 @@ export async function generateMetadata(props: {
   const { id } = await props.params;
   const { pagina: pg } = await props.searchParams;
   const norma = obtenerNorma(Number(id));
-  if (!norma) return { title: "Ley no encontrada | Ley Chilena", robots: { index: false, follow: true } };
+  if (!norma) return { title: "Ley no encontrada | Leyes de Chile", robots: { index: false, follow: true } };
   const nombre = nombreDe(norma);
   const nombreCorto = nombre.length > 56 ? nombre.slice(0, 53).trimEnd() + "…" : nombre;
   const pagNum = Math.max(1, Number(pg) || 1);
@@ -26,10 +26,10 @@ export async function generateMetadata(props: {
   const canonical = pagNum > 1 ? `${BASE}/leyes/${norma.id}?pagina=${pagNum}` : `${BASE}/leyes/${norma.id}`;
   const desc = `${nombre}: ${norma.total_articulos} artículos. Texto oficial actualizado de la BCN${norma.fecha_version ? ` (versión ${norma.fecha_version})` : ""}. Léelo en simple y consulta gratis a AbogaBot.`.slice(0, 155);
   return {
-    title: `${nombreCorto} — texto actualizado | Ley Chilena`,
+    title: `${nombreCorto} — texto actualizado | Leyes de Chile`,
     description: desc,
     alternates: { canonical },
-    openGraph: { title: `${nombre} | Ley Chilena`, description: desc, url: canonical, type: "article", siteName: "Ley Chilena" },
+    openGraph: { title: `${nombre} | Leyes de Chile`, description: desc, url: canonical, type: "article", siteName: "Leyes de Chile" },
     robots: { index: true, follow: true },
   };
 }

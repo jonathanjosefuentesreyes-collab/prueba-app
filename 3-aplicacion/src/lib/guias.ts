@@ -52,7 +52,7 @@ export const guias: Guia[] = [
     titulo: "¿Me pueden despedir si estoy embarazada en Chile?",
     categoria: "laboral",
     destacada: true,
-    metaTitle: "Despido en el embarazo: el fuero maternal | Ley Chilena",
+    metaTitle: "Despido en el embarazo: el fuero maternal | Leyes de Chile",
     descripcion:
       "¿Pueden despedirte estando embarazada? El fuero maternal te protege desde el embarazo hasta un año después del postnatal. Conoce tus derechos y qué hacer.",
     fecha: "2026-06-16",
@@ -123,7 +123,7 @@ Si tu trabajo es perjudicial para tu salud o la del embarazo (por ejemplo, esfue
     slug: "acoso-laboral-ley-karin",
     titulo: "Sufro acoso laboral: ¿qué puedo hacer? (Ley Karin)",
     categoria: "laboral",
-    metaTitle: "Acoso laboral en Chile: la Ley Karin | Ley Chilena",
+    metaTitle: "Acoso laboral en Chile: la Ley Karin | Leyes de Chile",
     descripcion:
       "Qué es el acoso laboral y sexual, cómo denunciarlo y qué te protege con la Ley Karin y el Código del Trabajo. Pasos, plazos y a quién acudir.",
     fecha: "2026-06-16",
@@ -185,7 +185,7 @@ Según el resultado del informe, el empleador debe aplicar las **medidas y sanci
     slug: "cuantas-horas-se-trabaja-a-la-semana",
     titulo: "¿Cuántas horas se trabaja a la semana en Chile? (Ley de 40 horas)",
     categoria: "laboral",
-    metaTitle: "¿Cuántas horas se trabaja a la semana? 40 horas | Ley Chilena",
+    metaTitle: "¿Cuántas horas se trabaja a la semana? 40 horas | Leyes de Chile",
     descripcion:
       "La jornada laboral en Chile se está reduciendo a 40 horas de forma gradual. Cuántas horas corresponden hoy, cómo se distribuyen y qué dice el Código del Trabajo.",
     fecha: "2026-06-16",
@@ -240,7 +240,7 @@ Sí. Algunos cargos de **exclusiva confianza** o sin fiscalización superior inm
     slug: "honorarios-pero-trabajo-como-dependiente",
     titulo: "Me tienen a honorarios pero trabajo como dependiente: ¿qué hago?",
     categoria: "laboral",
-    metaTitle: "Honorarios o contrato de trabajo en Chile | Ley Chilena",
+    metaTitle: "Honorarios o contrato de trabajo en Chile | Leyes de Chile",
     descripcion:
       "Si trabajas a honorarios pero con horario, jefatura y obligación de asistir, la ley puede reconocer un contrato de trabajo. Conoce la primacía de la realidad.",
     fecha: "2026-06-16",
@@ -304,7 +304,7 @@ Da lo mismo lo que diga el papel: el contrato de trabajo es **consensual** y exi
     titulo: "¿Cuánto me corresponde de finiquito si me despiden en Chile?",
     categoria: "laboral",
     destacada: true,
-    metaTitle: "Finiquito en Chile: cuánto te corresponde | Ley Chilena",
+    metaTitle: "Finiquito en Chile: cuánto te corresponde | Leyes de Chile",
     descripcion:
       "Calcula cuánto te corresponde de finiquito según el Código del Trabajo: indemnización por años, mes de aviso y feriado. Explicado simple y gratis.",
     fecha: "2026-06-15",
@@ -359,7 +359,7 @@ La base de cálculo es tu **última remuneración mensual**, pero con reglas pre
 ## ¿Qué hacer ahora?
 1. **Revisa tu carta de despido**: debe indicar la causal exacta y la fecha. De ahí depende qué te corresponde.
 2. **No firmes el finiquito si no estás de acuerdo** con los montos. Puedes firmar dejando **"reserva de derechos"** para reclamar después.
-3. **Calcula lo que te corresponde** antes de firmar, con la calculadora gratuita de Ley Chilena.
+3. **Calcula lo que te corresponde** antes de firmar, con la calculadora gratuita de Leyes de Chile.
 4. Si el despido te parece injustificado, tienes **60 días hábiles** desde la separación para demandar ([artículo 168](/leyes/207436?art=3304)); si ganas, la indemnización sube entre un 30% y un 100%.
 5. Recuerda que el finiquito debe firmarse ante un **ministro de fe** (notario, Inspección del Trabajo o finiquito electrónico de la Dirección del Trabajo).
     `,
@@ -395,7 +395,7 @@ La base de cálculo es tu **última remuneración mensual**, pero con reglas pre
     slug: "gratificacion-legal-como-se-paga",
     titulo: "¿Cómo se paga la gratificación y cuánto me corresponde en Chile?",
     categoria: "laboral",
-    metaTitle: "Gratificación en Chile: cómo se paga | Ley Chilena",
+    metaTitle: "Gratificación en Chile: cómo se paga | Leyes de Chile",
     descripcion:
       "¿Tu empresa debe pagarte gratificación? Conoce las dos formas legales de pago (30% de las utilidades o 25% con tope) según el Código del Trabajo.",
     fecha: "2026-06-15",
@@ -454,7 +454,7 @@ La gratificación legal es **anual**, pero muchas empresas la **anticipan mes a 
     slug: "vacaciones-feriado-cuantos-dias",
     titulo: "¿Cuántos días de vacaciones me corresponden al año en Chile?",
     categoria: "laboral",
-    metaTitle: "Vacaciones: cuántos días te corresponden | Ley Chilena",
+    metaTitle: "Vacaciones: cuántos días te corresponden | Leyes de Chile",
     descripcion:
       "Cuántos días de feriado legal te corresponden al año en Chile, cómo se acumulan y qué pasa con las vacaciones no tomadas. Según el Código del Trabajo.",
     fecha: "2026-06-15",
@@ -515,7 +515,7 @@ Si aún no cumples el año, todavía no tienes derecho al feriado completo, pero
     titulo: "Me quieren echar del arriendo: ¿en cuánto tiempo deben avisarme?",
     categoria: "vivienda",
     destacada: true,
-    metaTitle: "Arriendo en Chile: plazos para desalojar | Ley Chilena",
+    metaTitle: "Arriendo en Chile: plazos para desalojar | Leyes de Chile",
     descripcion:
       "Si el arrendador quiere que te vayas, la ley fija plazos mínimos y exige aviso judicial o notarial. Conoce tus derechos según la Ley de Arrendamiento 18.101.",
     fecha: "2026-06-15",
@@ -585,14 +585,14 @@ Si te despidieron por **faltas graves** (artículo 160, como abandono de deberes
 ### Pasos a seguir
 1. Revisa tu carta de despido: debe indicar claramente la causal y si se te pagará el mes de aviso.
 2. No firmes tu finiquito si no estás de acuerdo con los montos. Puedes firmar dejando una "reserva de derechos".
-3. Si tienes dudas, puedes utilizar la calculadora de finiquito de Ley Chilena o consultarle a AbogaBot citando tu situación.
+3. Si tienes dudas, puedes utilizar la calculadora de finiquito de Leyes de Chile o consultarle a AbogaBot citando tu situación.
     `
   },
   {
     slug: "calcular-horas-extras",
     titulo: "¿Cómo se calculan las horas extras y cuánto deben pagarme?",
     categoria: "laboral",
-    metaTitle: "Horas extras en Chile: cómo se calculan | Ley Chilena",
+    metaTitle: "Horas extras en Chile: cómo se calculan | Leyes de Chile",
     descripcion:
       "Qué son las horas extraordinarias, cuánto deben pagártelas (recargo del 50%) y cómo estimar el valor de tu hora extra según el Código del Trabajo.",
     fecha: "2026-06-16",
@@ -648,7 +648,7 @@ Sí. Pueden pactarse hasta **2 horas extraordinarias por día**, y solo en faena
     titulo: "Me despidieron por necesidades de la empresa: ¿qué me corresponde?",
     categoria: "laboral",
     destacada: true,
-    metaTitle: "Despido por necesidades de la empresa: qué te pagan | Ley Chilena",
+    metaTitle: "Despido por necesidades de la empresa: qué te pagan | Leyes de Chile",
     descripcion:
       "Te despidieron por necesidades de la empresa en Chile: indemnización por años de servicio, mes de aviso, feriado y qué hacer si el despido es injustificado.",
     fecha: "2026-06-17",
@@ -718,7 +718,7 @@ Sí. Además de lo anterior, puedes cobrar tu **Seguro de Cesantía** en la AFC 
     titulo: "Pensión de alimentos en Chile: ¿cuánto es y cómo se pide?",
     categoria: "familia",
     destacada: true,
-    metaTitle: "Pensión de alimentos: cuánto es y cómo pedirla | Ley Chilena",
+    metaTitle: "Pensión de alimentos: cuánto es y cómo pedirla | Leyes de Chile",
     descripcion:
       "Cuánto corresponde de pensión de alimentos en Chile, montos mínimos, hasta qué edad se paga y cómo demandar en el Tribunal de Familia si no pagan.",
     fecha: "2026-06-17",
@@ -792,7 +792,7 @@ La ley entrega herramientas potentes de cobro:
     titulo: "¿Cómo salir de DICOM en Chile? Cuándo te borran y qué hacer",
     categoria: "deudas",
     destacada: true,
-    metaTitle: "Cómo salir de DICOM: cuándo te borran y qué hacer | Ley Chilena",
+    metaTitle: "Cómo salir de DICOM: cuándo te borran y qué hacer | Leyes de Chile",
     descripcion:
       "Cómo salir de DICOM en Chile: cuándo deben borrarte al pagar, la caducidad a los 5 años, qué deudas ya no pueden publicarse y cómo exigir tu eliminación.",
     fecha: "2026-06-17",
@@ -856,7 +856,7 @@ Salir de DICOM **es gratis** y es **obligación del acreedor** una vez pagada la
     titulo: "¿Cuándo prescribe una deuda en Chile? Plazos y qué hacer",
     categoria: "deudas",
     destacada: true,
-    metaTitle: "¿Cuándo prescribe una deuda en Chile? Plazos | Ley Chilena",
+    metaTitle: "¿Cuándo prescribe una deuda en Chile? Plazos | Leyes de Chile",
     descripcion:
       "Cuándo prescribe una deuda en Chile: 3 años para el cobro ejecutivo y 5 para el ordinario. Cómo se cuenta el plazo, qué lo interrumpe y por qué debes alegarla.",
     fecha: "2026-06-17",
@@ -919,7 +919,7 @@ El tribunal **no la aplica solo**. Si te demandan por una deuda antigua, debes *
     titulo: "¿Me pueden embargar el sueldo por una deuda en Chile?",
     categoria: "deudas",
     destacada: true,
-    metaTitle: "¿Pueden embargar tu sueldo por deudas? | Ley Chilena",
+    metaTitle: "¿Pueden embargar tu sueldo por deudas? | Leyes de Chile",
     descripcion:
       "El sueldo en Chile es inembargable salvo la parte que supere 56 UF. Conoce las excepciones (pensión de alimentos), qué bienes no pueden embargarte y qué hacer.",
     fecha: "2026-06-17",
@@ -976,7 +976,7 @@ La ley también declara **inembargables** ciertos bienes básicos (la cama, la r
     titulo: "¿Cuánto aviso me deben dar para terminar el arriendo en Chile?",
     categoria: "vivienda",
     destacada: true,
-    metaTitle: "Aviso para terminar el arriendo: plazos en Chile | Ley Chilena",
+    metaTitle: "Aviso para terminar el arriendo: plazos en Chile | Leyes de Chile",
     descripcion:
       "Cuánto aviso te deben dar para terminar el arriendo en Chile: contratos mes a mes, indefinidos y a plazo fijo. Plazos para restituir y cómo debe notificarse.",
     fecha: "2026-06-19",
@@ -1039,7 +1039,7 @@ El no pago es causa de término, pero igual debe hacerse por un **juicio de arre
     titulo: "¿Quién paga las reparaciones en un arriendo: dueño o arrendatario?",
     categoria: "vivienda",
     destacada: true,
-    metaTitle: "Reparaciones del arriendo: ¿quién paga? | Ley Chilena",
+    metaTitle: "Reparaciones del arriendo: ¿quién paga? | Leyes de Chile",
     descripcion:
       "Quién paga las reparaciones de una vivienda arrendada en Chile: el dueño las reparaciones necesarias y el arrendatario las locativas (desgaste de uso). Ejemplos y qué hacer.",
     fecha: "2026-06-19",
@@ -1099,7 +1099,7 @@ Si necesita reparaciones grandes que el dueño no hace, el arrendatario puede **
     titulo: "Garantía legal en Chile: ¿cambio, reparación o devolución?",
     categoria: "consumidor",
     destacada: true,
-    metaTitle: "Garantía legal: cambio, reparación o devolución | Ley Chilena",
+    metaTitle: "Garantía legal: cambio, reparación o devolución | Leyes de Chile",
     descripcion:
       "Si compraste un producto con fallas en Chile, la garantía legal te deja elegir entre reparación, cambio o devolución del dinero dentro de 6 meses. Conoce tus derechos.",
     fecha: "2026-06-19",
@@ -1158,7 +1158,7 @@ La ley también contempla la **bonificación** del valor en la compra de otro pr
     titulo: "Derecho a retracto: ¿puedo arrepentirme de una compra en Chile?",
     categoria: "consumidor",
     destacada: true,
-    metaTitle: "Derecho a retracto: arrepentirse de una compra | Ley Chilena",
+    metaTitle: "Derecho a retracto: arrepentirse de una compra | Leyes de Chile",
     descripcion:
       "El derecho a retracto te deja arrepentirte y anular una compra sin dar explicaciones dentro de 10 días en compras por internet, teléfono o catálogo. Cómo y cuándo aplica.",
     fecha: "2026-06-19",
@@ -1214,7 +1214,7 @@ Si te retractas a tiempo, la empresa debe **devolverte lo que pagaste** a la bre
     titulo: "¿Cuáles son mis derechos como consumidor en Chile?",
     categoria: "consumidor",
     destacada: false,
-    metaTitle: "Tus derechos como consumidor en Chile | Ley Chilena",
+    metaTitle: "Tus derechos como consumidor en Chile | Leyes de Chile",
     descripcion:
       "Tus derechos básicos como consumidor en Chile: información veraz, libre elección, seguridad, no discriminación, garantía y reparación. Qué hacer si te los vulneran.",
     fecha: "2026-06-19",
@@ -1272,7 +1272,7 @@ Si te venden con **crédito directo**, deben informarte de forma **clara y oport
     titulo: "Divorcio en Chile: tipos, requisitos y cómo se pide",
     categoria: "familia",
     destacada: true,
-    metaTitle: "Divorcio en Chile: tipos y requisitos | Ley Chilena",
+    metaTitle: "Divorcio en Chile: tipos y requisitos | Leyes de Chile",
     descripcion:
       "Tipos de divorcio en Chile: de común acuerdo (cese de 1 año), unilateral (cese de 3 años) y por culpa. Requisitos, el acuerdo regulador y cómo se tramita.",
     fecha: "2026-06-19",
@@ -1328,7 +1328,7 @@ Si uno de los cónyuges se dedicó al hogar o a los hijos y por eso no pudo desa
     titulo: "Cuidado personal de los hijos tras la separación: ¿con quién quedan?",
     categoria: "familia",
     destacada: false,
-    metaTitle: "Cuidado personal de los hijos en Chile | Ley Chilena",
+    metaTitle: "Cuidado personal de los hijos en Chile | Leyes de Chile",
     descripcion:
       "Con quién quedan los hijos tras la separación en Chile: el cuidado personal, el acuerdo de los padres, el interés superior del niño y la relación directa y regular (visitas).",
     fecha: "2026-06-19",
@@ -1384,7 +1384,7 @@ El cuidado personal y los **alimentos** van de la mano pero son distintos: quien
     titulo: "Cobranza extrajudicial: ¿qué pueden hacer y qué no en Chile?",
     categoria: "deudas",
     destacada: true,
-    metaTitle: "Cobranza extrajudicial: qué es legal y qué no | Ley Chilena",
+    metaTitle: "Cobranza extrajudicial: qué es legal y qué no | Leyes de Chile",
     descripcion:
       "Qué pueden y qué no pueden hacer las empresas de cobranza en Chile: límites a los gastos de cobranza y prácticas prohibidas como amenazas, llamados a horas indebidas o avisar a tu trabajo.",
     fecha: "2026-06-19",
@@ -1442,7 +1442,7 @@ La empresa de cobranza **no puede** embargar tus bienes, descontarte el sueldo n
     titulo: "Renegociar tus deudas: la Ley de Insolvencia (Ley 20.720)",
     categoria: "deudas",
     destacada: false,
-    metaTitle: "Renegociar deudas: Ley de Insolvencia en Chile | Ley Chilena",
+    metaTitle: "Renegociar deudas: Ley de Insolvencia en Chile | Leyes de Chile",
     descripcion:
       "Si no puedes pagar tus deudas, el Procedimiento de Renegociación de la Ley 20.720 (ante la Superir) te permite ordenarlas y rebajarlas, gratis y sin abogado, con protección frente a cobros.",
     fecha: "2026-06-19",
@@ -1500,7 +1500,7 @@ Si no se logra un acuerdo, la ley contempla otras salidas (como la **liquidació
     titulo: "Mes de garantía de arriendo: ¿cuándo y cómo me lo devuelven?",
     categoria: "vivienda",
     destacada: true,
-    metaTitle: "Garantía de arriendo: cuándo te la devuelven | Ley Chilena",
+    metaTitle: "Garantía de arriendo: cuándo te la devuelven | Leyes de Chile",
     descripcion:
       "Cuándo te devuelven el mes de garantía del arriendo en Chile: para qué sirve, qué pueden descontar (daños o rentas impagas) y qué hacer si el dueño no te lo devuelve.",
     fecha: "2026-06-19",
@@ -1551,7 +1551,7 @@ La ley deja al arrendador **retener** lo necesario para cubrir lo que efectivame
     titulo: "¿Puedo subarrendar la propiedad que arriendo en Chile?",
     categoria: "vivienda",
     destacada: false,
-    metaTitle: "¿Se puede subarrendar en Chile? | Ley Chilena",
+    metaTitle: "¿Se puede subarrendar en Chile? | Leyes de Chile",
     descripcion:
       "Subarrendar en Chile: por regla general necesitas autorización expresa del dueño. Qué pasa si subarriendas sin permiso y cómo dejarlo bien en el contrato.",
     fecha: "2026-06-19",
@@ -1606,7 +1606,7 @@ Arrendar por días a turistas suele ser una forma de subarriendo o de cambio de 
     titulo: "No pago de arriendo: ¿cómo es el juicio de arrendamiento?",
     categoria: "vivienda",
     destacada: false,
-    metaTitle: "Juicio de arrendamiento por no pago | Ley Chilena",
+    metaTitle: "Juicio de arrendamiento por no pago | Leyes de Chile",
     descripcion:
       "Qué pasa si no se paga el arriendo en Chile: el dueño debe ir a un juicio de arrendamiento para terminar el contrato y recuperar la propiedad. Plazos y derechos de ambas partes.",
     fecha: "2026-06-19",
@@ -1663,7 +1663,7 @@ Hasta que **restituyas** efectivamente la propiedad, sigues **obligado a pagar l
     titulo: "Violencia intrafamiliar: cómo pedir medidas de protección en Chile",
     categoria: "familia",
     destacada: true,
-    metaTitle: "Violencia intrafamiliar: medidas de protección | Ley Chilena",
+    metaTitle: "Violencia intrafamiliar: medidas de protección | Leyes de Chile",
     descripcion:
       "Qué es la violencia intrafamiliar en Chile y cómo pedir medidas de protección: denuncia, medidas cautelares y accesorias de la Ley 20.066. Teléfonos de ayuda 24/7.",
     fecha: "2026-06-19",
@@ -1722,7 +1722,7 @@ Frente a **riesgo inminente**, el tribunal debe actuar aunque aún no haya una d
     titulo: "Compensación económica en el divorcio: ¿qué es y cuándo me corresponde?",
     categoria: "familia",
     destacada: false,
-    metaTitle: "Compensación económica en el divorcio | Ley Chilena",
+    metaTitle: "Compensación económica en el divorcio | Leyes de Chile",
     descripcion:
       "Qué es la compensación económica en el divorcio en Chile, cuándo te corresponde si te dedicaste al hogar o los hijos, cómo se calcula y cómo se paga.",
     fecha: "2026-06-19",
@@ -1783,7 +1783,7 @@ Puede pagarse en **dinero** (de una vez o en cuotas), o entregando **bienes** o 
     titulo: "Publicidad engañosa: ¿qué puedo hacer en Chile?",
     categoria: "consumidor",
     destacada: true,
-    metaTitle: "Publicidad engañosa: tus derechos | Ley Chilena",
+    metaTitle: "Publicidad engañosa: tus derechos | Leyes de Chile",
     descripcion:
       "La publicidad engañosa es ilegal en Chile. Si te indujeron a error con un anuncio falso sobre precio, características o condiciones, puedes reclamar en el SERNAC. Cómo hacerlo.",
     fecha: "2026-06-19",
@@ -1834,7 +1834,7 @@ En toda **promoción u oferta** te deben informar las **bases** y el **plazo** d
     titulo: "Cláusulas abusivas en contratos: ¿qué son y cómo me protegen?",
     categoria: "consumidor",
     destacada: false,
-    metaTitle: "Cláusulas abusivas en contratos | Ley Chilena",
+    metaTitle: "Cláusulas abusivas en contratos | Leyes de Chile",
     descripcion:
       "Las cláusulas abusivas en los contratos de adhesión no tienen efecto en Chile. Qué son, ejemplos, y cómo reclamar si una empresa te las quiere aplicar.",
     fecha: "2026-06-19",
@@ -1890,7 +1890,7 @@ Los contratos de adhesión deben estar **escritos de modo claramente legible**, 
     titulo: "Cobros indebidos e intereses excesivos: ¿cómo me defiendo?",
     categoria: "consumidor",
     destacada: false,
-    metaTitle: "Cobros indebidos e intereses excesivos | Ley Chilena",
+    metaTitle: "Cobros indebidos e intereses excesivos | Leyes de Chile",
     descripcion:
       "Cobrar intereses sobre el máximo legal o cargos no pactados es infracción en Chile. Conoce el interés máximo convencional, los cobros prohibidos y cómo reclamar.",
     fecha: "2026-06-19",
@@ -1943,7 +1943,7 @@ Cuando te dan crédito, deben informarte de forma **clara y oportuna** el **prec
     titulo: "¿Heredo las deudas de un familiar fallecido en Chile?",
     categoria: "deudas",
     destacada: true,
-    metaTitle: "¿Se heredan las deudas en Chile? | Ley Chilena",
+    metaTitle: "¿Se heredan las deudas en Chile? | Leyes de Chile",
     descripcion:
       "En Chile heredas bienes y deudas, pero puedes protegerte: aceptando con beneficio de inventario respondes solo hasta lo que heredas, o puedes renunciar a la herencia. Cómo hacerlo.",
     fecha: "2026-06-20",
@@ -2001,7 +2001,7 @@ Si la deuda tenía un **aval, fiador o codeudor**, el acreedor puede cobrarles a
     titulo: "Ser aval o fiador: ¿qué riesgo corro al garantizar una deuda?",
     categoria: "deudas",
     destacada: false,
-    metaTitle: "Ser aval o fiador: el riesgo | Ley Chilena",
+    metaTitle: "Ser aval o fiador: el riesgo | Leyes de Chile",
     descripcion:
       "Ser aval, fiador o codeudor solidario significa responder por la deuda de otro con tu propio patrimonio. Qué riesgo corres en Chile y qué revisar antes de firmar.",
     fecha: "2026-06-20",
@@ -2055,7 +2055,7 @@ Si el deudor no paga, el acreedor puede **demandarte a ti**: cobrarte la deuda, 
     titulo: "Deudas del cónyuge: ¿respondo por las deudas de mi pareja?",
     categoria: "deudas",
     destacada: false,
-    metaTitle: "¿Respondo por las deudas de mi cónyuge? | Ley Chilena",
+    metaTitle: "¿Respondo por las deudas de mi cónyuge? | Leyes de Chile",
     descripcion:
       "Si respondes por las deudas de tu cónyuge en Chile depende del régimen patrimonial: sociedad conyugal, separación de bienes o participación en los gananciales. Diferencias clave.",
     fecha: "2026-06-20",
@@ -2112,7 +2112,7 @@ Solo si: (a) **firmaste** la deuda (como deudor, aval o codeudor), o (b) en soci
     titulo: "Reconocer un hijo y demanda de paternidad en Chile",
     categoria: "familia",
     destacada: true,
-    metaTitle: "Reconocimiento de hijo y demanda de paternidad | Ley Chilena",
+    metaTitle: "Reconocimiento de hijo y demanda de paternidad | Leyes de Chile",
     descripcion:
       "Cómo se reconoce a un hijo en Chile y cómo demandar la paternidad si el padre no reconoce. La prueba de ADN, los derechos del hijo y dónde acudir.",
     fecha: "2026-06-20",
@@ -2169,7 +2169,7 @@ La **prueba pericial biológica (ADN)** la realiza el **Servicio Médico Legal**
     titulo: "Acuerdo de Unión Civil (AUC): ¿qué es y qué derechos da?",
     categoria: "familia",
     destacada: false,
-    metaTitle: "Acuerdo de Unión Civil (AUC) en Chile | Ley Chilena",
+    metaTitle: "Acuerdo de Unión Civil (AUC) en Chile | Leyes de Chile",
     descripcion:
       "Qué es el Acuerdo de Unión Civil en Chile, qué derechos da (herencia, salud, bienes) a los convivientes civiles, en qué se diferencia del matrimonio y cómo se hace.",
     fecha: "2026-06-20",
@@ -2226,7 +2226,7 @@ El AUC da muchos derechos parecidos (herencia, salud, bienes), pero **no es idé
     titulo: "Gastos comunes morosos: ¿pueden cortarme la luz o el agua?",
     categoria: "vivienda",
     destacada: false,
-    metaTitle: "¿Cortan servicios por gastos comunes impagos? | Ley Chilena",
+    metaTitle: "¿Cortan servicios por gastos comunes impagos? | Leyes de Chile",
     descripcion:
       "La Ley de Copropiedad permite suspender la electricidad o telecomunicaciones a quien debe 3 o más cuotas de gastos comunes. Cuándo procede y cómo evitarlo.",
     fecha: "2026-06-20",
@@ -2279,7 +2279,7 @@ El corte de servicios básicos es un tema sensible. La norma habla de electricid
     titulo: "Mi ex no me deja ver a mi hijo: relación directa y regular",
     categoria: "familia",
     destacada: true,
-    metaTitle: "Mi ex no me deja ver a mi hijo: qué hacer | Ley Chilena",
+    metaTitle: "Mi ex no me deja ver a mi hijo: qué hacer | Leyes de Chile",
     descripcion:
       "Si no tienes el cuidado personal de tu hijo, igual tienes derecho a mantener una relación directa y regular (visitas). Qué hacer si tu ex no te deja verlo, según el Código Civil.",
     fecha: "2026-06-20",
@@ -2335,7 +2335,7 @@ El derecho puede **limitarse o suspenderse** solo cuando sea necesario para **pr
     titulo: "Patria potestad: ¿quién decide y administra los bienes del hijo?",
     categoria: "familia",
     destacada: false,
-    metaTitle: "Patria potestad en Chile: qué es y quién la tiene | Ley Chilena",
+    metaTitle: "Patria potestad en Chile: qué es y quién la tiene | Leyes de Chile",
     descripcion:
       "La patria potestad es el conjunto de derechos y deberes sobre los bienes del hijo. Qué es, quién la ejerce y qué pasa cuando los padres viven separados, según el Código Civil.",
     fecha: "2026-06-20",
@@ -2391,7 +2391,7 @@ Quien tiene la patria potestad:
     titulo: "¿Qué régimen de bienes me conviene al casarme en Chile?",
     categoria: "familia",
     destacada: true,
-    metaTitle: "Régimen de bienes del matrimonio: cuál elegir | Ley Chilena",
+    metaTitle: "Régimen de bienes del matrimonio: cuál elegir | Leyes de Chile",
     descripcion:
       "Al casarte en Chile eliges entre sociedad conyugal, separación de bienes o participación en los gananciales. Diferencias clave para decidir cuál te conviene.",
     fecha: "2026-06-20",
@@ -2450,7 +2450,7 @@ Sí. Durante el matrimonio se puede **cambiar de régimen** (por ejemplo, de soc
     titulo: "El acreedor no quiere recibir mi pago: el pago por consignación",
     categoria: "deudas",
     destacada: false,
-    metaTitle: "El acreedor no acepta mi pago: consignación | Ley Chilena",
+    metaTitle: "El acreedor no acepta mi pago: consignación | Leyes de Chile",
     descripcion:
       "Si quieres pagar una deuda y el acreedor se niega a recibir o no aparece, puedes liberarte con el pago por consignación, depositando lo que debes. Cómo funciona según el Código Civil.",
     fecha: "2026-06-20",
@@ -2505,7 +2505,7 @@ El pago por consignación tiene un **procedimiento** (oferta del pago y luego la
     titulo: "Me vendieron mi deuda a otra empresa: la cesión de crédito",
     categoria: "deudas",
     destacada: true,
-    metaTitle: "Me vendieron mi deuda a otra empresa: qué hacer | Ley Chilena",
+    metaTitle: "Me vendieron mi deuda a otra empresa: qué hacer | Leyes de Chile",
     descripcion:
       "Cuando una empresa vende tu deuda a otra (cobranza), esa cesión solo te afecta si te la notifican. Qué dice el Código Civil y cómo te protege.",
     fecha: "2026-06-20",
@@ -2561,7 +2561,7 @@ La empresa que compró la deuda debe respetar las **reglas de cobranza** (no aco
     titulo: "Semana corrida: ¿me deben pagar el domingo?",
     categoria: "laboral",
     destacada: false,
-    metaTitle: "Semana corrida: el pago del día domingo | Ley Chilena",
+    metaTitle: "Semana corrida: el pago del día domingo | Leyes de Chile",
     descripcion:
       "Si te pagan por día u hora, la semana corrida te da derecho a que también te paguen el domingo y los festivos. Cómo se calcula y a quién aplica, según el Código del Trabajo.",
     fecha: "2026-06-21",
@@ -2616,7 +2616,7 @@ No aplica a quien ya tiene un **sueldo mensual fijo** que de por sí remunera el
     titulo: "Accidente del trabajo: ¿qué debe hacer el empleador?",
     categoria: "laboral",
     destacada: true,
-    metaTitle: "Accidente del trabajo: tus derechos | Ley Chilena",
+    metaTitle: "Accidente del trabajo: tus derechos | Leyes de Chile",
     descripcion:
       "El empleador está obligado a proteger tu vida y salud en el trabajo. Qué pasa si sufres un accidente laboral, a qué tienes derecho y qué hacer, según el Código del Trabajo.",
     fecha: "2026-06-21",
@@ -2672,7 +2672,7 @@ Si el accidente ocurrió porque el empleador **no cumplió** las medidas de segu
     titulo: "Descanso dominical y festivos: ¿cuándo me deben dar libre?",
     categoria: "laboral",
     destacada: false,
-    metaTitle: "Descanso dominical y festivos en Chile | Ley Chilena",
+    metaTitle: "Descanso dominical y festivos en Chile | Leyes de Chile",
     descripcion:
       "Por regla general el domingo y los festivos son de descanso. Quiénes son la excepción (comercio, turnos) y qué compensación les corresponde, según el Código del Trabajo.",
     fecha: "2026-06-21",
@@ -2727,7 +2727,7 @@ Si estás dentro de las excepciones, trabajar el domingo/festivo te da el **desc
     titulo: "Postnatal y permiso parental: ¿cuánto dura y quién puede tomarlo?",
     categoria: "laboral",
     destacada: true,
-    metaTitle: "Postnatal y permiso parental en Chile | Ley Chilena",
+    metaTitle: "Postnatal y permiso parental en Chile | Leyes de Chile",
     descripcion:
       "El descanso de maternidad y el permiso postnatal parental protegen a madres y, en parte, a padres. Cuánto duran, cómo se toman y el subsidio, según el Código del Trabajo.",
     fecha: "2026-06-21",
@@ -2783,7 +2783,7 @@ No lo paga el empleador: se paga un **subsidio maternal** (con cargo al sistema)
     titulo: "Contrato a plazo fijo: ¿cuándo se transforma en indefinido?",
     categoria: "laboral",
     destacada: false,
-    metaTitle: "Contrato a plazo fijo: cuándo pasa a indefinido | Ley Chilena",
+    metaTitle: "Contrato a plazo fijo: cuándo pasa a indefinido | Leyes de Chile",
     descripcion:
       "Un contrato a plazo fijo puede transformarse en indefinido si sigues trabajando tras el vencimiento o por la regla de las renovaciones. Cómo funciona, según el Código del Trabajo.",
     fecha: "2026-06-21",
@@ -2838,7 +2838,7 @@ Un contrato indefinido te da **más estabilidad** y derecho a **indemnización p
     titulo: "Contrato de arriendo: qué debe tener y por qué hacerlo por escrito",
     categoria: "vivienda",
     destacada: true,
-    metaTitle: "Contrato de arriendo: qué debe incluir | Ley Chilena",
+    metaTitle: "Contrato de arriendo: qué debe incluir | Leyes de Chile",
     descripcion:
       "Qué es un contrato de arriendo, qué cláusulas debe tener y por qué conviene escriturarlo. El arriendo es válido aunque sea de palabra, pero por escrito te protege mucho más.",
     fecha: "2026-06-21",
@@ -2896,7 +2896,7 @@ Porque ante cualquier conflicto (no me devuelven la garantía, me quieren subir 
     titulo: "Promesa de compraventa: comprar o vender una casa antes de la escritura",
     categoria: "vivienda",
     destacada: false,
-    metaTitle: "Promesa de compraventa de una vivienda | Ley Chilena",
+    metaTitle: "Promesa de compraventa de una vivienda | Leyes de Chile",
     descripcion:
       "La promesa de compraventa compromete a comprar y vender una propiedad más adelante. Qué requisitos exige el Código Civil para que sea válida y te proteja.",
     fecha: "2026-06-21",
@@ -2953,7 +2953,7 @@ Si una parte se arrepiente, la otra puede **exigir el cumplimiento** (que se cel
     titulo: "¿Pueden subirme el arriendo durante el contrato?",
     categoria: "vivienda",
     destacada: true,
-    metaTitle: "¿Pueden subir el arriendo durante el contrato? | Ley Chilena",
+    metaTitle: "¿Pueden subir el arriendo durante el contrato? | Leyes de Chile",
     descripcion:
       "El arrendador no puede subir la renta cuando quiera: el contrato manda. Cuándo procede un reajuste y qué hacer si te suben el arriendo de forma unilateral, según el Código Civil.",
     fecha: "2026-06-21",
@@ -3006,7 +3006,7 @@ Si tienes un contrato **vigente** con renta fija y sin cláusula de reajuste, el
     titulo: "Reglamento de copropiedad: ¿qué me obliga y qué no?",
     categoria: "vivienda",
     destacada: false,
-    metaTitle: "Reglamento de copropiedad: qué te obliga | Ley Chilena",
+    metaTitle: "Reglamento de copropiedad: qué te obliga | Leyes de Chile",
     descripcion:
       "El reglamento de copropiedad fija las reglas de tu edificio o condominio. Qué puede regular, qué obliga a propietarios y arrendatarios, según la Ley de Copropiedad.",
     fecha: "2026-06-21",
@@ -3061,7 +3061,7 @@ Es el "manual de reglas" del edificio o condominio. La ley obliga a los copropie
     titulo: "Ruidos molestos y convivencia en el condominio: ¿qué puedo hacer?",
     categoria: "vivienda",
     destacada: false,
-    metaTitle: "Ruidos molestos del vecino en condominio | Ley Chilena",
+    metaTitle: "Ruidos molestos del vecino en condominio | Leyes de Chile",
     descripcion:
       "Si un vecino hace ruidos molestos o usa mal los espacios comunes, la Ley de Copropiedad y el reglamento te dan herramientas. Qué hacer paso a paso.",
     fecha: "2026-06-21",
@@ -3116,7 +3116,7 @@ Sonidos que **superan lo razonable** y alteran la tranquilidad: fiestas a altas 
     titulo: "Declaración de bien familiar: cómo proteger la casa de la familia",
     categoria: "familia",
     destacada: true,
-    metaTitle: "Bien familiar: proteger la vivienda de la familia | Ley Chilena",
+    metaTitle: "Bien familiar: proteger la vivienda de la familia | Leyes de Chile",
     descripcion:
       "Declarar la vivienda como bien familiar la protege: no se puede vender ni hipotecar sin el acuerdo del otro cónyuge. Cómo funciona y para qué sirve, según el Código Civil.",
     fecha: "2026-06-21",
@@ -3174,7 +3174,7 @@ Importante: ser bien familiar **no cambia quién es el dueño**; solo limita su 
     titulo: "Testamento: cómo dejar mis bienes ordenados en Chile",
     categoria: "familia",
     destacada: false,
-    metaTitle: "Testamento en Chile: cómo hacerlo | Ley Chilena",
+    metaTitle: "Testamento en Chile: cómo hacerlo | Leyes de Chile",
     descripcion:
       "El testamento te permite decidir qué pasa con tus bienes, dentro de los límites de la ley (legítimas). Qué es, cómo se hace y qué puedes y no puedes dejar, según el Código Civil.",
     fecha: "2026-06-21",
@@ -3234,7 +3234,7 @@ Un testamento **mal hecho** puede ser nulo; por eso conviene hacerlo ante notari
     titulo: "¿Quién hereda si no hay testamento? El orden de la herencia",
     categoria: "familia",
     destacada: true,
-    metaTitle: "¿Quién hereda sin testamento en Chile? | Ley Chilena",
+    metaTitle: "¿Quién hereda sin testamento en Chile? | Leyes de Chile",
     descripcion:
       "Sin testamento, la ley define quién hereda: primero los hijos y el cónyuge. Cómo es el orden de la sucesión intestada en Chile, según el Código Civil.",
     fecha: "2026-06-21",
@@ -3294,7 +3294,7 @@ Hay que tramitar la **posesión efectiva**:
     titulo: "Herencia forzosa: ¿puedo desheredar a un hijo? La legítima",
     categoria: "familia",
     destacada: false,
-    metaTitle: "Herencia forzosa y legítima en Chile | Ley Chilena",
+    metaTitle: "Herencia forzosa y legítima en Chile | Leyes de Chile",
     descripcion:
       "La ley obliga a dejar una parte de la herencia a ciertos herederos (legitimarios). Quiénes son y cuánto les corresponde, según el Código Civil. No puedes desheredar libremente.",
     fecha: "2026-06-21",
@@ -3352,7 +3352,7 @@ Solo **excepcionalmente** y por **causales legales graves** (por ejemplo, atenta
     titulo: "Me cobraron más caro que el precio publicado: ¿qué hago?",
     categoria: "consumidor",
     destacada: true,
-    metaTitle: "Me cobraron más que el precio publicado | Ley Chilena",
+    metaTitle: "Me cobraron más que el precio publicado | Leyes de Chile",
     descripcion:
       "Si te cobran un precio mayor al exhibido o publicado (en góndola, web o vitrina), es infracción a la Ley del Consumidor. Qué exigir y cómo reclamar.",
     fecha: "2026-06-21",
@@ -3411,7 +3411,7 @@ En todos, el proveedor debe **respetar el precio publicado** o, al menos, no cob
     titulo: "No me cumplieron lo ofrecido: incumplimiento del proveedor",
     categoria: "consumidor",
     destacada: false,
-    metaTitle: "No cumplieron lo ofrecido: tus derechos | Ley Chilena",
+    metaTitle: "No cumplieron lo ofrecido: tus derechos | Leyes de Chile",
     descripcion:
       "El proveedor está obligado a respetar las condiciones, plazos y características ofrecidas. Qué hacer si compraste algo y no te entregaron lo prometido, según la Ley del Consumidor.",
     fecha: "2026-06-21",
@@ -3467,7 +3467,7 @@ La oferta no es un adorno: el proveedor **debe respetar lo que ofreció** —car
     titulo: "Promociones y ofertas: ¿qué debe informar la empresa?",
     categoria: "consumidor",
     destacada: false,
-    metaTitle: "Promociones y ofertas: tus derechos | Ley Chilena",
+    metaTitle: "Promociones y ofertas: tus derechos | Leyes de Chile",
     descripcion:
       "En toda promoción u oferta, la empresa debe informar las bases y el plazo de duración. Qué exigir si una promoción no se cumple o tiene letra chica, según la Ley del Consumidor.",
     fecha: "2026-06-21",
@@ -3523,7 +3523,7 @@ Las promociones y ofertas tienen reglas: el proveedor debe **informar las bases*
     titulo: "El SERNAC: qué hace y cómo reclamar paso a paso",
     categoria: "consumidor",
     destacada: true,
-    metaTitle: "Cómo reclamar en el SERNAC | Ley Chilena",
+    metaTitle: "Cómo reclamar en el SERNAC | Leyes de Chile",
     descripcion:
       "El SERNAC vela por los derechos de los consumidores y recibe tus reclamos contra empresas. Qué puede hacer, qué no, y cómo presentar un reclamo paso a paso.",
     fecha: "2026-06-21",
@@ -3579,7 +3579,7 @@ Es el organismo del Estado que **vela por el cumplimiento** de la Ley del Consum
     titulo: "Garantía de un auto usado: ¿qué derechos tengo si sale malo?",
     categoria: "consumidor",
     destacada: false,
-    metaTitle: "Garantía de auto usado en Chile | Ley Chilena",
+    metaTitle: "Garantía de auto usado en Chile | Leyes de Chile",
     descripcion:
       "Comprar un auto usado en una automotora también tiene garantía legal. Qué puedes exigir si el vehículo sale con fallas y qué pasa con las ventas entre particulares.",
     fecha: "2026-06-21",
@@ -3637,7 +3637,7 @@ Si la venta es **entre particulares** (no una empresa), la **Ley del Consumidor 
     titulo: "Deuda solidaria: ¿por qué me cobran a mí toda la deuda?",
     categoria: "deudas",
     destacada: false,
-    metaTitle: "Deuda solidaria: cuando te cobran el total | Ley Chilena",
+    metaTitle: "Deuda solidaria: cuando te cobran el total | Leyes de Chile",
     descripcion:
       "Si firmaste como codeudor solidario, te pueden cobrar el total de la deuda, no solo tu parte. Qué es la solidaridad y qué puedes hacer, según el Código Civil.",
     fecha: "2026-06-21",
@@ -3687,7 +3687,7 @@ Frente al acreedor respondes por **todo**. Pero entre los codeudores, la deuda s
     titulo: "Imputación del pago: ¿a qué se aplica lo que abono?",
     categoria: "deudas",
     destacada: false,
-    metaTitle: "Imputación del pago: capital o intereses | Ley Chilena",
+    metaTitle: "Imputación del pago: capital o intereses | Leyes de Chile",
     descripcion:
       "Cuando abonas a una deuda con intereses, el pago se aplica primero a los intereses y luego al capital. Cómo funciona la imputación del pago, según el Código Civil.",
     fecha: "2026-06-21",
@@ -3738,7 +3738,7 @@ Cuando hay varias deudas, en general **el deudor puede elegir** cuál paga al mo
     titulo: "No pago el crédito hipotecario: ¿pueden rematar mi casa?",
     categoria: "deudas",
     destacada: true,
-    metaTitle: "No pago el crédito hipotecario: ¿remate? | Ley Chilena",
+    metaTitle: "No pago el crédito hipotecario: ¿remate? | Leyes de Chile",
     descripcion:
       "Si dejas de pagar un crédito con hipoteca, el banco puede rematar la propiedad para cobrarse. Cómo funciona, qué plazos tienes y cómo evitar el remate.",
     fecha: "2026-06-21",
@@ -3796,7 +3796,7 @@ Con el dinero del remate se paga la **deuda, intereses y costas**. Si **sobra**,
     titulo: "Repactar una deuda: ojo con la novación y reconocer la deuda",
     categoria: "deudas",
     destacada: false,
-    metaTitle: "Repactar deuda y novación: lo que debes saber | Ley Chilena",
+    metaTitle: "Repactar deuda y novación: lo que debes saber | Leyes de Chile",
     descripcion:
       "Repactar puede aliviar tus cuotas, pero también puede revivir una deuda prescrita o cambiar tus condiciones. Qué es la novación y qué revisar antes de firmar, según el Código Civil.",
     fecha: "2026-06-21",
@@ -3854,7 +3854,7 @@ La **novación** es **sustituir una obligación anterior por una nueva**, que ex
     titulo: "Cambiar a separación de bienes durante el matrimonio",
     categoria: "familia",
     destacada: false,
-    metaTitle: "Cambiar de sociedad conyugal a separación de bienes | Ley Chilena",
+    metaTitle: "Cambiar de sociedad conyugal a separación de bienes | Leyes de Chile",
     descripcion:
       "Estando casados pueden cambiar el régimen de bienes: de sociedad conyugal a separación total o a participación en los gananciales. Cómo se hace, según el Código Civil.",
     fecha: "2026-06-21",
@@ -3911,7 +3911,7 @@ Recuerda: el cambio **no es retroactivo** y no puede hacerse en **perjuicio de t
     titulo: "¿Qué bienes me pueden quitar por una deuda?",
     categoria: "deudas",
     destacada: false,
-    metaTitle: "Qué bienes responden por mis deudas | Ley Chilena",
+    metaTitle: "Qué bienes responden por mis deudas | Leyes de Chile",
     descripcion:
       "Por una deuda, el acreedor puede perseguir tus bienes, pero no todos: hay bienes inembargables. Qué responde y qué está protegido, según el Código Civil.",
     fecha: "2026-06-21",
@@ -3968,7 +3968,7 @@ El acreedor debe ir a un **juicio**: con sentencia, se ordena el **embargo** de 
     titulo: "¿Pueden negarme la venta o condicionarla? Tus derechos",
     categoria: "consumidor",
     destacada: false,
-    metaTitle: "No pueden negarte la venta injustificadamente | Ley Chilena",
+    metaTitle: "No pueden negarte la venta injustificadamente | Leyes de Chile",
     descripcion:
       "Un proveedor no puede negarte injustificadamente la venta de un producto o servicio disponible. Qué dice la Ley del Consumidor y qué hacer si te discriminan o condicionan.",
     fecha: "2026-06-21",
@@ -4025,7 +4025,7 @@ La Ley del Consumidor lo dice claro: el proveedor **no puede negar injustificada
     titulo: "Contrato de adhesión: tu derecho a letra legible y a una copia",
     categoria: "consumidor",
     destacada: false,
-    metaTitle: "Contrato de adhesión: letra legible y copia | Ley Chilena",
+    metaTitle: "Contrato de adhesión: letra legible y copia | Leyes de Chile",
     descripcion:
       "Los contratos de adhesión (los que firmas sin negociar) deben estar en español, con letra legible y entregándote una copia. Qué exige la Ley del Consumidor.",
     fecha: "2026-06-21",
@@ -4081,7 +4081,7 @@ Porque muchas veces los problemas (cobros, renovaciones automáticas, penalidade
     titulo: "Negligencia del proveedor: ¿responde por los daños que me causó?",
     categoria: "consumidor",
     destacada: false,
-    metaTitle: "Negligencia del proveedor y daños | Ley Chilena",
+    metaTitle: "Negligencia del proveedor y daños | Leyes de Chile",
     descripcion:
       "Si por negligencia del proveedor en la venta de un producto o servicio sufres un daño, la Ley del Consumidor lo hace responder. Qué puedes exigir y cómo.",
     fecha: "2026-06-21",
@@ -4136,7 +4136,7 @@ La Ley del Consumidor no solo cubre el cambio o la devolución: también respons
     titulo: "Información en español y rotulado: ¿qué deben informarte del producto?",
     categoria: "consumidor",
     destacada: false,
-    metaTitle: "Información comercial en español y rotulado | Ley Chilena",
+    metaTitle: "Información comercial en español y rotulado | Leyes de Chile",
     descripcion:
       "La información básica de un producto o servicio debe entregarse en español y de forma clara. Qué te deben informar (precio, condiciones, características) según la Ley del Consumidor.",
     fecha: "2026-06-21",
@@ -4192,7 +4192,7 @@ Porque comprar sin información clara te expone a errores y abusos: no saber el 
     titulo: "Servidumbre de tránsito: acceso a un terreno sin salida",
     categoria: "vivienda",
     destacada: false,
-    metaTitle: "Servidumbre de tránsito: derecho de paso | Ley Chilena",
+    metaTitle: "Servidumbre de tránsito: derecho de paso | Leyes de Chile",
     descripcion:
       "Si tu terreno no tiene salida al camino público, tienes derecho a exigir un paso por el predio vecino (servidumbre de tránsito), pagando la indemnización. Cómo funciona.",
     fecha: "2026-06-21",
@@ -4247,7 +4247,7 @@ Las servidumbres pueden ser **voluntarias** (pactadas, idealmente por escritura 
     titulo: "Cercos y deslindes con el vecino: ¿quién paga y dónde va el límite?",
     categoria: "vivienda",
     destacada: false,
-    metaTitle: "Cercos y deslindes con el vecino | Ley Chilena",
+    metaTitle: "Cercos y deslindes con el vecino | Leyes de Chile",
     descripcion:
       "Tienes derecho a cerrar tu terreno y, en los límites con el vecino, a compartir el cerco. Cómo funcionan el cerramiento y los deslindes, según el Código Civil.",
     fecha: "2026-06-21",
@@ -4300,7 +4300,7 @@ Si no está claro **por dónde pasa el límite** entre tu terreno y el del vecin
     titulo: "Comodato: prestar gratis una casa o una cosa, ¿cómo me protejo?",
     categoria: "vivienda",
     destacada: false,
-    metaTitle: "Comodato: préstamo de uso gratuito | Ley Chilena",
+    metaTitle: "Comodato: préstamo de uso gratuito | Leyes de Chile",
     descripcion:
       "Prestar gratis una propiedad o una cosa es un comodato. Qué obligaciones tiene quien la recibe y cómo recuperarla, según el Código Civil. Conviene dejarlo por escrito.",
     fecha: "2026-06-21",

@@ -1,4 +1,4 @@
-// Motor determinista de cálculo de finiquito — Ley Chilena / AbogaBot.
+// Motor determinista de cálculo de finiquito — Leyes de Chile / AbogaBot.
 // REGLA DURA (abogabot-cerebro): el cálculo es 100% código; la IA solo explica el
 // resultado citando estos mismos fundamentos. Jamás dejar el número al modelo.
 // Fundamentos verificados contra la DB oficial (Código del Trabajo, idNorma 207436):

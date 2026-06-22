@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 
 export const metadata: Metadata = {
-  title: "Estándar editorial y de calidad | Ley Chilena",
+  title: "Estándar editorial y de calidad | Leyes de Chile",
   description:
-    "Cómo elaboramos y verificamos el contenido legal de Ley Chilena: fuentes oficiales de la BCN, citas verificadas artículo por artículo, fechas de revisión y límites del asistente con IA.",
+    "Cómo elaboramos y verificamos el contenido legal de Leyes de Chile: fuentes oficiales de la BCN, citas verificadas artículo por artículo, fechas de revisión y límites del asistente con IA.",
   alternates: { canonical: `${BASE}/estandar-editorial` },
 };
 
@@ -64,7 +64,7 @@ export default function EstandarEditorial() {
 
         <h2 style={{ fontSize: 17, color: "var(--azul)", margin: "18px 0 6px", fontFamily: "var(--font-titulo), serif" }}>Orientación, no asesoría</h2>
         <p>
-          Ley Chilena entrega <strong>información y orientación general</strong>, no asesoría jurídica para tu caso
+          Leyes de Chile entrega <strong>información y orientación general</strong>, no asesoría jurídica para tu caso
           particular, y no genera una relación abogado-cliente. Para decisiones concretas, consulta a un abogado o
           a la <a href="https://www.cajmetropolitana.cl" target="_blank" rel="noopener noreferrer" style={{ color: "var(--azul)" }}>Corporación de Asistencia Judicial</a> (gratis).
         </p>

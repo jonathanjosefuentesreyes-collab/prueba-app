@@ -1,4 +1,4 @@
-// Motor de cálculo de facturación chilena — Ley Chilena / AbogaBot.
+// Motor de cálculo de facturación chilena — Leyes de Chile / AbogaBot.
 // 100% determinista en el navegador. Dos herramientas: boleta de honorarios
 // (retención de impuesto) y factura (IVA 19%).
 //

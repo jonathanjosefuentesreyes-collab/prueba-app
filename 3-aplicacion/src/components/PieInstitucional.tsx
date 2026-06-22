@@ -12,7 +12,7 @@ export default function PieInstitucional() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo-medallon.png" alt="" />
           <div>
-            <strong className="azul-claro">Ley Chilena</strong>
+            <strong className="azul-claro">Leyes de Chile</strong>
             <p>Las leyes de Chile, explicadas simple.</p>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function PieInstitucional() {
         </div>
       </div>
       <div className="pie-base">
-        © {new Date().getFullYear()} Ley Chilena · Orientación general, no asesoría legal.
+        © {new Date().getFullYear()} Leyes de Chile · Orientación general, no asesoría legal.
       </div>
     </footer>
   );

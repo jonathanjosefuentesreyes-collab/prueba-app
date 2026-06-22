@@ -90,7 +90,7 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 const LD_SITIO = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Ley Chilena",
+  name: "Leyes de Chile",
   alternateName: "Leyes de Chile",
   url: BASE,
   inLanguage: "es-CL",
@@ -103,7 +103,7 @@ const LD_SITIO = {
 const LD_ORG = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Ley Chilena",
+  name: "Leyes de Chile",
   url: BASE,
   logo: `${BASE}/logo-medallon.png`,
   description:

@@ -50,19 +50,9 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
-  // Canónico: consolida TODO el tráfico en el dominio sin www (leyesdechile.com).
-  // Sin esto, www y no-www son dos sitios distintos para Google (contenido duplicado)
-  // y la fuerza SEO se reparte entre ambos. 301 permanente del www al canónico.
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.leyesdechile.com" }],
-        destination: "https://leyesdechile.com/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  // NOTA: la canonicalización www ↔ no-www se maneja a nivel de Cloudflare/Render,
+  // NO en la app. Una redirección de host aquí entraba en bucle con la del proxy
+  // ("too many redirects"). La consolidación SEO la dan las etiquetas <link canonical>.
 };
 
 export default nextConfig;

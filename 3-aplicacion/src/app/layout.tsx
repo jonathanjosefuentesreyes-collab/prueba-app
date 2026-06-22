@@ -32,24 +32,24 @@ const robotoSlab = Roboto_Slab({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com"),
   ...(ADSENSE_CLIENT ? { other: { "google-adsense-account": ADSENSE_CLIENT } } : {}),
-  title: "Ley Chilena — Todas las leyes de Chile, explicadas simple",
+  title: "Leyes de Chile — actualizadas y explicadas en simple",
   description:
-    "Consulta gratis las leyes chilenas actualizadas desde la fuente oficial (BCN), calcula tu finiquito y resuelve tus dudas legales con AbogaBot.",
+    "Todas las leyes de Chile actualizadas desde la fuente oficial (BCN) y explicadas en simple. Calcula tu finiquito y consulta gratis a AbogaBot.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "es_CL",
     siteName: "Ley Chilena",
     url: "/",
-    title: "Ley Chilena — Todas las leyes de Chile, explicadas simple",
+    title: "Leyes de Chile — actualizadas y explicadas en simple",
     description:
-      "Consulta gratis las leyes chilenas actualizadas desde la BCN, calcula tu finiquito y resuelve tus dudas legales con AbogaBot.",
+      "Todas las leyes de Chile actualizadas (fuente oficial BCN) y explicadas en simple. Calcula tu finiquito y resuelve tus dudas con AbogaBot.",
   },
   twitter: {
     card: "summary",
-    title: "Ley Chilena — Todas las leyes de Chile, explicadas simple",
+    title: "Leyes de Chile — actualizadas y explicadas en simple",
     description:
-      "Leyes chilenas actualizadas (fuente BCN), calculadora de finiquito y AbogaBot, tu asistente legal gratis.",
+      "Todas las leyes de Chile (fuente oficial BCN), calculadora de finiquito y AbogaBot, tu asistente legal gratis.",
   },
   manifest: "/manifest.webmanifest",
   appleWebApp: {

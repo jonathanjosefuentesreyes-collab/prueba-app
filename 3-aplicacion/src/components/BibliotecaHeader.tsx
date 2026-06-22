@@ -18,7 +18,7 @@ const TITULOS = {
 export default function BibliotecaHeader({ activeTab, consulta = "" }: BibliotecaHeaderProps) {
   const titulo = TITULOS[activeTab];
   return (
-    <div className="cabecera-seccion-bcn">
+    <div className={`cabecera-seccion-bcn${activeTab === "guias" ? " cabecera-guias" : ""}`}>
       {/* Patriotic Ribbon at the top matching mockup Row */}
       <div className="patriotic-ribbon">
         <span className="ribbon-white" />

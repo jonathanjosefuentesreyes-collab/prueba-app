@@ -46,11 +46,7 @@ export default function GuiasIndexPage() {
     <main style={{ paddingBottom: 20 }}>
       <BibliotecaHeader activeTab="guias" />
 
-      <div style={{ padding: "0 2px 20px" }}>
-        <p style={{ fontSize: "calc(13px * var(--escala-letra, 1))", color: "var(--texto-suave)", lineHeight: 1.5, marginBottom: "16px" }}>
-          Explicaciones simples de tus derechos, con los artículos oficiales enlazados. ¿Tienes una duda puntual? Pregúntale a AbogaBot en la barra de abajo.
-        </p>
-
+      <div style={{ padding: "6px 2px 20px" }}>
         <GuiasExplorer destacadas={destacadas} categorias={categorias} />
 
         {/* Preguntas directas a la ley (enlazan a la Biblioteca) */}

@@ -248,8 +248,8 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 /* Banner delgado "Conoce las guías ciudadanas" (CTA a /guias) — fino y poco saturado. */
 .banner-guias {
   display: flex; align-items: center; gap: 10px; text-decoration: none;
-  background: linear-gradient(135deg, var(--azul-medio), var(--azul)); color: #fff;
-  border-radius: var(--radio); padding: 8px 14px; margin: 16px 0 6px; box-shadow: var(--sombra);
+  background: linear-gradient(135deg, var(--azul), var(--azul-oscuro)); color: #fff;
+  border-radius: var(--radio); padding: 12px 16px; margin: 16px 0 6px; box-shadow: var(--sombra);
 }
 .banner-guias:active { transform: scale(0.99); }
 .banner-guias-ico { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; }

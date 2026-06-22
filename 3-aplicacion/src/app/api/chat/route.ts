@@ -16,26 +16,10 @@ import {
 } from "@/lib/db";
 import { NextResponse } from "next/server";
 import { ipDe, mismoOrigen } from "@/lib/seguridad";
+import { respuestaSensible } from "@/lib/casos-sensibles";
 
 const DISCLAIMER =
   "Esto es orientación general, no asesoría legal. Para tu caso concreto consulta a un abogado (la Corporación de Asistencia Judicial atiende gratis).";
-
-const SENSIBLES: { patron: RegExp; respuesta: string }[] = [
-  {
-    patron: /(suicid|quitarme la vida|me quiero (morir|matar)|matarme|no quiero (seguir )?vivi|terminar con mi vida|hacerme da[ñn]o)/i,
-    respuesta:
-      "Lo más importante ahora no es lo legal: si estás pasando por un momento muy difícil, llama gratis a Salud Responde marcando *4141 (línea de prevención del suicidio, atiende 24/7) o al 600 360 7777. No estás solo/a. Cuando quieras, acá estaré para ayudarte con lo demás.",
-  },
-  {
-    patron: /(me pega|me golpea|me amenaza|violencia intrafamiliar|me maltrata|tengo miedo de mi (pareja|marido|esposo|conviviente))/i,
-    respuesta:
-      "Tu seguridad es lo primero. Si estás en peligro AHORA llama al 133 (Carabineros). Para orientación en violencia intrafamiliar llama gratis al 1455 (SernamEG, 24/7) o escribe al WhatsApp +56 9 9700 7000. También puedes denunciar en cualquier comisaría o Fiscalía. Cuando estés a salvo, puedo explicarte las medidas de protección de la Ley 20.066.",
-  },
-  {
-    patron: /(est[aá]n robando|me est[aá]n asaltando|emergencia ahora)/i,
-    respuesta: "Si hay un delito o emergencia ocurriendo AHORA, llama al 133 (Carabineros) o al 134 (PDI). Después puedo ayudarte con los pasos legales.",
-  },
-];
 
 const SINONIMOS: [RegExp, string][] = [
   [/echaron|echado|despidieron|despedid/i, "despido indemnización aviso"],
@@ -135,10 +119,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ respuesta: "Cuéntame tu situación y te oriento.", fuentes: [], disclaimer: DISCLAIMER });
   }
 
-  for (const s of SENSIBLES) {
-    if (s.patron.test(mensaje)) {
-      return NextResponse.json({ respuesta: s.respuesta, fuentes: [], disclaimer: DISCLAIMER });
-    }
+  const sensible = respuestaSensible(mensaje);
+  if (sensible) {
+    return NextResponse.json({ respuesta: sensible, fuentes: [], disclaimer: DISCLAIMER });
   }
 
   // (Se eliminaron las Q&A precomputadas: confundían al bot. Salvo los casos SENSIBLES

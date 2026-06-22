@@ -1,7 +1,55 @@
 # Ley Chilena (AbogaBot v2) — CONTINUAR.md
 
-Última actualización: **2026-06-16** — 🚀 **MVP LIVE EN RENDER**:
-**https://leyes-de-chile.onrender.com** (plan Free). Chat (3/día), calculadora (1/día),
+Última actualización: **2026-06-22**. **EN VIVO: https://leyesdechile.com** (dominio propio,
+Render + Cloudflare; el subdominio `leyes-de-chile.onrender.com` es solo el origen técnico).
+
+## 🔥 Calidad de ingeniería + SEO + marca + escala (2026-06-21/22)
+
+**Red de calidad (respuesta a crítica de mantenibilidad):**
+- **Vitest + 91 tests**, ESLint (flat Next 16), Prettier, **CI GitHub Actions**
+  (typecheck+lint+test+build por push/PR; `.github/workflows/ci.yml` con `gunzip leyes.db.gz`),
+  **Dependabot** + `npm audit`. **DRY**: `lib/limiteDiario.ts`, `lib/clp.ts`,
+  `components/FilaResultado.tsx`, `components/LimitePremium.tsx`.
+- Los 91 tests cubren lo crítico antes sin tests: `db.ts` (numeroReal/normaPorReferencia/
+  articuloPorNumero, anti-invención contra la base), casos sensibles extraídos a
+  `lib/casos-sensibles.ts` (suicidio→*4141 / VIF→1455, con tests), anti-XSS (`formato-chat`),
+  anti-spoofing de IP (`seguridad`), e integridad + citas de las 75 guías (`guias.test.ts`:
+  cada `/leyes/N?art=M` existe y pertenece a la ley citada).
+
+**SEO + marca (target de búsqueda: "leyes de chile"; competidor a superar: leyesdechile.cl,
+NO la BCN oficial):**
+- **Marca unificada de "Ley Chilena" → "Leyes de Chile"** en TODO (títulos, schema/siteName,
+  las 75 guías metaTitle, logo de texto). Coincide con el dominio = señal fuerte.
+- **Canónico = `leyesdechile.com` (SIN www)**. Fallback en código sin-www; en **Render,
+  `NEXT_PUBLIC_SITE_URL` DEBE ser `https://leyesdechile.com`** (estaba mal en el `.onrender.com`).
+- Título de portada lidera con "Leyes de Chile".
+
+**🚨 INCIDENTE Cloudflare (caída breve + lección):** una redirección de host www→no-www en
+`next.config` causó bucle **"too many redirects"** (chocaba con la del proxy). Removida. Reglas:
+**Cloudflare SSL/TLS = "Full (strict)", NUNCA "Flexible"**; **NO redirecciones de host en
+`next.config`** (la canonicalización de host va en Cloudflare/Render; el SEO con `<link canonical>`).
+
+**Seguridad (frontend + backend): sin fugas.** GEMINI_API_KEY = 0 en el bundle del navegador
+(probado), solo server-side; `.env*` gitignored; sin secretos hardcodeados; errores genéricos.
+
+**AdSense: EN REVISIÓN sobre leyesdechile.com.** `ads.txt` con `pub-2385748205470679`, dominio
+propio, privacidad/consentimiento/Consent Mode v2 OK, contenido real. Nada crítico falta; lo
+demás (Gemini pagado, GA4/Search Console, CMP certificada) espera a la aprobación.
+
+**Escala:** 20.088 normas · 139.876 artículos (FTS5) · 99 páginas estáticas · Cloudflare CDN · ~$0/mes.
+
+**Pendiente al retomar:** cacheo de borde en Cloudflare (próxima palanca); Sentry (necesita
+cuenta); post-AdSense → `next/image`, partir `guias.ts`, Search Console.
+
+> ⚠️ **Privacidad del repo:** `prueba-app` es PÚBLICO y versiona docs internos (este
+> CONTINUAR.md, CLAUDE.md, SEGURIDAD.md, etc.) → estrategia visible. Evaluar pasarlo a
+> **privado** (Render despliega igual desde repo privado). No hay credenciales expuestas
+> (la key vive en `.env*`, gitignored).
+
+---
+
+### (histórico) MVP LIVE EN RENDER — 2026-06-16
+🚀 **https://leyes-de-chile.onrender.com** (plan Free). Chat (3/día), calculadora (1/día),
 biblioteca DB, guías y PWA — todo verificado funcionando en producción.
 
 > **Hosting = Render** (service `srv-d8oeegbeo5us73e5i9eg`, repo público `prueba-app`, root

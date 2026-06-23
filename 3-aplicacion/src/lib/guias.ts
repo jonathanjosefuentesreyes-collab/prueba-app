@@ -1,3 +1,5 @@
+import { guiasTransito } from "./guiasTransito";
+
 export interface FaqItem {
   pregunta: string;
   respuesta: string;
@@ -10,7 +12,7 @@ export interface Herramienta {
   boton: string;
 }
 
-export type CategoriaGuia = "laboral" | "familia" | "vivienda" | "consumidor" | "deudas";
+export type CategoriaGuia = "laboral" | "familia" | "vivienda" | "consumidor" | "deudas" | "tránsito";
 
 export interface Guia {
   slug: string;
@@ -44,6 +46,7 @@ export const CATEGORIAS: Record<CategoriaGuia, { etiqueta: string; emoji: string
   // Categoría DORADA (destacada Premium en el explorador): temas de deudas, los de mayor
   // volumen de búsqueda y mejor monetización. Las guías siguen siendo públicas (SEO + ads).
   deudas: { etiqueta: "Deudas", emoji: "💰" },
+  tránsito: { etiqueta: "Tránsito", emoji: "🚗" },
 };
 
 export const guias: Guia[] = [
@@ -4349,7 +4352,8 @@ Es muy común "prestar" una casa a un hijo o pariente. Eso es un **comodato**. E
           "No. El comodato es esencialmente gratuito. Si hay un pago por el uso, el contrato pasa a ser un arrendamiento, con otras reglas.",
       },
     ],
-  }
+  },
+  ...guiasTransito,
 ];
 
 export function getGuiaBySlug(slug: string): Guia | undefined {

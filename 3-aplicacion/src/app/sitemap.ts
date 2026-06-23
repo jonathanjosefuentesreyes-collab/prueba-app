@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { listarNormas } from "@/lib/db";
 import { guias } from "@/lib/guias";
+import { CANONICAL } from "@/lib/canonical";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 
@@ -25,11 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
     priority: 0.8,
   }));
-  const leyes: MetadataRoute.Sitemap = listarNormas().map((n) => ({
-    url: `${BASE}/leyes/${n.id}`,
-    lastModified: n.fecha_version ? new Date(n.fecha_version + "T12:00:00") : undefined,
-    changeFrequency: "weekly",
-    priority: 0.7,
-  }));
+  const leyes: MetadataRoute.Sitemap = listarNormas()
+    .filter((n) => !(n.id in CANONICAL)) // los duplicados refundidos no entran (su canónica ya está)
+    .map((n) => ({
+      url: `${BASE}/leyes/${n.id}`,
+      lastModified: n.fecha_version ? new Date(n.fecha_version + "T12:00:00") : undefined,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    }));
   return [...fijas, ...paginasGuias, ...leyes];
 }

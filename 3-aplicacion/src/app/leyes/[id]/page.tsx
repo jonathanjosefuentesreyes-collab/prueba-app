@@ -7,6 +7,7 @@ import {
 import GuardarBtn from "@/components/GuardarBtn";
 import AccessibilityBar from "@/components/AccessibilityBar";
 import ArticuloItem from "@/components/ArticuloItem";
+import { CANONICAL } from "@/lib/canonical";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 
@@ -22,8 +23,10 @@ export async function generateMetadata(props: {
   const nombreCorto = nombre.length > 56 ? nombre.slice(0, 53).trimEnd() + "…" : nombre;
   const pagNum = Math.max(1, Number(pg) || 1);
   // Canonical: la página limpia (o con ?pagina para que indexen todos los artículos);
-  // ?q y ?art son vistas de la misma ley → no generan URL canónica propia.
-  const canonical = pagNum > 1 ? `${BASE}/leyes/${norma.id}?pagina=${pagNum}` : `${BASE}/leyes/${norma.id}`;
+  // ?q y ?art son vistas de la misma ley → no generan URL canónica propia. Si esta norma
+  // es un DUPLICADO refundido, la canónica apunta a su versión única (lib/canonical).
+  const idCanonico = CANONICAL[norma.id] ?? norma.id;
+  const canonical = pagNum > 1 ? `${BASE}/leyes/${idCanonico}?pagina=${pagNum}` : `${BASE}/leyes/${idCanonico}`;
   const desc = `${nombre}: ${norma.total_articulos} artículos. Texto oficial actualizado de la BCN${norma.fecha_version ? ` (versión ${norma.fecha_version})` : ""}. Léelo en simple y consulta gratis a AbogaBot.`.slice(0, 155);
   return {
     title: `${nombreCorto} — texto actualizado | Leyes de Chile`,

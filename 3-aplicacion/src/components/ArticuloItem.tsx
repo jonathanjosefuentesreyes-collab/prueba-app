@@ -19,6 +19,9 @@ interface ArticuloItemProps {
   showParentLawInfo?: boolean;
   nombreLey?: string;
   tituloLey?: string;
+  /** Simplificación pre-generada inyectada por el server (SSR). Si viene, se renderiza
+   *  en el HTML inicial (indexable por Google) y NO se pide a /api/simplificar. */
+  simplificacionInicial?: string;
 }
 
 const cacheSimplificaciones: Record<number, string> = {};
@@ -28,10 +31,11 @@ export default function ArticuloItem({
   destacado = false,
   showParentLawInfo = false,
   nombreLey = "",
-  tituloLey = ""
+  tituloLey = "",
+  simplificacionInicial
 }: ArticuloItemProps) {
   const { plainLanguage } = useSettings();
-  const [explicacion, setExplicacion] = useState<string | null>(null);
+  const [explicacion, setExplicacion] = useState<string | null>(simplificacionInicial ?? null);
   const [cargando, setCargando] = useState(false);
   const [reproduciendo, setReproduciendo] = useState(false);
   const [esFavorito, setEsFavorito] = useState(false);
@@ -121,6 +125,8 @@ export default function ArticuloItem({
   // dispara cientos de llamadas a Gemini de golpe: solo se simplifican los que el usuario ve.
   useEffect(() => {
     if (!plainLanguage) return;
+    // Ya vino pre-generada del server (SSR): está en el HTML, no hace falta pedirla.
+    if (simplificacionInicial) return;
     if (cacheSimplificaciones[articulo.id]) {
       setExplicacion(cacheSimplificaciones[articulo.id]);
       return;
@@ -153,7 +159,7 @@ export default function ArticuloItem({
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [plainLanguage, articulo.id]);
+  }, [plainLanguage, articulo.id, simplificacionInicial]);
 
   // Manejar reproducción de voz
   function toggleVoz() {

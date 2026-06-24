@@ -42,6 +42,26 @@ describe("respuestaSensible — violencia intrafamiliar → 1455", () => {
   }
 });
 
+describe("respuestaSensible — niño en peligro / maltrato infantil → 147", () => {
+  const frases = [
+    "maltratan a mi hijo",
+    "abusan de una niña en mi barrio",
+    "le pega a mi hija todos los días",
+    "están abusando de un menor",
+    "mi hija sufre abuso",
+    "hay maltrato infantil en la casa de al lado",
+    "abuso sexual a un menor",
+    "violan a un niño",
+  ];
+  for (const f of frases) {
+    it(`detecta: "${f}"`, () => {
+      const r = respuestaSensible(f);
+      expect(r).not.toBeNull();
+      expect(r).toContain("147");
+    });
+  }
+});
+
 describe("respuestaSensible — emergencia en curso → 133/134", () => {
   const frases = ["me están asaltando", "están robando en mi casa", "es una emergencia ahora"];
   for (const f of frases) {
@@ -64,6 +84,9 @@ describe("respuestaSensible — consultas legales normales NO se desvían", () =
     "qué pena hay por matar a una persona", // homicidio: pregunta legal, no crisis personal
     "me robaron el celular la semana pasada", // robo en pasado, no emergencia en curso
     "tengo miedo de perder mi trabajo",
+    "puedo pedir la tuición de mi hijo", // tema de familia, no maltrato
+    "cómo inscribo a mi hijo en el colegio",
+    "quiero pedir pensión de alimentos por mi hija",
   ];
   for (const f of benignas) {
     it(`NO desvía: "${f}"`, () => {
@@ -82,7 +105,7 @@ describe("respuestaSensible — robustez", () => {
   });
   it("toda respuesta sensible trae un teléfono de ayuda", () => {
     for (const caso of CASOS_SENSIBLES) {
-      expect(/\b(\*4141|1455|133|134|600\s?360)/.test(caso.respuesta)).toBe(true);
+      expect(/\b(\*4141|1455|149|147|134|133|600\s?360)/.test(caso.respuesta)).toBe(true);
     }
   });
 });

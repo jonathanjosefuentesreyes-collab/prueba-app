@@ -43,6 +43,7 @@ const SINONIMOS: [RegExp, string][] = [
   [/velocidad|exceso de velocidad/i, "velocidad máxima conducción tránsito"],
   [/multa|infracci[oó]n/i, "infracción multa sanción"],
   [/acoso (laboral|sexual)|ley karin/i, "acoso laboral prevención investigación"],
+  [/ciberacoso|ciberbullying|cyberbullying|matonaje|grooming|sextorsi[oó]n|funan|difund.*(mis|las) fotos|amenaz.*(internet|redes|whatsapp)/i, "acoso amenazas difusión imágenes datos personales delito informático honra intimidad"],
   [/licencia m[eé]dica/i, "incapacidad laboral licencia"],
   [/divorcio|separaci[oó]n/i, "divorcio matrimonio civil"],
   [/herencia|herederos/i, "sucesión herederos asignación"],

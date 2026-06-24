@@ -9,6 +9,10 @@ import Script from "next/script";
 // messaging" en el panel de AdSense). Debe correr ANTES de los scripts de Google.
 export default function ConsentMode() {
   return (
+    // beforeInteractive es OBLIGATORIO aquí: el consentimiento por defecto (denegado) debe
+    // fijarse ANTES de que carguen los scripts de Google. En App Router este es el lugar
+    // correcto, así que silenciamos la regla pensada para el pages router.
+    // eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
     <Script id="consent-mode-v2" strategy="beforeInteractive">
       {`
         window.dataLayer = window.dataLayer || [];

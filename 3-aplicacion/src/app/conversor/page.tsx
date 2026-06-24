@@ -16,7 +16,7 @@ export default function Conversor() {
   const [unidad, setUnidad] = useState<"UF" | "UTM" | "USD" | "EUR" | "CLP">("UF");
 
   // Refresca en vivo al entrar (el precarga del cron semanal se muestra al instante).
-  useEffect(() => { actualizar(); /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, []);
+  useEffect(() => { actualizar(); }, []);
 
   async function actualizar() {
     setCargando(true);

@@ -1,14 +1,16 @@
 import next from "eslint-config-next";
 
-// Next 16 entrega el config en formato flat (array). Lo extendemos, ignoramos lo no fuente
-// y ajustamos algunas reglas nuevas de React 19 que son ADVISORY (no bugs) a "warn", para
-// que el CI no se bloquee por patrones válidos (ej. hidratar estado desde localStorage).
+// Next 16 entrega el config en formato flat (array). Lo extendemos e ignoramos lo no fuente.
+// Dos reglas nuevas del compilador de React 19 (set-state-in-effect, purity) se APAGAN a
+// propósito: marcan el patrón —bendecido por la propia doc de React— de hidratar estado
+// solo-cliente desde localStorage dentro de un useEffect (necesario para no romper el SSR,
+// del que depende el SEO). Son falsos positivos aquí; los errores reales siguen frenando el CI.
 const eslintConfig = [
   ...next,
   {
     rules: {
-      "react-hooks/set-state-in-effect": "warn",
-      "react-hooks/purity": "warn",
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/purity": "off",
     },
   },
   {

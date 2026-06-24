@@ -23,6 +23,15 @@ export const CASOS_SENSIBLES: CasoSensible[] = [
       "Tu seguridad es lo primero. Si estás en peligro AHORA llama al 133 (Carabineros). Para orientación en violencia intrafamiliar llama gratis al 1455 (SernamEG, 24/7) o escribe al WhatsApp +56 9 9700 7000. También puedes denunciar en cualquier comisaría o Fiscalía. Cuando estés a salvo, puedo explicarte las medidas de protección de la Ley 20.066.",
   },
   {
+    // Niño, niña o adolescente en peligro / maltrato / abuso. Números verificados en
+    // ChileAtiende (Fono Niños 147 de Carabineros, 24/7; PDI 134; 133 emergencia).
+    // El patrón exige un verbo de daño CERCA de un término de infancia (en cualquier
+    // orden) para no desviar preguntas legales generales sobre tuición o alimentos.
+    patron: /(?:maltrat\w*|abus\w*|pega\w*|golpe\w*|viol(?:a|an|ó|o|aron|ando)|tocan|grooming).{0,20}(?:ni[ñn][oa]s?|menor(?:es)?|hij[oa]s?|guagua|beb[eé]|adolescente|infantil)|(?:mi hij[oa]s?|un[a]? ni[ñn][oa]|un[a]? menor|mi guagua|mi beb[eé]).{0,20}(?:maltrat\w*|abus\w*|pega\w*|golpe\w*|viol(?:a|an|ó|o|aron|ando)|tocan|da[ñn]an|sufre)/i,
+    respuesta:
+      "Si un niño, niña o adolescente está en peligro o sufre maltrato o abuso, lo primero es protegerlo. Llama gratis al 147 (Fono Niños de Carabineros, atiende las 24 horas) para orientación o para denunciar, o al 133 si la emergencia es ahora. También puedes denunciar en la PDI (134), en cualquier comisaría o en la fiscalía. Cuando esté a salvo, puedo explicarte las medidas de protección que contempla la ley.",
+  },
+  {
     patron: /(est[aá]n robando|me est[aá]n asaltando|emergencia ahora)/i,
     respuesta:
       "Si hay un delito o emergencia ocurriendo AHORA, llama al 133 (Carabineros) o al 134 (PDI). Después puedo ayudarte con los pasos legales.",

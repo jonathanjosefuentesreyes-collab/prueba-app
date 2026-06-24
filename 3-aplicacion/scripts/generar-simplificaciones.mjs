@@ -27,8 +27,27 @@ if (!apiKey) { console.error("Falta GEMINI_API_KEY"); process.exit(1); }
 const modelo = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
 const db = new Database(fileURLToPath(new URL("../data/leyes.db", import.meta.url)), { readonly: true });
 
-// Prioridad: las leyes que la gente realmente lee (núcleo).
-const NORMAS = [207436, 242302, 141599, 27977, 172986]; // Trabajo, Constitución, Datos, Pensiones, Civil
+// Prioridad: las leyes que la gente realmente lee = núcleo + las MATERIAS del grid
+// (src/lib/db.ts: laboral, familia, civil, penal, comercial, tributario) + Tránsito.
+// Deduplicado (las que ya están en el núcleo no se repiten en su materia).
+const NORMAS = [
+  // Núcleo
+  207436, 242302, 141599, 27977, 172986, // Trabajo, Constitución, Datos, Pensiones, Civil
+  // Tránsito
+  29708,
+  // Laboral (MATERIAS)
+  28650, 1200096, 1191554, 1143741, 1030936, 7147,
+  // Familia (MATERIAS)
+  225128, 1075210, 229557, 242648,
+  // Civil (MATERIAS)
+  29526, 1174663, 61438,
+  // Penal (MATERIAS)
+  1984, 176595, 235507, 244803, 18914,
+  // Comercial (MATERIAS)
+  1974, 29473, 1058072,
+  // Tributario (MATERIAS)
+  6374, 6368, 6369,
+];
 const objetivos = [];
 for (const n of NORMAS) {
   const filas = db.prepare("SELECT id, encabezado, texto, (SELECT nombre_corto FROM normas WHERE id=?) nom FROM articulos WHERE norma_id=? AND (derogado IS NULL OR derogado=0) ORDER BY orden").all(n, n);

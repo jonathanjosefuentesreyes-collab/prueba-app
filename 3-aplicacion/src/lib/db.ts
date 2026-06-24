@@ -292,6 +292,26 @@ export function articuloPorId(id: number): (Articulo & { nombre: string }) | und
     .get(id) as (Articulo & { nombre: string }) | undefined;
 }
 
+// Índice ligero (id + encabezado) de TODOS los artículos de una norma, en orden. Para las
+// páginas por-artículo (SSG): generar params y resolver slug → artículo, sin traer el texto.
+export function articulosIndice(normaId: number): { id: number; encabezado: string }[] {
+  return getDb()
+    .prepare(`SELECT id, encabezado FROM articulos WHERE norma_id = ? ORDER BY orden`)
+    .all(normaId) as { id: number; encabezado: string }[];
+}
+
+// Slug SEO de un artículo a partir de su encabezado: "Artículo 196 C" → "articulo-196-c".
+// Estable (deriva de numeroReal, regla dura #4); el mismo encabezado da siempre el mismo slug.
+export function slugDeArticulo(encabezado: string): string {
+  const n = numeroReal(encabezado)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(SIN_TILDES, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+  return `articulo-${n || "s-n"}`;
+}
+
 // ─── Resolución de citas del modelo ──────────────────────────────────────────
 // AbogaBot responde como asesor y cita leyes por nombre/número; aquí verificamos
 // cada cita contra la base OFICIAL y solo enlazamos lo que existe de verdad. Lo

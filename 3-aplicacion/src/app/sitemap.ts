@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
-import { listarNormas } from "@/lib/db";
+import { listarNormas, articulosIndice, slugDeArticulo } from "@/lib/db";
 import { guias } from "@/lib/guias";
 import { CANONICAL } from "@/lib/canonical";
+import simplificaciones from "@/data/simplificaciones.json";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
+const SIMPL = simplificaciones as Record<string, string>;
+const LEY_PILOTO = 207436; // ley con páginas por-artículo (Fase 3)
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const fijas: MetadataRoute.Sitemap = [
@@ -34,5 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     }));
-  return [...fijas, ...paginasGuias, ...leyes];
+  // Páginas por-artículo de la ley piloto (solo las que tienen simplificación = contenido único).
+  const paginasArticulos: MetadataRoute.Sitemap = articulosIndice(LEY_PILOTO)
+    .filter((a) => SIMPL[String(a.id)])
+    .map((a) => ({
+      url: `${BASE}/leyes/${LEY_PILOTO}/${slugDeArticulo(a.encabezado)}`,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }));
+  return [...fijas, ...paginasGuias, ...leyes, ...paginasArticulos];
 }

@@ -48,7 +48,21 @@ const nextConfig: NextConfig = {
   // Cabeceras de seguridad en TODAS las respuestas (anti-XSS, clickjacking, sniffing, etc.).
   poweredByHeader: false,
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      // Las páginas de leyes y artículos son contenido PÚBLICO y determinista (no dependen
+      // del usuario ni de cookies). Se marcan cacheables para que el CDN/navegador absorba
+      // el rastreo de Google sin recalcular cada visita. La ley cambia a lo sumo semanalmente
+      // (cron) → 1 h "fresco" + 1 día sirviendo copia mientras revalida en segundo plano.
+      // NOTA: para que Cloudflare cachee el HTML hay que activar una Cache Rule de /leyes/*
+      // en su panel (respetar cabeceras de origen); este header es el prerrequisito.
+      {
+        source: "/leyes/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" },
+        ],
+      },
+    ];
   },
   // NOTA: la canonicalización www ↔ no-www se maneja a nivel de Cloudflare/Render,
   // NO en la app. Una redirección de host aquí entraba en bucle con la del proxy

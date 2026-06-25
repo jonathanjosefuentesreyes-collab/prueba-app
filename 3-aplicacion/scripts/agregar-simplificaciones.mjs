@@ -3,15 +3,17 @@
 //   - el id debe existir como artículo real,
 //   - no debe estar ya en el store (no se sobrescribe; se informa),
 //   - el texto debe ser no vacío y de largo razonable.
-// Uso:  node scripts/agregar-simplificaciones.mjs <archivo-lote.json>
+// Uso:  node scripts/agregar-simplificaciones.mjs <archivo-lote.json> [--force]
+//   --force permite SOBRESCRIBIR entradas ya existentes (para correcciones de QA).
 // El lote es un objeto { "<id_articulo>": "explicación…", ... }.
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import Database from "better-sqlite3";
 
-const ARCHIVO = process.argv[2];
-if (!ARCHIVO) { console.error("Falta el archivo de lote. Uso: node scripts/agregar-simplificaciones.mjs <lote.json>"); process.exit(1); }
+const FORCE = process.argv.includes("--force");
+const ARCHIVO = process.argv.slice(2).find((a) => !a.startsWith("--"));
+if (!ARCHIVO) { console.error("Falta el archivo de lote. Uso: node scripts/agregar-simplificaciones.mjs <lote.json> [--force]"); process.exit(1); }
 
 const RUTA = new URL("../src/data/simplificaciones.json", import.meta.url);
 const store = JSON.parse(readFileSync(RUTA, "utf8"));
@@ -26,7 +28,7 @@ for (const [idStr, texto] of Object.entries(lote)) {
   if (!art) { console.error(`  ✗ id ${id}: NO existe en la base — se omite`); invalidos++; continue; }
   const t = String(texto || "").trim();
   if (t.length < 15 || t.length > 700) { console.error(`  ✗ id ${id}: largo sospechoso (${t.length}) — se omite`); invalidos++; continue; }
-  if (store[idStr]) { yaEstaban++; continue; } // no sobrescribir lo ya hecho
+  if (store[idStr] && !FORCE) { yaEstaban++; continue; } // no sobrescribir salvo --force
   store[idStr] = t;
   nuevos++;
 }

@@ -56,7 +56,7 @@ const numeroReal = (enc) => (enc.match(/Art[íi]culo\s+([\dA-Za-z° ]+)/i)?.[1] 
 async function simplificar(art) {
   const prompt = `Reescribe este artículo legal chileno en lenguaje simple para una persona sin formación jurídica.
 
-REGLAS: máximo 60 palabras; solo reformula lo que DICE el texto (no agregues información externa ni interpretaciones); tutea; si el artículo lista varios puntos, resume los principales.
+REGLAS: máximo 60 palabras; solo reformula lo que DICE el texto (no agregues información externa ni interpretaciones); tutea; si el artículo lista varios puntos, resume los principales. Empieza DIRECTO con la explicación: NADA de saludos ("Hola"), exclamaciones ni frases meta ("Este artículo dice…", "Te explico…"). NO uses markdown ni asteriscos: solo texto plano, una idea clara. Si el artículo está derogado o suprimido, responde EXACTAMENTE: "Este artículo fue derogado: ya no tiene contenido vigente."
 
 ${art.nom} — Artículo ${numeroReal(art.encabezado)}:
 ${(art.texto || "").slice(0, 2500)}`;

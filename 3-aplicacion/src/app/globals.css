@@ -291,6 +291,14 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
 @media (min-width: 540px) { .guias-web { display: block; } }
 .carrusel-card-guia { width: 210px; }
 .carrusel-card-guia .carrusel-nombre { -webkit-line-clamp: 4; line-clamp: 4; }
+/* Tarjeta DORADA (categoría Premium: Deudas) — bloqueada, lleva a /premium. */
+.carrusel-card.oro {
+  background: linear-gradient(135deg, #E6C15A 0%, #C9A227 60%, #A9851a 100%);
+  border-color: #f0d97a; box-shadow: 0 4px 16px rgba(201, 162, 39, 0.45);
+}
+.carrusel-card.oro .carrusel-nombre { color: #3d2f06; }
+.carrusel-card.oro .carrusel-fecha { color: #5b4708; }
+.carrusel-card.oro .carrusel-badge { background: rgba(61, 47, 6, 0.2); color: #3d2f06; }
 
 /* ---------- Tarjetas / listas ---------- */
 .tarjeta {

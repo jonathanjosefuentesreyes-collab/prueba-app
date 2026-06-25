@@ -177,16 +177,23 @@ export default function Inicio() {
           <Link href="/guias">Ver todas</Link>
         </h2>
         <CarruselArrastrable className="carrusel-leyes">
-          {GUIAS_WEB.map((g, i) => (
-            <Link key={g.slug} href={`/guias/${g.slug}`} className={`carrusel-card carrusel-card-guia ${["azul", "blanco", "rojo"][i % 3]}`}>
-              <span className="carrusel-badge">{CATEGORIAS[g.categoria].emoji} {CATEGORIAS[g.categoria].etiqueta}</span>
-              <span className="carrusel-nombre">{g.titulo}</span>
-              <span className="carrusel-fecha">
-                Leer guía
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-              </span>
-            </Link>
-          ))}
+          {GUIAS_WEB.map((g) => {
+            const oro = g.categoria === "deudas"; // Deudas = categoría Premium → tarjeta DORADA bloqueada
+            return (
+              <Link
+                key={g.slug}
+                href={oro ? "/premium" : `/guias/${g.slug}`}
+                className={`carrusel-card carrusel-card-guia ${oro ? "oro" : "azul"}`}
+              >
+                <span className="carrusel-badge">{oro ? "👑 Premium" : `${CATEGORIAS[g.categoria].emoji} ${CATEGORIAS[g.categoria].etiqueta}`}</span>
+                <span className="carrusel-nombre">{g.titulo}</span>
+                <span className="carrusel-fecha">
+                  {oro ? "🔒 Desbloquea con Premium" : "Leer guía"}
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </span>
+              </Link>
+            );
+          })}
         </CarruselArrastrable>
       </div>
 

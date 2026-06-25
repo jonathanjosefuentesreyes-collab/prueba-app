@@ -75,22 +75,40 @@ ${(art.texto || "").slice(0, 2500)}`;
   return t;
 }
 
-let hechos = 0, fallos = 0;
+const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+let hechos = 0, fallosDuros = 0, esperas429 = 0;
+// El free tier limita por MINUTO (RPM ≈ 15) y por DÍA (RPD). Ante un 429 NO nos rendimos:
+// esperamos a que se abra la ventana del minuto y reintentamos el MISMO artículo. Solo
+// cortamos tras muchas esperas seguidas (señal de que se agotó la cuota del DÍA, no del minuto).
+const ESPERA_429_MS = Number(process.env.ESPERA_429_S || 60) * 1000;
+const MAX_ESPERAS_429 = Number(process.env.MAX_ESPERAS_429 || 10);
 const pendientes = objetivos.filter((a) => !store[a.id]);
 console.log(`Total objetivo: ${objetivos.length} · ya hechos: ${objetivos.length - pendientes.length} · pendientes: ${pendientes.length}`);
 
-for (const art of pendientes) {
-  if (hechos >= MAX) break;
+let i = 0;
+while (i < pendientes.length && hechos < MAX) {
+  const art = pendientes[i];
   try {
     store[art.id] = await simplificar(art);
     hechos++;
+    fallosDuros = 0; esperas429 = 0; // una buena respuesta reinicia los contadores
     if (hechos % 25 === 0) { writeFileSync(RUTA, JSON.stringify(store)); console.log(`  guardado parcial: ${hechos}`); }
-    await new Promise((res) => setTimeout(res, 600)); // respeta el RPM
+    await sleep(600); // espacia para respetar el RPM
+    i++;
   } catch (e) {
-    fallos++;
-    console.error(`  fallo art ${art.id}: ${e.message}`);
-    if (fallos >= 5) { console.error("Varios fallos seguidos (¿cuota agotada?). Corto aquí."); break; }
-    await new Promise((res) => setTimeout(res, 1500));
+    if (/429/.test(e.message)) {
+      esperas429++;
+      writeFileSync(RUTA, JSON.stringify(store)); // no perder lo avanzado si se corta
+      if (esperas429 > MAX_ESPERAS_429) { console.error(`Cuota DIARIA agotada (429 sostenido tras ${MAX_ESPERAS_429} esperas). Corto aquí.`); break; }
+      console.error(`  429 en art ${art.id}: espero ${ESPERA_429_MS / 1000}s y reintento [${esperas429}/${MAX_ESPERAS_429}]`);
+      await sleep(ESPERA_429_MS); // NO avanza i: reintenta el mismo artículo al abrir la ventana
+    } else {
+      fallosDuros++;
+      console.error(`  fallo art ${art.id}: ${e.message}`);
+      if (fallosDuros >= 5) { console.error("Varios fallos no-cuota seguidos. Corto aquí."); break; }
+      await sleep(1500);
+      i++; // salta el artículo problemático (503/vacío) y sigue
+    }
   }
 }
 

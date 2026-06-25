@@ -3,6 +3,7 @@ import { ultimasPublicaciones, normasPopulares, nombreDe } from "@/lib/db";
 import ChatBar from "@/components/ChatBar";
 import CarruselArrastrable from "@/components/CarruselArrastrable";
 import { jsonLdSafe } from "@/lib/jsonld";
+import { guias, CATEGORIAS, type CategoriaGuia } from "@/lib/guias";
 
 const COLORES: Record<string, string> = {
   fundamentales: "#1E40AF",
@@ -111,6 +112,13 @@ const LD_ORG = {
     "Plataforma ciudadana para consultar las leyes de Chile explicadas en simple, con fuente oficial de la Biblioteca del Congreso Nacional (BCN).",
 };
 
+// Mejor guía (destacada) de cada categoría: los hooks más fuertes para enganchar en
+// escritorio. Una por materia para dar variedad ("las mejores de cada una").
+const ORDEN_GUIAS: CategoriaGuia[] = ["laboral", "familia", "vivienda", "consumidor", "deudas", "tránsito"];
+const GUIAS_WEB = ORDEN_GUIAS
+  .map((cat) => guias.find((g) => g.destacada && g.categoria === cat))
+  .filter((g): g is NonNullable<typeof g> => Boolean(g));
+
 export default function Inicio() {
   const ultimas = ultimasPublicaciones(6);
   const populares = normasPopulares();
@@ -160,6 +168,27 @@ export default function Inicio() {
         </span>
         <svg className="banner-guias-flecha" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M12 5l7 7-7 7" /></svg>
       </Link>
+
+      {/* Guías destacadas: SOLO en la versión web (oculto en móvil/app vía CSS .guias-web).
+          Una guía por materia, con el mejor hook, para enganchar al visitante de escritorio. */}
+      <div className="guias-web">
+        <h2 className="seccion-titulo">
+          Guías para tu problema
+          <Link href="/guias">Ver todas</Link>
+        </h2>
+        <CarruselArrastrable className="carrusel-leyes">
+          {GUIAS_WEB.map((g, i) => (
+            <Link key={g.slug} href={`/guias/${g.slug}`} className={`carrusel-card carrusel-card-guia ${["azul", "blanco", "rojo"][i % 3]}`}>
+              <span className="carrusel-badge">{CATEGORIAS[g.categoria].emoji} {CATEGORIAS[g.categoria].etiqueta}</span>
+              <span className="carrusel-nombre">{g.titulo}</span>
+              <span className="carrusel-fecha">
+                Leer guía
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </span>
+            </Link>
+          ))}
+        </CarruselArrastrable>
+      </div>
 
       <h2 className="seccion-titulo">
         Nuevas leyes

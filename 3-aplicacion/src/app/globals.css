@@ -285,6 +285,13 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
   font-size: calc(10.8px * var(--escala-letra, 1)); color: var(--texto-suave); font-weight: 600;
 }
 
+/* Tarjetas de GUÍAS destacadas en la home: SOLO en la versión web (oculto en móvil/app).
+   Algo más anchas y con el hook (pregunta) a 4 líneas, para que el gancho se luzca. */
+.guias-web { display: none; }
+@media (min-width: 540px) { .guias-web { display: block; } }
+.carrusel-card-guia { width: 210px; }
+.carrusel-card-guia .carrusel-nombre { -webkit-line-clamp: 4; line-clamp: 4; }
+
 /* ---------- Tarjetas / listas ---------- */
 .tarjeta {
   background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio);

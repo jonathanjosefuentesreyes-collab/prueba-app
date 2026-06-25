@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import AccessibilityBar from "@/components/AccessibilityBar";
 import GuardarGuiaBtn from "@/components/GuardarGuiaBtn";
+import { jsonLdSafe } from "@/lib/jsonld";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 
@@ -116,7 +117,7 @@ export default async function GuiaDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSafe(jsonLd) }} />
 
       <header className="header" style={{ justifyContent: "flex-start", gap: 12 }}>
         <Link href="/guias" aria-label="Volver a guías" style={{ display: "flex" }}>

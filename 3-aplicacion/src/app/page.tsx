@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ultimasPublicaciones, normasPopulares, nombreDe } from "@/lib/db";
 import ChatBar from "@/components/ChatBar";
 import CarruselArrastrable from "@/components/CarruselArrastrable";
+import { jsonLdSafe } from "@/lib/jsonld";
 
 const COLORES: Record<string, string> = {
   fundamentales: "#1E40AF",
@@ -116,8 +117,8 @@ export default function Inicio() {
 
   return (
     <main style={{ paddingBottom: 20 }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(LD_SITIO) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(LD_ORG) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSafe(LD_SITIO) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSafe(LD_ORG) }} />
       <header className="header">
         <Link href="/leyes" aria-label="Ver todas las leyes de Chile" style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}

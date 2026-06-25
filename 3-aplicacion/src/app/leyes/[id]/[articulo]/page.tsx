@@ -4,6 +4,7 @@ import {
   obtenerNorma, articulosIndice, articuloPorId, slugDeArticulo, nombreDe, numeroReal,
 } from "@/lib/db";
 import simplificaciones from "@/data/simplificaciones.json";
+import { jsonLdSafe } from "@/lib/jsonld";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 const SIMPL = simplificaciones as Record<string, string>;
@@ -94,8 +95,8 @@ export default async function ArticuloPagina(props: { params: Promise<{ id: stri
 
   return (
     <main style={{ paddingBottom: 80 }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ldBreadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSafe(ld) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSafe(ldBreadcrumb) }} />
 
       <header className="header" style={{ justifyContent: "flex-start", gap: 12 }}>
         <Link href={`/leyes/${norma.id}?art=${full.id}`} aria-label={`Volver a ${nombre}`} style={{ display: "flex" }}>

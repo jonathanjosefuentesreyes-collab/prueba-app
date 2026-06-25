@@ -8,6 +8,7 @@ import GuardarBtn from "@/components/GuardarBtn";
 import AccessibilityBar from "@/components/AccessibilityBar";
 import ArticuloItem from "@/components/ArticuloItem";
 import { CANONICAL } from "@/lib/canonical";
+import { jsonLdSafe } from "@/lib/jsonld";
 import simplificaciones from "@/data/simplificaciones.json";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
@@ -108,9 +109,9 @@ export default async function Norma(props: {
 
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ldLegislacion) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ldBreadcrumb) }} />
-      {ldArticulos && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ldArticulos) }} />}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSafe(ldLegislacion) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSafe(ldBreadcrumb) }} />
+      {ldArticulos && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSafe(ldArticulos) }} />}
       <header className="header" style={{ justifyContent: "flex-start", gap: 12 }}>
         <Link href="/leyes" aria-label="Volver a la biblioteca" style={{ display: "flex" }}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M15 18l-6-6 6-6" /></svg>

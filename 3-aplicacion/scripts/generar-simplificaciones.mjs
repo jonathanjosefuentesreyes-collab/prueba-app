@@ -38,11 +38,13 @@ const db = new Database(fileURLToPath(new URL("../data/leyes.db", import.meta.ur
 // (src/lib/db.ts: laboral, familia, civil, penal, comercial, tributario) + Tránsito.
 // Deduplicado (las que ya están en el núcleo no se repiten en su materia).
 const NORMAS = [
-  // LEYES DE COLA LARGA PRIORITARIAS (Se procesan primero)
+  // Cola larga voluminosa (poco buscada artículo por artículo) — se procesa primero.
   1974, 1984, 176595, 1058072, 18914, 6374, 7147, 29473, 6368, 6369, 235507,
-  // Núcleo y otras permitidas (Al final, solo de respaldo)
+  // Alto valor de búsqueda ciudadana.
+  29708, 61438, 29526, 225128, 1075210, 1174663, 28650, 244803,
+  // Núcleo y materias restantes (las ya hechas se saltan; es idempotente).
   207436, 242302, 141599, 27977, 172986,
-  1200096, 1191554, 1143741, 1030936, 229557,
+  1200096, 1191554, 1143741, 1030936, 229557, 242648,
 ];
 const objetivos = [];
 for (const n of NORMAS) {

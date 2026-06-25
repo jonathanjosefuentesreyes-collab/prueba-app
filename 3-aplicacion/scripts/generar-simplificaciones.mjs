@@ -16,37 +16,33 @@ const MAX = Number(process.argv[2] || 150);
 const RUTA = new URL("../src/data/simplificaciones.json", import.meta.url);
 const ENV = new URL("../.env.local", import.meta.url);
 
-// Cargar GEMINI_API_KEY desde .env.local
+// Cargar GEMINI_API_KEY y GEMINI_MODEL desde .env.local
 let apiKey = process.env.GEMINI_API_KEY;
-if (!apiKey && existsSync(ENV)) {
-  const m = readFileSync(ENV, "utf8").match(/GEMINI_API_KEY\s*=\s*(.+)/);
-  if (m) apiKey = m[1].trim().replace(/^["']|["']$/g, "");
+let modelo = process.env.GEMINI_MODEL;
+if (existsSync(ENV)) {
+  const envText = readFileSync(ENV, "utf8");
+  if (!apiKey) {
+    const m = envText.match(/GEMINI_API_KEY\s*=\s*(.+)/);
+    if (m) apiKey = m[1].trim().replace(/^["']|["']$/g, "");
+  }
+  if (!modelo) {
+    const m = envText.match(/GEMINI_MODEL\s*=\s*(.+)/);
+    if (m) modelo = m[1].trim().replace(/^["']|["']$/g, "");
+  }
 }
 if (!apiKey) { console.error("Falta GEMINI_API_KEY"); process.exit(1); }
-
-const modelo = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
+if (!modelo) modelo = "gemini-2.5-flash-lite";
 const db = new Database(fileURLToPath(new URL("../data/leyes.db", import.meta.url)), { readonly: true });
 
 // Prioridad: las leyes que la gente realmente lee = núcleo + las MATERIAS del grid
 // (src/lib/db.ts: laboral, familia, civil, penal, comercial, tributario) + Tránsito.
 // Deduplicado (las que ya están en el núcleo no se repiten en su materia).
 const NORMAS = [
-  // Núcleo
-  207436, 242302, 141599, 27977, 172986, // Trabajo, Constitución, Datos, Pensiones, Civil
-  // Tránsito
-  29708,
-  // Laboral (MATERIAS)
-  28650, 1200096, 1191554, 1143741, 1030936, 7147,
-  // Familia (MATERIAS)
-  225128, 1075210, 229557, 242648,
-  // Civil (MATERIAS)
-  29526, 1174663, 61438,
-  // Penal (MATERIAS)
-  1984, 176595, 235507, 244803, 18914,
-  // Comercial (MATERIAS)
-  1974, 29473, 1058072,
-  // Tributario (MATERIAS)
-  6374, 6368, 6369,
+  // LEYES DE COLA LARGA PRIORITARIAS (Se procesan primero)
+  1974, 1984, 176595, 1058072, 18914, 6374, 7147, 29473, 6368, 6369, 235507,
+  // Núcleo y otras permitidas (Al final, solo de respaldo)
+  207436, 242302, 141599, 27977, 172986,
+  1200096, 1191554, 1143741, 1030936, 229557,
 ];
 const objetivos = [];
 for (const n of NORMAS) {
@@ -66,7 +62,7 @@ ${art.nom} — Artículo ${numeroReal(art.encabezado)}:
 ${(art.texto || "").slice(0, 2500)}`;
   const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent?key=${apiKey}`, {
     method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0.2, maxOutputTokens: 300 } }),
+    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0.2, maxOutputTokens: 500, thinkingConfig: { thinkingBudget: 0 } } }),
   });
   if (!r.ok) throw new Error(`HTTP ${r.status}`);
   const data = await r.json();
@@ -93,7 +89,7 @@ while (i < pendientes.length && hechos < MAX) {
     hechos++;
     fallosDuros = 0; esperas429 = 0; // una buena respuesta reinicia los contadores
     if (hechos % 25 === 0) { writeFileSync(RUTA, JSON.stringify(store)); console.log(`  guardado parcial: ${hechos}`); }
-    await sleep(600); // espacia para respetar el RPM
+    await sleep(4000); // espacia para respetar el RPM (15 RPM en el tier gratuito)
     i++;
   } catch (e) {
     if (/429/.test(e.message)) {

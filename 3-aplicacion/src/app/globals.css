@@ -150,7 +150,7 @@ mark { background: #ffe9a8; border-radius: 3px; padding: 0 2px; }
   body .nav-inferior .nav-brand img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #e3b341; background: #fff; padding: 1px; object-fit: contain; }
 
   /* Contenido ancho: ocupa el área entre el sidebar y el riel (más espacio). */
-  body .shell { max-width: 1080px; margin: 0 auto; padding: 0 28px 120px; }
+  body .shell { max-width: 1140px; margin: 0 auto; padding: 0 28px 120px; }
   /* Los 10 macrogrupos en 5 columnas (2 filas) para llenar el ancho en escritorio. */
   body .materias { grid-template-columns: repeat(5, 1fr); gap: 14px; }
   body .materia { padding: 18px 8px 15px; border-radius: var(--radio); font-size: calc(12px * var(--escala-letra, 1)); }

@@ -3,4 +3,4 @@
 // Respeta el Consent Mode v2 (no rastrea hasta que el usuario acepte cookies en el banner).
 // Para SEO: además registra el sitio en Google Search Console (search.google.com/search-console)
 // — la verificación se hace con el DNS de Cloudflare o subiendo el archivo HTML que indique.
-export const GA_MEASUREMENT_ID = "";
+export const GA_MEASUREMENT_ID = "G-9ESG6GZ6QN";

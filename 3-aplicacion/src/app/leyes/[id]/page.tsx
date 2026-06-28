@@ -34,7 +34,7 @@ export async function generateMetadata(props: {
   const canonical = pagNum > 1 ? `${BASE}/leyes/${idCanonico}?pagina=${pagNum}` : `${BASE}/leyes/${idCanonico}`;
   const desc = `${nombre}: ${norma.total_articulos} artículos. Texto oficial actualizado de la BCN${norma.fecha_version ? ` (versión ${norma.fecha_version})` : ""}. Léelo en simple y consulta gratis a AbogaBot.`.slice(0, 155);
   return {
-    title: `${nombreCorto} — texto actualizado | Leyes de Chile`,
+    title: `${nombreCorto}: qué dice y texto actualizado | Leyes de Chile`,
     description: desc,
     alternates: { canonical },
     openGraph: { title: `${nombre} | Leyes de Chile`, description: desc, url: canonical, type: "article", siteName: "Leyes de Chile" },

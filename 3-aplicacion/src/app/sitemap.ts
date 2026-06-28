@@ -8,6 +8,15 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 const SIMPL = simplificaciones as Record<string, string>;
 const LEY_PILOTO = 207436; // ley con páginas por-artículo (Fase 3)
 
+// Devuelve una fecha válida para <lastmod>, o undefined si el dato está vacío o mal formado.
+// Algunas fecha_version de la BCN vienen en formato que produce "Invalid Date"; en ese caso
+// se omite el lastmod (es opcional) en vez de mandarle a Google una fecha inválida.
+function fechaValida(s: string | null | undefined): Date | undefined {
+  if (!s) return undefined;
+  const d = new Date(s + "T12:00:00");
+  return Number.isNaN(d.getTime()) ? undefined : d;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const fijas: MetadataRoute.Sitemap = [
     { url: `${BASE}/`, changeFrequency: "daily", priority: 1 },
@@ -25,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   const paginasGuias: MetadataRoute.Sitemap = guias.map((g) => ({
     url: `${BASE}/guias/${g.slug}`,
-    lastModified: new Date(g.fecha + "T12:00:00"),
+    lastModified: fechaValida(g.fecha),
     changeFrequency: "monthly",
     priority: 0.8,
   }));
@@ -33,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((n) => !(n.id in CANONICAL)) // los duplicados refundidos no entran (su canónica ya está)
     .map((n) => ({
       url: `${BASE}/leyes/${n.id}`,
-      lastModified: n.fecha_version ? new Date(n.fecha_version + "T12:00:00") : undefined,
+      lastModified: fechaValida(n.fecha_version),
       changeFrequency: "weekly",
       priority: 0.7,
     }));

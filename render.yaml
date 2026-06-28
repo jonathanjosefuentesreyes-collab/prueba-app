@@ -31,3 +31,7 @@ services:
         value: "24"
       - key: NODE_ENV
         value: production
+      # El sitio vive en www (Render redirige el apex a www). Esto alinea canonical, sitemap,
+      # robots y og a www, para que coincidan con la propiedad www de Search Console.
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://www.leyesdechile.com

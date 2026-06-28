@@ -91,7 +91,8 @@ while (i < pendientes.length && hechos < MAX) {
     hechos++;
     fallosDuros = 0; esperas429 = 0; // una buena respuesta reinicia los contadores
     if (hechos % 25 === 0) { writeFileSync(RUTA, JSON.stringify(store)); console.log(`  guardado parcial: ${hechos}`); }
-    await sleep(4000); // espacia para respetar el RPM (15 RPM en el tier gratuito)
+    const sleepMs = Number(process.env.SLEEP_MS || 4000);
+    await sleep(sleepMs); // espacia para respetar el RPM (15 RPM en el tier gratuito)
     i++;
   } catch (e) {
     if (/429/.test(e.message)) {

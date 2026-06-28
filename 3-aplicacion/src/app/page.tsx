@@ -115,9 +115,15 @@ const LD_ORG = {
 // Mejor guía (destacada) de cada categoría: los hooks más fuertes para enganchar en
 // escritorio. Una por materia para dar variedad ("las mejores de cada una").
 const ORDEN_GUIAS: CategoriaGuia[] = ["laboral", "familia", "vivienda", "consumidor", "deudas", "tránsito"];
-const GUIAS_WEB = ORDEN_GUIAS
+const _guiasWeb = ORDEN_GUIAS
   .map((cat) => guias.find((g) => g.destacada && g.categoria === cat))
   .filter((g): g is NonNullable<typeof g> => Boolean(g));
+// La tarjeta DORADA (Deudas/Premium) va al CENTRO de la fila, para que se luzca
+// (mismo criterio que el explorador de guías).
+const _dorada = _guiasWeb.find((g) => g.categoria === "deudas");
+const _otras = _guiasWeb.filter((g) => g.categoria !== "deudas");
+const _mid = Math.floor(_otras.length / 2);
+const GUIAS_WEB = _dorada ? [..._otras.slice(0, _mid), _dorada, ..._otras.slice(_mid)] : _otras;
 
 export default function Inicio() {
   const ultimas = ultimasPublicaciones(6);

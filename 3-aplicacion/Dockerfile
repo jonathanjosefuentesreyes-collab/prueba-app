@@ -14,6 +14,10 @@ COPY . .
 RUN if [ ! -f data/leyes.db ] && [ -f data/leyes.db.gz ]; then gunzip data/leyes.db.gz; fi \
     && rm -f data/leyes.db.gz
 # La key NO se hornea en la imagen; se inyecta como variable de entorno del host en runtime.
+# URL pública del sitio en www: la usan canonical, sitemap y robots, que se generan en BUILD
+# (son estáticos/SSG). Sin esto quedarían en sin-www y no coincidirían con la propiedad www
+# de Search Console. El apex igual redirige a www (Render), así que www es el dominio real.
+ENV NEXT_PUBLIC_SITE_URL=https://www.leyesdechile.com
 RUN npm run build
 
 # --- Etapa 2: runtime mínimo ---
@@ -22,6 +26,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
+# www también en runtime, para las rutas dinámicas (ej. /leyes/[id]).
+ENV NEXT_PUBLIC_SITE_URL=https://www.leyesdechile.com
 
 # Salida autocontenida de Next (incluye el binario nativo de better-sqlite3)
 COPY --from=build /app/.next/standalone ./

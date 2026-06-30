@@ -49,7 +49,9 @@ export async function generateMetadata(props: { params: Promise<{ id: string; ar
       description: (simpl || `Artículo ${num} de ${nombre}, explicado en simple.`).slice(0, 155),
       url, type: "article", siteName: "Leyes de Chile",
     },
-    robots: { index: true, follow: true },
+    // Solo se indexa el artículo si tiene explicación en simple (contenido único). Sin ella es
+    // texto legal crudo duplicado de la BCN → noindex, igual que las leyes en /leyes/[id].
+    robots: { index: Boolean(simpl), follow: true },
   };
 }
 

@@ -63,6 +63,18 @@ export function nombreDe(n: Pick<Norma, "nombre_corto" | "titulo">): string {
   return n.nombre_corto || n.titulo;
 }
 
+// Devuelve el Set de norma_ids que tienen al menos uno de los ids de artículo dados (las
+// que tienen simplificación = valor único). UNA sola consulta. Sirve para indexar solo las
+// leyes con explicación en simple y dejar fuera del índice/sitemap el texto legal crudo
+// (duplicado de la BCN), que es lo que AdSense marca como "contenido de bajo valor".
+export function normasConSimplificacion(idsArticulos: number[]): Set<number> {
+  if (!idsArticulos.length) return new Set();
+  const filas = getDb()
+    .prepare(`SELECT DISTINCT norma_id FROM articulos WHERE id IN (SELECT value FROM json_each(?))`)
+    .all(JSON.stringify(idsArticulos)) as { norma_id: number }[];
+  return new Set(filas.map((f) => f.norma_id));
+}
+
 // Conteo de artículos por norma en UNA pasada (cacheado en proceso). Con 20.000+
 // normas, un COUNT correlacionado por fila tardaba ~7 s; este GROUP BY único baja
 // a milisegundos. La DB es de solo lectura en runtime, así que el caché no expira.

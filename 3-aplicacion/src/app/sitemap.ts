@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { listarNormas, articulosIndice, slugDeArticulo } from "@/lib/db";
 import { guias } from "@/lib/guias";
 import { CANONICAL } from "@/lib/canonical";
+import { NORMAS_CON_VALOR } from "@/lib/normas-valor";
 import simplificaciones from "@/data/simplificaciones.json";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
@@ -39,7 +40,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
   const leyes: MetadataRoute.Sitemap = listarNormas()
-    .filter((n) => !(n.id in CANONICAL)) // los duplicados refundidos no entran (su canónica ya está)
+    // Solo leyes con VALOR único (explicación en simple); el texto crudo duplicado va noindex
+    // y NO se anuncia en el sitemap. Y los duplicados refundidos tampoco (su canónica ya está).
+    .filter((n) => !(n.id in CANONICAL) && NORMAS_CON_VALOR.has(n.id))
     .map((n) => ({
       url: `${BASE}/leyes/${n.id}`,
       lastModified: fechaValida(n.fecha_version),

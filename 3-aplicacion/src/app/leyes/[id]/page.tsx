@@ -9,6 +9,7 @@ import AccessibilityBar from "@/components/AccessibilityBar";
 import ArticuloItem from "@/components/ArticuloItem";
 import { CANONICAL } from "@/lib/canonical";
 import { jsonLdSafe } from "@/lib/jsonld";
+import { NORMAS_CON_VALOR } from "@/lib/normas-valor";
 import simplificaciones from "@/data/simplificaciones.json";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
@@ -38,7 +39,10 @@ export async function generateMetadata(props: {
     description: desc,
     alternates: { canonical },
     openGraph: { title: `${nombre} | Leyes de Chile`, description: desc, url: canonical, type: "article", siteName: "Leyes de Chile" },
-    robots: { index: true, follow: true },
+    // Solo se indexan las leyes con explicación en simple (valor único). El resto es texto
+    // legal crudo duplicado de la BCN → noindex (pero follow), para que Google y AdSense
+    // evalúen el sitio por su contenido original y no por el volumen de texto republicado.
+    robots: { index: NORMAS_CON_VALOR.has(norma.id), follow: true },
   };
 }
 

@@ -15,7 +15,11 @@ const LEY_PILOTO = 207436; // ley con páginas por-artículo (Fase 3)
 function fechaValida(s: string | null | undefined): Date | undefined {
   if (!s) return undefined;
   const d = new Date(s + "T12:00:00");
-  return Number.isNaN(d.getTime()) ? undefined : d;
+  // Google marca como "fecha no válida" cualquier lastmod anterior a 1970 (epoch Unix). Algunas
+  // versiones de leyes muy antiguas (Código Civil 1855, etc.) traen fechas de 1800-1960: en esos
+  // casos se OMITE el lastmod (es opcional) en vez de enviar una fecha que Google rechaza.
+  if (Number.isNaN(d.getTime()) || d.getFullYear() < 1970) return undefined;
+  return d;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {

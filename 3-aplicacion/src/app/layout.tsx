@@ -14,6 +14,7 @@ import RielEscritorio from "@/components/RielEscritorio";
 import { ADSENSE_CLIENT } from "@/lib/adsense";
 import { SettingsProvider } from "@/contexts/SettingsContext";
 import { ChatProvider } from "@/contexts/ChatContext";
+import { jsonLdSafe } from "@/lib/jsonld";
 
 // Tipografías del sistema de diseño oficial del Estado de Chile
 // (framework.digital.gob.cl): Roboto para el cuerpo (la fuente por defecto de
@@ -63,12 +64,45 @@ export const viewport: Viewport = {
   themeColor: "#0a4595",
 };
 
+// Identidad del sitio para Google (búsqueda de marca "leyes de chile"): WebSite con
+// SearchAction (habilita la caja de búsqueda de sitelinks sobre /leyes?q=) y Organization
+// con logo. Van en el layout para que todas las páginas refuercen la misma entidad.
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
+const LD_SITIO = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE}/#website`,
+    name: "Leyes de Chile",
+    alternateName: ["leyesdechile.com", "Leyes de Chile explicadas en simple"],
+    url: `${SITE}/`,
+    inLanguage: "es-CL",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: { "@type": "EntryPoint", urlTemplate: `${SITE}/leyes?q={search_term_string}` },
+      "query-input": "required name=search_term_string",
+    },
+    publisher: { "@id": `${SITE}/#org` },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${SITE}/#org`,
+    name: "Leyes de Chile",
+    url: `${SITE}/`,
+    logo: { "@type": "ImageObject", url: `${SITE}/icon-512.png` },
+    description:
+      "Sitio independiente de orientación ciudadana: las leyes chilenas actualizadas desde la fuente oficial (BCN) y explicadas en lenguaje simple.",
+  },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={`${roboto.variable} ${robotoSlab.variable}`}>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSafe(LD_SITIO) }} />
         <ConsentMode />
         <Splash />
         <RegistrarSW />

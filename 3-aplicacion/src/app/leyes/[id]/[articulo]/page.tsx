@@ -5,6 +5,8 @@ import {
 } from "@/lib/db";
 import simplificaciones from "@/data/simplificaciones.json";
 import { jsonLdSafe } from "@/lib/jsonld";
+import { guiasQueCitan } from "@/lib/guias-por-norma";
+import GuiasRelacionadas from "@/components/GuiasRelacionadas";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 const SIMPL = simplificaciones as Record<string, string>;
@@ -167,6 +169,10 @@ export default async function ArticuloPagina(props: { params: Promise<{ id: stri
           </p>
         </div>
       )}
+
+      {/* Enlazado triangular: guías que citan esta ley (reparte autoridad hacia las
+          páginas que rankean y monetizan, y le da al lector el siguiente paso útil). */}
+      <GuiasRelacionadas guias={guiasQueCitan(norma.id)} />
     </main>
   );
 }

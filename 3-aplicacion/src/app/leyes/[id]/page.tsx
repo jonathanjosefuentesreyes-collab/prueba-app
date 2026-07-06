@@ -10,6 +10,8 @@ import ArticuloItem from "@/components/ArticuloItem";
 import { CANONICAL } from "@/lib/canonical";
 import { jsonLdSafe } from "@/lib/jsonld";
 import { NORMAS_CON_VALOR } from "@/lib/normas-valor";
+import { guiasQueCitan } from "@/lib/guias-por-norma";
+import GuiasRelacionadas from "@/components/GuiasRelacionadas";
 import simplificaciones from "@/data/simplificaciones.json";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
@@ -143,6 +145,14 @@ export default async function Norma(props: {
         </p>
         <GuardarBtn id={norma.id} nombre={nombreDe(norma)} />
       </div>
+
+      {/* Enlazado triangular: guías que citan ESTA ley (las páginas que rankean y monetizan).
+          El mapa se deriva de los enlaces reales del contenido de las guías. */}
+      {guiasQueCitan(norma.id).length > 0 && (
+        <div style={{ marginBottom: 14, marginTop: -4 }}>
+          <GuiasRelacionadas guias={guiasQueCitan(norma.id)} />
+        </div>
+      )}
 
       <form method="GET" action={`/leyes/${norma.id}`} style={{ display: "flex", gap: 8, marginBottom: 14 }}>
         <input className="campo" type="search" name="q" defaultValue={consulta} placeholder={`Buscar dentro de ${nombreDe(norma)}…`} aria-label="Buscar en esta ley" />

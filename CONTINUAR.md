@@ -1,7 +1,44 @@
 # Ley Chilena (AbogaBot v2) — CONTINUAR.md
 
-Última actualización: **2026-06-22**. **EN VIVO: https://leyesdechile.com** (dominio propio,
-Render + Cloudflare; el subdominio `leyes-de-chile.onrender.com` es solo el origen técnico).
+Última actualización: **2026-07-06**. **EN VIVO: https://www.leyesdechile.com** (CON www —
+canónico definitivo; Render fuerza apex→www en dominios emparejados y no se puede separar.
+`leyes-de-chile.onrender.com` es solo el origen técnico).
+
+## 🛡️ AdSense rechazó por "bajo valor" → estrategia noindex + calidad (2026-06-29 → 07-06)
+
+**AdSense RECHAZÓ leyesdechile.com por "Contenido de bajo valor"** (~29-jun): 20k páginas de
+texto legal crudo duplicado de la BCN. **Estrategia aplicada (ya en producción):**
+- **Solo se indexa contenido ORIGINAL**: leyes y artículos CON explicación en simple
+  (`lib/normas-valor.ts` → `NORMAS_CON_VALOR`), guías y herramientas. El resto (texto crudo,
+  `/chat`, `/guardadas`) va **noindex + follow**. Sitemap: de 20.918 → **~890 URLs de valor**.
+- Sitemap **"Correcto" en Search Console** (4-jul): se arreglaron 9.852 lastmod inválidos y
+  9 fechas pre-1970 (Google rechaza lastmod anteriores a epoch; se omiten).
+- **⏳ NO pedir revisión de AdSense aún**: esperar a que Search Console → Indexación →
+  Páginas baje de ~20k hacia ~890 (Google re-rastreando; 1-2 semanas). Recién ahí
+  "Confirmo que corregí" + Solicitar revisión. Falta activar mensaje GDPR en panel AdSense.
+
+**Simplificaciones (motor de valor):** **8.190/9.545** al 6-jul; las escribe **Antigravity
+directamente** (sin API de Gemini, cuota no alcanzaba) en lotes por ley (CJM 400/449,
+Insolvencia 250/455…). QA por muestreo contra la DB: APTO (aciertos exactos en montos/plazos;
+1 falsa alarma mía en CJM art 180 — Antigravity tenía razón: sí es procedimiento de guerra).
+
+**Red de calidad ampliada (2026-07-06): 120 tests.** Nuevos guardianes:
+- `simplificaciones.test.ts`: valida TODO el corpus en cada CI (ids reales en DB, largo,
+  sin markdown/saludos de chatbot/HTML). Cazó y se corrigieron 3 entradas (2320, 3288, 3616).
+- `sitemap.test.ts`: fechas válidas (≥1970), URLs absolutas, sin duplicados, dieta ~890.
+  **Cazó bug real**: "Art. 183 N" vs "183 Ñ" del CT generaban el mismo slug (página
+  inalcanzable) → `slugDeArticulo` ahora mapea ñ→"nn". `vitest.config.ts` resuelve alias `@/`.
+
+**GA4 definitivo: `G-BGBGLGY4DZ`** (la etiqueta de la cuenta; hubo confusión con flujos
+duplicados — ignorar/borrar el flujo "leyes" G-W7GD1NQXY4). Propiedad nueva: datos tardan 24-48h.
+
+**Search Console:** impresiones subiendo (~375/día, ~6 clics/día) = etapa pre-tráfico normal.
+OJO: las impresiones pueden BAJAR cuando Google saque las 20k noindexadas — es la limpieza, no
+un retroceso. Próximo: revisar pestaña Consultas para plan de contenido por demanda real.
+
+**Idea aprobada conceptualmente (sin construir): "Preguntas resueltas"** — banco de preguntas
+reales respondidas y verificadas contra la DB (la alternativa segura al foro, que se descartó:
+UGC legal sin moderar = riesgo E-E-A-T/AdSense/datos personales).
 
 ## 🔥 Calidad de ingeniería + SEO + marca + escala (2026-06-21/22)
 

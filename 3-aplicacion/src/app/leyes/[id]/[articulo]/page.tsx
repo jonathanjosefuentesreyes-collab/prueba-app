@@ -1,36 +1,38 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
-  obtenerNorma, articulosIndice, articuloPorId, slugDeArticulo, nombreDe, numeroReal,
+  obtenerNorma, articulosIndice, articuloPorId, slugsDeNorma, nombreDe, numeroReal,
 } from "@/lib/db";
 import simplificaciones from "@/data/simplificaciones.json";
 import { jsonLdSafe } from "@/lib/jsonld";
 import { guiasQueCitan } from "@/lib/guias-por-norma";
 import GuiasRelacionadas from "@/components/GuiasRelacionadas";
+import { LEYES_CON_PAGINAS_POR_ARTICULO } from "@/lib/leyes-articulo";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 const SIMPL = simplificaciones as Record<string, string>;
 
-// Ley PILOTO del motor de páginas por-artículo (Fase 3): Código del Trabajo. Ya tiene
-// simplificaciones pre-generadas, así que cada página tiene contenido único (la explicación
-// en simple), no solo el texto legal crudo. Tras medir en Search Console se escala (Fase 4).
-const LEY_PILOTO = 207436;
-
 export function generateStaticParams() {
-  // Solo los artículos CON simplificación: páginas con valor único, evita texto legal
-  // duplicado (que ya vive en /leyes/{id}). Las demás se sirven on-demand si se enlazan.
-  return articulosIndice(LEY_PILOTO)
-    .filter((a) => SIMPL[String(a.id)])
-    .map((a) => ({ id: String(LEY_PILOTO), articulo: slugDeArticulo(a.encabezado) }));
+  // Fase 4: códigos ciudadanos con cobertura ~100% (lista en lib/leyes-articulo). Solo los
+  // artículos CON simplificación: páginas con valor único, evita texto legal duplicado
+  // (que ya vive en /leyes/{id}). Las demás se sirven on-demand si se enlazan.
+  return LEYES_CON_PAGINAS_POR_ARTICULO.flatMap((ley) => {
+    const slugs = slugsDeNorma(ley);
+    return articulosIndice(ley)
+      .filter((a) => SIMPL[String(a.id)])
+      .map((a) => ({ id: String(ley), articulo: slugs.get(a.id)! }));
+  });
 }
 
 function resolver(idStr: string, slug: string) {
   const norma = obtenerNorma(Number(idStr));
   if (!norma) return null;
   const arts = articulosIndice(norma.id);
-  const idx = arts.findIndex((a) => slugDeArticulo(a.encabezado) === slug);
+  // slugsDeNorma desambigua la numeración repetida de los refundidos (regla dura #4).
+  const slugs = slugsDeNorma(norma.id);
+  const idx = arts.findIndex((a) => slugs.get(a.id) === slug);
   if (idx < 0) return null;
-  return { norma, arts, idx };
+  return { norma, arts, idx, slugs };
 }
 
 export async function generateMetadata(props: { params: Promise<{ id: string; articulo: string }> }) {
@@ -61,7 +63,7 @@ export default async function ArticuloPagina(props: { params: Promise<{ id: stri
   const { id, articulo } = await props.params;
   const r = resolver(id, articulo);
   if (!r) notFound();
-  const { norma, arts, idx } = r;
+  const { norma, arts, idx, slugs } = r;
   const full = articuloPorId(arts[idx].id);
   if (!full) notFound();
 
@@ -159,7 +161,7 @@ export default async function ArticuloPagina(props: { params: Promise<{ id: stri
           <h2 style={{ fontSize: 15, margin: "0 0 8px" }}>Artículos relacionados</h2>
           <div className="lista" style={{ gap: 6 }}>
             {relacionados.map((a) => (
-              <Link key={a.id} href={`/leyes/${norma.id}/${slugDeArticulo(a.encabezado)}`} className="chip" style={{ padding: "8px 12px", justifyContent: "flex-start" }}>
+              <Link key={a.id} href={`/leyes/${norma.id}/${slugs.get(a.id)}`} className="chip" style={{ padding: "8px 12px", justifyContent: "flex-start" }}>
                 Artículo {numeroReal(a.encabezado)}
               </Link>
             ))}

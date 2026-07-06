@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { existsSync } from "node:fs";
 import path from "node:path";
-import { numeroReal, slugDeArticulo, normaPorReferencia, articuloPorNumero, buscar } from "./db";
+import { numeroReal, slugDeArticulo, slugsDeNorma, normaPorReferencia, articuloPorNumero, buscar } from "./db";
 
 // numeroReal es la regla dura #4 hecha código: el número visible se DERIVA del
 // encabezado, nunca de un contador posicional. Es función pura, así que se prueba
@@ -52,6 +52,30 @@ describe("slugDeArticulo — slugs únicos y estables", () => {
 // (resolver citas a normas y artículos REALES, y NO inventar lo que no existe). Se
 // saltan si la base no está presente; en CI se descomprime antes de correr.
 const dbExiste = existsSync(path.join(process.cwd(), "data", "leyes.db"));
+
+// Los refundidos reutilizan numeración (el Código Civil trae leyes anexas que parten de
+// nuevo en "Artículo 1" — regla dura #4): slugsDeNorma debe desambiguar sin tocar el slug
+// del artículo principal (el que la gente busca).
+describe.skipIf(!dbExiste)("slugsDeNorma — slugs únicos aun con numeración repetida", () => {
+  it("en el Código Civil (172986) no quedan slugs duplicados", () => {
+    const slugs = [...slugsDeNorma(172986).values()];
+    expect(new Set(slugs).size).toBe(slugs.length);
+  });
+
+  it("el primer 'articulo-1' del Código Civil es el de la ley principal (menor orden)", () => {
+    const mapa = slugsDeNorma(172986);
+    const idLimpio = [...mapa.entries()].find(([, s]) => s === "articulo-1")?.[0];
+    expect(idLimpio).toBeDefined();
+    // el id con el slug limpio debe ser el PRIMERO de la norma en llevar ese número
+    const primero = [...mapa.keys()][0];
+    expect(idLimpio).toBe(primero);
+  });
+
+  it("en el Código del Trabajo el mapa coincide con el slug simple (sin colisiones no cambia nada)", () => {
+    const mapa = slugsDeNorma(207436);
+    expect(mapa.get(3011)).toBe("articulo-1");
+  });
+});
 
 describe.skipIf(!dbExiste)("normaPorReferencia — resuelve citas a normas reales", () => {
   it("resuelve 'Código del Trabajo' a la norma núcleo 207436", () => {

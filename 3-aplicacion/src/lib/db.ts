@@ -329,6 +329,23 @@ export function slugDeArticulo(encabezado: string): string {
   return `articulo-${n || "s-n"}`;
 }
 
+// Slugs ÚNICOS para todos los artículos de una norma. Los textos refundidos reutilizan
+// numeración (regla dura #4: el Código Civil trae leyes anexas que parten de nuevo en
+// "Artículo 1"), así que el slug simple colisiona. Regla determinista: el PRIMER artículo
+// por orden conserva el slug limpio (es la ley principal, la que la gente busca); los
+// siguientes con el mismo slug llevan sufijo con su id de fila (estable entre builds).
+export function slugsDeNorma(normaId: number): Map<number, string> {
+  const usados = new Set<string>();
+  const mapa = new Map<number, string>();
+  for (const a of articulosIndice(normaId)) {
+    const base = slugDeArticulo(a.encabezado);
+    const slug = usados.has(base) ? `${base}-${a.id}` : base;
+    usados.add(base);
+    mapa.set(a.id, slug);
+  }
+  return mapa;
+}
+
 // ─── Resolución de citas del modelo ──────────────────────────────────────────
 // AbogaBot responde como asesor y cita leyes por nombre/número; aquí verificamos
 // cada cita contra la base OFICIAL y solo enlazamos lo que existe de verdad. Lo

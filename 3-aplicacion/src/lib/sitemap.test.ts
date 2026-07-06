@@ -10,11 +10,13 @@ import path from "node:path";
 const dbExiste = existsSync(path.join(process.cwd(), "data", "leyes.db"));
 
 describe.skipIf(!dbExiste)("sitemap — URLs de valor y fechas que Google acepta", () => {
-  it("genera solo páginas de valor (cientos, no las 20 mil de texto crudo)", async () => {
+  it("genera solo páginas de valor (miles con explicación, no las 20 mil de texto crudo)", async () => {
     const { default: sitemap } = await import("../app/sitemap");
     const filas = sitemap();
     expect(filas.length).toBeGreaterThan(500);
-    expect(filas.length).toBeLessThan(5000);
+    // Tope: guías + leyes con valor + páginas por-artículo de los códigos de la Fase 4.
+    // Si algún día se acerca a las ~20.000 (todas las normas crudas), volvió la dieta rota.
+    expect(filas.length).toBeLessThan(12000);
   });
 
   it("todas las URLs son absolutas y sin duplicados", async () => {

@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
-import { listarNormas, articulosIndice, slugDeArticulo } from "@/lib/db";
+import { listarNormas, articulosIndice, slugsDeNorma } from "@/lib/db";
 import { guias } from "@/lib/guias";
 import { CANONICAL } from "@/lib/canonical";
 import { NORMAS_CON_VALOR } from "@/lib/normas-valor";
+import { LEYES_CON_PAGINAS_POR_ARTICULO } from "@/lib/leyes-articulo";
 import simplificaciones from "@/data/simplificaciones.json";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://leyesdechile.com";
 const SIMPL = simplificaciones as Record<string, string>;
-const LEY_PILOTO = 207436; // ley con páginas por-artículo (Fase 3)
 
 // Devuelve una fecha válida para <lastmod>, o undefined si el dato está vacío o mal formado.
 // Algunas fecha_version de la BCN vienen en formato que produce "Invalid Date"; en ese caso
@@ -53,13 +53,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     }));
-  // Páginas por-artículo de la ley piloto (solo las que tienen simplificación = contenido único).
-  const paginasArticulos: MetadataRoute.Sitemap = articulosIndice(LEY_PILOTO)
-    .filter((a) => SIMPL[String(a.id)])
-    .map((a) => ({
-      url: `${BASE}/leyes/${LEY_PILOTO}/${slugDeArticulo(a.encabezado)}`,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    }));
+  // Páginas por-artículo (Fase 4: códigos ciudadanos de lib/leyes-articulo; solo los
+  // artículos que tienen simplificación = contenido único).
+  const paginasArticulos: MetadataRoute.Sitemap = LEYES_CON_PAGINAS_POR_ARTICULO.flatMap((ley) => {
+    const slugs = slugsDeNorma(ley);
+    return articulosIndice(ley)
+      .filter((a) => SIMPL[String(a.id)])
+      .map((a) => ({
+        url: `${BASE}/leyes/${ley}/${slugs.get(a.id)}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      }));
+  });
   return [...fijas, ...paginasGuias, ...leyes, ...paginasArticulos];
 }

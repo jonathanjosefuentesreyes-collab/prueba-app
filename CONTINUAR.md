@@ -40,6 +40,17 @@ un retroceso. Próximo: revisar pestaña Consultas para plan de contenido por de
 reales respondidas y verificadas contra la DB (la alternativa segura al foro, que se descartó:
 UGC legal sin moderar = riesgo E-E-A-T/AdSense/datos personales).
 
+**📊 Decisión de la semana (2026-07-06, con datos de Search Console):** la consulta real
+"artículo 44 del código del trabajo" validó el piloto de páginas por-artículo → se escaló la
+**Fase 4**: 9 códigos ciudadanos con cobertura ~100% (Civil, Constitución, Consumidor, Familia,
+Matrimonio, Copropiedad, Accidentes, Insolvencia + CT) = **844 → 4.972 páginas** de valor único.
+`slugsDeNorma()` desambigua numeración repetida de refundidos. También: enlazado triangular
+ley→guías (12 leyes top) + schema WebSite/SearchAction/Organization. **Cola para Antigravity
+(demanda probada):** Código Penal (norma 1984, 677 arts, 0 simplificados), Ley de Tránsito
+18.290, LEY 21819 (id 1224471, recibió clic) y LEY 19154 (id 30521, búsqueda real). Los códigos
+tributarios/comerciales (Renta, IVA, Comercio, SA — ya 100% cubiertos) entran a Fase 5 tras
+medir este lote 2-3 semanas en Search Console.
+
 ## 🔥 Calidad de ingeniería + SEO + marca + escala (2026-06-21/22)
 
 **Red de calidad (respuesta a crítica de mantenibilidad):**

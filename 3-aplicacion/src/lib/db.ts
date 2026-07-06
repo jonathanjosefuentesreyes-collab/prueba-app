@@ -317,6 +317,11 @@ export function articulosIndice(normaId: number): { id: number; encabezado: stri
 export function slugDeArticulo(encabezado: string): string {
   const n = numeroReal(encabezado)
     .toLowerCase()
+    // La Ñ se mapea a "nn" ANTES de quitar tildes: si se normalizara como N, el
+    // "Artículo 183 Ñ" del Código del Trabajo chocaría con el "Artículo 183 N"
+    // (mismo slug → una de las dos páginas queda inalcanzable y el sitemap la
+    // anuncia duplicada). Con "nn" cada uno conserva URL propia y estable.
+    .replace(/ñ/g, "nn")
     .normalize("NFD")
     .replace(SIN_TILDES, "")
     .replace(/[^a-z0-9]+/g, "-")

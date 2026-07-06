@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { existsSync } from "node:fs";
 import path from "node:path";
-import { numeroReal, normaPorReferencia, articuloPorNumero, buscar } from "./db";
+import { numeroReal, slugDeArticulo, normaPorReferencia, articuloPorNumero, buscar } from "./db";
 
 // numeroReal es la regla dura #4 hecha código: el número visible se DERIVA del
 // encabezado, nunca de un contador posicional. Es función pura, así que se prueba
@@ -25,6 +25,26 @@ describe("numeroReal — deriva el número real del encabezado", () => {
   }
   it("nunca devuelve vacío para un encabezado con contenido", () => {
     expect(numeroReal("Artículo 1").length).toBeGreaterThan(0);
+  });
+});
+
+// El slug es la URL pública del artículo: dos encabezados distintos JAMÁS pueden dar el
+// mismo slug (la página perdedora queda inalcanzable). El caso real: N vs Ñ en el CT.
+describe("slugDeArticulo — slugs únicos y estables", () => {
+  const casos: [string, string][] = [
+    ["Artículo 196 C", "articulo-196-c"],
+    ["Artículo 183 N", "articulo-183-n"],
+    ["Artículo 183 Ñ", "articulo-183-nn"],
+    ["Artículo 152 quáter Ñ", "articulo-152-quater-nn"],
+    ["Artículo 1 Transitorio", "articulo-1-transitorio"],
+  ];
+  for (const [entrada, esperado] of casos) {
+    it(`"${entrada}" → "${esperado}"`, () => {
+      expect(slugDeArticulo(entrada)).toBe(esperado);
+    });
+  }
+  it("N y Ñ no chocan (el bug que duplicaba URLs del Código del Trabajo)", () => {
+    expect(slugDeArticulo("Artículo 183 N")).not.toBe(slugDeArticulo("Artículo 183 Ñ"));
   });
 });
 
